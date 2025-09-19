@@ -1,0 +1,41 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d2pcf5jcpf762"]
+
+[ext_resource type="Texture2D" uid="uid://v5m2181uvl43" path="res://Sprites/PlayerSprites/RPG/PlayerBackward.tres" id="1_pp5aw"]
+[ext_resource type="Texture2D" uid="uid://2qnx5lrxs26t" path="res://Sprites/PlayerSprites/RPG/PlayerForward.tres" id="2_xqgcy"]
+[ext_resource type="Texture2D" uid="uid://cppeqwe6wwtyx" path="res://Sprites/PlayerSprites/RPG/PlayerLeft.tres" id="3_655rm"]
+[ext_resource type="Texture2D" uid="uid://dcxpl0qthtob4" path="res://Sprites/PlayerSprites/RPG/PlayerRight.tres" id="4_34s50"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pp5aw")
+}],
+"loop": true,
+"name": &"Backward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xqgcy")
+}],
+"loop": true,
+"name": &"Forward",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_655rm")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_34s50")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}]

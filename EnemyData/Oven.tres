@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://8eevr4pkr5t8"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_de2kk"]
+[ext_resource type="SpriteFrames" uid="uid://h1qhg65jmer1" path="res://SpriteFrames/Enemies/Oven.tres" id="2_de2kk"]
+
+[resource]
+script = ExtResource("1_de2kk")
+name = "Oven"
+flavour_text = "Why is it called an oven when you \"of-in\"
+the cold food \"of-out-hot\" eat the food?"
+base_health = 100
+base_stamina = 20
+base_attack = 8
+base_defense_duration = 5
+sprite = ExtResource("2_de2kk")
+base_ai = "Smart"
+base_ai_five = "Smart"
+difficulty_range = Array[int]([10, 10])
+coins_range = Array[int]([120, 240])

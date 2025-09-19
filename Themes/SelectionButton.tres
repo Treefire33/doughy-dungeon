@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bj7jly5hi6r2q"]
+
+[ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="1_pqvja"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_iivbl"]
+texture = ExtResource("1_pqvja")
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxTexture_iivbl")

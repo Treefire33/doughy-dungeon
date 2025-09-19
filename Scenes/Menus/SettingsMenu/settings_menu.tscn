@@ -1,0 +1,191 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmjvxujvl2nkc"]
+
+[ext_resource type="Script" uid="uid://bekqcpen8mmqh" path="res://Scenes/Menus/SettingsMenu/settings_menu.gd" id="1_437ti"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="1_un4yt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55kwv"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[node name="SettingsMenu" type="Control"]
+z_index = 15
+layout_mode = 3
+anchor_left = 0.156
+anchor_top = 0.111
+anchor_right = 0.844
+anchor_bottom = 0.778
+offset_left = 0.199997
+offset_top = 0.0499954
+offset_right = -0.200012
+offset_bottom = -0.100037
+script = ExtResource("1_437ti")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Border" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_bottom = 0.0999985
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSpeed" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.073
+anchor_top = 0.133
+anchor_right = 0.927
+anchor_bottom = 0.267
+offset_left = -0.150005
+offset_top = 0.0999985
+offset_right = 0.149963
+offset_bottom = -0.100006
+
+[node name="Name" type="RichTextLabel" parent="GameSpeed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.426
+anchor_bottom = 1.0
+offset_right = -0.220016
+theme = ExtResource("1_un4yt")
+text = "GAME SPEED:"
+vertical_alignment = 1
+
+[node name="Value" type="SpinBox" parent="GameSpeed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.426
+anchor_top = 0.175
+anchor_right = 0.651
+anchor_bottom = 0.775
+offset_left = -0.220016
+offset_right = -15.97
+theme = ExtResource("1_un4yt")
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 1.0
+alignment = 1
+update_on_text_changed = true
+
+[node name="AudioVolume" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.073
+anchor_top = 0.267
+anchor_right = 0.927
+anchor_bottom = 0.4
+offset_left = -0.150005
+offset_top = -0.100006
+offset_right = 0.149963
+
+[node name="Name" type="RichTextLabel" parent="AudioVolume"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.426
+anchor_bottom = 1.0
+offset_right = -0.220016
+theme = ExtResource("1_un4yt")
+text = "VOLUME:"
+vertical_alignment = 1
+
+[node name="Value" type="HSlider" parent="AudioVolume"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.302
+anchor_top = 0.25
+anchor_right = 0.834
+anchor_bottom = 0.65
+offset_left = 0.0599976
+offset_right = 0.019989
+theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="NotificationSize" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.073
+anchor_top = 0.4
+anchor_right = 0.927
+anchor_bottom = 0.533
+offset_left = -0.150005
+offset_right = 0.149963
+offset_bottom = 0.0999908
+
+[node name="Name" type="RichTextLabel" parent="NotificationSize"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.426
+anchor_bottom = 1.0
+offset_right = -0.220016
+theme = ExtResource("1_un4yt")
+text = "NOTIF SIZE:"
+vertical_alignment = 1
+
+[node name="Value" type="SpinBox" parent="NotificationSize"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.426
+anchor_top = 0.175
+anchor_right = 0.651
+anchor_bottom = 0.775
+offset_left = -0.220016
+offset_right = 0.0299988
+theme = ExtResource("1_un4yt")
+min_value = 1.0
+max_value = 18.0
+value = 8.0
+alignment = 1
+update_on_text_changed = true
+
+[node name="Keybinds" type="Button" parent="."]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 206.0
+offset_right = 212.0
+offset_bottom = 246.0
+theme = ExtResource("1_un4yt")
+text = "KEYBINDS"
+
+[node name="Done" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.867
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.10001
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_un4yt")
+text = "DONE"

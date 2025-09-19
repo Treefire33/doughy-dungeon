@@ -1,0 +1,22 @@
+extends Node
+
+enum Decision {
+	Attack = 0,
+	Defend = 1,
+	Rest = 2
+};
+
+enum RoomDecision {
+	Proceed = 0,
+	RiskIt = 1,
+	StayClear = 2,
+	NextBiome = 3,
+}
+
+enum PlayerAnimation {
+	Idle = 0,
+	Attack = 1,
+	Defend = 2,
+	Rest = 3,
+	Dead = 4
+}

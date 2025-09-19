@@ -1,0 +1,175 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba5lxcv1w6t7c"]
+
+[ext_resource type="Script" uid="uid://cq0d47lcy2cto" path="res://Scenes/Menus/KeybindsMenu/keybinds_menu.gd" id="1_jt20d"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_btykx"]
+[ext_resource type="PackedScene" uid="uid://ddpluecpknff5" path="res://Scenes/GameUI/keybind_button.tscn" id="2_ciwsu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciwsu"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="Theme" id="Theme_jukge"]
+Panel/styles/panel = SubResource("StyleBoxFlat_ciwsu")
+
+[node name="KeybindsMenu" type="Control"]
+z_index = 16
+layout_mode = 3
+anchor_left = 0.156
+anchor_top = 0.111
+anchor_right = 0.844
+anchor_bottom = 0.778
+offset_left = 0.199997
+offset_top = 0.0499954
+offset_right = -0.200012
+offset_bottom = -0.100037
+script = ExtResource("1_jt20d")
+
+[node name="Decor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Decor"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Border" type="ColorRect" parent="Decor"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="Decor"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.133
+offset_bottom = 0.0999985
+text = "KEYBINDS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BindPreset" type="Control" parent="."]
+visible = false
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 250.0
+offset_bottom = 90.0
+
+[node name="KeybindName" type="RichTextLabel" parent="BindPreset"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.692
+anchor_bottom = 1.0
+offset_right = 0.0799866
+theme = ExtResource("2_btykx")
+text = "PAUSE GAME:"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bind" parent="BindPreset" node_paths=PackedStringArray("keybinds_menu") instance=ExtResource("2_ciwsu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+offset_left = -1.52588e-05
+offset_right = 0.0
+offset_bottom = 0.0
+keybinds_menu = NodePath("../..")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.133
+anchor_right = 1.0
+anchor_bottom = 0.86
+offset_top = 0.100002
+offset_bottom = 3.05176e-05
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="KeybindsContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="Done" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.867
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -2.10001
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_btykx")
+text = "DONE"
+
+[node name="SettingKeybind" type="Panel" parent="."]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.091
+anchor_top = 0.3
+anchor_right = 0.909
+anchor_bottom = 0.7
+offset_left = -0.0500031
+offset_right = 0.0499878
+offset_bottom = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_jukge")
+
+[node name="Label" type="RichTextLabel" parent="SettingKeybind"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.583
+offset_bottom = 0.0400009
+text = "PRESS ANY KEY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CancelKey" type="Button" parent="SettingKeybind"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.583
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0400009
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_btykx")
+text = "CANCEL"
+flat = true

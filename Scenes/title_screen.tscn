@@ -1,0 +1,117 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8euto25wvt14"]
+
+[ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_4gxqj"]
+[ext_resource type="Script" uid="uid://dhkfwfibh2li8" path="res://Scripts/main_menu.gd" id="1_55kwv"]
+[ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_twnyg"]
+[ext_resource type="Texture2D" uid="uid://cfbklda2vdqnt" path="res://Sprites/DoughyLogoNew.png" id="4_55kwv"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="4_twnyg"]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 450.0
+focus_neighbor_left = NodePath("MenuButtons/Start")
+focus_neighbor_top = NodePath("MenuButtons/Start")
+focus_neighbor_right = NodePath("MenuButtons/Start")
+focus_neighbor_bottom = NodePath("MenuButtons/Start")
+focus_next = NodePath("MenuButtons/Start")
+focus_previous = NodePath("MenuButtons/Start")
+script = ExtResource("1_55kwv")
+
+[node name="Background" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.270588, 0.270588, 0.270588, 0.509804)
+
+[node name="Wall" type="TextureRect" parent="UI/Background"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4gxqj")
+stretch_mode = 1
+
+[node name="Floor" type="TextureRect" parent="UI/Background"]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.571
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0499878
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_twnyg")
+stretch_mode = 1
+flip_h = true
+
+[node name="Logo" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.044
+anchor_right = 0.75
+anchor_bottom = 0.489
+offset_top = 0.199999
+offset_right = -6.10352e-05
+offset_bottom = -0.0500031
+texture = ExtResource("4_55kwv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MenuButtons" type="Control" parent="UI"]
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 236.0
+offset_right = 500.0
+offset_bottom = 446.0
+
+[node name="Start" type="Button" parent="UI/MenuButtons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.262
+offset_bottom = -0.0200043
+grow_horizontal = 2
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+theme = ExtResource("4_twnyg")
+text = "START"
+
+[node name="Options" type="Button" parent="UI/MenuButtons"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.286
+anchor_right = 1.0
+anchor_bottom = 0.548
+offset_top = -0.0600014
+offset_bottom = -0.0800095
+grow_horizontal = 2
+focus_neighbor_top = NodePath("../Start")
+focus_previous = NodePath("../Start")
+theme = ExtResource("4_twnyg")
+text = "OPTIONS"
+
+[node name="Other" type="Button" parent="UI/MenuButtons"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.571
+anchor_right = 1.0
+anchor_bottom = 0.833
+offset_top = 0.0899887
+offset_bottom = 0.0699921
+grow_horizontal = 2
+theme = ExtResource("4_twnyg")
+disabled = true
+text = "OTHER"

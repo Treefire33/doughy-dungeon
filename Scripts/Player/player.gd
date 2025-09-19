@@ -1,0 +1,37 @@
+extends Entity
+class_name Player
+
+signal player_ready;
+
+@onready var animator: AnimationPlayer = $Animation;
+
+var coins: int = 15:
+	get: return coins;
+	set(value):
+		coins = value;
+		
+var items = [];
+
+func get_items(has_function: String = ""):
+	var final = [];
+	for item in self.items:
+		var item_data: Dictionary = ItemData.items[item];
+		if (!item_data.has(has_function) and has_function != ""): continue;
+		final.append(item_data);
+	return final;
+
+var player_animation_to_name = {
+	Enum.PlayerAnimation.Idle: "Player/Idle",
+	Enum.PlayerAnimation.Attack: "Player/Attack",
+	Enum.PlayerAnimation.Defend: "Player/Defend",
+	Enum.PlayerAnimation.Rest: "Player/Rest",
+	Enum.PlayerAnimation.Dead: "Player/Dead"
+};
+func play_anim(decision: Enum.PlayerAnimation):
+	# animator.speed_scale = Settings.game_speed;
+	animator.play(player_animation_to_name[decision]);
+			
+func _ready():
+	load_entity(15, 12, 2, $Sprite);
+	play_anim(Enum.PlayerAnimation.Idle);
+	player_ready.emit();

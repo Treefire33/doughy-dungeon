@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhvvdw7ml2htg"]
+
+[ext_resource type="Script" uid="uid://xffga17t265" path="res://Scripts/game_over.gd" id="1_8fo1c"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="1_ojehl"]
+
+[node name="GameOver" type="Node2D"]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 450.0
+script = ExtResource("1_8fo1c")
+
+[node name="Background" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_right = 800.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[font size=\"50\"]GAME OVER[/font]
+[font size=\"25\"]YOU DIED[/font]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoomCount" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.222
+anchor_right = 1.0
+anchor_bottom = 0.444
+offset_top = 0.0999908
+offset_bottom = 0.199982
+bbcode_enabled = true
+text = "You reached: Room 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TryAgain" type="Button" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.344
+anchor_top = 0.644
+anchor_right = 0.656
+anchor_bottom = 0.778
+offset_left = -0.200012
+offset_top = 0.199982
+offset_right = 0.200012
+offset_bottom = -0.100037
+theme = ExtResource("1_ojehl")
+text = "TRY AGAIN?"

@@ -1,0 +1,131 @@
+[gd_scene load_steps=4 format=3 uid="uid://cot74q5yusxb8"]
+
+[ext_resource type="Script" uid="uid://7n1jkadyaweh" path="res://Scripts/UI/inventory_display.gd" id="1_viq6x"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_gvvfn"]
+[ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="3_tmpmi"]
+
+[node name="Inventory" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 230.0
+offset_right = 800.0
+offset_bottom = 350.0
+script = ExtResource("1_viq6x")
+
+[node name="Upgrades" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.425
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.292
+offset_bottom = -0.0400047
+theme = ExtResource("2_gvvfn")
+text = "GAME STATS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Difficulty" type="RichTextLabel" parent="Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.3
+anchor_right = 1.0
+anchor_bottom = 0.592
+offset_top = -1.0
+offset_bottom = -1.04
+theme = ExtResource("2_gvvfn")
+bbcode_enabled = true
+text = "ROOM DIFFICULTY: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Multiplier" type="RichTextLabel" parent="Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.567
+anchor_right = 1.0
+anchor_bottom = 0.858
+offset_top = 1.96
+offset_bottom = 2.03999
+theme = ExtResource("2_gvvfn")
+bbcode_enabled = true
+text = "ROOM MULTIPLIER: 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Items" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.425
+anchor_bottom = 1.0
+offset_left = 460.0
+offset_right = 460.0
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="Items"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.292
+offset_bottom = -0.0400047
+theme = ExtResource("2_gvvfn")
+text = "ITEMS:"
+vertical_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gvvfn")
+horizontal_scroll_mode = 0
+
+[node name="ItemsContainer" type="GridContainer" parent="Items/Scroll"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme = ExtResource("2_gvvfn")
+columns = 5
+
+[node name="Item" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+offset_top = 23.0
+offset_right = 64.0
+offset_bottom = 87.0
+tooltip_text = "name
+flavour
+desc"
+theme = ExtResource("2_gvvfn")
+texture = ExtResource("3_tmpmi")
+stretch_mode = 5
+
+[node name="Count" type="RichTextLabel" parent="Items/Item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="Items/Item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_gvvfn")
+button_mask = 0
+flat = true

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://u130ujrllbuu"]
+
+[ext_resource type="Texture2D" uid="uid://ddbbrbau3mji4" path="res://Sprites/SafeRoom/SaferoomProps.png" id="1_nxcx5"]
+
+[resource]
+atlas = ExtResource("1_nxcx5")
+region = Rect2(0, 0, 128, 128)

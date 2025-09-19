@@ -1,0 +1,94 @@
+[gd_scene load_steps=2 format=3 uid="uid://co3pys803rpam"]
+
+[ext_resource type="Script" uid="uid://b32apeoqpsfnd" path="res://Scenes/Menus/PauseMenu/pause_menu.gd" id="1_xybiy"]
+
+[node name="PauseMenu" type="Control"]
+z_index = 10
+layout_mode = 3
+anchor_left = 0.375
+anchor_top = 0.222
+anchor_right = 0.625
+anchor_bottom = 0.778
+offset_top = 0.0999908
+offset_right = 3.05176e-05
+offset_bottom = -0.100067
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xybiy")
+
+[node name="Blur" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.262745, 0.262745, 0.262745, 0.705882)
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Border" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 6.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseOptions" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Resume" type="Button" parent="PauseOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "RESUME"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Restart" type="Button" parent="PauseOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "RESTART"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Options" type="Button" parent="PauseOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "OPTIONS"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Exit" type="Button" parent="PauseOptions"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "EXIT"
+flat = true
+icon_alignment = 1
+expand_icon = true

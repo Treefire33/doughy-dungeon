@@ -1,0 +1,50 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://j5wxigh0jqfu"]
+
+[ext_resource type="Texture2D" uid="uid://bita2bmtqwrgs" path="res://Sprites/PlayerSprites/PlayerAttack.tres" id="1_a61p3"]
+[ext_resource type="Texture2D" uid="uid://de7w0geyyd376" path="res://Sprites/PlayerSprites/PlayerDead.tres" id="2_s0pyv"]
+[ext_resource type="Texture2D" uid="uid://f4rxvtmxmt15" path="res://Sprites/PlayerSprites/PlayerDefend.tres" id="3_660yd"]
+[ext_resource type="Texture2D" uid="uid://b5m0vighnsihh" path="res://Sprites/PlayerSprites/PlayerIdle.tres" id="4_dqh26"]
+[ext_resource type="Texture2D" uid="uid://cyp624buw2l3" path="res://Sprites/PlayerSprites/PlayerRest.tres" id="5_2qtfc"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_a61p3")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s0pyv")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_660yd")
+}],
+"loop": true,
+"name": &"Defend",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dqh26")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2qtfc")
+}],
+"loop": true,
+"name": &"Rest",
+"speed": 5.0
+}]

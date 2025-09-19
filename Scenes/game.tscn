@@ -1,0 +1,796 @@
+[gd_scene load_steps=67 format=3 uid="uid://cicj0kes4voa0"]
+
+[ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_nb51f"]
+[ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_nnt18"]
+[ext_resource type="Texture2D" uid="uid://b723c4u525tuk" path="res://Sprites/SafeRoom/Shop.png" id="3_ewbju"]
+[ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="4_85qyi"]
+[ext_resource type="Script" uid="uid://c730dibuqkvem" path="res://Scripts/room_manager.gd" id="5_iivbl"]
+[ext_resource type="Script" uid="uid://bh1n8shephiis" path="res://Scripts/Player/player.gd" id="6_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://u130ujrllbuu" path="res://Sprites/SafeRoom/Chair.tres" id="6_exi56"]
+[ext_resource type="Texture2D" uid="uid://6ekikoy1yyx5" path="res://Sprites/SafeRoom/Meow.tres" id="7_7t8sx"]
+[ext_resource type="Script" uid="uid://crth17d1hrbtj" path="res://Scripts/UI/player_ui.gd" id="8_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
+[ext_resource type="Texture2D" uid="uid://dlgn87wxa0h44" path="res://Sprites/Player/player.png" id="12_7t8sx"]
+[ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
+[ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="12_fkdbe"]
+[ext_resource type="PackedScene" uid="uid://ddhc62nuidtg3" path="res://Scenes/GameUI/stats_display.tscn" id="13_7nbq1"]
+[ext_resource type="Texture2D" uid="uid://cq6fs63b4mxdo" path="res://Sprites/Icons/UpgradeIcons/UpgradeHealth.tres" id="13_85qyi"]
+[ext_resource type="Texture2D" uid="uid://cgc8ul7avjomb" path="res://Sprites/Icons/UpgradeIcons/UpgradeStamina.tres" id="14_iivbl"]
+[ext_resource type="Texture2D" uid="uid://dkkxnal01f2w3" path="res://Sprites/Icons/UpgradeIcons/UpgradeAttack.tres" id="15_7nbq1"]
+[ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
+[ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
+[ext_resource type="Texture2D" uid="uid://cgsr7xkulg7wk" path="res://Sprites/Other/PauseButton.png" id="20_7nbq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85qyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iivbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nbq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exi56"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t8sx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg4q0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vm72l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22asu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkdbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81klo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgy6u"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8tyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mie3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qy5o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nf3m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ocox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuf18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8sys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0wup"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wojap"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_copon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjyqs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxtw2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwurv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mucmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m3t6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ese38"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oeip8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe308"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3cha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i26dy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmoi6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uxt2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym3tv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhq6j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgu05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nkef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpf1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m64o6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55gk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnpbo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jg6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlfrn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j44qy"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Wall" type="TextureRect" parent="Background"]
+z_index = -1
+offset_right = 800.0
+offset_bottom = 450.0
+texture = ExtResource("1_nb51f")
+stretch_mode = 1
+
+[node name="Wall2" type="TextureRect" parent="Background"]
+z_index = -1
+offset_left = 800.0
+offset_right = 1600.0
+offset_bottom = 450.0
+texture = ExtResource("1_nb51f")
+stretch_mode = 1
+
+[node name="Floor" type="TextureRect" parent="Background"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 194.0
+offset_right = 800.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nnt18")
+stretch_mode = 1
+flip_h = true
+
+[node name="Floor2" type="TextureRect" parent="Background"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 800.0
+offset_top = 194.0
+offset_right = 1600.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nnt18")
+stretch_mode = 1
+flip_h = true
+
+[node name="Gate" type="ColorRect" parent="Background"]
+z_index = 2
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 750.0
+offset_right = 850.0
+offset_bottom = 450.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gate2" type="ColorRect" parent="Background"]
+z_index = 2
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_right = 50.0
+offset_bottom = 450.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gate3" type="ColorRect" parent="Background"]
+z_index = 2
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1550.0
+offset_right = 1650.0
+offset_bottom = 450.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SafeRoom" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="Shop" type="Node2D" parent="SafeRoom"]
+position = Vector2(400, 195)
+
+[node name="ShopSprite" type="Sprite2D" parent="SafeRoom/Shop"]
+texture = ExtResource("3_ewbju")
+
+[node name="Item1" type="Node2D" parent="SafeRoom/Shop"]
+position = Vector2(-67, -60)
+
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item1"]
+texture = ExtResource("4_85qyi")
+
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item1"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+flat = true
+
+[node name="Item2" type="Node2D" parent="SafeRoom/Shop"]
+position = Vector2(-3, -60)
+
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item2"]
+texture = ExtResource("4_85qyi")
+
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+flat = true
+
+[node name="Item3" type="Node2D" parent="SafeRoom/Shop"]
+position = Vector2(61, -60)
+
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item3"]
+texture = ExtResource("4_85qyi")
+
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item3"]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+flat = true
+
+[node name="Chair" type="Sprite2D" parent="SafeRoom"]
+position = Vector2(232, 193)
+texture = ExtResource("6_exi56")
+
+[node name="Meow" type="Sprite2D" parent="SafeRoom"]
+z_index = 1
+position = Vector2(556, 199)
+texture = ExtResource("7_7t8sx")
+
+[node name="Chair2" type="Sprite2D" parent="SafeRoom"]
+position = Vector2(561, 196)
+texture = ExtResource("6_exi56")
+flip_h = true
+
+[node name="GoldenBiscuit" type="Node2D" parent="."]
+visible = false
+z_index = 1
+
+[node name="EnemySpawn" type="Node2D" parent="GoldenBiscuit"]
+position = Vector2(575, 241)
+
+[node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn"]
+texture = ExtResource("8_exi56")
+
+[node name="RoomManager" type="Node" parent="." node_paths=PackedStringArray("player_ui", "player", "camera", "safe_room", "golden_biscuit")]
+script = ExtResource("5_iivbl")
+player_ui = NodePath("../Camera/PlayerUI")
+player = NodePath("../Player")
+camera = NodePath("../Camera")
+safe_room = NodePath("../SafeRoom/Shop")
+golden_biscuit = NodePath("../GoldenBiscuit")
+
+[node name="EnemySpawn3" type="Node2D" parent="RoomManager"]
+position = Vector2(639, 296)
+
+[node name="EnemySpawn2" type="Node2D" parent="RoomManager"]
+position = Vector2(639, 212)
+
+[node name="EnemySpawn" type="Node2D" parent="RoomManager"]
+position = Vector2(575, 241)
+
+[node name="Player" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(225, 225)
+script = ExtResource("6_7nbq1")
+
+[node name="Sprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("12_7t8sx")
+hframes = 4
+vframes = 4
+
+[node name="Animation" type="AnimationPlayer" parent="Player"]
+libraries = {
+&"": SubResource("AnimationLibrary_a8tyi"),
+&"Player": ExtResource("12_exi56")
+}
+autoplay = "Player/Idle"
+
+[node name="Camera" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="PlayerUI" type="Control" parent="Camera" node_paths=PackedStringArray("room_manager", "stats_display", "inventory_display", "decision_panel")]
+z_index = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8_7t8sx")
+room_manager = NodePath("../../RoomManager")
+stats_display = NodePath("Stats")
+inventory_display = NodePath("Inventory")
+decision_panel = NodePath("DecisionPanel")
+
+[node name="Stats" parent="Camera/PlayerUI" instance=ExtResource("13_7nbq1")]
+layout_mode = 1
+
+[node name="Inventory" parent="Camera/PlayerUI" instance=ExtResource("15_exi56")]
+
+[node name="DecisionPanel" parent="Camera/PlayerUI" instance=ExtResource("15_iivbl")]
+visible = false
+layout_mode = 1
+offset_top = 0.0499725
+offset_right = -6.10352e-05
+offset_bottom = -0.100067
+
+[node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI"]
+visible = false
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_fkdbe")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Select" type="Button" parent="Camera/PlayerUI/SelectionBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0qy5o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nf3m")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2ocox")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kuf18")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_q8sys")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n0wup")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wojap")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_copon")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wjyqs")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kxtw2")
+flat = true
+
+[node name="Upgrades" type="ColorRect" parent="Camera/PlayerUI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.511
+anchor_right = 0.425
+anchor_bottom = 0.778
+offset_top = 0.0499878
+offset_bottom = -0.100037
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="RichTextLabel" parent="Camera/PlayerUI/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.292
+offset_bottom = -0.0400047
+theme = ExtResource("10_vm72l")
+bbcode_enabled = true
+text = "UPGRADE
+[font size=\"8\"]Select one upgrade to apply.[/font]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="Button" parent="Camera/PlayerUI/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.292
+anchor_right = 0.332
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -0.0400047
+offset_right = 0.119995
+tooltip_text = "Health Upgrade:
++5 max health."
+icon = ExtResource("13_85qyi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Stamina" type="Button" parent="Camera/PlayerUI/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.332
+anchor_top = 0.292
+anchor_right = 0.665
+anchor_bottom = 1.0
+offset_left = 0.119995
+offset_top = -0.0400047
+offset_right = -0.100006
+tooltip_text = "Stamina Upgrade:
++2 max stamina."
+icon = ExtResource("14_iivbl")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Attack" type="Button" parent="Camera/PlayerUI/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.665
+anchor_top = 0.292
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_left = -0.100006
+offset_top = -0.0400047
+offset_right = 0.0400085
+tooltip_text = "Attack Upgrade:
++2 attack."
+icon = ExtResource("15_7nbq1")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Enemies" type="Control" parent="Camera/PlayerUI"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.178
+offset_bottom = -0.0999985
+
+[node name="Label" type="ColorRect" parent="Camera/PlayerUI/Enemies"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 3.75
+anchor_right = 0.687
+anchor_bottom = 4.375
+offset_left = 0.399994
+offset_top = -3.05176e-05
+offset_right = 0.399963
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="RichTextLabel" parent="Camera/PlayerUI/Enemies/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_vm72l")
+bbcode_enabled = true
+text = "SELECT AN ENEMY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Enemy1" type="Button" parent="Camera/PlayerUI/Enemies"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.679
+anchor_top = 2.612
+anchor_right = 0.759
+anchor_bottom = 3.412
+offset_left = -0.200012
+offset_top = 0.039978
+offset_right = -0.200073
+offset_bottom = 0.039978
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
+flat = true
+
+[node name="Enemy2" type="Button" parent="Camera/PlayerUI/Enemies"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.759
+anchor_top = 2.25
+anchor_right = 0.839
+anchor_bottom = 3.05
+offset_left = -0.200073
+offset_right = -0.200012
+offset_bottom = -1.52588e-05
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
+flat = true
+
+[node name="Enemy3" type="Button" parent="Camera/PlayerUI/Enemies"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.759
+anchor_top = 3.3
+anchor_right = 0.839
+anchor_bottom = 4.1
+offset_left = -0.200073
+offset_right = -0.200012
+offset_bottom = -3.05176e-05
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
+flat = true
+
+[node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI"]
+visible = false
+z_index = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RoomDecision" type="Control" parent="Camera/PlayerUI"]
+visible = false
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Decision" type="ColorRect" parent="Camera/PlayerUI/RoomDecision"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.278
+anchor_right = 0.375
+anchor_bottom = 0.722
+offset_top = -0.100014
+offset_right = -3.05176e-05
+offset_bottom = 0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Border" type="ColorRect" parent="Camera/PlayerUI/RoomDecision/Decision"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Proceed" type="Button" parent="Camera/PlayerUI/RoomDecision/Decision"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.333
+offset_bottom = 0.0400009
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
+text = "PROCEED"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Risk" type="Button" parent="Camera/PlayerUI/RoomDecision/Decision"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.333
+anchor_right = 1.0
+anchor_bottom = 0.667
+offset_top = 0.0400009
+offset_bottom = -0.0400085
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
+text = "RISK IT"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="StayClear" type="Button" parent="Camera/PlayerUI/RoomDecision/Decision"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.667
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_vm72l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
+text = "STAY CLEAR"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Description" type="ColorRect" parent="Camera/PlayerUI/RoomDecision"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.278
+anchor_right = 0.875
+anchor_bottom = 0.722
+offset_top = -0.100014
+offset_right = -6.10352e-05
+offset_bottom = 0.0999756
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Border" type="ColorRect" parent="Camera/PlayerUI/RoomDecision/Description"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Description" type="RichTextLabel" parent="Camera/PlayerUI/RoomDecision/Description"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Proceed
+
+(Advance to next room.)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI"]
+visible = false
+layout_mode = 0
+offset_left = 320.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 350.0
+theme = ExtResource("10_vm72l")
+text = "Proceed"
+
+[node name="PauseGame" type="Button" parent="Camera/PlayerUI"]
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_top = 0.02
+anchor_right = 0.051
+anchor_bottom = 0.091
+offset_left = 0.199999
+offset_right = 0.199997
+offset_bottom = 0.0499992
+theme = ExtResource("10_vm72l")
+icon = ExtResource("20_7nbq1")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="request_decision" from="RoomManager" to="Camera/PlayerUI" method="_on_room_manager_request_decision"]
+[connection signal="ui_done" from="Camera/PlayerUI" to="RoomManager" method="_on_player_ui_ui_done"]
+[connection signal="pressed" from="Camera/PlayerUI/RoomDecision/Decision/Proceed" to="Camera/PlayerUI" method="_on_attack_pressed"]

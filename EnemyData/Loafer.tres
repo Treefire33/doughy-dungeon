@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://baw4p1ofsps4f"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_061y1"]
+[ext_resource type="SpriteFrames" uid="uid://bysfi5ip35efx" path="res://SpriteFrames/Enemies/Loafer.tres" id="2_061y1"]
+
+[resource]
+script = ExtResource("1_061y1")
+name = "Loafer"
+flavour_text = "Would rather lay around than be here."
+base_health = 5
+base_stamina = 1
+base_attack = 0
+base_defense_duration = 2
+sprite = ExtResource("2_061y1")
+base_ai = "Restless"
+base_ai_five = "Restless"
+difficulty_range = Array[int]([5, 10])
+coins_range = Array[int]([15, 30])

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://nobxmi2c7hoc"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_ynkkx"]
+[ext_resource type="SpriteFrames" uid="uid://ca6n117iv14um" path="res://SpriteFrames/Enemies/BiscuitMimic.tres" id="2_apdup"]
+
+[resource]
+script = ExtResource("1_ynkkx")
+name = "Biscuit Mimic"
+flavour_text = "Once backed good turned monster."
+base_health = 10
+base_stamina = 5
+base_attack = 1
+base_defense_duration = 1
+sprite = ExtResource("2_apdup")
+base_ai = "Default"
+base_ai_five = "Aggressive"
+difficulty_range = Array[int]([0, 5])
+coins_range = Array[int]([5, 10])

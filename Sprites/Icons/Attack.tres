@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://biu642t2kbocu"]
+
+[ext_resource type="Texture2D" uid="uid://bfggy4kx6sg0c" path="res://Sprites/DoughyIcons.png" id="1_xg7ue"]
+
+[resource]
+atlas = ExtResource("1_xg7ue")
+region = Rect2(0, 68, 68, 68)

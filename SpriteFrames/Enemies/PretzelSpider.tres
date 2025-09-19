@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c1by1seisux34"]
+
+[ext_resource type="Texture2D" uid="uid://bsogx1j4ccqj8" path="res://Sprites/Enemies/PretzelSpider.tres" id="1_u8wy2"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u8wy2")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]

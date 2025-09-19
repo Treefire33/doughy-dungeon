@@ -1,0 +1,97 @@
+{ "frames": {
+   "player_rpg 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 1.aseprite": {
+    "frame": { "x": 34, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 2.aseprite": {
+    "frame": { "x": 68, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 3.aseprite": {
+    "frame": { "x": 102, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 4.aseprite": {
+    "frame": { "x": 136, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 5.aseprite": {
+    "frame": { "x": 170, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 6.aseprite": {
+    "frame": { "x": 204, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 7.aseprite": {
+    "frame": { "x": 238, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   },
+   "player_rpg 8.aseprite": {
+    "frame": { "x": 272, "y": 0, "w": 34, "h": 100 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 34, "h": 100 },
+    "sourceSize": { "w": 34, "h": 100 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.x-dev",
+  "image": "player_rpg.png",
+  "format": "RGBA8888",
+  "size": { "w": 306, "h": 100 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "ForwardIdle", "from": 0, "to": 0, "direction": "forward", "color": "#000000ff" },
+   { "name": "ForwardWalk", "from": 1, "to": 2, "direction": "forward", "color": "#000000ff" },
+   { "name": "LeftRightIdle", "from": 3, "to": 3, "direction": "forward", "color": "#000000ff" },
+   { "name": "LeftRightWalk", "from": 4, "to": 5, "direction": "forward", "color": "#000000ff" },
+   { "name": "BackwardIdle", "from": 6, "to": 6, "direction": "forward", "color": "#000000ff" },
+   { "name": "BackwardWalk", "from": 7, "to": 8, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Midnight", "opacity": 255, "blendMode": "normal" },
+   { "name": "Cloak", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

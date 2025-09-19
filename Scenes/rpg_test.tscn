@@ -1,0 +1,159 @@
+[gd_scene load_steps=12 format=3 uid="uid://bejot8stpw3ku"]
+
+[ext_resource type="Script" uid="uid://dcw5c36gg5f2d" path="res://Scripts/Player/rpg_player.gd" id="1_birco"]
+[ext_resource type="Texture2D" uid="uid://blwm2bbudnk6q" path="res://Sprites/Player/player_rpg.png" id="2_birco"]
+
+[sub_resource type="Animation" id="Animation_birco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eeauh"]
+_data = {
+&"RESET": SubResource("Animation_birco")
+}
+
+[sub_resource type="Animation" id="Animation_pa10k"]
+resource_name = "BackwardIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_npbpj"]
+resource_name = "BackwardWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 6, 8]
+}
+
+[sub_resource type="Animation" id="Animation_eeauh"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a8tyi"]
+resource_name = "ForwardWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_xdpjr"]
+resource_name = "SidewaysIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_xhvd6"]
+resource_name = "SidewaysWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 3, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdpjr"]
+_data = {
+&"BackwardIdle": SubResource("Animation_pa10k"),
+&"BackwardWalk": SubResource("Animation_npbpj"),
+&"ForwardIdle": SubResource("Animation_eeauh"),
+&"ForwardWalk": SubResource("Animation_a8tyi"),
+&"SidewaysIdle": SubResource("Animation_xdpjr"),
+&"SidewaysWalk": SubResource("Animation_xhvd6")
+}
+
+[node name="RpgTest" type="Node2D"]
+
+[node name="RPGPlayer" type="Node2D" parent="."]
+script = ExtResource("1_birco")
+
+[node name="Camera" type="Camera2D" parent="RPGPlayer"]
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Sprite" type="Sprite2D" parent="RPGPlayer"]
+texture = ExtResource("2_birco")
+hframes = 9
+
+[node name="Animator" type="AnimationPlayer" parent="RPGPlayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_eeauh"),
+&"PlayerRPG": SubResource("AnimationLibrary_xdpjr")
+}

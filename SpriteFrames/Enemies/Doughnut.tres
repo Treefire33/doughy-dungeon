@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c88mlx2mglrin"]
+
+[ext_resource type="Texture2D" uid="uid://dcxf7d0prh534" path="res://Sprites/Enemies/Doughnut.tres" id="1_8hsky"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8hsky")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]

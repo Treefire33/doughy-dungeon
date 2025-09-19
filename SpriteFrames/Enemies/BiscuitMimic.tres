@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ca6n117iv14um"]
+
+[ext_resource type="Texture2D" uid="uid://x1ymua356hfq" path="res://Sprites/Enemies/BiscuitMimic.tres" id="1_ux5hc"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ux5hc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
