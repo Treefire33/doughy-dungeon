@@ -10,7 +10,8 @@ var bindable_actions: Array[String] = [
 	"Up",
 	"Down",
 	"Left",
-	"Right"
+	"Right",
+	"toggle_debug"
 ];
 
 var action_descriptions: Dictionary[String, String] = {
@@ -19,7 +20,7 @@ var action_descriptions: Dictionary[String, String] = {
 	"Primary": "Primary action.\nCorresponds to Attack/Enemy1/Proceed.",
 	"Secondary": "Secondary action.\nCorresponds to Defend/Enemy2/Risk It.",
 	"Tertiary": "Tertiary action.\nCorresponds to Attack/Enemy3/Stay Clear.",
-	"Quaternary": "Quaternary action.\nOpens the inventory."
+	"Quaternary": "Quaternary action.\nOpens the inventory.",
 }
 
 func remap_action(action: String, event: InputEvent):

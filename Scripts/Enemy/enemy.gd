@@ -53,8 +53,7 @@ var enemy_ais = {
 			return Enum.Decision.Rest;
 		if (self.health < (0.1 * self.max_health) or randi_range(0, 10) > 6):
 			return Enum.Decision.Defend;
-		return Enum.Decision.Attack;
-		pass;,
+		return Enum.Decision.Attack;,
 	"Attack": func(_player): # Only attack.
 		if (self.stamina == 0):
 			return Enum.Decision.Rest;

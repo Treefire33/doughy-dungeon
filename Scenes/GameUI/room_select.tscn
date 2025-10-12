@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwk7wvoanmvjc"]
+
+[ext_resource type="Texture2D" uid="uid://bxl6mqljkxkhm" path="res://Sprites/Player/player_icon.aseprite" id="1_3cuo2"]
+[ext_resource type="Script" uid="uid://cfc0jv635vntg" path="res://Scripts/UI/room_select.gd" id="1_87tyd"]
+[ext_resource type="Script" uid="uid://dlmk4pnkbrgk7" path="res://Scripts/UI/room_select/room_select_camera.gd" id="1_j2het"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_b2nek"]
+[ext_resource type="Script" uid="uid://cwga4ms26dy67" path="res://Scripts/UI/room_select/room_select_room_button.gd" id="2_x8mgq"]
+
+[node name="RoomSelect" type="Control" node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87tyd")
+room_button = NodePath("RoomsContainer/Rooms/RoomUI/Room")
+midnight_icon = NodePath("RoomsContainer/Rooms/RoomUI/PlayerIcon")
+select_camera = NodePath("RoomsContainer/Rooms/Camera")
+selection_inspect = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/InspectPanel")
+size_bound = 2
+
+[node name="RoomsContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Rooms" type="SubViewport" parent="RoomsContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(800, 450)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera2D" parent="RoomsContainer/Rooms"]
+position = Vector2(400, 225)
+script = ExtResource("1_j2het")
+zoom_power = 0.1
+zoom_bounds = Array[float]([0.5, 2.0])
+
+[node name="RoomUI" type="Control" parent="RoomsContainer/Rooms"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 450.0
+mouse_filter = 2
+
+[node name="Room" type="Button" parent="RoomsContainer/Rooms/RoomUI"]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 193.0
+offset_right = 464.0
+offset_bottom = 257.0
+text = "+"
+script = ExtResource("2_x8mgq")
+
+[node name="PlayerIcon" type="TextureRect" parent="RoomsContainer/Rooms/RoomUI"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 193.0
+offset_right = 432.0
+offset_bottom = 257.0
+pivot_offset = Vector2(32, 32)
+mouse_filter = 2
+texture = ExtResource("1_3cuo2")
+stretch_mode = 5
+
+[node name="Inspect" type="CanvasLayer" parent="RoomsContainer/Rooms"]
+
+[node name="CameraUI" type="Control" parent="RoomsContainer/Rooms/Inspect"]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 450.0
+mouse_filter = 2
+
+[node name="InspectPanel" type="Panel" parent="RoomsContainer/Rooms/Inspect/CameraUI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.67700005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.3999634
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("2_b2nek")
+
+[node name="RoomType" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI/InspectPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_bottom = 0.099998474
+text = "STANDARD"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoomDescription" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI/InspectPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.142
+anchor_right = 1.0
+anchor_bottom = 0.85800004
+offset_top = 0.099998474
+offset_bottom = -0.1000061
+text = "THE STANDARD ROOM TYPE, NOTHING TOO SPECIAL."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Proceed" type="Button" parent="RoomsContainer/Rooms/Inspect/CameraUI/InspectPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = 386.0
+offset_bottom = 386.1
+text = "PROCEED"

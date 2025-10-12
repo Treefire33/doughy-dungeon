@@ -1,5 +1,6 @@
 extends Node2D
 class_name Entity
+signal durability_changed;
 
 var max_health: int;
 var health: int:
@@ -21,6 +22,16 @@ var defending_duration: int:
 	get: return defending_duration;
 	set (value):
 		defending_duration = clampi(value, 0, max_defending_duration);
+
+var max_defense_durability: int = 1;
+var defense_durability: int = 1:
+	get: return defense_durability;
+	set(value): 
+		defense_durability = clampi(value, 0, max_defense_durability);
+		if (defense_durability == 0):
+			defending_duration = 0;
+			defense_durability = max_defense_durability;
+		durability_changed.emit();
 
 var _is_animated_sprite = false;
 var sprite: Variant:

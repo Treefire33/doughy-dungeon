@@ -25,7 +25,7 @@ func load_settings():
 			toast_size = settings.get_value(section, "toast_size", 12)
 		elif (section == "keybinds"):
 			for action in Keybinds.bindable_actions:
-				var event = settings.get_value("keybinds", action);
+				var event = settings.get_value("keybinds", action, InputEventAction.new());
 				Keybinds.remap_action(action, event);
 	
 func save_settings():

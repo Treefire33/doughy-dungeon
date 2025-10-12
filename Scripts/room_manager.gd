@@ -161,7 +161,7 @@ func gen_safe_room():
 		"\n" + item["FlavourText"] + \
 		"\n\n" + "Price: " + str(item["Price"]) + "\n" + item["Description"];
 		item_button.pressed.connect(purchase_item.bind(item, item_name, item_display))
-	await player_ui.room_decision;
+	await player_ui.room_select.room_decision;
 	player_ui.safe_room_proceed.hide();
 	player_ui.upgrades_panel.hide();
 	player_ui.in_safe_room = false;
@@ -173,7 +173,9 @@ func gen_safe_room():
 	
 func turn_attack(user: Entity, target: Entity):
 	if (target == null): return;
-	if (target.defending_duration >= 1): return;
+	if (target.defending_duration >= 1): 
+		target.defense_durability -= 1;
+		return;
 	if (user.stamina <= 0): return;
 	user.stamina -= 1;
 	Audio.play_audio(get_node("/root/"), Audio.hit_sfx);
@@ -181,10 +183,10 @@ func turn_attack(user: Entity, target: Entity):
 	
 func turn_defend(user: Entity, _target):
 	if (user.stamina <= 0): return;
+	user.stamina -= 1;
 	if (user.defending_duration != 0): return;
 	Audio.play_audio(get_node("/root/"), Audio.defend_sfx);
 	user.defending_duration = user.max_defending_duration;
-	user.stamina -= 2;
 	
 func turn_rest(user: Entity, _target):
 	if (user.stamina > user.max_stamina): 
@@ -289,6 +291,7 @@ func room_turn():
 				current_turn = 0;
 		player_ui.update_ui();
 		await get_tree().create_timer(0.5 / Settings.game_speed).timeout
+		player.update_shield();
 	
 	if (player.health <= 0):
 		Audio.play_audio(get_node("/root/"), Audio.die_sfx);
@@ -309,8 +312,8 @@ func room_turn():
 	next_room()
 	
 func gen_next_room():
-	player_ui.room_deicision_ui.visible = true;
-	var decision: Enum.RoomDecision = await player_ui.room_decision;
+	player_ui.room_select.request_room();
+	var decision: Enum.RoomDecision = await player_ui.room_select.room_decision;
 	camera.position = Vector2.ZERO;
 	player.position = Vector2(225, 225);
 	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35)
@@ -336,6 +339,8 @@ func next_room(leaving_safe_room: bool = false):
 
 func _ready() -> void:
 	await player.player_ready;
+	MidnightDebug.room_manager = self;
+	MidnightDebug.player = self.player;
 	gen_room(Enum.RoomDecision.Proceed);
 
 var pause_menu: PackedScene = preload("res://Scenes/Menus/PauseMenu/pause_menu.tscn");

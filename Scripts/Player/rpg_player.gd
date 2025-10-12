@@ -33,27 +33,33 @@ func move_player():
 func animate_player(direction: int):
 	sprite.flip_h = false;
 	match (direction):
+		-1:
+			animator.play(animator.current_animation.left(-4)+"Idle");
 		0:
-			animator.play("PlayerRPG/ForwardWalk");
-		1:
 			animator.play("PlayerRPG/BackwardWalk");
+		1:
+			animator.play("PlayerRPG/ForwardWalk");
 		2:
 			animator.play("PlayerRPG/SidewaysWalk");
 		3:
 			sprite.flip_h = true;
 			animator.play("PlayerRPG/SidewaysWalk");
+			
+func _ready() -> void:
+	animator.play("PlayerRPG/ForwardIdle");
 
 func _process(delta: float) -> void:
+	move_direction = Vector2(0, 0);
 	if (Input.is_key_pressed(KEY_W)):
-		move_direction.y += -1;
+		move_direction.y = -1;
 		animate_player(0);
-	if (Input.is_key_pressed(KEY_S)):
-		move_direction.y += 1;
+	elif (Input.is_key_pressed(KEY_S)):
+		move_direction.y = 1;
 		animate_player(1);
-	if (Input.is_key_pressed(KEY_A)):
-		move_direction.x += -1;
+	elif (Input.is_key_pressed(KEY_A)):
+		move_direction.x = -1;
 		animate_player(2);
-	if (Input.is_key_pressed(KEY_D)):
-		move_direction.x += 1;
+	elif (Input.is_key_pressed(KEY_D)):
+		move_direction.x = 1;
 		animate_player(3);
 	move_player();

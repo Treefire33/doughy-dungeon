@@ -1,6 +1,6 @@
 extends Node
 
-# Two functions:
+# Three functions:
 # Decision -> player has done their turn, applies items.
 # Purchased -> player has purchased the item, applies item.
 # EnemyKill -> an enemy has died, apply item to enemy.
@@ -158,6 +158,17 @@ var items = {
 		"Decision": func(player: Player, target, decision: Enum.Decision) -> bool:
 			player.stamina = player.max_stamina;
 			return true;,
+	},
+	"DurabilityScroll": {
+		"Name": "Durability Scroll",
+		"FlavourText": "A scroll containing arcane instructions.",
+		"Description": "Increases Shield Spell durability by 1.",
+		"Price": 125,
+		"Weight": 5,
+		"Sprite": load(load_path % "DurabilityScroll"),
+		"Purchased": func(player: Player) -> void:
+			Audio.play_audio(get_node("/root/"), Audio.item_activated);
+			player.max_defense_durability += 1;,
 	}
 }
 

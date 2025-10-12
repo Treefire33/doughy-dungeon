@@ -5,7 +5,9 @@ class_name StatsDisplay
 @onready var attack_label: RichTextLabel = $Attack;
 @onready var room_label: RichTextLabel = $Room;
 @onready var health_bar: ProgressBar = $Health/Bar;
+@onready var health_display: RichTextLabel = $Health/Display;
 @onready var stamina_bar: ProgressBar = $Stamina/Bar;
+@onready var stamina_display: RichTextLabel = $Stamina/Display;
 
 func update(room_manager: RoomManager) -> void:
 	var player = room_manager.player;
@@ -15,6 +17,8 @@ func update(room_manager: RoomManager) -> void:
 	
 	health_bar.max_value = player.max_health;
 	health_bar.value = player.health;
+	health_display.text = "%s/%s" % [player.health, player.max_health];
 	
 	stamina_bar.max_value = player.max_stamina;
 	stamina_bar.value = player.stamina;
+	stamina_display.text = "%s/%s" % [player.stamina, player.max_stamina];

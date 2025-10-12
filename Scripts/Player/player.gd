@@ -4,6 +4,7 @@ class_name Player
 signal player_ready;
 
 @onready var animator: AnimationPlayer = $Animation;
+@onready var shield: Sprite2D = $Shield;
 
 var coins: int = 15:
 	get: return coins;
@@ -30,8 +31,16 @@ var player_animation_to_name = {
 func play_anim(decision: Enum.PlayerAnimation):
 	# animator.speed_scale = Settings.game_speed;
 	animator.play(player_animation_to_name[decision]);
+
+func update_shield():
+	shield.visible = defense_durability != 0 && defending_duration != 0
 			
 func _ready():
 	load_entity(15, 12, 2, $Sprite);
 	play_anim(Enum.PlayerAnimation.Idle);
+	durability_changed.connect(func():
+		shield.frame = 0;
+		if (defense_durability == 0):
+			shield.frame = 1;
+	)
 	player_ready.emit();

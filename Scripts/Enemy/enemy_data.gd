@@ -25,6 +25,10 @@ class_name EnemyData
 	set (value):
 		base_defense_duration = value;
 
+@export var base_defense_durability: int = 1:
+	set (value):
+		base_defense_durability = value;
+
 @export var sprite: SpriteFrames = null:
 	set (value):
 		sprite = value;

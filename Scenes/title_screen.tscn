@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8euto25wvt14"]
+[gd_scene load_steps=7 format=3 uid="uid://b8euto25wvt14"]
 
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_4gxqj"]
 [ext_resource type="Script" uid="uid://dhkfwfibh2li8" path="res://Scripts/main_menu.gd" id="1_55kwv"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_twnyg"]
-[ext_resource type="Texture2D" uid="uid://cfbklda2vdqnt" path="res://Sprites/DoughyLogoNew.png" id="4_55kwv"]
+[ext_resource type="Texture2D" uid="uid://c60ebkmhlgbjj" path="res://Sprites/main_menu.aseprite" id="3_12m1t"]
+[ext_resource type="Texture2D" uid="uid://djid0yo7wj06y" path="res://Sprites/MidnightLogo.aseprite" id="4_55kwv"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="4_twnyg"]
 
 [node name="TitleScreen" type="Node2D"]
@@ -28,9 +29,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.270588, 0.270588, 0.270588, 0.509804)
+color = Color(0.2901961, 0.25882354, 0.2901961, 0.07058824)
+
+[node name="BG" type="TextureRect" parent="UI/Background"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_12m1t")
+stretch_mode = 1
 
 [node name="Wall" type="TextureRect" parent="UI/Background"]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -42,6 +55,7 @@ texture = ExtResource("1_4gxqj")
 stretch_mode = 1
 
 [node name="Floor" type="TextureRect" parent="UI/Background"]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = -1

@@ -3,7 +3,6 @@ class_name PlayerUI;
 
 signal ui_done;
 signal player_decision(decision: Enum.Decision, enemy: Enemy);
-signal room_decision(decision: Enum.RoomDecision);
 signal _enemy_selected;
 
 # Export vars
@@ -11,19 +10,13 @@ signal _enemy_selected;
 @export var stats_display: StatsDisplay;
 @export var inventory_display: InventoryDisplay;
 @export var decision_panel: DecisionPanel;
+@export var room_select: RoomSelect;
 
 # Misc UI
 @onready var selection_box: TextureRect = $SelectionBox;
 @onready var inventory_button: Button = $Stats/Inventory;
 @onready var fade_panel: ColorRect = $FadePanel;
 @onready var pause_game_button: Button = $PauseGame;
-
-# Room Decision UI
-@onready var room_deicision_ui: Control = $RoomDecision;
-@onready var proceed_button: Button = $RoomDecision/Decision/Proceed;
-@onready var risk_button: Button = $RoomDecision/Decision/Risk;
-@onready var stay_clear_button: Button = $RoomDecision/Decision/StayClear;
-@onready var description: RichTextLabel = $RoomDecision/Description/Description;
 
 # Safe Room Upgrading Panel
 @onready var upgrades_panel: ColorRect = $Upgrades;
@@ -32,7 +25,7 @@ signal _enemy_selected;
 @onready var attack_upgrade: Button = $Upgrades/Attack;
 
 # Enemy Selection
-@onready var select_enemy_label: Control = $Enemies/Label;
+@onready var select_enemy_panel: Control = $Enemies;
 @onready var enemy_buttons: Array[Button] = [
 	$Enemies/Enemy1,
 	$Enemies/Enemy2,
@@ -54,22 +47,6 @@ func move_selection_box(enemy_index: int):
 		return	
 
 	selection_box.position = enemy_buttons[enemy_index].position;
-		
-var descriptions = {
-	"Proceed": "Proceed\n\nAdvance to the next room.",
-	"Risk": "Risk It\n\nNext room is 2 levels harder, but gives more rewards.",
-	"StayClear": "Stay Clear\n\nSkip the next room and regenerate some stamina.\nNext room is a level harder."
-}
-
-func update_room_description(button_name):
-	if (button_name == null):
-		description.text = "";
-		return;
-	description.text = descriptions[button_name];
-	
-func request_room_decision(decision: Enum.RoomDecision):
-	room_decision.emit(decision)
-	room_deicision_ui.visible = false;
 
 var translation_dict = {
 	0: "health",
@@ -114,7 +91,9 @@ func update_enemy_buttons():
 	
 func select_enemy(enemy_index: int):
 	if (!selecting_enemy):
-			return
+		return
+	if (room_manager.alive_enemies[enemy_index] == null):
+		return
 	_enemy_selected.emit(room_manager.alive_enemies[enemy_index]);
 
 func _ready() -> void:
@@ -134,22 +113,10 @@ func _ready() -> void:
 		inventory_display.update(room_manager, in_safe_room);
 	)
 	
-	proceed_button.mouse_entered.connect(update_room_description.bind(proceed_button.name))
-	proceed_button.mouse_exited.connect(update_room_description.bind(null))
-	proceed_button.pressed.connect(request_room_decision.bind(Enum.RoomDecision.Proceed))
-	
-	risk_button.mouse_entered.connect(update_room_description.bind(risk_button.name))
-	risk_button.mouse_exited.connect(update_room_description.bind(null))
-	risk_button.pressed.connect(request_room_decision.bind(Enum.RoomDecision.RiskIt))
-	
-	stay_clear_button.mouse_entered.connect(update_room_description.bind(stay_clear_button.name))
-	stay_clear_button.mouse_exited.connect(update_room_description.bind(null))
-	stay_clear_button.pressed.connect(request_room_decision.bind(Enum.RoomDecision.StayClear))
-	
 	safe_room_proceed.pressed.connect(func():
 		if (!in_safe_room):
 			return
-		room_decision.emit();
+		room_select.room_decision.emit();
 	);
 	
 	health_upgrade.pressed.connect(upgrade_stat.bind(0));
@@ -170,14 +137,20 @@ var action_to_index: Dictionary[String, int] = {
 };
 func _input(event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("Quaternary")):
+		if (selecting_enemy):
+			_enemy_selected.emit("RESET");
+			return;
 		inventory_button.pressed.emit();
-	
+
 	var decision = -1;
 	for action in action_to_index:
 		if (Input.is_action_just_pressed(action)):
 			decision = action_to_index[action];
 	
 	if (decision == -1):
+		return;
+
+	if (room_select.visible):
 		return;
 	
 	if (selecting_enemy):
@@ -187,8 +160,6 @@ func _input(event: InputEvent) -> void:
 		_enemy_selected.emit(enemy);
 	elif (decision_panel.visible):
 		decision_panel.give_decision(self, decision);
-	elif (room_deicision_ui.visible):
-		request_room_decision(decision);
 
 func _on_room_manager_request_decision() -> void:
 	decision_panel.show();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://cicj0kes4voa0"]
+[gd_scene load_steps=69 format=3 uid="uid://cicj0kes4voa0"]
 
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_nb51f"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_nnt18"]
@@ -11,9 +11,10 @@
 [ext_resource type="Script" uid="uid://crth17d1hrbtj" path="res://Scripts/UI/player_ui.gd" id="8_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
-[ext_resource type="Texture2D" uid="uid://dlgn87wxa0h44" path="res://Sprites/Player/player.png" id="12_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://dt1a58ef8thvy" path="res://Sprites/Player/player.png" id="12_7t8sx"]
 [ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="12_fkdbe"]
+[ext_resource type="Texture2D" uid="uid://b0pvhoesh3677" path="res://Sprites/Player/shield.aseprite" id="12_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://ddhc62nuidtg3" path="res://Scenes/GameUI/stats_display.tscn" id="13_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://cq6fs63b4mxdo" path="res://Sprites/Icons/UpgradeIcons/UpgradeHealth.tres" id="13_85qyi"]
 [ext_resource type="Texture2D" uid="uid://cgc8ul7avjomb" path="res://Sprites/Icons/UpgradeIcons/UpgradeStamina.tres" id="14_iivbl"]
@@ -21,96 +22,97 @@
 [ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
 [ext_resource type="Texture2D" uid="uid://cgsr7xkulg7wk" path="res://Sprites/Other/PauseButton.png" id="20_7nbq1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85qyi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iivbl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nbq1"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exi56"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t8sx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg4q0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vm72l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22asu"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkdbe"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81klo"]
+[ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgy6u"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81klo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fkdbe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_22asu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vm72l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg4q0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t8sx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_exi56"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nbq1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iivbl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85qyi"]
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8tyi"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mie3u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qy5o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nf3m"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ocox"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuf18"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8sys"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0wup"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wojap"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_copon"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjyqs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxtw2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwurv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjyqs"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mucmn"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_copon"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m3t6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wojap"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ese38"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0wup"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oeip8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8sys"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe308"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuf18"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3cha"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ocox"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i26dy"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nf3m"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmoi6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qy5o"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uxt2"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mie3u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym3tv"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhq6j"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uxt2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgu05"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmoi6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nkef"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i26dy"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpf1r"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3cha"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m64o6"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe308"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55gk5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oeip8"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnpbo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ese38"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh07"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m3t6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jg6l"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mucmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwurv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j44qy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlfrn"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j44qy"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jg6l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnpbo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55gk5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m64o6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpf1r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nkef"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgu05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhq6j"]
 
 [node name="Game" type="Node2D"]
 
@@ -221,17 +223,17 @@ offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
 [node name="Item2" type="Node2D" parent="SafeRoom/Shop"]
@@ -253,17 +255,17 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
 [node name="Item3" type="Node2D" parent="SafeRoom/Shop"]
@@ -278,17 +280,17 @@ offset_top = -32.0
 offset_right = 32.0
 offset_bottom = 32.0
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
 [node name="Chair" type="Sprite2D" parent="SafeRoom"]
@@ -342,6 +344,11 @@ texture = ExtResource("12_7t8sx")
 hframes = 4
 vframes = 4
 
+[node name="Shield" type="Sprite2D" parent="Player"]
+visible = false
+texture = ExtResource("12_mg4q0")
+hframes = 2
+
 [node name="Animation" type="AnimationPlayer" parent="Player"]
 libraries = {
 &"": SubResource("AnimationLibrary_a8tyi"),
@@ -352,7 +359,7 @@ autoplay = "Player/Idle"
 [node name="Camera" type="Camera2D" parent="."]
 anchor_mode = 0
 
-[node name="PlayerUI" type="Control" parent="Camera" node_paths=PackedStringArray("room_manager", "stats_display", "inventory_display", "decision_panel")]
+[node name="PlayerUI" type="Control" parent="Camera" node_paths=PackedStringArray("room_manager", "stats_display", "inventory_display", "decision_panel", "room_select")]
 z_index = 3
 layout_mode = 3
 anchors_preset = 15
@@ -368,18 +375,25 @@ room_manager = NodePath("../../RoomManager")
 stats_display = NodePath("Stats")
 inventory_display = NodePath("Inventory")
 decision_panel = NodePath("DecisionPanel")
+room_select = NodePath("RoomSelect")
 
 [node name="Stats" parent="Camera/PlayerUI" instance=ExtResource("13_7nbq1")]
 layout_mode = 1
 
 [node name="Inventory" parent="Camera/PlayerUI" instance=ExtResource("15_exi56")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 230.0
+offset_right = 800.0
+offset_bottom = 350.0
 
 [node name="DecisionPanel" parent="Camera/PlayerUI" instance=ExtResource("15_iivbl")]
 visible = false
 layout_mode = 1
-offset_top = 0.0499725
-offset_right = -6.10352e-05
-offset_bottom = -0.100067
 
 [node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI"]
 visible = false
@@ -408,17 +422,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0qy5o")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nf3m")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2ocox")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kuf18")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_q8sys")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_n0wup")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wojap")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_copon")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wjyqs")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_kxtw2")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wjyqs")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_copon")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wojap")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n0wup")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_q8sys")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kuf18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2ocox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nf3m")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0qy5o")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
 flat = true
 
 [node name="Upgrades" type="ColorRect" parent="Camera/PlayerUI"]
@@ -496,13 +510,13 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Enemies" type="Control" parent="Camera/PlayerUI"]
+visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.178
 offset_bottom = -0.0999985
 
 [node name="Label" type="ColorRect" parent="Camera/PlayerUI/Enemies"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.312
@@ -541,17 +555,17 @@ offset_top = 0.039978
 offset_right = -0.200073
 offset_bottom = 0.039978
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
 [node name="Enemy2" type="Button" parent="Camera/PlayerUI/Enemies"]
@@ -565,17 +579,17 @@ offset_left = -0.200073
 offset_right = -0.200012
 offset_bottom = -1.52588e-05
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
 [node name="Enemy3" type="Button" parent="Camera/PlayerUI/Enemies"]
@@ -589,17 +603,17 @@ offset_left = -0.200073
 offset_right = -0.200012
 offset_bottom = -3.05176e-05
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
 [node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI"]
@@ -613,6 +627,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="RoomSelect" parent="Camera/PlayerUI" instance=ExtResource("21_7t8sx")]
+visible = false
+z_index = 5
+layout_mode = 1
 
 [node name="RoomDecision" type="Control" parent="Camera/PlayerUI"]
 visible = false
@@ -658,17 +677,17 @@ anchor_right = 1.0
 anchor_bottom = 0.333
 offset_bottom = 0.0400009
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
 text = "PROCEED"
 flat = true
 icon_alignment = 1
@@ -683,17 +702,17 @@ anchor_bottom = 0.667
 offset_top = 0.0400009
 offset_bottom = -0.0400085
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
 text = "RISK IT"
 flat = true
 icon_alignment = 1
@@ -709,17 +728,17 @@ offset_top = -0.0400085
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_vm72l")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
 text = "STAY CLEAR"
 flat = true
 icon_alignment = 1

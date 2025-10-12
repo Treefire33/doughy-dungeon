@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Doughy Dungeon"
-config/description="Fight your way through a doughy dungeon to obtain the elusive Golden Biscuit!"
+config/name="Midnight Dungeons"
+config/description="Rouge-like dungeon crawler."
 config/version="0.0.1"
 run/main_scene="uid://b8euto25wvt14"
 config/features=PackedStringArray("4.5", "Mobile")
@@ -31,6 +31,8 @@ ToastParty="*res://addons/toastparty/toast-autoload.gd"
 Settings="*res://Scripts/AutoLoad/settings.gd"
 Audio="*res://Scripts/AutoLoad/audio.gd"
 Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
+debug_console="*res://addons/copper_dc/debug_console.tscn"
+MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 
 [display]
 
@@ -47,7 +49,19 @@ project/assembly_name="Doughy Dungeon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/toastparty/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/toastparty/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://Audio/": "yellow",
+"res://EnemyData/": "orange",
+"res://Scenes/": "purple",
+"res://Scripts/": "red",
+"res://SpriteFrames/": "teal",
+"res://Sprites/": "green",
+"res://Themes/": "gray"
+}
 
 [gui]
 
@@ -105,6 +119,11 @@ Tertiary={
 Quaternary={
 "deadzone": 0.2,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+toggle_debug={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194333,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
 
