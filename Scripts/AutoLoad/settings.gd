@@ -41,6 +41,14 @@ func save_settings():
 	
 func _ready() -> void:
 	load_settings()
+	DiscordRPC.app_id = 1426862643171430471;
+	DiscordRPC.details = "https://treefire33.itch.io/doughy-dungeon";
+	DiscordRPC.state = "Crawling through the Doughy Dungeon.";
+	DiscordRPC.large_image = "doughygameicon";
+	DiscordRPC.large_image_text = "Play Doughy Dungeon on itch.io!";
+
+	DiscordRPC.start_timestamp = int(Time.get_unix_time_from_system());
+	DiscordRPC.refresh();
 	
 func _exit_tree() -> void:
 	save_settings()

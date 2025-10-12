@@ -33,6 +33,7 @@ Audio="*res://Scripts/AutoLoad/audio.gd"
 Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
 debug_console="*res://addons/copper_dc/debug_console.tscn"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
+DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 
 [display]
 
@@ -49,7 +50,7 @@ project/assembly_name="Doughy Dungeon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/toastparty/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/toastparty/plugin.cfg")
 
 [file_customization]
 
