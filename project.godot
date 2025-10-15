@@ -26,7 +26,7 @@ animation/layers/only_include_visible_layers_by_default=true
 [autoload]
 
 Enum="*res://Scripts/AutoLoad/enums.gd"
-ItemData="*res://Scripts/Items/item_data.gd"
+ItemUtils="*res://Scripts/Items/item_utils.gd"
 ToastParty="*res://addons/toastparty/toast-autoload.gd"
 Settings="*res://Scripts/AutoLoad/settings.gd"
 Audio="*res://Scripts/AutoLoad/audio.gd"
@@ -56,7 +56,9 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 
 folder_colors={
 "res://Audio/": "yellow",
+"res://Dungeons/": "orange",
 "res://EnemyData/": "orange",
+"res://Items/": "orange",
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
 "res://SpriteFrames/": "teal",

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://y63dw1wxsmi7"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_8y88y"]
+[ext_resource type="SpriteFrames" uid="uid://s5pukihrw7nx" path="res://SpriteFrames/Enemies/YeastCrawler.tres" id="2_8y88y"]
+
+[resource]
+script = ExtResource("1_8y88y")
+name = "Yeast Crawler"
+flavour_text = "The second step in the large
+world of bread making."
+base_health = 5
+base_stamina = 2
+sprite = ExtResource("2_8y88y")
+difficulty_range = Array[int]([1, 2])
+coins_range = Array[int]([5, 10])

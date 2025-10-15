@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_b2nek"]
 [ext_resource type="Script" uid="uid://cwga4ms26dy67" path="res://Scripts/UI/room_select/room_select_room_button.gd" id="2_x8mgq"]
 
-[node name="RoomSelect" type="Control" node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect")]
+[node name="RoomSelect" type="Control" node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect", "room_count", "floor_count")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +19,8 @@ midnight_icon = NodePath("RoomsContainer/Rooms/RoomUI/PlayerIcon")
 select_camera = NodePath("RoomsContainer/Rooms/Camera")
 selection_inspect = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/InspectPanel")
 size_bound = 2
+room_count = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/RoomCount")
+floor_count = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/FloorCount")
 
 [node name="RoomsContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -120,3 +122,26 @@ anchor_bottom = 0.142
 offset_top = 386.0
 offset_bottom = 386.1
 text = "PROCEED"
+
+[node name="FloorCount" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.25
+anchor_bottom = 0.089
+offset_top = 370.0
+offset_bottom = 369.95
+text = "FLOOR: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoomCount" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.089
+anchor_right = 0.25
+anchor_bottom = 0.178
+offset_top = 369.95
+offset_bottom = 369.9
+text = "ROOM: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

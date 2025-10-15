@@ -11,7 +11,7 @@ var bindable_actions: Array[String] = [
 	"Down",
 	"Left",
 	"Right",
-	"toggle_debug"
+	# "toggle_debug"
 ];
 
 var action_descriptions: Dictionary[String, String] = {

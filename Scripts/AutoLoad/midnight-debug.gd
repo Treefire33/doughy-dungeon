@@ -13,15 +13,22 @@ func add_item(item: String, count: int = 1):
 	if (room_manager == null):
 		return;
 	for i in range(count):
-		player.items.append(item);
-		if ItemData.items[item].has("Purchased"):
-			ItemData.items[item]["Purchased"].call(player);
+		var item_data: ItemData = load("res://Items/%s.tres" % item);
+		player.items.append(item_data);
+		if (item_data.purchased != null):
+			ItemUtils.execute_item_func(item_data.purchased, player);
 
 func remove_item(item: String, count: int = 1):
 	if (room_manager == null):
 		return;
-	for i in range(count):
-		player.items.erase(item);
+	var i = 0;
+	while (i != len(player.items)):
+		var item_data = player.items[i];
+		if (item_data.name == item && count > 0):
+			player.items.remove_at(i);
+			i -= 1;
+			count -= 1;
+		i += 1;
 
 func set_player_stat(stat_name: String, value: Variant):
 	match (stat_name):
@@ -52,11 +59,11 @@ func _ready() -> void:
 		DebugCommand.Parameter.new("room", DebugCommand.ParameterType.Int)
 	]);
 	DebugConsole.add_command("add_item", add_item, self, [
-		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemData.items.keys()),
+		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items),
 		DebugCommand.Parameter.new("count", DebugCommand.ParameterType.Int)
 	]);
 	DebugConsole.add_command("remove_item", remove_item, self, [
-		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemData.items.keys()),
+		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items),
 		DebugCommand.Parameter.new("count", DebugCommand.ParameterType.Int)
 	]);
 	DebugConsole.add_command("set_player_stat", set_player_stat, self, [

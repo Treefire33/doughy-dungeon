@@ -11,15 +11,22 @@ var coins: int = 15:
 	set(value):
 		coins = value;
 		
-var items = [];
+var items: Array[ItemData] = [];
 
 func get_items(has_function: String = ""):
 	var final = [];
 	for item in self.items:
-		var item_data: Dictionary = ItemData.items[item];
-		if (!item_data.has(has_function) and has_function != ""): continue;
-		final.append(item_data);
+		if (item.get(has_function) == null && has_function != ""): continue;
+		final.append(item);
 	return final;
+
+func get_item_count(specific_item: String):
+	var item_count = {}
+	for item in items:
+		item_count.get_or_add(item.name, 0);
+		item_count[item.name] += 1;
+	
+	return item_count.get(specific_item, 0);
 
 var player_animation_to_name = {
 	Enum.PlayerAnimation.Idle: "Player/Idle",

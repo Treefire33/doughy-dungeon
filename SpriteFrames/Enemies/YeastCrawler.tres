@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://s5pukihrw7nx"]
+
+[ext_resource type="Texture2D" uid="uid://c5hh4810lwvlx" path="res://Sprites/Enemies/YeastCrawler.tres" id="1_8xsc3"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8xsc3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]

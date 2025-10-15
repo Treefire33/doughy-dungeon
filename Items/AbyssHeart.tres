@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=6 format=3 uid="uid://dcsjhxtiqj382"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_5qtqu"]
+[ext_resource type="Script" uid="uid://bdjaur46gq3d7" path="res://Items/Functions/AbyssHeartDecision.gd" id="1_b0rhy"]
+[ext_resource type="Texture2D" uid="uid://bx41uc24h43pi" path="res://Sprites/Items/AbyssHeart.tres" id="2_5qtqu"]
+[ext_resource type="Script" uid="uid://bbkcqjc4jgynx" path="res://Items/Functions/AbyssHeartEnemyKill.gd" id="2_g82sm"]
+[ext_resource type="Script" uid="uid://dqo8nqd2cy3lt" path="res://Items/Functions/AbyssHeartRoomDecision.gd" id="3_f1ley"]
+
+[resource]
+script = ExtResource("1_5qtqu")
+name = "Abyss Heart"
+flavour_text = "The heart of the abyss.
+A strange force overwhelmes you."
+description = "Every room passed, -1 max health, +5 max stamina.
+Every item bought, +1 max health, -5 max stamina.
+Every enemy killed, +1 attack.
+Every time you rest, -1 attack."
+sprite = ExtResource("2_5qtqu")
+decision = ExtResource("1_b0rhy")
+room_decision = ExtResource("3_f1ley")
+enemy_kill = ExtResource("2_g82sm")
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

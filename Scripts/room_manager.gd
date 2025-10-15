@@ -3,6 +3,8 @@ class_name RoomManager
 
 signal request_decision;
 @export var player_ui: PlayerUI;
+@export var wall_rect: TextureRect;
+@export var floor_rect: TextureRect;
 
 var enemy_prefab: PackedScene = preload("res://Scenes/Prefabs/enemy.tscn");
 
@@ -12,7 +14,8 @@ var enemy_prefab: PackedScene = preload("res://Scenes/Prefabs/enemy.tscn");
 	$EnemySpawn3
 ]
 
-var room_count = 1;
+var current_dungeon: DungeonData;
+var room_count: int = 1;
 var temp_difficulty = 0;
 var streak_difficulty = 0;
 var room_difficulty = 1:
@@ -25,12 +28,14 @@ var room_multiplier: float = 1.0:
 	get: return clamp(room_multiplier + temp_multiplier + streak_multiplier, 1, 100);
 	set (value):
 		room_multiplier = clamp(value, 1, 100);
+var floor_count: int:
+	get:
+		return int(room_count / current_dungeon.rooms_until_next_floor) + 1;
 @export var player: Player;
 @export var camera: Camera2D;
 	
 func get_random_enemy(difficulty: int) -> Enemy:
-	var selected_key = Enemy.enemies.keys().pick_random();
-	var selected_enemy = Enemy.enemies[selected_key];
+	var selected_enemy = current_dungeon.enemies.pick_random();
 	if (
 		difficulty < selected_enemy.difficulty_range[0] 
 		or difficulty > selected_enemy.difficulty_range[1]
@@ -62,16 +67,16 @@ func gen_room(decision: Enum.RoomDecision):
 			temp_difficulty = 2;
 			temp_multiplier = .5;
 		Enum.RoomDecision.StayClear:
-			if (room_count % 10 != 0):
+			if (room_count % current_dungeon.rooms_until_next_floor != 0):
 				room_count += 1;
 			player.stamina += 5;
 			temp_difficulty = 1;
 			
-	for item in player.get_items("RoomDecision"):
-		var result = item["RoomDecision"].call(self, decision)
+	for item in player.get_items("room_decision"):
+		var result = ItemUtils.execute_item_func(item.room_decision, self, decision);
 		if (result):
 			ToastParty.show({
-				"text": "%s activated!" % item["Name"],
+				"text": "%s activated!" % item.name,
 				"text_size": Settings.toast_size,
 				"bgcolor": Color(0, 0, 0, 1),
 				"color": Color(1, 1, 1, 1),
@@ -92,25 +97,25 @@ func gen_room(decision: Enum.RoomDecision):
 		
 	print("Loaded Room");
 	
-func purchase_item(item, item_name, item_display):
-	if (player.coins <= 0 or player.coins < item["Price"]):
+func purchase_item(item: ItemData, item_display):
+	if (player.coins <= 0 or player.coins < item.price):
 		return;
 	
-	player.coins -= item["Price"];
-	player.items.append(item_name);
+	player.coins -= item.price;
+	player.items.append(item);
 	ToastParty.show({
-		"text": "Puchased %s!" % item["Name"],
+		"text": "Puchased %s!" % item.name,
 		"text_size": Settings.toast_size,
 		"bgcolor": Color(0, 0, 0, 1),
 		"color": Color(1, 1, 1, 1),
 		"gravity": "top",
 		"direction": "right",
 	})
-	if (item.has("Purchased")):
-		var result = item["Purchased"].call(player)
+	if (item.purchased != null):
+		var result = ItemUtils.execute_item_func(item.purchased, player);
 		if (result):
 			ToastParty.show({
-				"text": "%s activated!" % item["Name"],
+				"text": "%s activated!" % item.name,
 				"text_size": Settings.toast_size,
 				"bgcolor": Color(0, 0, 0, 1),
 				"color": Color(1, 1, 1, 1),
@@ -130,7 +135,7 @@ func gen_safe_room():
 	player.stamina = player.max_stamina;
 	player_ui.update_ui();
 	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35)
-	if (room_count >= 100):
+	if (room_count >= current_dungeon.room_count):
 		golden_biscuit.visible = true;
 		Settings.room_count = 100;
 		var final_scene = get_tree().create_tween()
@@ -154,18 +159,18 @@ func gen_safe_room():
 		var item_button: Button = item_display.get_node("Purchase");
 		for connection in item_button.pressed.get_connections():
 			item_button.pressed.disconnect(connection.callable)
-		var item_name = ItemData.get_random_item();
-		var item = ItemData.items[item_name]
-		item_display.get_node("Sprite").texture = item["Sprite"];
-		item_button.tooltip_text = item["Name"] + \
-		"\n" + item["FlavourText"] + \
-		"\n\n" + "Price: " + str(item["Price"]) + "\n" + item["Description"];
-		item_button.pressed.connect(purchase_item.bind(item, item_name, item_display))
+		var item = ItemUtils.get_random_item(current_dungeon);
+		item_display.get_node("Sprite").texture = item.sprite;
+		item_button.tooltip_text = item.name + \
+		"\n" + item.flavour_text + \
+		"\n\n" + "Price: " + str(item.price) + "\n" + item.description;
+		item_button.pressed.connect(purchase_item.bind(item, item_display))
 	await player_ui.room_select.room_decision;
 	player_ui.safe_room_proceed.hide();
 	player_ui.upgrades_panel.hide();
 	player_ui.in_safe_room = false;
-	room_difficulty += 1;
+	if (floor_count % current_dungeon.difficulty_floor_increment == 0):
+		room_difficulty += 1;
 	player.health = player.max_health;
 	player.stamina = player.max_stamina;
 	player_ui.update_ui();
@@ -234,33 +239,34 @@ func room_turn():
 				else:
 					player.play_anim(decision + 1);
 				
-				for item in player.get_items("Decision"):
-					var result = item["Decision"].call(player, selected_enemy, decision)
+				for item in player.get_items("decision"):
+					var result = ItemUtils.execute_item_func(item.decision, player, selected_enemy, decision);
 					if (result):
 						ToastParty.show({
-							"text": "%s activated!" % item["Name"],
+							"text": "%s activated!" % item.name,
 							"text_size": Settings.toast_size,
 							"bgcolor": Color(0, 0, 0, 1),
 							"color": Color(1, 1, 1, 1),
 							"gravity": "top",
 							"direction": "right",
-						})
+						});
 					
 				current_turn = 1;
 				if (selected_enemy == null):
 					continue
 				selected_enemy.update_health();
 				if (selected_enemy.health <= 0):
-					for item in player.get_items("EnemyKill"):
-						item["EnemyKill"].call(player, selected_enemy)
-						ToastParty.show({
-							"text": "%s activated!" % item["Name"],
-							"text_size": Settings.toast_size,
-							"bgcolor": Color(0, 0, 0, 1),
-							"color": Color(1, 1, 1, 1),
-							"gravity": "top",
-							"direction": "right",
-						})
+					for item in player.get_items("enemy_kill"):
+						var result = ItemUtils.execute_item_func(item.enemy_kill, player, selected_enemy);
+						if (result):
+							ToastParty.show({
+								"text": "%s activated!" % item.name,
+								"text_size": Settings.toast_size,
+								"bgcolor": Color(0, 0, 0, 1),
+								"color": Color(1, 1, 1, 1),
+								"gravity": "top",
+								"direction": "right",
+							});
 					
 					Audio.play_audio(get_node("/root/"), Audio.die_sfx);
 					player.coins += int(selected_enemy.get_coin_drops() * room_multiplier);
@@ -312,7 +318,7 @@ func room_turn():
 	next_room()
 	
 func gen_next_room():
-	player_ui.room_select.request_room();
+	player_ui.room_select.request_room(self.room_count, self.current_dungeon.rooms_until_next_floor);
 	var decision: Enum.RoomDecision = await player_ui.room_select.room_decision;
 	camera.position = Vector2.ZERO;
 	player.position = Vector2(225, 225);
@@ -332,7 +338,7 @@ func next_room(leaving_safe_room: bool = false):
 	room_tween.tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 1), 1.5 / Settings.game_speed)
 	room_tween.set_parallel(false)
 	safe_room.get_parent().visible = false;
-	if (room_count % 10 == 0 and !leaving_safe_room):
+	if (room_count % current_dungeon.rooms_until_next_floor == 0 and !leaving_safe_room):
 		room_tween.tween_callback(gen_safe_room).set_delay(0.2)
 	else:
 		room_tween.tween_callback(gen_next_room).set_delay(0.2)
@@ -341,6 +347,9 @@ func _ready() -> void:
 	await player.player_ready;
 	MidnightDebug.room_manager = self;
 	MidnightDebug.player = self.player;
+	self.current_dungeon = load("res://Dungeons/DoughyDungeon.tres");
+	self.wall_rect.texture = self.current_dungeon.wall_texture;
+	self.floor_rect.texture = self.current_dungeon.floor_texture;
 	gen_room(Enum.RoomDecision.Proceed);
 
 var pause_menu: PackedScene = preload("res://Scenes/Menus/PauseMenu/pause_menu.tscn");

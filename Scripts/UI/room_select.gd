@@ -11,9 +11,12 @@ signal room_decision(decision: Enum.RoomDecision);
 var selection_title: RichTextLabel;
 var selection_description: RichTextLabel;
 var selection_accept: Button;
+
+@export var room_count: RichTextLabel;
+@export var floor_count: RichTextLabel;
 enum Direction {
-	Left, Up,
-	Down, Right
+	Left = 0, Up = 1,
+	Down = 2, Right = 3
 }
 var directions: Array[Direction] = [Direction.Left, Direction.Right, Direction.Down, Direction.Up];
 var last_buttons: Array[RoomSelectButton] = [];
@@ -21,13 +24,13 @@ var last_buttons: Array[RoomSelectButton] = [];
 func invert_direction(current_direction: Direction):
 	match (current_direction):
 		Direction.Left:
-			return current_direction + 2;
+			return Direction.Right;
 		Direction.Up:
-			return current_direction + 1;
+			return Direction.Down;
 		Direction.Down:
-			return current_direction - 1;
+			return Direction.Up;
 		Direction.Right:
-			return current_direction - 2;
+			return Direction.Left;
 
 var selected_room: RoomSelectButton = null;
 var current_room: RoomSelectButton = null;
@@ -106,32 +109,39 @@ func _ready() -> void:
 	selection_description = selection_inspect.get_node("RoomDescription");
 	selection_accept = selection_inspect.get_node("Proceed");
 	selection_accept.pressed.connect(select_room);
+
 	current_room = room_button;
 	selected_room = current_room;
 	room_button = room_button.duplicate(DuplicateFlags.DUPLICATE_SCRIPTS);
 
-func request_room():
+func request_room(room_count_num, floor_count_mod):
 	self.visible = true;
+	room_count.text = "ROOM: %d" % room_count_num;
+	floor_count.text = "FLOOR: %d" % (int(room_count_num / floor_count_mod) + 1);
+	if (room_count_num % floor_count_mod == 0):
+		for button in current_room.get_parent().get_children():
+			if (button is Button && button != current_room):
+				button.queue_free();
 	generate_rooms(current_room);
 
-var action_to_index: Dictionary[String, int] = {
-	"Primary": 0,
-	"Secondary": 1,
-	"Tertiary": 2
-};
+var directional_actions = [
+	"Up", "Down", "Left", "Right"
+];
 func _input(event: InputEvent) -> void:
 	if (!self.visible):
 		return;
 
-	var decision = -1;
-	for action in action_to_index:
+	if (selected_room != null && Input.is_action_just_pressed("Primary")):
+		selection_accept.pressed.emit();
+
+	var direction: int = -1;
+	for action in directional_actions:
 		if (Input.is_action_just_pressed(action)):
-			decision = action_to_index[action];
+			direction = invert_direction(Direction.get(action));
 	
-	if (decision == -1):
+	if (direction == -1):
 		return;
 	
-	if (selected_room == last_buttons[decision]):
-		selection_accept.pressed.emit();
-	else:
-		last_buttons[decision].pressed.emit();
+	for button in last_buttons:
+		if (button.previous_direction == direction):
+			button.pressed.emit();

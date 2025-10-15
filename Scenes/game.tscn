@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://crth17d1hrbtj" path="res://Scripts/UI/player_ui.gd" id="8_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
-[ext_resource type="Texture2D" uid="uid://dt1a58ef8thvy" path="res://Sprites/Player/player.png" id="12_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://qjofli7jv6ub" path="res://Sprites/Player/player_tattered.png" id="11_mg4q0"]
 [ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="12_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b0pvhoesh3677" path="res://Sprites/Player/shield.aseprite" id="12_mg4q0"]
@@ -317,9 +317,11 @@ position = Vector2(575, 241)
 [node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn"]
 texture = ExtResource("8_exi56")
 
-[node name="RoomManager" type="Node" parent="." node_paths=PackedStringArray("player_ui", "player", "camera", "safe_room", "golden_biscuit")]
+[node name="RoomManager" type="Node" parent="." node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "golden_biscuit")]
 script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
+wall_rect = NodePath("../Background/Wall")
+floor_rect = NodePath("../Background/Floor")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
@@ -340,7 +342,7 @@ position = Vector2(225, 225)
 script = ExtResource("6_7nbq1")
 
 [node name="Sprite" type="Sprite2D" parent="Player"]
-texture = ExtResource("12_7t8sx")
+texture = ExtResource("11_mg4q0")
 hframes = 4
 vframes = 4
 

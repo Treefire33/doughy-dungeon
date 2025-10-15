@@ -20,19 +20,19 @@ func load_inventory(room_manager: RoomManager):
 	
 	var item_count = {}
 	for item in items:
-		item_count.get_or_add(item["Name"], 0);
-		item_count[item["Name"]] += 1;
+		item_count.get_or_add(item.name, 0);
+		item_count[item.name] += 1;
 	
 	var seen = []
 	for item in items:
-		if (seen.find(item["Name"]) != -1): continue;
-		seen.append(item["Name"])
+		if (seen.find(item.name) != -1): continue;
+		seen.append(item.name)
 		var new_item = inventory_item.duplicate()
 		new_item.visible = true;
-		new_item.get_node("Button").tooltip_text = item["Name"] + \
-		"\n" + item["FlavourText"] + "\n\n" + item["Description"];
-		new_item.get_node("Count").text = str(item_count[item["Name"]])
-		new_item.texture = item["Sprite"];
+		new_item.get_node("Button").tooltip_text = item.name + \
+		"\n" + item.flavour_text + "\n\n" + item.description;
+		new_item.get_node("Count").text = str(item_count[item.name])
+		new_item.texture = item.sprite;
 		inventory_items.add_child(new_item)
 		
 func load_stats(room_manager: RoomManager, in_safe_room: bool):

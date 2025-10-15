@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DungeonData" load_steps=12 format=3 uid="uid://i6xwk6el8jyh"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_wca84"]
+[ext_resource type="Resource" uid="uid://nobxmi2c7hoc" path="res://EnemyData/BiscuitMimic.tres" id="2_qkq8k"]
+[ext_resource type="Resource" uid="uid://y63dw1wxsmi7" path="res://EnemyData/YeastCrawler.tres" id="2_u82xd"]
+[ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/BiscuitMimic2.tres" id="3_cwbeo"]
+[ext_resource type="Texture2D" uid="uid://cqew0cx3qwqvh" path="res://Sprites/Tiles/AlcoveFloor.png" id="5_u82xd"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_7cw5h"]
+[ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="14_ch2lk"]
+[ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="15_l23lu"]
+[ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="16_eu7re"]
+[ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="25_lbj72"]
+[ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="26_ss5it"]
+
+[resource]
+script = ExtResource("25_lbj72")
+enemies = Array[ExtResource("1_wca84")]([ExtResource("2_u82xd"), ExtResource("2_qkq8k"), ExtResource("3_cwbeo")])
+items = Array[ExtResource("13_7cw5h")]([ExtResource("14_ch2lk"), ExtResource("15_l23lu"), ExtResource("16_eu7re")])
+wall_texture = ExtResource("26_ss5it")
+floor_texture = ExtResource("5_u82xd")
+room_count = 30
+difficulty_floor_increment = 3
+rooms_until_next_floor = 5
+metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

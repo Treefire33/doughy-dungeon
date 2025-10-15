@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://jyw5mbmwm7jm"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_scvqu"]
+[ext_resource type="Script" uid="uid://c61oy3408xbwv" path="res://Items/Functions/SharpeningStoneDecision.gd" id="1_ylrl8"]
+[ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="2_as1kl"]
+
+[resource]
+script = ExtResource("1_scvqu")
+name = "Sharpening Stone"
+flavour_text = "How do you sharpen a wooden sword?"
+description = "On attack, 25% chance to deal damage again."
+price = 50
+sprite = ExtResource("2_as1kl")
+weight = 10.0
+decision = ExtResource("1_ylrl8")
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

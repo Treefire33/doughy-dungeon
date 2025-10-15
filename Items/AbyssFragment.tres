@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dp84m7pjrfbt4"]
+
+[ext_resource type="Script" uid="uid://bssc7g4ihcsy2" path="res://Items/Functions/AbyssFragmentPurchased.gd" id="1_a7w4t"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_kimae"]
+[ext_resource type="Texture2D" uid="uid://cjfpae1j7crmu" path="res://Sprites/Items/AbyssFragment.tres" id="2_kimae"]
+
+[resource]
+script = ExtResource("1_kimae")
+name = "Fragment of the Abyss"
+flavour_text = "A piece of the abyss, don't stare for too long."
+description = "???"
+price = 500
+sprite = ExtResource("2_kimae")
+weight = 0.01
+purchased = ExtResource("1_a7w4t")
+metadata/_custom_type_script = "uid://cordgir5vu6pr"
