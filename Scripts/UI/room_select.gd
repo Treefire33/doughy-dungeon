@@ -14,6 +14,7 @@ var selection_accept: Button;
 
 @export var room_count: RichTextLabel;
 @export var floor_count: RichTextLabel;
+@export var dungeon_name_label: RichTextLabel;
 enum Direction {
 	Left = 0, Up = 1,
 	Down = 2, Right = 3
@@ -114,10 +115,11 @@ func _ready() -> void:
 	selected_room = current_room;
 	room_button = room_button.duplicate(DuplicateFlags.DUPLICATE_SCRIPTS);
 
-func request_room(room_count_num, floor_count_mod):
+func request_room(room_count_num, floor_count_mod, dungeon_name):
 	self.visible = true;
 	room_count.text = "ROOM: %d" % room_count_num;
 	floor_count.text = "FLOOR: %d" % (int(room_count_num / floor_count_mod) + 1);
+	dungeon_name_label.text = dungeon_name;
 	if (room_count_num % floor_count_mod == 0):
 		for button in current_room.get_parent().get_children():
 			if (button is Button && button != current_room):

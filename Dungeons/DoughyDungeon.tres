@@ -30,6 +30,7 @@
 
 [resource]
 script = ExtResource("2_1q3vg")
+name = "Doughy Dungeon"
 enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_nn376"), ExtResource("3_ohi1i"), ExtResource("4_aofr0"), ExtResource("5_b6eda"), ExtResource("6_jg7e3"), ExtResource("7_7kxbr"), ExtResource("8_4qdos"), ExtResource("9_w7bhb"), ExtResource("10_4lamv"), ExtResource("11_d45b2")])
 items = Array[ExtResource("13_4qdos")]([ExtResource("14_w7bhb"), ExtResource("15_4lamv"), ExtResource("16_d45b2"), ExtResource("17_ui381"), ExtResource("18_rfs6y"), ExtResource("19_aby3q"), ExtResource("20_164du"), ExtResource("21_g2dxu"), ExtResource("22_4sgh7"), ExtResource("23_cpyly"), ExtResource("24_6g7lf"), ExtResource("25_164du")])
 wall_texture = ExtResource("14_rfs6y")

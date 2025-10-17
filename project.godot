@@ -12,12 +12,14 @@ config_version=5
 
 config/name="Midnight Dungeons"
 config/description="Rouge-like dungeon crawler."
-config/version="0.0.1"
+config/version="0.0.2"
 run/main_scene="uid://b8euto25wvt14"
 config/features=PackedStringArray("4.5", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 boot_splash/image="uid://ccqegmh4s4dev"
-config/icon="uid://byt0bvyvrtfor"
+config/icon="uid://b1yk2sgwhouw1"
 
 [aseprite]
 

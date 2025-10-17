@@ -14,12 +14,12 @@ var enemy_prefab: PackedScene = preload("res://Scenes/Prefabs/enemy.tscn");
 	$EnemySpawn3
 ]
 
-var current_dungeon: DungeonData;
+@export var current_dungeon: DungeonData;
 var room_count: int = 1;
 var temp_difficulty = 0;
 var streak_difficulty = 0;
 var room_difficulty = 1:
-	get: return clampi(room_difficulty + temp_difficulty + streak_difficulty, 1, 10);
+	get: return clampi(room_difficulty + temp_difficulty + streak_difficulty, current_dungeon.minimum_difficulty, current_dungeon.maximum_difficulty);
 	set (value):
 		room_difficulty = clampi(value, 1, 10);
 var temp_multiplier: float = 0.0;
@@ -72,17 +72,7 @@ func gen_room(decision: Enum.RoomDecision):
 			player.stamina += 5;
 			temp_difficulty = 1;
 			
-	for item in player.get_items("room_decision"):
-		var result = ItemUtils.execute_item_func(item.room_decision, self, decision);
-		if (result):
-			ToastParty.show({
-				"text": "%s activated!" % item.name,
-				"text_size": Settings.toast_size,
-				"bgcolor": Color(0, 0, 0, 1),
-				"color": Color(1, 1, 1, 1),
-				"gravity": "top",
-				"direction": "right",
-			})
+	ItemUtils.activate_items(player.get_items("room_decision"), "room_decision", self, decision);
 	
 	player.health += int(player.max_health * 0.4);
 	
@@ -122,6 +112,7 @@ func purchase_item(item: ItemData, item_display):
 				"gravity": "top",
 				"direction": "right",
 			})
+	#ItemUtils.activate_items(player.get_items("purchased"), "purchased", player, item);
 	Audio.play_audio(get_node("/root/"), Audio.purchase_sfx);
 	player_ui.update_ui();
 	item_display.hide();
@@ -135,20 +126,21 @@ func gen_safe_room():
 	player.stamina = player.max_stamina;
 	player_ui.update_ui();
 	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35)
-	if (room_count >= current_dungeon.room_count):
-		golden_biscuit.visible = true;
-		Settings.room_count = 100;
-		var final_scene = get_tree().create_tween()
-		final_scene.tween_property(
-			player_ui.fade_panel, 
-			"modulate", 
-			Color(0, 0, 0, 1), 
-			0.35
-		).set_delay(2)
-		final_scene.tween_callback(func():
-			get_tree().change_scene_to_file("res://Scenes/game_win.tscn");
-		)
-		return;
+	# Ahh, the days before all these midnight dungeons...
+	# if (room_count >= current_dungeon.room_count):
+	# 	golden_biscuit.visible = true;
+	# 	Settings.room_count = 100;
+	# 	var final_scene = get_tree().create_tween()
+	# 	final_scene.tween_property(
+	# 		player_ui.fade_panel, 
+	# 		"modulate", 
+	# 		Color(0, 0, 0, 1), 
+	# 		0.35
+	# 	).set_delay(2)
+	# 	final_scene.tween_callback(func():
+	# 		get_tree().change_scene_to_file("res://Scenes/game_win.tscn");
+	# 	)
+	# 	return;
 	safe_room.get_parent().visible = true;
 	player_ui.safe_room_proceed.show();
 	player_ui.upgrades_panel.show();
@@ -239,35 +231,14 @@ func room_turn():
 				else:
 					player.play_anim(decision + 1);
 				
-				for item in player.get_items("decision"):
-					var result = ItemUtils.execute_item_func(item.decision, player, selected_enemy, decision);
-					if (result):
-						ToastParty.show({
-							"text": "%s activated!" % item.name,
-							"text_size": Settings.toast_size,
-							"bgcolor": Color(0, 0, 0, 1),
-							"color": Color(1, 1, 1, 1),
-							"gravity": "top",
-							"direction": "right",
-						});
+				ItemUtils.activate_items(player.get_items("decision"), "decision", player, selected_enemy, decision);
 					
 				current_turn = 1;
 				if (selected_enemy == null):
 					continue
 				selected_enemy.update_health();
 				if (selected_enemy.health <= 0):
-					for item in player.get_items("enemy_kill"):
-						var result = ItemUtils.execute_item_func(item.enemy_kill, player, selected_enemy);
-						if (result):
-							ToastParty.show({
-								"text": "%s activated!" % item.name,
-								"text_size": Settings.toast_size,
-								"bgcolor": Color(0, 0, 0, 1),
-								"color": Color(1, 1, 1, 1),
-								"gravity": "top",
-								"direction": "right",
-							});
-					
+					ItemUtils.activate_items(player.get_items("enemy_kill"), "enemy_kill", player, selected_enemy);
 					Audio.play_audio(get_node("/root/"), Audio.die_sfx);
 					player.coins += int(selected_enemy.get_coin_drops() * room_multiplier);
 					selected_enemy.queue_free()
@@ -283,7 +254,7 @@ func room_turn():
 					turn_functions[decision].call(
 						enemy, 
 						player
-					)
+					);
 					ToastParty.show({
 						"text": enemy.name + " " + decision_text(decision) + "!",
 						"text_size": Settings.toast_size,
@@ -291,7 +262,7 @@ func room_turn():
 						"color": Color(1, 1, 1, 1),
 						"gravity": "top",
 						"direction": "right",
-					})
+					});
 					enemy.notif.frame = 3 if enemy.defending_duration >= 1 else 5;
 					
 				current_turn = 0;
@@ -318,7 +289,7 @@ func room_turn():
 	next_room()
 	
 func gen_next_room():
-	player_ui.room_select.request_room(self.room_count, self.current_dungeon.rooms_until_next_floor);
+	player_ui.room_select.request_room(self.room_count, self.current_dungeon.rooms_until_next_floor, current_dungeon.name.to_upper());
 	var decision: Enum.RoomDecision = await player_ui.room_select.room_decision;
 	camera.position = Vector2.ZERO;
 	player.position = Vector2(225, 225);
@@ -345,12 +316,13 @@ func next_room(leaving_safe_room: bool = false):
 
 func _ready() -> void:
 	await player.player_ready;
+	await player_ui.ui_done;
 	MidnightDebug.room_manager = self;
 	MidnightDebug.player = self.player;
-	self.current_dungeon = load("res://Dungeons/DoughyDungeon.tres");
 	self.wall_rect.texture = self.current_dungeon.wall_texture;
 	self.floor_rect.texture = self.current_dungeon.floor_texture;
 	gen_room(Enum.RoomDecision.Proceed);
+	room_turn();
 
 var pause_menu: PackedScene = preload("res://Scenes/Menus/PauseMenu/pause_menu.tscn");
 var paused: bool = false;
@@ -365,6 +337,3 @@ func _input(event: InputEvent) -> void:
 		pause_game()
 	if (Input.is_action_just_pressed("Reset")):
 		get_tree().change_scene_to_file("res://Scenes/game.tscn");
-
-func _on_player_ui_ui_done() -> void:
-	room_turn()

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b8yf2mqhfa8ff"
+path="res://.godot/imported/MidnightGameIcon.aseprite-e68367070bea9e0d4df964a4098e81bf.res"
+
+[deps]
+
+source_file="res://Sprites/MidnightGameIcon.aseprite"
+dest_files=["res://.godot/imported/MidnightGameIcon.aseprite-e68367070bea9e0d4df964a4098e81bf.res"]
+
+[params]
+

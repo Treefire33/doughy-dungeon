@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_b2nek"]
 [ext_resource type="Script" uid="uid://cwga4ms26dy67" path="res://Scripts/UI/room_select/room_select_room_button.gd" id="2_x8mgq"]
 
-[node name="RoomSelect" type="Control" node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect", "room_count", "floor_count")]
+[node name="RoomSelect" type="Control" node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect", "room_count", "floor_count", "dungeon_name_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ selection_inspect = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/InspectPanel
 size_bound = 2
 room_count = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/RoomCount")
 floor_count = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/FloorCount")
+dungeon_name_label = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/DungeonName")
 
 [node name="RoomsContainer" type="SubViewportContainer" parent="."]
 layout_mode = 1
@@ -126,22 +127,35 @@ text = "PROCEED"
 [node name="FloorCount" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI"]
 layout_mode = 1
 anchors_preset = -1
+anchor_top = 0.822
 anchor_right = 0.25
-anchor_bottom = 0.089
-offset_top = 370.0
-offset_bottom = 369.95
+anchor_bottom = 0.9110001
+offset_top = 0.099975586
+offset_bottom = 0.049957275
 text = "FLOOR: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DungeonName" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32000002
+anchor_right = 0.68
+anchor_bottom = 0.089
+offset_left = -3.0517578e-05
+offset_bottom = -0.049999237
+text = "DOUGHY DUNGEON"
+fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RoomCount" type="RichTextLabel" parent="RoomsContainer/Rooms/Inspect/CameraUI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.089
+anchor_top = 0.9110001
 anchor_right = 0.25
-anchor_bottom = 0.178
-offset_top = 369.95
-offset_bottom = 369.9
+anchor_bottom = 1.0
+offset_top = 0.049957275
 text = "ROOM: 0"
 horizontal_alignment = 1
 vertical_alignment = 1

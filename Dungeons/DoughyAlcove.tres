@@ -14,6 +14,7 @@
 
 [resource]
 script = ExtResource("25_lbj72")
+name = "Doughy Alcove"
 enemies = Array[ExtResource("1_wca84")]([ExtResource("2_u82xd"), ExtResource("2_qkq8k"), ExtResource("3_cwbeo")])
 items = Array[ExtResource("13_7cw5h")]([ExtResource("14_ch2lk"), ExtResource("15_l23lu"), ExtResource("16_eu7re")])
 wall_texture = ExtResource("26_ss5it")
@@ -21,4 +22,5 @@ floor_texture = ExtResource("5_u82xd")
 room_count = 30
 difficulty_floor_increment = 3
 rooms_until_next_floor = 5
+maximum_difficulty = 1
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

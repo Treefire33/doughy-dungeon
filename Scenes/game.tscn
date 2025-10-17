@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cicj0kes4voa0"]
+[gd_scene load_steps=66 format=3 uid="uid://cicj0kes4voa0"]
 
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_nb51f"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_nnt18"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://6ekikoy1yyx5" path="res://Sprites/SafeRoom/Meow.tres" id="7_7t8sx"]
 [ext_resource type="Script" uid="uid://crth17d1hrbtj" path="res://Scripts/UI/player_ui.gd" id="8_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
+[ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="8_fkdbe"]
+[ext_resource type="AnimationLibrary" uid="uid://ddmjimkaqyeqx" path="res://Sprites/NPCs/TheVendor/Animations/Vendor.res" id="9_81klo"]
+[ext_resource type="Resource" uid="uid://i6xwk6el8jyh" path="res://Dungeons/DoughyAlcove.tres" id="10_22asu"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
 [ext_resource type="Texture2D" uid="uid://qjofli7jv6ub" path="res://Sprites/Player/player_tattered.png" id="11_mg4q0"]
 [ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
@@ -45,6 +48,121 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iivbl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85qyi"]
+
+[sub_resource type="Animation" id="Animation_hpqnc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gglfx"]
+_data = {
+&"RESET": SubResource("Animation_hpqnc")
+}
+
+[sub_resource type="Animation" id="Animation_fkdbe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(556, 199)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vendor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_tgy6u"]
+resource_name = "VendorIntro"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.26794344, 0.5, 1),
+"update": 0,
+"values": [Vector2(556, 199), Vector2(543, 200), Vector2(530, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vendor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vendor/Animator")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("Vendor/Idle2", "Vendor/Transform", "Vendor/Idle"),
+"times": PackedFloat32Array(0.9, 1.3, 2.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cwurv"]
+_data = {
+&"RESET": SubResource("Animation_fkdbe"),
+&"VendorIntro": SubResource("Animation_tgy6u")
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8tyi"]
 
@@ -91,28 +209,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mucmn"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwurv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j44qy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlfrn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2jg6l"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pkh07"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dnpbo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55gk5"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m64o6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpf1r"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3nkef"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgu05"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rhq6j"]
 
 [node name="Game" type="Node2D"]
 
@@ -302,10 +398,32 @@ z_index = 1
 position = Vector2(556, 199)
 texture = ExtResource("7_7t8sx")
 
+[node name="Vendor" type="Node2D" parent="SafeRoom"]
+z_index = 1
+position = Vector2(529, 197)
+
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Vendor"]
+texture = ExtResource("8_fkdbe")
+flip_h = true
+hframes = 7
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Animator" type="AnimationPlayer" parent="SafeRoom/Vendor"]
+root_node = NodePath("../Sprite")
+libraries = {
+&"": SubResource("AnimationLibrary_gglfx"),
+&"Vendor": ExtResource("9_81klo")
+}
+
 [node name="Chair2" type="Sprite2D" parent="SafeRoom"]
 position = Vector2(561, 196)
 texture = ExtResource("6_exi56")
 flip_h = true
+
+[node name="SafeRoomAnimations" type="AnimationPlayer" parent="SafeRoom"]
+libraries = {
+&"": SubResource("AnimationLibrary_cwurv")
+}
 
 [node name="GoldenBiscuit" type="Node2D" parent="."]
 visible = false
@@ -322,6 +440,7 @@ script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
 floor_rect = NodePath("../Background/Floor")
+current_dungeon = ExtResource("10_22asu")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
@@ -635,157 +754,6 @@ visible = false
 z_index = 5
 layout_mode = 1
 
-[node name="RoomDecision" type="Control" parent="Camera/PlayerUI"]
-visible = false
-z_index = 5
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Decision" type="ColorRect" parent="Camera/PlayerUI/RoomDecision"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.125
-anchor_top = 0.278
-anchor_right = 0.375
-anchor_bottom = 0.722
-offset_top = -0.100014
-offset_right = -3.05176e-05
-offset_bottom = 0.0999756
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Border" type="ColorRect" parent="Camera/PlayerUI/RoomDecision/Decision"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -6.0
-offset_right = 7.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Proceed" type="Button" parent="Camera/PlayerUI/RoomDecision/Decision"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.333
-offset_bottom = 0.0400009
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
-text = "PROCEED"
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Risk" type="Button" parent="Camera/PlayerUI/RoomDecision/Decision"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.333
-anchor_right = 1.0
-anchor_bottom = 0.667
-offset_top = 0.0400009
-offset_bottom = -0.0400085
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
-text = "RISK IT"
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="StayClear" type="Button" parent="Camera/PlayerUI/RoomDecision/Decision"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.667
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -0.0400085
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_j44qy")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_nlfrn")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2jg6l")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pkh07")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_dnpbo")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_55gk5")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_m64o6")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_vpf1r")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_3nkef")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_pgu05")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_rhq6j")
-text = "STAY CLEAR"
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="Description" type="ColorRect" parent="Camera/PlayerUI/RoomDecision"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.4
-anchor_top = 0.278
-anchor_right = 0.875
-anchor_bottom = 0.722
-offset_top = -0.100014
-offset_right = -6.10352e-05
-offset_bottom = 0.0999756
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Border" type="ColorRect" parent="Camera/PlayerUI/RoomDecision/Description"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.0
-offset_top = -6.0
-offset_right = 7.0
-offset_bottom = 7.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Description" type="RichTextLabel" parent="Camera/PlayerUI/RoomDecision/Description"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Proceed
-
-(Advance to next room.)"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI"]
 visible = false
 layout_mode = 0
@@ -814,4 +782,3 @@ expand_icon = true
 
 [connection signal="request_decision" from="RoomManager" to="Camera/PlayerUI" method="_on_room_manager_request_decision"]
 [connection signal="ui_done" from="Camera/PlayerUI" to="RoomManager" method="_on_player_ui_ui_done"]
-[connection signal="pressed" from="Camera/PlayerUI/RoomDecision/Decision/Proceed" to="Camera/PlayerUI" method="_on_attack_pressed"]

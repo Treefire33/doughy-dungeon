@@ -13,8 +13,8 @@ var coins: int = 15:
 		
 var items: Array[ItemData] = [];
 
-func get_items(has_function: String = ""):
-	var final = [];
+func get_items(has_function: String = "") -> Array[ItemData]:
+	var final: Array[ItemData] = [];
 	for item in self.items:
 		if (item.get(has_function) == null && has_function != ""): continue;
 		final.append(item);
