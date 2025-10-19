@@ -1,9 +1,9 @@
 extends Control
 class_name PlayerUI;
 
-signal ui_done;
+signal ui_done();
 signal player_decision(decision: Enum.Decision, enemy: Enemy);
-signal _enemy_selected;
+signal _enemy_selected();
 
 # Export vars
 @export var room_manager: RoomManager;
@@ -17,6 +17,7 @@ signal _enemy_selected;
 @onready var inventory_button: Button = $Stats/Inventory;
 @onready var fade_panel: ColorRect = $FadePanel;
 @onready var pause_game_button: Button = $PauseGame;
+@onready var dialogue_box: DialogueBox = $DialogueBox;
 
 # Safe Room Upgrading Panel
 @onready var upgrades_panel: ColorRect = $Upgrades;

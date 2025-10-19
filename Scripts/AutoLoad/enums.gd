@@ -20,3 +20,17 @@ enum PlayerAnimation {
 	Rest = 3,
 	Dead = 4
 }
+
+enum Character {
+	Midnight = 0,
+	Vendor = 1
+}
+
+enum DialogueEmotion {
+	Neutral,
+	Surprise,
+	Confusion,
+	Happy,
+	Tired,
+	Disappointed
+}

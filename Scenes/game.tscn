@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cicj0kes4voa0"]
+[gd_scene load_steps=68 format=3 uid="uid://cicj0kes4voa0"]
 
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_nb51f"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_nnt18"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
 [ext_resource type="Texture2D" uid="uid://cgsr7xkulg7wk" path="res://Sprites/Other/PauseButton.png" id="20_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
+[ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="26_81klo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgy6u"]
 
@@ -93,7 +94,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -106,6 +107,80 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vendor/Animator:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_81klo"]
+resource_name = "VendorExit"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 5, 1),
+"update": 0,
+"values": [Vector2(530, 240), Vector2(530, 240), Vector2(-120, 240)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Vendor:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "animation"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Vendor/Animator")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": PackedStringArray("Vendor/Idle", "Vendor/TransformBack"),
+"times": PackedFloat32Array(0, 0.43333334)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Vendor/Animator:speed_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_tgy6u"]
@@ -161,6 +236,7 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cwurv"]
 _data = {
 &"RESET": SubResource("Animation_fkdbe"),
+&"VendorExit": SubResource("Animation_81klo"),
 &"VendorIntro": SubResource("Animation_tgy6u")
 }
 
@@ -399,6 +475,7 @@ position = Vector2(556, 199)
 texture = ExtResource("7_7t8sx")
 
 [node name="Vendor" type="Node2D" parent="SafeRoom"]
+visible = false
 z_index = 1
 position = Vector2(529, 197)
 
@@ -435,7 +512,7 @@ position = Vector2(575, 241)
 [node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn"]
 texture = ExtResource("8_exi56")
 
-[node name="RoomManager" type="Node" parent="." node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "golden_biscuit")]
+[node name="RoomManager" type="Node" parent="." node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "safe_room_anims", "golden_biscuit")]
 script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
@@ -444,6 +521,7 @@ current_dungeon = ExtResource("10_22asu")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
+safe_room_anims = NodePath("../SafeRoom/SafeRoomAnimations")
 golden_biscuit = NodePath("../GoldenBiscuit")
 
 [node name="EnemySpawn3" type="Node2D" parent="RoomManager"]
@@ -763,6 +841,10 @@ offset_right = 500.0
 offset_bottom = 350.0
 theme = ExtResource("10_vm72l")
 text = "Proceed"
+
+[node name="DialogueBox" parent="Camera/PlayerUI" instance=ExtResource("26_81klo")]
+visible = false
+layout_mode = 1
 
 [node name="PauseGame" type="Button" parent="Camera/PlayerUI"]
 z_index = 5

@@ -58,7 +58,9 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 
 folder_colors={
 "res://Audio/": "yellow",
+"res://Dialogue/": "orange",
 "res://Dungeons/": "orange",
+"res://EditorTools/": "purple",
 "res://EnemyData/": "orange",
 "res://Items/": "orange",
 "res://Scenes/": "purple",

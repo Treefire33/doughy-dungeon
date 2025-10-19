@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=15 format=3 uid="uid://bwr8us8gh8r7u"]
+
+[ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="1_cmyia"]
+[ext_resource type="Script" uid="uid://c1wkyurcxei88" path="res://Scripts/Dialogue/dialogue_speech.gd" id="1_vyvsa"]
+
+[sub_resource type="Resource" id="Resource_cxjmr"]
+script = ExtResource("1_vyvsa")
+emotion = 1
+speech = "!!!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_tq7uu"]
+script = ExtResource("1_vyvsa")
+character = 1
+emotion = 3
+speech = "Hey!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_xdp8d"]
+script = ExtResource("1_vyvsa")
+character = 1
+emotion = 4
+speech = "Sorry for the scare, it's just you seem familiar..."
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_64q3m"]
+script = ExtResource("1_vyvsa")
+emotion = 2
+speech = "...?"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_2qlhb"]
+script = ExtResource("1_vyvsa")
+character = 1
+emotion = 1
+speech = "I got it!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_j8m5q"]
+script = ExtResource("1_vyvsa")
+character = 1
+speech = "You're that new kid from the Guild of Priorities!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_uj213"]
+script = ExtResource("1_vyvsa")
+character = 1
+emotion = 2
+speech = "Midnight, was it?"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_2po8i"]
+script = ExtResource("1_vyvsa")
+emotion = 3
+speech = "!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_mv37d"]
+script = ExtResource("1_vyvsa")
+character = 1
+emotion = 4
+speech = "I'll take that as a yes..."
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_glxmw"]
+script = ExtResource("1_vyvsa")
+character = 1
+speech = "Anyways, I've seen you quite a few times. You've even bought some of my stock!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_ivxvh"]
+script = ExtResource("1_vyvsa")
+character = 1
+emotion = 3
+speech = "You can call me The Vendor. "
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_vyvsa"]
+script = ExtResource("1_vyvsa")
+character = 1
+speech = "Feel free to leave at any time! I'll be back on the surface, come by sometime."
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[resource]
+script = ExtResource("1_cmyia")
+dialogue = Array[ExtResource("1_vyvsa")]([SubResource("Resource_cxjmr"), SubResource("Resource_tq7uu"), SubResource("Resource_xdp8d"), SubResource("Resource_64q3m"), SubResource("Resource_2qlhb"), SubResource("Resource_j8m5q"), SubResource("Resource_uj213"), SubResource("Resource_2po8i"), SubResource("Resource_mv37d"), SubResource("Resource_glxmw"), SubResource("Resource_ivxvh"), SubResource("Resource_vyvsa")])
+metadata/_custom_type_script = "uid://18dcduftlk12"

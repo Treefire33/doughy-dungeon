@@ -118,6 +118,7 @@ func purchase_item(item: ItemData, item_display):
 	item_display.hide();
 
 @export var safe_room: Node2D;
+@export var safe_room_anims: AnimationPlayer;
 @export var golden_biscuit: Node2D;
 func gen_safe_room():
 	camera.position = Vector2.ZERO;
@@ -125,7 +126,7 @@ func gen_safe_room():
 	player.health = player.max_health;
 	player.stamina = player.max_stamina;
 	player_ui.update_ui();
-	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35)
+	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
 	# Ahh, the days before all these midnight dungeons...
 	# if (room_count >= current_dungeon.room_count):
 	# 	golden_biscuit.visible = true;
@@ -156,7 +157,22 @@ func gen_safe_room():
 		item_button.tooltip_text = item.name + \
 		"\n" + item.flavour_text + \
 		"\n\n" + "Price: " + str(item.price) + "\n" + item.description;
-		item_button.pressed.connect(purchase_item.bind(item, item_display))
+		item_button.pressed.connect(purchase_item.bind(item, item_display));
+
+	if (current_dungeon.name == "Doughy Dungeon" && floor_count == 2):
+		safe_room_anims.play("VendorIntro");
+		await safe_room_anims.animation_finished;
+		player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.tres"));
+		player_ui.stats_display.hide();
+		player_ui.upgrades_panel.hide();
+		player_ui.safe_room_proceed.hide();
+		await player_ui.dialogue_box.dialogue_finished;
+		player_ui.stats_display.show();
+		player_ui.safe_room_proceed.show();
+		player_ui.upgrades_panel.show();
+		safe_room_anims.play("VendorExit");
+		await safe_room_anims.animation_finished;
+
 	await player_ui.room_select.room_decision;
 	player_ui.safe_room_proceed.hide();
 	player_ui.upgrades_panel.hide();
