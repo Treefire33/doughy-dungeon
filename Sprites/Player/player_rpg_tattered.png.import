@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bds4s3tekstpb"
-path="res://.godot/imported/items.png-f6c1d4164c5a7f31c163cb808eba4a25.ctex"
+uid="uid://61hbrxxdu0t4"
+path="res://.godot/imported/player_rpg_tattered.png-b8d02b8da20011c7d3693128e9caf19d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Items/items.png"
-dest_files=["res://.godot/imported/items.png-f6c1d4164c5a7f31c163cb808eba4a25.ctex"]
+source_file="res://Sprites/Player/player_rpg_tattered.png"
+dest_files=["res://.godot/imported/player_rpg_tattered.png-b8d02b8da20011c7d3693128e9caf19d.ctex"]
 
 [params]
 

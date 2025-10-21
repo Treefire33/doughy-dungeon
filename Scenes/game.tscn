@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
 [ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="8_fkdbe"]
 [ext_resource type="AnimationLibrary" uid="uid://ddmjimkaqyeqx" path="res://Sprites/NPCs/TheVendor/Animations/Vendor.res" id="9_81klo"]
-[ext_resource type="Resource" uid="uid://i6xwk6el8jyh" path="res://Dungeons/DoughyAlcove.tres" id="10_22asu"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
 [ext_resource type="Texture2D" uid="uid://qjofli7jv6ub" path="res://Sprites/Player/player_tattered.png" id="11_mg4q0"]
+[ext_resource type="Resource" uid="uid://bwtevdgyame2h" path="res://Dungeons/OceanicDungeon.tres" id="12_81klo"]
 [ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="12_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b0pvhoesh3677" path="res://Sprites/Player/shield.aseprite" id="12_mg4q0"]
@@ -517,7 +517,7 @@ script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
 floor_rect = NodePath("../Background/Floor")
-current_dungeon = ExtResource("10_22asu")
+current_dungeon = ExtResource("12_81klo")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")

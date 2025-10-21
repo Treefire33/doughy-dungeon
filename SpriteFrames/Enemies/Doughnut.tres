@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c88mlx2mglrin"]
 
-[ext_resource type="Texture2D" uid="uid://dcxf7d0prh534" path="res://Sprites/Enemies/Doughnut.tres" id="1_8hsky"]
+[ext_resource type="Texture2D" uid="uid://dcxf7d0prh534" path="res://Sprites/Enemies/DoughyDungeon/Doughnut.tres" id="1_8hsky"]
 
 [resource]
 animations = [{

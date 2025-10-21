@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://ca6n117iv14um"]
 
-[ext_resource type="Texture2D" uid="uid://x1ymua356hfq" path="res://Sprites/Enemies/BiscuitMimic.tres" id="1_ux5hc"]
+[ext_resource type="Texture2D" uid="uid://x1ymua356hfq" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic.tres" id="1_ux5hc"]
 
 [resource]
 animations = [{

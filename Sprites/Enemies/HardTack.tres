@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://d3lf40wr6tf8x"]
-
-[ext_resource type="Texture2D" uid="uid://cma13p257iwks" path="res://Sprites/Enemies.png" id="1_nsgh5"]
-
-[resource]
-atlas = ExtResource("1_nsgh5")
-region = Rect2(0, 64, 64, 64)

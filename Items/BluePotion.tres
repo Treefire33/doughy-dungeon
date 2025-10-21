@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_crjcn")
-name = "BluePotion"
+name = "Blue Potion"
 flavour_text = "Inspiring!"
 description = "Increases Shield Spell duration by 1 turn."
 price = 75

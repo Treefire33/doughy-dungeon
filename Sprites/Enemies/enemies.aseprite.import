@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.noop"
-type="PackedDataContainer"
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
 uid="uid://dda188wx3a0rm"
 path="res://.godot/imported/enemies.aseprite-f3de5927d56dcb53658736f6c63fc019.res"
 
@@ -12,3 +12,9 @@ dest_files=["res://.godot/imported/enemies.aseprite-f3de5927d56dcb53658736f6c63f
 
 [params]
 
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=true
+first_frame_only=false
+sheet/sheet_type="columns"
+sheet/sheet_columns=3
+sheet/scale=1

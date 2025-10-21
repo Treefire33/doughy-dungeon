@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://drbpdymnmmljf"]
+
+[ext_resource type="Texture2D" uid="uid://c4rsq2x6hbkyj" path="res://Sprites/Enemies/OceanicDungeon/StoneFish.tres" id="1_gbt67"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gbt67")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]

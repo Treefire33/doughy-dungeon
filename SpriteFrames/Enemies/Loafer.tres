@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://bysfi5ip35efx"]
 
-[ext_resource type="Texture2D" uid="uid://b7xp3e0sn6ini" path="res://Sprites/Enemies/Loafer.tres" id="1_ogk5e"]
+[ext_resource type="Texture2D" uid="uid://b7xp3e0sn6ini" path="res://Sprites/Enemies/DoughyDungeon/Loafer.tres" id="1_ogk5e"]
 
 [resource]
 animations = [{

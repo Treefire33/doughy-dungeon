@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c6lbon3sowf45"]
 
-[ext_resource type="Texture2D" uid="uid://d3lf40wr6tf8x" path="res://Sprites/Enemies/HardTack.tres" id="1_181xy"]
+[ext_resource type="Texture2D" uid="uid://d3lf40wr6tf8x" path="res://Sprites/Enemies/DoughyDungeon/HardTack.tres" id="1_181xy"]
 
 [resource]
 animations = [{

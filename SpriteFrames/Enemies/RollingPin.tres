@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dpbh5th3dt7fm"]
 
-[ext_resource type="Texture2D" uid="uid://d0vscg4dbjhwt" path="res://Sprites/Enemies/RollingPin.tres" id="1_mhtpd"]
+[ext_resource type="Texture2D" uid="uid://d0vscg4dbjhwt" path="res://Sprites/Enemies/DoughyDungeon/RollingPin.tres" id="1_mhtpd"]
 
 [resource]
 animations = [{

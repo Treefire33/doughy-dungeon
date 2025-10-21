@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.noop"
-type="PackedDataContainer"
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
 uid="uid://b0pybdckufx4k"
 path="res://.godot/imported/DungeonTiles.aseprite-bcf60318a79525b82149536cc1590746.res"
 
@@ -12,3 +12,9 @@ dest_files=["res://.godot/imported/DungeonTiles.aseprite-bcf60318a79525b82149536
 
 [params]
 
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=false
+sheet/sheet_type="columns"
+sheet/sheet_columns=4
+sheet/scale=1

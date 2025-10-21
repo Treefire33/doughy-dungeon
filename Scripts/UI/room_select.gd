@@ -15,23 +15,19 @@ var selection_accept: Button;
 @export var room_count: RichTextLabel;
 @export var floor_count: RichTextLabel;
 @export var dungeon_name_label: RichTextLabel;
-enum Direction {
-	Left = 0, Up = 1,
-	Down = 2, Right = 3
-}
-var directions: Array[Direction] = [Direction.Left, Direction.Right, Direction.Down, Direction.Up];
+var directions: Array[Enum.Direction] = [Enum.Direction.Left, Enum.Direction.Right, Enum.Direction.Down, Enum.Direction.Up];
 var last_buttons: Array[RoomSelectButton] = [];
 
-func invert_direction(current_direction: Direction):
+func invert_direction(current_direction: Enum.Direction):
 	match (current_direction):
-		Direction.Left:
-			return Direction.Right;
-		Direction.Up:
-			return Direction.Down;
-		Direction.Down:
-			return Direction.Up;
-		Direction.Right:
-			return Direction.Left;
+		Enum.Direction.Left:
+			return Enum.Direction.Right;
+		Enum.Direction.Up:
+			return Enum.Direction.Down;
+		Enum.Direction.Down:
+			return Enum.Direction.Up;
+		Enum.Direction.Right:
+			return Enum.Direction.Left;
 
 var selected_room: RoomSelectButton = null;
 var current_room: RoomSelectButton = null;
@@ -75,16 +71,16 @@ func generate_rooms(room: RoomSelectButton):
 		var room_size = randi_range(1, size_bound) * 64;
 		new_room_button.position = room.position;
 		match current_direction:
-			Direction.Left:
+			Enum.Direction.Left:
 				new_room_button.size.x = room_size;
 				new_room_button.position.x -= new_room_button.size.x;
-			Direction.Right:
+			Enum.Direction.Right:
 				new_room_button.size.x = room_size;
 				new_room_button.position.x += room.size.x;
-			Direction.Up:
+			Enum.Direction.Up:
 				new_room_button.size.y = room_size;
 				new_room_button.position.y -= new_room_button.size.y;
-			Direction.Down:
+			Enum.Direction.Down:
 				new_room_button.size.y = room_size;
 				new_room_button.position.y += room.size.y;
 		new_room_button.previous_direction = invert_direction(current_direction);
@@ -139,7 +135,7 @@ func _input(event: InputEvent) -> void:
 	var direction: int = -1;
 	for action in directional_actions:
 		if (Input.is_action_just_pressed(action)):
-			direction = invert_direction(Direction.get(action));
+			direction = invert_direction(Enum.Direction.get(action));
 	
 	if (direction == -1):
 		return;

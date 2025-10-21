@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_y84kd")
-name = "RedPotion"
+name = "Red Potion"
 flavour_text = "Healthy!"
 description = "Increases max health by 2."
 price = 50

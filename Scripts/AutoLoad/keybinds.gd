@@ -41,6 +41,13 @@ func get_action_description(action: String) -> String:
 func get_action_bind(action: String) -> InputEventKey:
 	return InputMap.action_get_events(action)[0];
 
+func format_action_string(action_string: String):
+	var final_string = action_string;
+	for action in bindable_actions:
+		var act_string = "[[%s]]" % action;
+		final_string = final_string.replacen(act_string, get_action_text(action));
+	return final_string;
+
 var keybinds_menu: PackedScene = preload("res://Scenes/Menus/KeybindsMenu/keybinds_menu.tscn");
 func load_keybinds_menu(node: Node):
 	var new_keybinds = keybinds_menu.instantiate();

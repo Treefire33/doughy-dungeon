@@ -143,9 +143,6 @@ func gen_safe_room():
 	# 	)
 	# 	return;
 	safe_room.get_parent().visible = true;
-	player_ui.safe_room_proceed.show();
-	player_ui.upgrades_panel.show();
-	player_ui.in_safe_room = true;
 	for i in range(1, 4):
 		var item_display: Node2D = safe_room.get_node("Item"+str(i))
 		item_display.show();
@@ -159,7 +156,7 @@ func gen_safe_room():
 		"\n\n" + "Price: " + str(item.price) + "\n" + item.description;
 		item_button.pressed.connect(purchase_item.bind(item, item_display));
 
-	if (current_dungeon.name == "Doughy Dungeon" && floor_count == 2):
+	if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2):
 		safe_room_anims.play("VendorIntro");
 		await safe_room_anims.animation_finished;
 		player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.tres"));
@@ -168,11 +165,12 @@ func gen_safe_room():
 		player_ui.safe_room_proceed.hide();
 		await player_ui.dialogue_box.dialogue_finished;
 		player_ui.stats_display.show();
-		player_ui.safe_room_proceed.show();
-		player_ui.upgrades_panel.show();
 		safe_room_anims.play("VendorExit");
 		await safe_room_anims.animation_finished;
 
+	player_ui.safe_room_proceed.show();
+	player_ui.upgrades_panel.show();
+	player_ui.in_safe_room = true;
 	await player_ui.room_select.room_decision;
 	player_ui.safe_room_proceed.hide();
 	player_ui.upgrades_panel.hide();
@@ -335,6 +333,7 @@ func _ready() -> void:
 	await player_ui.ui_done;
 	MidnightDebug.room_manager = self;
 	MidnightDebug.player = self.player;
+	current_dungeon = GlobalPlayer.current_dungeon;
 	self.wall_rect.texture = self.current_dungeon.wall_texture;
 	self.floor_rect.texture = self.current_dungeon.floor_texture;
 	gen_room(Enum.RoomDecision.Proceed);

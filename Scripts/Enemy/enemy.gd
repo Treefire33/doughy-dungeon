@@ -10,19 +10,6 @@ var coin_drop_range = [0, 1];
 var ai0_type = "Default";
 var ai5_type = "Default";
 
-static var enemies: Dictionary[String, EnemyData] = {
-	"BiscuitMimic": preload("res://EnemyData/BiscuitMimic.tres"),
-	"BiscuitMimic2": preload("res://EnemyData/BiscuitMimic2.tres"),
-	"RollingPin": preload("res://EnemyData/RollingPin.tres"),
-	"HardTack": preload("res://EnemyData/HardTack.tres"),
-	"PretzelSpider": preload("res://EnemyData/PretzelSpider.tres"),
-	"Loafer": preload("res://EnemyData/Loafer.tres"),
-	"Dough": preload("res://EnemyData/Dough.tres"),
-	"Doughnut": preload("res://EnemyData/Doughnut.tres"),
-	"Cake": preload("res://EnemyData/Cake.tres"),
-	"Oven": preload("res://EnemyData/Oven.tres"),
-};
-
 func load_enemy(enemy_data: EnemyData):
 	load_entity(
 		enemy_data.base_health,
@@ -65,7 +52,7 @@ var enemy_ais = {
 			return Enum.Decision.Attack;
 		if (self.defending_duration <= 0):
 			return Enum.Decision.Defend;
-		pass;,
+		return Enum.Decision.Rest,
 	"Defend": func(_player): # Only defend.
 		if (self.defending_duration > 1 or self.stamina == 0):
 			return Enum.Decision.Rest;

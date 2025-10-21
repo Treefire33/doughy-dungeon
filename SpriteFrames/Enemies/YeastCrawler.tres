@@ -1,6 +1,6 @@
 [gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://s5pukihrw7nx"]
 
-[ext_resource type="Texture2D" uid="uid://c5hh4810lwvlx" path="res://Sprites/Enemies/YeastCrawler.tres" id="1_8xsc3"]
+[ext_resource type="Texture2D" uid="uid://c5hh4810lwvlx" path="res://Sprites/Enemies/DoughyDungeon/YeastCrawler.tres" id="1_8xsc3"]
 
 [resource]
 animations = [{

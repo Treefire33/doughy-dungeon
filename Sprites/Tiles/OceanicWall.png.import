@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t54lnhvfnlet"
-path="res://.godot/imported/enemies.png-455c37372b758084d3f3976aceaf5b45.ctex"
+uid="uid://crvvy31n0fhdo"
+path="res://.godot/imported/OceanicWall.png-817aa20d3efa27b8516230f52119b5a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Enemies/enemies.png"
-dest_files=["res://.godot/imported/enemies.png-455c37372b758084d3f3976aceaf5b45.ctex"]
+source_file="res://Sprites/Tiles/OceanicWall.png"
+dest_files=["res://.godot/imported/OceanicWall.png-817aa20d3efa27b8516230f52119b5a8.ctex"]
 
 [params]
 

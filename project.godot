@@ -36,6 +36,7 @@ Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
 debug_console="*res://addons/copper_dc/debug_console.tscn"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
 
 [display]
 
