@@ -27,6 +27,7 @@ signal _enemy_selected();
 
 # Enemy Selection
 @onready var select_enemy_panel: Control = $Enemies;
+@onready var select_enemy_label: Control = $Enemies/Label;
 @onready var enemy_buttons: Array[Button] = [
 	$Enemies/Enemy1,
 	$Enemies/Enemy2,
@@ -88,6 +89,7 @@ func update_enemy_buttons():
 		"\nHealth: " + str(enemy.health) + "/" + str(enemy.max_health) + \
 		"\nStamina: " + str(enemy.stamina) + "/" + str(enemy.max_stamina) + \
 		"\nDefending Turns Remaining: " + str(enemy.defending_duration) + \
+		"\nDefense Durability: " + str(enemy.defense_durability) + \
 		"\nAttack: " + str(enemy.attack)
 	
 func select_enemy(enemy_index: int):

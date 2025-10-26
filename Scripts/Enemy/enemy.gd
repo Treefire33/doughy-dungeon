@@ -9,21 +9,43 @@ var flavour_text: String = "placeholder";
 var coin_drop_range = [0, 1];
 var ai0_type = "Default";
 var ai5_type = "Default";
+var selection_ai_type = "Player";
 
 func load_enemy(enemy_data: EnemyData):
 	load_entity(
 		enemy_data.base_health,
 		enemy_data.base_stamina,
 		enemy_data.base_attack,
-		self.get_node("Sprite"),
-		enemy_data.sprite
+		$Sprite,
+		$Animator
 	);
+	self.sprite.texture = enemy_data.sprite;
+	self.animator.play("Enemy/Idle");
 	self.flavour_text = enemy_data.flavour_text;
 	self.coin_drop_range = enemy_data.coins_range;
 	self.ai0_type = enemy_data.base_ai;
 	self.ai5_type = enemy_data.base_ai_five;
+	self.selection_ai_type = enemy_data.target_selection_ai;
 	self.max_defending_duration = enemy_data.base_defense_duration;
+	self.max_defense_durability = enemy_data.base_defense_durability;
 	
+var target_selection_ais = {
+	"Player": func(player: Player, _other_enemies: Array[Enemy]):
+		return player;,
+	"Random": func(player: Player, other_enemies: Array[Enemy]):
+		var target = null;
+		while (target == self):
+			target = ([player] + other_enemies).pick_random();
+		return target,
+	"Target": func(player: Player, other_enemies: Array[Enemy]): # Exclusive to Anemone, who targets Jellyfish
+		for enemy in other_enemies:
+			if (enemy == self):
+				continue;
+			if (enemy.name == "Jellyfish"):
+				return enemy;
+		return player;
+};
+
 var enemy_ais = {
 	"Default": (func(_player): # Defend when low, chance attack otherwise.
 		if (self.stamina == 0):
@@ -83,13 +105,16 @@ var enemy_ais = {
 			return Enum.Decision.Attack;
 			
 		return Enum.Decision.Defend;,
-}
+};
 	
 func get_decision(player: Player, room_difficulty: int) -> Enum.Decision:
 	if room_difficulty < 5:
 		return enemy_ais[ai0_type].call(player);
 	else:
 		return enemy_ais[ai5_type].call(player);
+
+func get_target(player: Player, other_enemies: Array[Enemy]) -> Entity:
+	return target_selection_ais[selection_ai_type].call(player, other_enemies);
 
 func get_coin_drops() -> int:
 	return randi_range(self.coin_drop_range[0], self.coin_drop_range[1])

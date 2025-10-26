@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ct2sxcjjycjhx"]
+
+[ext_resource type="Texture2D" uid="uid://dda188wx3a0rm" path="res://Sprites/Enemies/enemies.aseprite" id="1_cp4l3"]
+
+[resource]
+atlas = ExtResource("1_cp4l3")
+region = Rect2(64, 320, 64, 64)

@@ -66,7 +66,6 @@ folder_colors={
 "res://Items/": "orange",
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
-"res://SpriteFrames/": "teal",
 "res://Sprites/": "green",
 "res://Themes/": "gray"
 }

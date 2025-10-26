@@ -33,16 +33,8 @@ var defense_durability: int = 1:
 			defense_durability = max_defense_durability;
 		durability_changed.emit();
 
-var _is_animated_sprite = false;
-var sprite: Variant:
-	get: 
-		if (_is_animated_sprite):
-			return sprite as AnimatedSprite2D;
-		else:
-			return sprite as Sprite2D;
-	
-	set (value):
-		sprite = value;
+var sprite: Sprite2D;
+var animator: AnimationPlayer;
 
 func hurt():
 	self.sprite.modulate = Color(1, 1, 1, 0);
@@ -53,23 +45,17 @@ func hurt():
 		passes += 1;
 
 func load_entity(
-	max_health: int, 
-	max_stamina: int, 
-	attack: int, 
-	sprite: Variant,
-	sprite_frames: SpriteFrames = null
+	_max_health: int, 
+	_max_stamina: int, 
+	_attack: int, 
+	_sprite: Sprite2D,
+	_animator: AnimationPlayer
 ):
-	self.max_health = max_health;
+	self.max_health = _max_health;
 	self.health = self.max_health;
-	self.max_stamina = max_stamina;
+	self.max_stamina = _max_stamina;
 	self.stamina = self.max_stamina;
-	self.attack = attack;
+	self.attack = _attack;
 	
-	self.sprite = sprite;
-	if (sprite is AnimatedSprite2D):
-		_is_animated_sprite = true;
-	else:
-		return;
-	
-	self.sprite.sprite_frames = sprite_frames;
-	self.sprite.play("Idle");
+	self.sprite = _sprite;
+	self.animator = _animator;

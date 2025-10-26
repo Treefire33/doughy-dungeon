@@ -1,17 +1,15 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://skuymh1v0uv0"]
 
-[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_5ub0p"]
-[ext_resource type="SpriteFrames" uid="uid://c1by1seisux34" path="res://SpriteFrames/Enemies/PretzelSpider.tres" id="2_5ub0p"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_oahtm"]
+[ext_resource type="Texture2D" uid="uid://bsogx1j4ccqj8" path="res://Sprites/Enemies/DoughyDungeon/PretzelSpider.tres" id="2_ws6vb"]
 
 [resource]
-script = ExtResource("1_5ub0p")
+script = ExtResource("1_oahtm")
 name = "Pretzel Spider"
 flavour_text = "Looks delicious... yet scary"
-base_health = 10
 base_stamina = 20
-base_attack = 1
 base_defense_duration = 2
-sprite = ExtResource("2_5ub0p")
+sprite = ExtResource("2_ws6vb")
 base_ai = "Defensive"
 base_ai_five = "Aggressive"
 difficulty_range = Array[int]([5, 8])

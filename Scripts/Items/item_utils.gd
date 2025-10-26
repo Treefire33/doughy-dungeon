@@ -7,13 +7,7 @@ extends Node
 var load_path: String:
 	get: return "res://Sprites/Items/%s.tres";
 
-var all_items: Array[String] = [
-	"SharpeningStone", "BluePotion", "RedPotion",
-	"Pillow", "GoldAmulet", "LooseFang",
-	"PeaceCharm", "Whisk", "OvenMitt",
-	"Coffee", "DurabilityScroll",
-	"AbyssFragment", "AbyssHeart"
-];
+var all_items = DirAccess.get_files_at("res://Items");
 
 func get_random_item(dungeon_data: DungeonData) -> ItemData:
 	var rng = RandomNumberGenerator.new();

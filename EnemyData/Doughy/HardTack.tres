@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://4t7tklgqjcs8"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_jfyxa"]
+[ext_resource type="Texture2D" uid="uid://d3lf40wr6tf8x" path="res://Sprites/Enemies/DoughyDungeon/HardTack.tres" id="2_nd1vm"]
+
+[resource]
+script = ExtResource("1_jfyxa")
+name = "Hard Tack"
+flavour_text = "..."
+base_health = 30
+sprite = ExtResource("2_nd1vm")
+base_ai = "Defensive"
+base_ai_five = "Defend"
+difficulty_range = Array[int]([4, 10])
+coins_range = Array[int]([15, 23])

@@ -21,6 +21,13 @@ enum Direction {
 @export var run_modifier: float = 1.5;
 @export var tile_size: Vector2 = Vector2(32, 32);
 
+@onready var dungeon_inspect: Panel = $Camera/UI/Inspect;
+@onready var dungeon_name: Label = $Camera/UI/Inspect/DungeonInspect/Name;
+@onready var dungeon_description: Label = $Camera/UI/Inspect/DungeonInspect/Description;
+@onready var static_prompt_dungeon: Label = $Camera/UI/Inspect/DungeonInspect/StaticPrompt;
+@onready var dialogue_box: DialogueBox = $Camera/UI/DialogueBox;
+
+var disable_movement: bool = false;
 var move_direction: Vector2 = Vector2.ZERO;
 var last_movement_direction: Vector2;
 var current_tween: Tween;
@@ -55,6 +62,7 @@ func animate_player(direction: Vector2):
 			
 func _ready() -> void:
 	animator.play("PlayerRPG/ForwardIdle");
+	static_prompt_dungeon.text = Keybinds.format_action_string(static_prompt_dungeon.text);
 
 func show_interaction_prompt(object: Object):
 	if (object is TileMapLayer): return;
@@ -63,10 +71,11 @@ func show_interaction_prompt(object: Object):
 	current_interactable = object;
 	interaction_prompt.show();
 	interaction_prompt.position = object.position - Vector2(interaction_prompt.size.x / 2, interaction_prompt.size.y + 32);
-	interaction_prompt.prompt(current_interactable);
 
 var raycast_changed: bool = false;
 func _physics_process(delta: float) -> void:
+	if (disable_movement):
+		return;
 	move_direction = Vector2.ZERO;
 
 	if (Input.is_action_pressed("Up")):
@@ -110,9 +119,30 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if (current_interactable == null): return;
 	if (Input.is_action_just_pressed("Primary")):
-		if (current_interactable.opens_dungeon):
+		if (dialogue_box.visible):
+			return;
+		if (dungeon_inspect.visible):
 			GlobalPlayer.current_dungeon = current_interactable.dungeon;
 			var tween = get_tree().create_tween();
 			tween.tween_property(get_parent(), "modulate", Color(0, 0, 0, 1), 0.8);
 			await tween.finished;
 			get_tree().change_scene_to_file("res://Scenes/game.tscn");
+			return;
+		if (current_interactable.opens_dungeon):
+			dungeon_inspect.show();
+			disable_movement = true;
+			dungeon_name.text = current_interactable.dungeon.name;
+			dungeon_description.text = current_interactable.dungeon.description;
+			return;
+		if (current_interactable.dialogue != null):
+			disable_movement = true;
+			dialogue_box.start_dialogue.emit(current_interactable.dialogue);
+			await dialogue_box.dialogue_finished;
+			disable_movement = false;
+			current_interactable = null;
+			return;
+	if (Input.is_action_just_pressed("Secondary")):
+		if (dungeon_inspect.visible):
+			dungeon_inspect.hide();
+			disable_movement = false;
+

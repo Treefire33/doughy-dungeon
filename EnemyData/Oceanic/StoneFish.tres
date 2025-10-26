@@ -1,17 +1,16 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://do8vv37hxwv51"]
 
-[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_d4lyg"]
-[ext_resource type="SpriteFrames" uid="uid://drbpdymnmmljf" path="res://SpriteFrames/Enemies/StoneFish.tres" id="2_d4lyg"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_8jm8v"]
+[ext_resource type="Texture2D" uid="uid://c4rsq2x6hbkyj" path="res://Sprites/Enemies/OceanicDungeon/StoneFish.tres" id="2_47471"]
 
 [resource]
-script = ExtResource("1_d4lyg")
+script = ExtResource("1_8jm8v")
 name = "Stone Fish"
 flavour_text = "A beast made of fish and stone."
-base_health = 12
+base_health = 6
 base_stamina = 4
-base_defense_duration = 2
 base_defense_durability = 10
-sprite = ExtResource("2_d4lyg")
+sprite = ExtResource("2_47471")
 base_ai = "Defensive"
 base_ai_five = "Defensive"
 difficulty_range = Array[int]([1, 4])

@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://5qev5bx8khod"]
 
-[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_gashg"]
-[ext_resource type="SpriteFrames" uid="uid://b4kbx820mu1lu" path="res://SpriteFrames/Enemies/Cake.tres" id="2_gashg"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_3jr28"]
+[ext_resource type="Texture2D" uid="uid://bodp3gavcbi0k" path="res://Sprites/Enemies/DoughyDungeon/Cake.tres" id="2_e6wv1"]
 
 [resource]
-script = ExtResource("1_gashg")
+script = ExtResource("1_3jr28")
 name = "Cake"
 flavour_text = "So many eyes... it's unnerving."
 base_health = 60
 base_stamina = 10
 base_attack = 5
 base_defense_duration = 4
-sprite = ExtResource("2_gashg")
+sprite = ExtResource("2_e6wv1")
 base_ai = "Smart"
 base_ai_five = "Smart"
 difficulty_range = Array[int]([9, 10])

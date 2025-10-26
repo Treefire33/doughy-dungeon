@@ -127,21 +127,19 @@ func gen_safe_room():
 	player.stamina = player.max_stamina;
 	player_ui.update_ui();
 	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
-	# Ahh, the days before all these midnight dungeons...
-	# if (room_count >= current_dungeon.room_count):
-	# 	golden_biscuit.visible = true;
-	# 	Settings.room_count = 100;
-	# 	var final_scene = get_tree().create_tween()
-	# 	final_scene.tween_property(
-	# 		player_ui.fade_panel, 
-	# 		"modulate", 
-	# 		Color(0, 0, 0, 1), 
-	# 		0.35
-	# 	).set_delay(2)
-	# 	final_scene.tween_callback(func():
-	# 		get_tree().change_scene_to_file("res://Scenes/game_win.tscn");
-	# 	)
-	# 	return;
+	if (room_count >= current_dungeon.room_count):
+		GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
+		var final_scene = get_tree().create_tween();
+		final_scene.tween_property(
+			player_ui.fade_panel, 
+			"modulate", 
+			Color(0, 0, 0, 1), 
+			0.35
+		).set_delay(2);
+		final_scene.tween_callback(func():
+			get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn");
+		);
+		return;
 	safe_room.get_parent().visible = true;
 	for i in range(1, 4):
 		var item_display: Node2D = safe_room.get_node("Item"+str(i))
@@ -156,7 +154,7 @@ func gen_safe_room():
 		"\n\n" + "Price: " + str(item.price) + "\n" + item.description;
 		item_button.pressed.connect(purchase_item.bind(item, item_display));
 
-	if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2):
+	if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2 && !GlobalPlayer.met_vendor):
 		safe_room_anims.play("VendorIntro");
 		await safe_room_anims.animation_finished;
 		player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.tres"));
@@ -167,6 +165,7 @@ func gen_safe_room():
 		player_ui.stats_display.show();
 		safe_room_anims.play("VendorExit");
 		await safe_room_anims.animation_finished;
+		GlobalPlayer.met_vendor = true;
 
 	player_ui.safe_room_proceed.show();
 	player_ui.upgrades_panel.show();
@@ -265,9 +264,10 @@ func room_turn():
 					enemy.notif.frame = 5;
 					enemy.defending_duration -= 1;
 					var decision = enemy.get_decision(player, room_difficulty);
+					var target = enemy.get_target(player, alive_enemies);
 					turn_functions[decision].call(
 						enemy, 
-						player
+						target
 					);
 					ToastParty.show({
 						"text": enemy.name + " " + decision_text(decision) + "!",

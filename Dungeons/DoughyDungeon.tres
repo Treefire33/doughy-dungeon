@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_1mqci"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="2_1q3vg"]
-[ext_resource type="Resource" uid="uid://nobxmi2c7hoc" path="res://EnemyData/BiscuitMimic.tres" id="2_nn376"]
-[ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/BiscuitMimic2.tres" id="3_ohi1i"]
-[ext_resource type="Resource" uid="uid://5qev5bx8khod" path="res://EnemyData/Cake.tres" id="4_aofr0"]
-[ext_resource type="Resource" uid="uid://bl41so1um52lp" path="res://EnemyData/Dough.tres" id="5_b6eda"]
-[ext_resource type="Resource" uid="uid://cuo1o6sehbglr" path="res://EnemyData/Doughnut.tres" id="6_jg7e3"]
-[ext_resource type="Resource" uid="uid://4t7tklgqjcs8" path="res://EnemyData/HardTack.tres" id="7_7kxbr"]
-[ext_resource type="Resource" uid="uid://baw4p1ofsps4f" path="res://EnemyData/Loafer.tres" id="8_4qdos"]
-[ext_resource type="Resource" uid="uid://8eevr4pkr5t8" path="res://EnemyData/Oven.tres" id="9_w7bhb"]
-[ext_resource type="Resource" uid="uid://skuymh1v0uv0" path="res://EnemyData/PretzelSpider.tres" id="10_4lamv"]
-[ext_resource type="Resource" uid="uid://uqhd6obfjniv" path="res://EnemyData/RollingPin.tres" id="11_d45b2"]
+[ext_resource type="Resource" uid="uid://nobxmi2c7hoc" path="res://EnemyData/Doughy/BiscuitMimic.tres" id="2_164du"]
+[ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/Doughy/BiscuitMimic2.tres" id="3_g2dxu"]
+[ext_resource type="Resource" uid="uid://5qev5bx8khod" path="res://EnemyData/Doughy/Cake.tres" id="4_4sgh7"]
+[ext_resource type="Resource" uid="uid://bl41so1um52lp" path="res://EnemyData/Doughy/Dough.tres" id="5_cpyly"]
+[ext_resource type="Resource" uid="uid://cuo1o6sehbglr" path="res://EnemyData/Doughy/Doughnut.tres" id="6_6g7lf"]
+[ext_resource type="Resource" uid="uid://4t7tklgqjcs8" path="res://EnemyData/Doughy/HardTack.tres" id="7_6gdni"]
+[ext_resource type="Resource" uid="uid://baw4p1ofsps4f" path="res://EnemyData/Doughy/Loafer.tres" id="8_bdgk8"]
+[ext_resource type="Resource" uid="uid://8eevr4pkr5t8" path="res://EnemyData/Doughy/Oven.tres" id="9_7lnde"]
+[ext_resource type="Resource" uid="uid://skuymh1v0uv0" path="res://EnemyData/Doughy/PretzelSpider.tres" id="10_6hjup"]
+[ext_resource type="Resource" uid="uid://uqhd6obfjniv" path="res://EnemyData/Doughy/RollingPin.tres" id="11_8icql"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="12_ui381"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_4qdos"]
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="14_rfs6y"]
@@ -30,9 +30,12 @@
 
 [resource]
 script = ExtResource("2_1q3vg")
+id = 2
 name = "Doughy Dungeon"
-enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_nn376"), ExtResource("3_ohi1i"), ExtResource("4_aofr0"), ExtResource("5_b6eda"), ExtResource("6_jg7e3"), ExtResource("7_7kxbr"), ExtResource("8_4qdos"), ExtResource("9_w7bhb"), ExtResource("10_4lamv"), ExtResource("11_d45b2")])
+enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_164du"), ExtResource("3_g2dxu"), ExtResource("4_4sgh7"), ExtResource("5_cpyly"), ExtResource("6_6g7lf"), ExtResource("7_6gdni"), ExtResource("8_bdgk8"), ExtResource("9_7lnde"), ExtResource("10_6hjup"), ExtResource("11_8icql")])
 items = Array[ExtResource("13_4qdos")]([ExtResource("14_w7bhb"), ExtResource("15_4lamv"), ExtResource("16_d45b2"), ExtResource("17_ui381"), ExtResource("18_rfs6y"), ExtResource("19_aby3q"), ExtResource("20_164du"), ExtResource("21_g2dxu"), ExtResource("22_4sgh7"), ExtResource("23_cpyly"), ExtResource("24_6g7lf"), ExtResource("25_164du")])
 wall_texture = ExtResource("14_rfs6y")
 floor_texture = ExtResource("12_ui381")
+description = "100 Rooms
+Difficulty 1-10"
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

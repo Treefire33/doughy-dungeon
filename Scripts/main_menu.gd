@@ -7,7 +7,7 @@ func _ready():
 	start_button.grab_focus();
 	start_button.pressed.connect(func():
 		Audio.play_audio(get_node("/root/"), Audio.purchase_sfx, 0.07);
-		get_tree().change_scene_to_file("res://Scenes/game.tscn")
+		get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn")
 	);
 	settings_button.pressed.connect(func():
 		Settings.load_settings_menu(self);

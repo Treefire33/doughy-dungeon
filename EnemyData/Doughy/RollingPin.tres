@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://uqhd6obfjniv"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_o0bfs"]
+[ext_resource type="Texture2D" uid="uid://d0vscg4dbjhwt" path="res://Sprites/Enemies/DoughyDungeon/RollingPin.tres" id="2_828kt"]
+
+[resource]
+script = ExtResource("1_o0bfs")
+name = "Rolling Pin"
+flavour_text = "It'll flatten you like dough."
+base_health = 5
+base_stamina = 2
+base_attack = 5
+sprite = ExtResource("2_828kt")
+base_ai_five = "Defensive"
+difficulty_range = Array[int]([4, 7])
+coins_range = Array[int]([10, 20])

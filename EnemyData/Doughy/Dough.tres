@@ -1,17 +1,17 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bl41so1um52lp"]
 
-[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_6844x"]
-[ext_resource type="SpriteFrames" uid="uid://mjy2d6doedcm" path="res://SpriteFrames/Enemies/Dough.tres" id="2_6844x"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_yc7o0"]
+[ext_resource type="Texture2D" uid="uid://bogftuoue45tn" path="res://Sprites/Enemies/DoughyDungeon/Dough.tres" id="2_cu0ah"]
 
 [resource]
-script = ExtResource("1_6844x")
+script = ExtResource("1_yc7o0")
 name = "Dough"
 flavour_text = "The first step in the large world of baking."
 base_health = 20
 base_stamina = 10
 base_attack = 3
 base_defense_duration = 3
-sprite = ExtResource("2_6844x")
+sprite = ExtResource("2_cu0ah")
 base_ai = "Random"
 base_ai_five = "Random"
 difficulty_range = Array[int]([3, 10])

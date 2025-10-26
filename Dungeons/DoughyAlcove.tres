@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="DungeonData" load_steps=12 format=3 uid="uid://i6xwk6el8jyh"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_wca84"]
-[ext_resource type="Resource" uid="uid://nobxmi2c7hoc" path="res://EnemyData/BiscuitMimic.tres" id="2_qkq8k"]
-[ext_resource type="Resource" uid="uid://y63dw1wxsmi7" path="res://EnemyData/YeastCrawler.tres" id="2_u82xd"]
-[ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/BiscuitMimic2.tres" id="3_cwbeo"]
+[ext_resource type="Resource" uid="uid://nobxmi2c7hoc" path="res://EnemyData/Doughy/BiscuitMimic.tres" id="2_qkq8k"]
+[ext_resource type="Resource" uid="uid://y63dw1wxsmi7" path="res://EnemyData/Doughy/YeastCrawler.tres" id="2_u82xd"]
+[ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/Doughy/BiscuitMimic2.tres" id="3_cwbeo"]
 [ext_resource type="Texture2D" uid="uid://cqew0cx3qwqvh" path="res://Sprites/Tiles/AlcoveFloor.png" id="5_u82xd"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_7cw5h"]
 [ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="14_ch2lk"]
@@ -23,4 +23,8 @@ room_count = 30
 difficulty_floor_increment = 3
 rooms_until_next_floor = 5
 maximum_difficulty = 1
+description = "A small section of the Doughy Dungeon. Contains small, weak, enemies.
+
+30 Rooms
+Difficulty 1-1"
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

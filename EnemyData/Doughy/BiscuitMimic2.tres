@@ -1,17 +1,16 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dfk4ejclh8201"]
 
-[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_27gci"]
-[ext_resource type="SpriteFrames" uid="uid://dd081yol82pos" path="res://SpriteFrames/Enemies/BiscuitMimic2.tres" id="2_27gci"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_bkf0m"]
+[ext_resource type="Texture2D" uid="uid://drcx2bgrq2urj" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic2.tres" id="2_oxqph"]
 
 [resource]
-script = ExtResource("1_27gci")
+script = ExtResource("1_bkf0m")
 name = "Biscuit Mimic"
 flavour_text = "Once backed good turned monster."
 base_health = 15
 base_stamina = 3
 base_attack = 2
-base_defense_duration = 1
-sprite = ExtResource("2_27gci")
+sprite = ExtResource("2_oxqph")
 base_ai = "Aggressive"
 base_ai_five = "Attack"
 difficulty_range = Array[int]([2, 8])

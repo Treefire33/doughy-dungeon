@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://snjvycj8qcr2"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_ecge2"]
+[ext_resource type="Texture2D" uid="uid://ugkt0ouhlj7g" path="res://Sprites/Enemies/OceanicDungeon/Barnacle.tres" id="2_ecge2"]
+
+[resource]
+script = ExtResource("1_ecge2")
+name = "Barnacle Cannon"
+flavour_text = "Fires acidic projectiles from its mouth, weak."
+base_health = 4
+base_stamina = 1
+base_attack = 10
+base_defense_duration = 0
+base_defense_durability = 0
+sprite = ExtResource("2_ecge2")
+base_ai = "Attack"
+base_ai_five = "Attack"
+difficulty_range = Array[int]([3, 10])
+coins_range = Array[int]([40, 60])

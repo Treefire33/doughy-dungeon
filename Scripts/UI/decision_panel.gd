@@ -20,9 +20,9 @@ func give_decision(player_ui: PlayerUI, decision: Enum.Decision):
 	var current_enemy: Variant = null;
 	if (decision == Enum.Decision.Attack):
 		player_ui.selecting_enemy = true;
-		player_ui.select_enemy_panel.visible = true;
+		player_ui.select_enemy_label.visible = true;
 		current_enemy = await player_ui._enemy_selected;
-		player_ui.select_enemy_panel.visible = false;
+		player_ui.select_enemy_label.visible = false;
 		player_ui.selecting_enemy = false;
 	cancel_button.hide();
 	if (current_enemy is String):

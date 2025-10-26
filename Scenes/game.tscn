@@ -542,13 +542,14 @@ script = ExtResource("6_7nbq1")
 texture = ExtResource("11_mg4q0")
 hframes = 4
 vframes = 4
+frame = 8
 
 [node name="Shield" type="Sprite2D" parent="Player"]
 visible = false
 texture = ExtResource("12_mg4q0")
 hframes = 2
 
-[node name="Animation" type="AnimationPlayer" parent="Player"]
+[node name="Animator" type="AnimationPlayer" parent="Player"]
 libraries = {
 &"": SubResource("AnimationLibrary_a8tyi"),
 &"Player": ExtResource("12_exi56")
@@ -709,13 +710,13 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Enemies" type="Control" parent="Camera/PlayerUI"]
-visible = false
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.178
 offset_bottom = -0.0999985
 
 [node name="Label" type="ColorRect" parent="Camera/PlayerUI/Enemies"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.312

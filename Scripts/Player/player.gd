@@ -3,7 +3,6 @@ class_name Player
 
 signal player_ready;
 
-@onready var animator: AnimationPlayer = $Animation;
 @onready var shield: Sprite2D = $Shield;
 
 var coins: int = 15:
@@ -43,7 +42,7 @@ func update_shield():
 	shield.visible = defense_durability != 0 && defending_duration != 0
 			
 func _ready():
-	load_entity(15, 12, 2, $Sprite);
+	load_entity(15, 12, 2, $Sprite, $Animator);
 	play_anim(Enum.PlayerAnimation.Idle);
 	durability_changed.connect(func():
 		shield.frame = 0;

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bkn4vhkfxsl1h"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_rsxyc"]
+[ext_resource type="Texture2D" uid="uid://g2iayeh3o588" path="res://Sprites/Enemies/OceanicDungeon/SeaAngel.tres" id="2_rsxyc"]
+
+[resource]
+script = ExtResource("1_rsxyc")
+name = "Sea Angel"
+flavour_text = "A seemingly innocent beast..."
+base_health = 12
+base_attack = 2
+sprite = ExtResource("2_rsxyc")
+base_ai = "Aggressive"
+base_ai_five = "Smart"
+difficulty_range = Array[int]([2, 10])
+coins_range = Array[int]([20, 45])

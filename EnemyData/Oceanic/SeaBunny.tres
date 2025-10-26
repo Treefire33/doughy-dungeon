@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://d0a2feappom8m"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_tyxow"]
+[ext_resource type="Texture2D" uid="uid://byukdtub70rwr" path="res://Sprites/Enemies/OceanicDungeon/SeaBunny.tres" id="2_tyxow"]
+
+[resource]
+script = ExtResource("1_tyxow")
+name = "Sea Bunny"
+flavour_text = "Awwwwwwww"
+base_health = 1
+base_stamina = 1
+base_defense_duration = 10
+base_defense_durability = 5
+sprite = ExtResource("2_tyxow")
+base_ai = "Defend"
+base_ai_five = "Defend"
+target_selection_ai = "Random"
+difficulty_range = Array[int]([1, 10])
+coins_range = Array[int]([5, 10])

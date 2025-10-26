@@ -29,7 +29,7 @@ class_name EnemyData
 	set (value):
 		base_defense_durability = value;
 
-@export var sprite: SpriteFrames = null:
+@export var sprite: Texture2D = null:
 	set (value):
 		sprite = value;
 
@@ -53,6 +53,12 @@ var base_ai: String = "Default":
 ) var base_ai_five: String = "Default":
 	set (value):
 		base_ai_five = value;
+
+@export_enum(
+	"Player", "Random", "Target"
+) var target_selection_ai: String = "Player":
+	set (value):
+		target_selection_ai = value;
 
 @export_range(1, 10) var difficulty_range: Array[int] = []; 
 @export_range(1, 1000) var coins_range: Array[int] = [];

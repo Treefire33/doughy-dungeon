@@ -91,6 +91,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_wn4m6")
 Button/styles/normal = SubResource("StyleBoxFlat_2ccob")
 Button/styles/pressed = SubResource("StyleBoxFlat_rk5vj")
 Panel/styles/panel = SubResource("StyleBoxFlat_eevlq")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_eevlq")
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_bpvoi")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ko64t")
 SpinBox/constants/buttons_width = 32

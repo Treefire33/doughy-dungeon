@@ -1,6 +1,7 @@
 extends Resource
 class_name DungeonData
 
+@export var id: int;
 @export var name: String;
 @export var enemies: Array[EnemyData] = [];
 @export var items: Array[ItemData] = [];
@@ -13,3 +14,6 @@ class_name DungeonData
 @export var rooms_until_next_floor: int = 10;
 @export var minimum_difficulty: int = 1;
 @export var maximum_difficulty: int = 10;
+
+@export_category("Misc")
+@export_multiline var description: String = "";

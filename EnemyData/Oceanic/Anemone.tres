@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c6jhgi8n2pv52"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_vfdmj"]
+[ext_resource type="Texture2D" uid="uid://ct2sxcjjycjhx" path="res://Sprites/Enemies/OceanicDungeon/Anemone.tres" id="2_vfdmj"]
+
+[resource]
+script = ExtResource("1_vfdmj")
+name = "Mimicry Anemone"
+flavour_text = "More interested in luring jellyfish to eat..."
+base_attack = 2
+base_defense_duration = 6
+base_defense_durability = 3
+sprite = ExtResource("2_vfdmj")
+base_ai_five = "Defensive"
+target_selection_ai = "Target"
+difficulty_range = Array[int]([3, 10])
+coins_range = Array[int]([20, 25])

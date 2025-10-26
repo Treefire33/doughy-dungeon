@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c5ctnnjlicuo"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_vvxnp"]
+[ext_resource type="Texture2D" uid="uid://bo47vlfl4vc37" path="res://Sprites/Enemies/OceanicDungeon/SandShark.tres" id="2_vvxnp"]
+
+[resource]
+script = ExtResource("1_vvxnp")
+name = "Sand Shark"
+flavour_text = "Awwwww- OWCH"
+base_health = 25
+base_stamina = 10
+base_attack = 5
+base_defense_duration = 5
+base_defense_durability = 3
+sprite = ExtResource("2_vvxnp")
+base_ai = "Smart"
+base_ai_five = "Smart"
+target_selection_ai = "Random"
+difficulty_range = Array[int]([5, 10])
+coins_range = Array[int]([60, 80])

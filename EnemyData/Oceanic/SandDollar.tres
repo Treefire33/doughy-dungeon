@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://x04ox3nsp8al"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_jvw5o"]
+[ext_resource type="Texture2D" uid="uid://bhkfpt578f6q8" path="res://Sprites/Enemies/OceanicDungeon/SeaDollar.tres" id="2_jvw5o"]
+
+[resource]
+script = ExtResource("1_jvw5o")
+name = "Sand Coin"
+flavour_text = "Kinda looks like a coin!"
+base_health = 18
+base_stamina = 8
+base_defense_duration = 6
+base_defense_durability = 3
+sprite = ExtResource("2_jvw5o")
+base_ai = "Defensive"
+base_ai_five = "Smart"
+difficulty_range = Array[int]([4, 10])
+coins_range = Array[int]([40, 50])

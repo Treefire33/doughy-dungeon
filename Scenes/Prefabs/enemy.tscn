@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://8xd2nq8768rd"]
+[gd_scene load_steps=8 format=3 uid="uid://8xd2nq8768rd"]
 
 [ext_resource type="Script" uid="uid://cvq0pmcgajwhs" path="res://Scripts/Enemy/enemy.gd" id="1_hghv2"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_pe7bt"]
-[ext_resource type="SpriteFrames" uid="uid://dd081yol82pos" path="res://SpriteFrames/Enemies/BiscuitMimic2.tres" id="3_ytpux"]
+[ext_resource type="Texture2D" uid="uid://drcx2bgrq2urj" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic2.tres" id="3_ytpux"]
 [ext_resource type="Texture2D" uid="uid://bfggy4kx6sg0c" path="res://Sprites/DoughyIcons.png" id="4_ytpux"]
+[ext_resource type="AnimationLibrary" uid="uid://chm365vo5ctw7" path="res://Sprites/Enemies/Animations/Enemy.res" id="5_07cr6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe7bt"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="Enemy" type="Node2D" node_paths=PackedStringArray("hover_check", "health_bar", "notif")]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a801k"]
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("health_bar", "notif")]
 script = ExtResource("1_hghv2")
-hover_check = NodePath("")
 health_bar = NodePath("Health")
 notif = NodePath("Notif")
 
@@ -25,9 +27,8 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("3_ytpux")
-animation = &"Idle"
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_ytpux")
 
 [node name="Notif" type="Sprite2D" parent="."]
 position = Vector2(0, -40)
@@ -36,3 +37,9 @@ texture = ExtResource("4_ytpux")
 hframes = 2
 vframes = 3
 frame = 5
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a801k"),
+&"Enemy": ExtResource("5_07cr6")
+}

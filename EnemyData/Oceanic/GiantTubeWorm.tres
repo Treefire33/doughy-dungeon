@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://h1s3a5mrtlj0"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_24atm"]
+[ext_resource type="Texture2D" uid="uid://ce5ijucctpnsm" path="res://Sprites/Enemies/OceanicDungeon/GiantTubeWorm.tres" id="2_24atm"]
+
+[resource]
+script = ExtResource("1_24atm")
+name = "Giant Tube Worms"
+flavour_text = "Strange beasts, rising from the sand to feast."
+base_health = 12
+base_stamina = 3
+base_defense_duration = 3
+base_defense_durability = 3
+sprite = ExtResource("2_24atm")
+base_ai = "Random"
+base_ai_five = "Aggressive"
+difficulty_range = Array[int]([2, 6])
+coins_range = Array[int]([15, 30])

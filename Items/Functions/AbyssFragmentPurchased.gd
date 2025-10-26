@@ -4,4 +4,5 @@ func use(player: Player):
 	if (player.get_item_count("Fragment of the Abyss") == 9):
 		MidnightDebug.remove_item("Fragment of the Abyss", 9);
 		MidnightDebug.add_item("AbyssHeart");
+		GlobalPlayer.has_abyss_heart = true;
 	return true;

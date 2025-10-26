@@ -13,7 +13,7 @@ func add_item(item: String, count: int = 1):
 	if (room_manager == null):
 		return;
 	for i in range(count):
-		var item_data: ItemData = load("res://Items/%s.tres" % item);
+		var item_data: ItemData = load("res://Items/%s" % item);
 		player.items.append(item_data);
 		if (item_data.purchased != null):
 			ItemUtils.execute_item_func(item_data.purchased, player);

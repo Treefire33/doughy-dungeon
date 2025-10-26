@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://cuo1o6sehbglr"]
 
-[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_ux0l1"]
-[ext_resource type="SpriteFrames" uid="uid://c88mlx2mglrin" path="res://SpriteFrames/Enemies/Doughnut.tres" id="2_ux0l1"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_cw0yr"]
+[ext_resource type="Texture2D" uid="uid://dcxf7d0prh534" path="res://Sprites/Enemies/DoughyDungeon/Doughnut.tres" id="2_ig3f8"]
 
 [resource]
-script = ExtResource("1_ux0l1")
+script = ExtResource("1_cw0yr")
 name = "Don't-Nut"
 flavour_text = "Seems happy to just be here."
 base_health = 40
 base_attack = 0
 base_defense_duration = 0
-sprite = ExtResource("2_ux0l1")
+sprite = ExtResource("2_ig3f8")
 base_ai = "Defensive"
 base_ai_five = "Defensive"
 difficulty_range = Array[int]([8, 10])

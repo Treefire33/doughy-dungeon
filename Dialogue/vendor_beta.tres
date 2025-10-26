@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=6 format=3 uid="uid://b8o5ctipmns3f"]
+
+[ext_resource type="Script" uid="uid://c1wkyurcxei88" path="res://Scripts/Dialogue/dialogue_speech.gd" id="1_bwdcm"]
+[ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="2_yqd6u"]
+
+[sub_resource type="Resource" id="Resource_bwdcm"]
+script = ExtResource("1_bwdcm")
+character = 1
+emotion = 3
+speech = "Thanks for trying out the game Midnight!"
+
+[sub_resource type="Resource" id="Resource_yqd6u"]
+script = ExtResource("1_bwdcm")
+character = 1
+emotion = 4
+speech = "It's not exactly complete as of now, but I swear treefire33 will get to it eventually!"
+
+[sub_resource type="Resource" id="Resource_n2j8v"]
+script = ExtResource("1_bwdcm")
+character = 1
+speech = "Well, you got one dungeon left! Go and give it your best shot!"
+
+[resource]
+script = ExtResource("2_yqd6u")
+dialogue = Array[ExtResource("1_bwdcm")]([SubResource("Resource_bwdcm"), SubResource("Resource_yqd6u"), SubResource("Resource_n2j8v")])
+metadata/_custom_type_script = "uid://18dcduftlk12"
