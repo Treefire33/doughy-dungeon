@@ -2,6 +2,7 @@ extends Node
 class_name PlayerGlobals
 
 var current_dungeon: DungeonData;
+var current_scene: int = 0;
 
 # Flags:
 var met_vendor: bool = false;

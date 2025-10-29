@@ -121,6 +121,7 @@ func _input(event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("Primary")):
 		if (dialogue_box.visible):
 			return;
+
 		if (dungeon_inspect.visible):
 			GlobalPlayer.current_dungeon = current_interactable.dungeon;
 			var tween = get_tree().create_tween();
@@ -128,15 +129,19 @@ func _input(event: InputEvent) -> void:
 			await tween.finished;
 			get_tree().change_scene_to_file("res://Scenes/game.tscn");
 			return;
-		if (current_interactable.opens_dungeon):
+
+		if (current_interactable is RPGDungeon):
 			dungeon_inspect.show();
 			disable_movement = true;
 			dungeon_name.text = current_interactable.dungeon.name;
 			dungeon_description.text = current_interactable.dungeon.description;
 			return;
-		if (current_interactable.dialogue != null):
+		
+		if (current_interactable is RPGNPC):
+			var dialogue = current_interactable.get_dialogue(GlobalPlayer.current_scene);
+			if (dialogue == null): return;
 			disable_movement = true;
-			dialogue_box.start_dialogue.emit(current_interactable.dialogue);
+			dialogue_box.start_dialogue.emit(dialogue);
 			await dialogue_box.dialogue_finished;
 			disable_movement = false;
 			current_interactable = null;

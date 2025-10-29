@@ -1,19 +1,21 @@
-[gd_scene load_steps=30 format=4 uid="uid://bejot8stpw3ku"]
+[gd_scene load_steps=32 format=4 uid="uid://bejot8stpw3ku"]
 
 [ext_resource type="Script" uid="uid://dcw5c36gg5f2d" path="res://Scripts/Player/rpg_player.gd" id="1_birco"]
 [ext_resource type="TileSet" uid="uid://brb3en8g8r7c0" path="res://Sprites/Tiles/default_tiles.tres" id="3_eeauh"]
 [ext_resource type="Texture2D" uid="uid://dkputv4mfu3af" path="res://Sprites/Tiles/Water.tres" id="3_xhvd6"]
 [ext_resource type="Texture2D" uid="uid://61hbrxxdu0t4" path="res://Sprites/Player/player_rpg_tattered.png" id="4_71b5o"]
-[ext_resource type="Script" uid="uid://6om5utstdwe5" path="res://Scripts/rpg_interactable.gd" id="4_a8tyi"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="4_euyhw"]
 [ext_resource type="Texture2D" uid="uid://b3vuwuulfpie7" path="res://Sprites/DoughyGate.png" id="4_xdpjr"]
 [ext_resource type="Script" uid="uid://dwilutxalofw7" path="res://Scripts/UI/interaction_prompt.gd" id="5_pa10k"]
 [ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="5_vcj0l"]
 [ext_resource type="Resource" uid="uid://i6xwk6el8jyh" path="res://Dungeons/DoughyAlcove.tres" id="6_npbpj"]
+[ext_resource type="Script" uid="uid://da11h8jjenhy5" path="res://Scripts/RPG/rpg_dungeon.gd" id="7_wqeb0"]
 [ext_resource type="Resource" uid="uid://drbowooa7ayyf" path="res://Dungeons/DoughyDungeon.tres" id="8_71b5o"]
 [ext_resource type="Resource" uid="uid://bwtevdgyame2h" path="res://Dungeons/OceanicDungeon.tres" id="9_euyhw"]
-[ext_resource type="Resource" uid="uid://b8o5ctipmns3f" path="res://Dialogue/vendor_beta.tres" id="12_wqeb0"]
+[ext_resource type="Script" uid="uid://dt8e48b1nsbwg" path="res://Scripts/RPG/NPCs/npc_vendor.gd" id="12_wqeb0"]
 [ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="13_fdaef"]
+[ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="13_g7ckj"]
+[ext_resource type="Resource" uid="uid://b8o5ctipmns3f" path="res://Dialogue/vendor_beta.tres" id="14_3cwuj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vcj0l"]
 
@@ -400,8 +402,7 @@ width = 2.0
 
 [node name="AlcoveEntrance" type="Node2D" parent="."]
 position = Vector2(-128, 208)
-script = ExtResource("4_a8tyi")
-opens_dungeon = true
+script = ExtResource("7_wqeb0")
 dungeon = ExtResource("6_npbpj")
 
 [node name="Collision" type="StaticBody2D" parent="AlcoveEntrance"]
@@ -415,8 +416,7 @@ texture = ExtResource("4_xdpjr")
 
 [node name="DoughyEntrance" type="Node2D" parent="."]
 position = Vector2(128, 208)
-script = ExtResource("4_a8tyi")
-opens_dungeon = true
+script = ExtResource("7_wqeb0")
 dungeon = ExtResource("8_71b5o")
 
 [node name="Collision" type="StaticBody2D" parent="DoughyEntrance"]
@@ -430,8 +430,7 @@ texture = ExtResource("4_xdpjr")
 
 [node name="OceanicEntrance" type="Node2D" parent="."]
 position = Vector2(0, 208)
-script = ExtResource("4_a8tyi")
-opens_dungeon = true
+script = ExtResource("7_wqeb0")
 dungeon = ExtResource("9_euyhw")
 
 [node name="Collision" type="StaticBody2D" parent="OceanicEntrance"]
@@ -445,8 +444,10 @@ texture = ExtResource("4_xdpjr")
 
 [node name="Vendor" type="Node2D" parent="."]
 position = Vector2(-128, -149)
-script = ExtResource("4_a8tyi")
-dialogue = ExtResource("12_wqeb0")
+script = ExtResource("12_wqeb0")
+dialogue_dict = Dictionary[int, ExtResource("13_g7ckj")]({
+0: ExtResource("14_3cwuj")
+})
 
 [node name="Collision" type="StaticBody2D" parent="Vendor"]
 
