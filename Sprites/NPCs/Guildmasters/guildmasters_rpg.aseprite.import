@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://drdw53qw4psh"
+path="res://.godot/imported/guildmasters_rpg.aseprite-c031558184c220c285de5ad178881cb0.res"
+
+[deps]
+
+source_file="res://Sprites/NPCs/Guildmasters/guildmasters_rpg.aseprite"
+dest_files=["res://.godot/imported/guildmasters_rpg.aseprite-c031558184c220c285de5ad178881cb0.res"]
+
+[params]
+

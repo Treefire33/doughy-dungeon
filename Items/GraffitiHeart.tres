@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dn6m0afrnem0x"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_kstcq"]
+[ext_resource type="Texture2D" uid="uid://snnrjj3426uh" path="res://Sprites/Items/GraffitiHeart.tres" id="2_lxhqo"]
+[ext_resource type="Script" uid="uid://b75c05v6ak80m" path="res://Items/Functions/GraffitiHeartFunction.gd" id="2_tyyq4"]
+
+[resource]
+script = ExtResource("2_kstcq")
+name = "Graffiti Heart"
+flavour_text = "Reminds you of a nostalgic sunrise..."
+description = "Random chance to heal for 50% health."
+price = 200
+sprite = ExtResource("2_lxhqo")
+weight = 1.5
+function = ExtResource("2_tyyq4")
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

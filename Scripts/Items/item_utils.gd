@@ -1,11 +1,7 @@
 extends Node
 
-# Three functions:
-# Decision -> player has done their turn, applies items.
-# Purchased -> player has purchased the item, applies item.
-# EnemyKill -> an enemy has died, apply item to enemy.
 var load_path: String:
-	get: return "res://Sprites/Items/%s.tres";
+	get: return "res://Items/%s.tres";
 
 var all_items = DirAccess.get_files_at("res://Items");
 
@@ -20,29 +16,49 @@ func get_random_item(dungeon_data: DungeonData) -> ItemData:
 	
 	return keys[rng.rand_weighted(weights)];
 
-func _execute_item_func(function: Script, args: Array) -> bool:
-	function.reload();
-	var inst = function.new();
-	var inst_res = inst.callv("use", args);
-	if (inst_res == null):
-		push_error("Item function doesn't exist or does not return any value.");
-		return false;
-	return inst_res;
+func get_item_data(item_name: String) -> ItemData:
+	return load(load_path % item_name);
 
-func execute_item_func(function: Script, ...args: Array) -> bool:
-	return _execute_item_func(function, args);
+func show_activation_toast(item: String):
+	ToastParty.show({
+		"text": "%s activated!" % item,
+		"text_size": Settings.toast_size,
+		"bgcolor": Color(0, 0, 0, 1),
+		"color": Color(1, 1, 1, 1),
+		"gravity": "bottom",
+		"direction": "right",
+	});
+	Audio.play_audio(Audio.item_activated);
 
-func activate_items(items: Array[ItemData], function: String, ...args: Array) -> void:
-	for item in items:
-		var result = _execute_item_func(item.get(function), args);
-		if (!result):
-			return;
-		Audio.play_audio(get_node("/root/"), Audio.item_activated);
-		ToastParty.show({
-			"text": "%s activated!" % item.name,
-			"text_size": Settings.toast_size,
-			"bgcolor": Color(0, 0, 0, 1),
-			"color": Color(1, 1, 1, 1),
-			"gravity": "top",
-			"direction": "right",
-		});
+func show_custom_toast(item: String):
+	ToastParty.show({
+		"text": item,
+		"text_size": Settings.toast_size,
+		"bgcolor": Color(0, 0, 0, 1),
+		"color": Color(1, 1, 1, 1),
+		"gravity": "bottom",
+		"direction": "right",
+	});
+	Audio.play_audio(Audio.item_activated);
+
+func _execute_item_func(function: Script, func_name: String, args: Array) -> void:
+	var inst: Resource = function.new();
+	var _inst_res = inst.callv(func_name, args);
+
+func activate_items(player: Player, function: String, ...args: Array) -> void:
+	for item in player.items:
+		var count: int = player.items[item];
+		var data: ItemData = get_item_data(item);
+		if (data == null):
+			push_error("Item %s failed to retrieve its item data." % item);
+			continue;
+		if (data.function == null): continue;
+		if (data.unique_stacking):
+			_execute_item_func(data.function, function, args + [count]);
+		else:
+			for i in range(count):
+				_execute_item_func(data.function, function, args + [count]);
+
+func _ready() -> void:
+	for i in range(len(all_items)):
+		all_items[i] = all_items[i].left(-5);

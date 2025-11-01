@@ -13,22 +13,16 @@ func add_item(item: String, count: int = 1):
 	if (room_manager == null):
 		return;
 	for i in range(count):
-		var item_data: ItemData = load("res://Items/%s" % item);
-		player.items.append(item_data);
-		if (item_data.purchased != null):
-			ItemUtils.execute_item_func(item_data.purchased, player);
+		player.add_item(item);
 
 func remove_item(item: String, count: int = 1):
 	if (room_manager == null):
 		return;
-	var i = 0;
-	while (i != len(player.items)):
-		var item_data = player.items[i];
-		if (item_data.name == item && count > 0):
-			player.items.remove_at(i);
-			i -= 1;
-			count -= 1;
-		i += 1;
+	if (!player.items.get(item)):
+		return;
+	player.items[item] -= count;
+	if (player.items[item] <= 0):
+		player.items.erase(item);
 
 func set_player_stat(stat_name: String, value: Variant):
 	match (stat_name):

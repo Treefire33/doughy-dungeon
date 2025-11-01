@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DungeonData" load_steps=21 format=3 uid="uid://bwtevdgyame2h"]
+[gd_resource type="Resource" script_class="DungeonData" load_steps=24 format=3 uid="uid://bwtevdgyame2h"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_a74m2"]
 [ext_resource type="Resource" uid="uid://do8vv37hxwv51" path="res://EnemyData/Oceanic/StoneFish.tres" id="2_cfuis"]
@@ -20,13 +20,16 @@
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="10_ys1w1"]
 [ext_resource type="Texture2D" uid="uid://crvvy31n0fhdo" path="res://Sprites/Tiles/OceanicWall.png" id="11_ar2tq"]
 [ext_resource type="Resource" uid="uid://c5ctnnjlicuo" path="res://EnemyData/Oceanic/SandShark.tres" id="11_f7sna"]
+[ext_resource type="Resource" uid="uid://brgpd8v22l20t" path="res://Items/DurabilityScroll.tres" id="19_f6ojf"]
+[ext_resource type="Resource" uid="uid://dn6m0afrnem0x" path="res://Items/GraffitiHeart.tres" id="20_jeomi"]
+[ext_resource type="Resource" uid="uid://c3q126ueqif87" path="res://Items/DaggerHeart.tres" id="21_f7sna"]
 
 [resource]
 script = ExtResource("10_ys1w1")
 id = 1
 name = "Oceanic Dungeon"
 enemies = Array[ExtResource("1_a74m2")]([ExtResource("2_cfuis"), ExtResource("3_gcidq"), ExtResource("4_ar2tq"), ExtResource("5_gcidq"), ExtResource("6_ys1w1"), ExtResource("7_knl70"), ExtResource("8_1nog7"), ExtResource("9_f6ojf"), ExtResource("10_jeomi"), ExtResource("11_f7sna")])
-items = Array[ExtResource("6_kqfiu")]([ExtResource("7_5s1xb"), ExtResource("8_ceub8"), ExtResource("9_skv5b"), ExtResource("8_cfuis"), ExtResource("9_gcidq")])
+items = Array[ExtResource("6_kqfiu")]([ExtResource("7_5s1xb"), ExtResource("8_ceub8"), ExtResource("9_skv5b"), ExtResource("8_cfuis"), ExtResource("9_gcidq"), ExtResource("19_f6ojf"), ExtResource("20_jeomi"), ExtResource("21_f7sna")])
 wall_texture = ExtResource("11_ar2tq")
 floor_texture = ExtResource("3_smx4k")
 room_count = 50

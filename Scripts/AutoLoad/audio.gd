@@ -6,10 +6,10 @@ var hit_sfx: AudioStream = preload("res://Audio/Hit.wav");
 var purchase_sfx: AudioStream = preload("res://Audio/Purchase.wav");
 var item_activated: AudioStream = preload("res://Audio/ItemUsed.wav");
 
-func play_audio(root_node: Node, clip: AudioStream, position: float = 0):
+func play_audio(clip: AudioStream, position: float = 0):
 	var player = AudioStreamPlayer2D.new();
 	player.position = Vector2(400, 225)
-	root_node.add_child(player);
+	get_node("/root/").add_child(player);
 	player.volume_linear = Settings.audio_volume;
 	player.stream = clip;
 	player.play(position);

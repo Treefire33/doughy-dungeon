@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cms721rjrf1w1"]
 
-[ext_resource type="Script" uid="uid://rwruu0q6wlo" path="res://Items/Functions/RedPotionPurchased.gd" id="1_hy6ie"]
+[ext_resource type="Script" uid="uid://dudrw67701432" path="res://Items/Functions/RedPotionFunction.gd" id="1_ervyh"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_y84kd"]
 [ext_resource type="Texture2D" uid="uid://cn3mw0v5c51fw" path="res://Sprites/Items/RedPotion.tres" id="2_y84kd"]
 
@@ -12,5 +12,5 @@ description = "Increases max health by 2."
 price = 50
 sprite = ExtResource("2_y84kd")
 weight = 7.0
-purchased = ExtResource("1_hy6ie")
+function = ExtResource("1_ervyh")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

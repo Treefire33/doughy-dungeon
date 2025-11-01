@@ -10,22 +10,19 @@ var coins: int = 15:
 	set(value):
 		coins = value;
 		
-var items: Array[ItemData] = [];
+var items: Dictionary[String, int] = {};
 
-func get_items(has_function: String = "") -> Array[ItemData]:
-	var final: Array[ItemData] = [];
-	for item in self.items:
-		if (item.get(has_function) == null && has_function != ""): continue;
-		final.append(item);
-	return final;
-
-func get_item_count(specific_item: String):
-	var item_count = {}
-	for item in items:
-		item_count.get_or_add(item.name, 0);
-		item_count[item.name] += 1;
+func add_item(item_name: String):
+	if (!items.get(item_name)):
+		items[item_name] = 1;
+		return;
 	
-	return item_count.get(specific_item, 0);
+	items[item_name] += 1;
+	for item in items:
+		var count: int = items[item];
+		var data: ItemData = ItemUtils.get_item_data(item);
+		if (data.function == null): continue;
+		ItemUtils._execute_item_func(data.function, "purchased", [self, item_name == item, count]);
 
 var player_animation_to_name = {
 	Enum.PlayerAnimation.Idle: "Player/Idle",

@@ -72,7 +72,7 @@ func gen_room(decision: Enum.RoomDecision):
 			player.stamina += 5;
 			temp_difficulty = 1;
 			
-	ItemUtils.activate_items(player.get_items("room_decision"), "room_decision", self, decision);
+	ItemUtils.activate_items(player, "room_decision", self, decision);
 	
 	player.health += int(player.max_health * 0.4);
 	
@@ -92,7 +92,6 @@ func purchase_item(item: ItemData, item_display):
 		return;
 	
 	player.coins -= item.price;
-	player.items.append(item);
 	ToastParty.show({
 		"text": "Puchased %s!" % item.name,
 		"text_size": Settings.toast_size,
@@ -100,20 +99,9 @@ func purchase_item(item: ItemData, item_display):
 		"color": Color(1, 1, 1, 1),
 		"gravity": "top",
 		"direction": "right",
-	})
-	if (item.purchased != null):
-		var result = ItemUtils.execute_item_func(item.purchased, player);
-		if (result):
-			ToastParty.show({
-				"text": "%s activated!" % item.name,
-				"text_size": Settings.toast_size,
-				"bgcolor": Color(0, 0, 0, 1),
-				"color": Color(1, 1, 1, 1),
-				"gravity": "top",
-				"direction": "right",
-			})
-	#ItemUtils.activate_items(player.get_items("purchased"), "purchased", player, item);
-	Audio.play_audio(get_node("/root/"), Audio.purchase_sfx);
+	});
+	player.add_item(item.name);
+	Audio.play_audio(Audio.purchase_sfx);
 	player_ui.update_ui();
 	item_display.hide();
 
@@ -188,14 +176,14 @@ func turn_attack(user: Entity, target: Entity):
 		return;
 	if (user.stamina <= 0): return;
 	user.stamina -= 1;
-	Audio.play_audio(get_node("/root/"), Audio.hit_sfx);
+	Audio.play_audio(Audio.hit_sfx);
 	target.health -= user.attack;
 	
 func turn_defend(user: Entity, _target):
 	if (user.stamina <= 0): return;
 	user.stamina -= 1;
 	if (user.defending_duration != 0): return;
-	Audio.play_audio(get_node("/root/"), Audio.defend_sfx);
+	Audio.play_audio(Audio.defend_sfx);
 	user.defending_duration = user.max_defending_duration;
 	
 func turn_rest(user: Entity, _target):
@@ -244,15 +232,15 @@ func room_turn():
 				else:
 					player.play_anim(decision + 1);
 				
-				ItemUtils.activate_items(player.get_items("decision"), "decision", player, selected_enemy, decision);
+				ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
 					
 				current_turn = 1;
 				if (selected_enemy == null):
 					continue
 				selected_enemy.update_health();
 				if (selected_enemy.health <= 0):
-					ItemUtils.activate_items(player.get_items("enemy_kill"), "enemy_kill", player, selected_enemy);
-					Audio.play_audio(get_node("/root/"), Audio.die_sfx);
+					ItemUtils.activate_items(player, "enemy_kill", player, selected_enemy);
+					Audio.play_audio(Audio.die_sfx);
 					player.coins += int(selected_enemy.get_coin_drops() * room_multiplier);
 					selected_enemy.queue_free()
 					var index = alive_enemies.find(selected_enemy);
@@ -269,6 +257,9 @@ func room_turn():
 						enemy, 
 						target
 					);
+
+					ItemUtils.activate_items(player, "decision", enemy, target, decision);
+
 					ToastParty.show({
 						"text": enemy.name + " " + decision_text(decision) + "!",
 						"text_size": Settings.toast_size,
@@ -285,7 +276,7 @@ func room_turn():
 		player.update_shield();
 	
 	if (player.health <= 0):
-		Audio.play_audio(get_node("/root/"), Audio.die_sfx);
+		Audio.play_audio(Audio.die_sfx);
 		player.play_anim(Enum.PlayerAnimation.Dead);
 		var new_tween = get_tree().create_tween()
 		new_tween.tween_property(

@@ -27,6 +27,7 @@ enum Direction {
 @onready var static_prompt_dungeon: Label = $Camera/UI/Inspect/DungeonInspect/StaticPrompt;
 @onready var dialogue_box: DialogueBox = $Camera/UI/DialogueBox;
 
+var sprinting: bool = false;
 var disable_movement: bool = false;
 var move_direction: Vector2 = Vector2.ZERO;
 var last_movement_direction: Vector2;
@@ -40,7 +41,7 @@ func move_player(move_direction: Vector2):
 	currently_moving = true;
 	current_tween = get_tree().create_tween();
 	var final_position = position + (move_direction * tile_size);
-	current_tween.tween_property(self, "position", final_position, speed);
+	current_tween.tween_property(self, "position", final_position, speed / (run_modifier if sprinting else 1.0));
 	current_tween.tween_callback(func():
 		currently_moving = false;
 	)
@@ -70,10 +71,11 @@ func show_interaction_prompt(object: Object):
 	object = object.get_parent();
 	current_interactable = object;
 	interaction_prompt.show();
-	interaction_prompt.position = object.position - Vector2(interaction_prompt.size.x / 2, interaction_prompt.size.y + 32);
+	interaction_prompt.position = self.position - Vector2(interaction_prompt.size.x / 2, interaction_prompt.size.y + 32);
 
 var raycast_changed: bool = false;
 func _physics_process(delta: float) -> void:
+	sprinting = Input.is_action_pressed("Quaternary");
 	if (disable_movement):
 		return;
 	move_direction = Vector2.ZERO;
@@ -150,4 +152,3 @@ func _input(event: InputEvent) -> void:
 		if (dungeon_inspect.visible):
 			dungeon_inspect.hide();
 			disable_movement = false;
-

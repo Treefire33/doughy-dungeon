@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://762xxggpwrrf"]
 
-[ext_resource type="Script" uid="uid://drqvpkto0l4nh" path="res://Items/Functions/PeaceCharmDecision.gd" id="1_vbf7j"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_wf2t3"]
+[ext_resource type="Script" uid="uid://bfrhqx35qah4k" path="res://Items/Functions/PeaceCharmFunction.gd" id="2_2nyna"]
 [ext_resource type="Texture2D" uid="uid://c0f505j8ocsfx" path="res://Sprites/Items/PeaceCharm.tres" id="2_wf2t3"]
 
 [resource]
@@ -13,5 +13,5 @@ description = "On defend or rest, 40% chance to regen 40% health."
 price = 125
 sprite = ExtResource("2_wf2t3")
 weight = 6.0
-decision = ExtResource("1_vbf7j")
+function = ExtResource("2_2nyna")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

@@ -8,9 +8,5 @@ class_name ItemData
 @export var price: int;
 @export var sprite: Texture;
 @export var weight: float;
-
-@export_category("Item Functions")
-@export var decision: GDScript;
-@export var room_decision: GDScript;
-@export var purchased: GDScript;
-@export var enemy_kill: GDScript;
+@export var function: GDScript;
+@export var unique_stacking: bool = false;

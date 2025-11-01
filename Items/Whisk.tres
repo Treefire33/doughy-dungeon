@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://gl0847m0fkcn"]
 
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_ojelj"]
-[ext_resource type="Script" uid="uid://cwcca0ie48yg6" path="res://Items/Functions/WhiskDecision.gd" id="1_xws1f"]
+[ext_resource type="Script" uid="uid://biwtx0qwhtonk" path="res://Items/Functions/WhiskFunction.gd" id="2_fhgo8"]
 [ext_resource type="Texture2D" uid="uid://cn3fb74uw3hy2" path="res://Sprites/Items/Whisk.tres" id="2_ojelj"]
 
 [resource]
@@ -13,5 +13,5 @@ base attack and 50% of max health."
 price = 250
 sprite = ExtResource("2_ojelj")
 weight = 1.0
-decision = ExtResource("1_xws1f")
+function = ExtResource("2_fhgo8")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

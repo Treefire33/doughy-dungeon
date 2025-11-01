@@ -34,8 +34,7 @@ func load_player():
 			has_abyss_heart = save_data.get_value(section, "has_abyss_heart", false);
 
 func _ready() -> void:
-	# load_player();
-	pass
+	load_player();
 
 func _exit_tree() -> void:
 	save_player();
