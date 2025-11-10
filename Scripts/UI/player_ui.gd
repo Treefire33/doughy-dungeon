@@ -82,6 +82,7 @@ func update_enemy_buttons():
 		var button: Button = enemy_buttons[i];
 		var enemy: Enemy = room_manager.alive_enemies[i];
 		if (enemy == null):
+			button.tooltip_text = "";
 			continue;
 		
 		button.tooltip_text = enemy.name + \
@@ -130,8 +131,8 @@ func _ready() -> void:
 	emit_signal("ui_done")
 	
 func update_ui():
-	stats_display.update(room_manager)
-	update_enemy_buttons()
+	stats_display.update(room_manager);
+	update_enemy_buttons();
 	
 var action_to_index: Dictionary[String, int] = {
 	"Primary": 0,

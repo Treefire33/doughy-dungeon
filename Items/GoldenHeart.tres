@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c7gwha53cxrx1"]
+
+[ext_resource type="Script" uid="uid://dff3luj1v8084" path="res://Items/Functions/GoldenHeartFunction.gd" id="1_7yh04"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_6h1x0"]
+[ext_resource type="Texture2D" uid="uid://bxgux1qf3vfvt" path="res://Sprites/Items/GoldenHeart.tres" id="3_6h1x0"]
+
+[resource]
+script = ExtResource("2_6h1x0")
+name = "Golden Heart"
+flavour_text = "Feeling like pure- AU! My heart..."
+description = "Your health scales with the amount of coins you have."
+price = 237
+sprite = ExtResource("3_6h1x0")
+weight = 2.0
+function = ExtResource("1_7yh04")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

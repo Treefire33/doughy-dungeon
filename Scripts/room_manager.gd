@@ -87,7 +87,8 @@ func gen_room(decision: Enum.RoomDecision):
 		
 	print("Loaded Room");
 	
-func purchase_item(item: ItemData, item_display):
+func purchase_item(item_name: String, item_display):
+	var item = ItemUtils.get_item_data(item_name);
 	if (player.coins <= 0 or player.coins < item.price):
 		return;
 	
@@ -100,7 +101,7 @@ func purchase_item(item: ItemData, item_display):
 		"gravity": "top",
 		"direction": "right",
 	});
-	player.add_item(item.name);
+	player.add_item(item_name);
 	Audio.play_audio(Audio.purchase_sfx);
 	player_ui.update_ui();
 	item_display.hide();
@@ -116,17 +117,18 @@ func gen_safe_room():
 	player_ui.update_ui();
 	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
 	if (room_count >= current_dungeon.room_count):
-		GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
-		var final_scene = get_tree().create_tween();
-		final_scene.tween_property(
-			player_ui.fade_panel, 
-			"modulate", 
-			Color(0, 0, 0, 1), 
-			0.35
-		).set_delay(2);
-		final_scene.tween_callback(func():
-			get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn");
-		);
+		Audio.change_music(Audio.DungeonMusic.BossFightA);
+		# GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
+		# var final_scene = get_tree().create_tween();
+		# final_scene.tween_property(
+		# 	player_ui.fade_panel, 
+		# 	"modulate", 
+		# 	Color(0, 0, 0, 1), 
+		# 	0.35
+		# ).set_delay(2);
+		# final_scene.tween_callback(func():
+		# 	get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn");
+		# );
 		return;
 	safe_room.get_parent().visible = true;
 	for i in range(1, 4):
@@ -135,12 +137,13 @@ func gen_safe_room():
 		var item_button: Button = item_display.get_node("Purchase");
 		for connection in item_button.pressed.get_connections():
 			item_button.pressed.disconnect(connection.callable)
-		var item = ItemUtils.get_random_item(current_dungeon);
+		var item_name = ItemUtils.get_random_item(current_dungeon);
+		var item = ItemUtils.get_item_data(item_name);
 		item_display.get_node("Sprite").texture = item.sprite;
 		item_button.tooltip_text = item.name + \
 		"\n" + item.flavour_text + \
 		"\n\n" + "Price: " + str(item.price) + "\n" + item.description;
-		item_button.pressed.connect(purchase_item.bind(item, item_display));
+		item_button.pressed.connect(purchase_item.bind(item_name, item_display));
 
 	if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2 && !GlobalPlayer.met_vendor):
 		safe_room_anims.play("VendorIntro");
@@ -183,6 +186,9 @@ func turn_defend(user: Entity, _target):
 	if (user.stamina <= 0): return;
 	user.stamina -= 1;
 	if (user.defending_duration != 0): return;
+	if (user.defense_broke_last_turn):
+		user.defense_broke_last_turn = false
+		return;
 	Audio.play_audio(Audio.defend_sfx);
 	user.defending_duration = user.max_defending_duration;
 	
@@ -226,7 +232,8 @@ func room_turn():
 				var decision_info = await player_ui.player_decision;
 				var decision: Enum.Decision = decision_info[0];
 				var selected_enemy = decision_info[1];
-				turn_functions[decision].call(player, selected_enemy)
+				# ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
+				turn_functions[decision].call(player, selected_enemy);
 				if (player.stamina <= 0):
 					player.play_anim(Enum.PlayerAnimation.Rest);
 				else:
@@ -318,8 +325,12 @@ func next_room(leaving_safe_room: bool = false):
 		room_tween.tween_callback(gen_safe_room).set_delay(0.2)
 	else:
 		room_tween.tween_callback(gen_next_room).set_delay(0.2)
+	if (room_count == current_dungeon.room_count / 2):
+		Audio.change_music(Audio.DungeonMusic.QuickeningPace);
 
 func _ready() -> void:
+	Audio.stop_music();
+	Audio.play_music(Audio.dungeon_music);
 	await player.player_ready;
 	await player_ui.ui_done;
 	MidnightDebug.room_manager = self;

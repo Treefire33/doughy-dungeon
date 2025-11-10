@@ -3,21 +3,30 @@ extends Node
 var load_path: String:
 	get: return "res://Items/%s.tres";
 
-var all_items = DirAccess.get_files_at("res://Items");
+var all_items: Dictionary[String, ItemData] = (
+	func():
+		var final: Dictionary[String, ItemData] = {}
+		for item in DirAccess.get_files_at("res://Items"):
+			final[item.left(-5)] = load(load_path % item.left(-5));
+		return final;
+).call();
 
-func get_random_item(dungeon_data: DungeonData) -> ItemData:
+func get_random_item(dungeon_data: DungeonData) -> String:
 	var rng = RandomNumberGenerator.new();
 	
 	var keys = [];
 	var weights = [];
 	for item in dungeon_data.items:
-		keys.append(item);
+		keys.append(get_item_name(item));
 		weights.append(item.weight);
 	
 	return keys[rng.rand_weighted(weights)];
 
+func get_item_name(item_data: ItemData) -> String:
+	return all_items.find_key(item_data);
+
 func get_item_data(item_name: String) -> ItemData:
-	return load(load_path % item_name);
+	return all_items[item_name];
 
 func show_activation_toast(item: String):
 	ToastParty.show({
@@ -58,7 +67,3 @@ func activate_items(player: Player, function: String, ...args: Array) -> void:
 		else:
 			for i in range(count):
 				_execute_item_func(data.function, function, args + [count]);
-
-func _ready() -> void:
-	for i in range(len(all_items)):
-		all_items[i] = all_items[i].left(-5);

@@ -12,7 +12,8 @@ func open_editor():
 
 static var character_icons: Dictionary[Enum.Character, AtlasTexture] = {
     Enum.Character.Midnight: preload("res://Sprites/Dialogue/midnight_dialogue.tres"),
-    Enum.Character.Vendor: preload("res://Sprites/Dialogue/vendor_dialogue.tres")
+    Enum.Character.Vendor: preload("res://Sprites/Dialogue/vendor_dialogue.tres"),
+    Enum.Character.TripDawg: preload("res://Sprites/Dialogue/tripdawg.tres")
 };
 
 static func get_character_icon(character: Enum.Character, emotion: Enum.DialogueEmotion):

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cr4shqx1wlda5"]
+
+[ext_resource type="Script" uid="uid://dthufl6h2ux8m" path="res://Items/Functions/BubblesFunction.gd" id="1_8fftx"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_0egcf"]
+[ext_resource type="Texture2D" uid="uid://bbii4ofponfoe" path="res://Sprites/Items/Bubbles.tres" id="3_0egcf"]
+
+[resource]
+script = ExtResource("2_0egcf")
+name = "Bubbles"
+flavour_text = "Wowie! So fun!!"
+description = "Shield spell becomes weak, yet infinitely long."
+price = 150
+sprite = ExtResource("3_0egcf")
+weight = 4.0
+function = ExtResource("1_8fftx")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

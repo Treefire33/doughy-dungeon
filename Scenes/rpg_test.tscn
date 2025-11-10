@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://bejot8stpw3ku"]
+[gd_scene load_steps=33 format=4 uid="uid://bejot8stpw3ku"]
 
 [ext_resource type="Script" uid="uid://dcw5c36gg5f2d" path="res://Scripts/Player/rpg_player.gd" id="1_birco"]
 [ext_resource type="TileSet" uid="uid://brb3en8g8r7c0" path="res://Sprites/Tiles/default_tiles.tres" id="3_eeauh"]
@@ -12,10 +12,11 @@
 [ext_resource type="Script" uid="uid://da11h8jjenhy5" path="res://Scripts/RPG/rpg_dungeon.gd" id="7_wqeb0"]
 [ext_resource type="Resource" uid="uid://drbowooa7ayyf" path="res://Dungeons/DoughyDungeon.tres" id="8_71b5o"]
 [ext_resource type="Resource" uid="uid://bwtevdgyame2h" path="res://Dungeons/OceanicDungeon.tres" id="9_euyhw"]
+[ext_resource type="Resource" uid="uid://dpsc6wlv66o0m" path="res://Dungeons/DebugDungeon.tres" id="11_3cwuj"]
 [ext_resource type="Script" uid="uid://dt8e48b1nsbwg" path="res://Scripts/RPG/NPCs/npc_vendor.gd" id="12_wqeb0"]
 [ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="13_fdaef"]
 [ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="13_g7ckj"]
-[ext_resource type="Resource" uid="uid://b8o5ctipmns3f" path="res://Dialogue/vendor_beta.tres" id="14_3cwuj"]
+[ext_resource type="Resource" uid="uid://cp8gl7vw6qd4j" path="res://Dialogue/tripdawg.tres" id="15_3cwuj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vcj0l"]
 
@@ -428,6 +429,20 @@ shape = SubResource("RectangleShape2D_pa10k")
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdpjr")
 
+[node name="DebugEntrance" type="Node2D" parent="."]
+position = Vector2(0, -145)
+script = ExtResource("7_wqeb0")
+dungeon = ExtResource("11_3cwuj")
+
+[node name="Collision" type="StaticBody2D" parent="DebugEntrance"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DebugEntrance/Collision"]
+shape = SubResource("RectangleShape2D_pa10k")
+
+[node name="Sprite" type="Sprite2D" parent="DebugEntrance"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_xdpjr")
+
 [node name="OceanicEntrance" type="Node2D" parent="."]
 position = Vector2(0, 208)
 script = ExtResource("7_wqeb0")
@@ -446,7 +461,7 @@ texture = ExtResource("4_xdpjr")
 position = Vector2(-128, -149)
 script = ExtResource("12_wqeb0")
 dialogue_dict = Dictionary[int, ExtResource("13_g7ckj")]({
-0: ExtResource("14_3cwuj")
+0: ExtResource("15_3cwuj")
 })
 
 [node name="Collision" type="StaticBody2D" parent="Vendor"]

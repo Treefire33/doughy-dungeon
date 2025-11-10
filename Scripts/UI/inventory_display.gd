@@ -22,7 +22,7 @@ func load_inventory(room_manager: RoomManager):
 		var data = ItemUtils.get_item_data(item);
 		var new_item = inventory_item.duplicate();
 		new_item.visible = true;
-		new_item.get_node("Button").tooltip_text = item + \
+		new_item.get_node("Button").tooltip_text = data.name + \
 		"\n" + data.flavour_text + "\n\n" + data.description;
 		new_item.get_node("Count").text = str(count)
 		new_item.texture = data.sprite;

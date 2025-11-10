@@ -58,36 +58,34 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameSpeed" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.073
-anchor_top = 0.133
-anchor_right = 0.927
-anchor_bottom = 0.267
-offset_left = -0.150005
-offset_top = 0.0999985
-offset_right = 0.149963
-offset_bottom = -0.100006
-
-[node name="Name" type="RichTextLabel" parent="GameSpeed"]
+[node name="SettingsContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.426
-anchor_bottom = 1.0
-offset_right = -0.220016
+anchor_left = 0.024
+anchor_top = 0.133
+anchor_right = 0.975
+anchor_bottom = 0.68700004
+offset_left = -0.19999981
+offset_top = 0.1000061
+offset_right = -0.25
+offset_bottom = -0.099990845
+
+[node name="GameSpeed" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/GameSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
 theme = ExtResource("1_un4yt")
 text = "GAME SPEED:"
 vertical_alignment = 1
 
-[node name="Value" type="SpinBox" parent="GameSpeed"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.426
-anchor_top = 0.175
-anchor_right = 0.651
-anchor_bottom = 0.775
-offset_left = -0.220016
-offset_right = -15.97
+[node name="Value" type="SpinBox" parent="SettingsContainer/GameSpeed"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
 min_value = 0.5
 max_value = 10.0
@@ -96,69 +94,66 @@ value = 1.0
 alignment = 1
 update_on_text_changed = true
 
-[node name="AudioVolume" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.073
-anchor_top = 0.267
-anchor_right = 0.927
-anchor_bottom = 0.4
-offset_left = -0.150005
-offset_top = -0.100006
-offset_right = 0.149963
+[node name="AudioVolume" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="AudioVolume"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.426
-anchor_bottom = 1.0
-offset_right = -0.220016
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/AudioVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
 theme = ExtResource("1_un4yt")
-text = "VOLUME:"
+text = "SFX VOLUME:"
 vertical_alignment = 1
 
-[node name="Value" type="HSlider" parent="AudioVolume"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.302
-anchor_top = 0.25
-anchor_right = 0.834
-anchor_bottom = 0.65
-offset_left = 0.0599976
-offset_right = 0.019989
+[node name="Value" type="HSlider" parent="SettingsContainer/AudioVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="NotificationSize" type="Control" parent="."]
-layout_mode = 1
-anchor_left = 0.073
-anchor_top = 0.4
-anchor_right = 0.927
-anchor_bottom = 0.533
-offset_left = -0.150005
-offset_right = 0.149963
-offset_bottom = 0.0999908
+[node name="MusicVolume" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="NotificationSize"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.426
-anchor_bottom = 1.0
-offset_right = -0.220016
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+text = "MUSIC VOLUME:"
+vertical_alignment = 1
+
+[node name="Value" type="HSlider" parent="SettingsContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="NotificationSize" type="HBoxContainer" parent="SettingsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/NotificationSize"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
 theme = ExtResource("1_un4yt")
 text = "NOTIF SIZE:"
 vertical_alignment = 1
 
-[node name="Value" type="SpinBox" parent="NotificationSize"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.426
-anchor_top = 0.175
-anchor_right = 0.651
-anchor_bottom = 0.775
-offset_left = -0.220016
-offset_right = 0.0299988
+[node name="Value" type="SpinBox" parent="SettingsContainer/NotificationSize"]
+layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
 min_value = 1.0
 max_value = 18.0

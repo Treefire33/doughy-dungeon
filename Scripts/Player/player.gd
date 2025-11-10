@@ -8,14 +8,14 @@ signal player_ready;
 var coins: int = 15:
 	get: return coins;
 	set(value):
+		ItemUtils.activate_items(self, "stat_changed", self, "coins");
 		coins = value;
 		
 var items: Dictionary[String, int] = {};
 
 func add_item(item_name: String):
 	if (!items.get(item_name)):
-		items[item_name] = 1;
-		return;
+		items[item_name] = 0;
 	
 	items[item_name] += 1;
 	for item in items:

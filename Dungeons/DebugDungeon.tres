@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="DungeonData" load_steps=48 format=3 uid="uid://dpsc6wlv66o0m"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_f5ab6"]
+[ext_resource type="Resource" uid="uid://5qev5bx8khod" path="res://EnemyData/Doughy/Cake.tres" id="2_yu3ei"]
+[ext_resource type="Resource" uid="uid://8eevr4pkr5t8" path="res://EnemyData/Doughy/Oven.tres" id="3_i474w"]
+[ext_resource type="Resource" uid="uid://bl41so1um52lp" path="res://EnemyData/Doughy/Dough.tres" id="4_acybn"]
+[ext_resource type="Resource" uid="uid://baw4p1ofsps4f" path="res://EnemyData/Doughy/Loafer.tres" id="5_ecgc2"]
+[ext_resource type="Resource" uid="uid://dke42syc18r32" path="res://EnemyData/Oceanic/Squid.tres" id="6_4tgwg"]
+[ext_resource type="Resource" uid="uid://cuo1o6sehbglr" path="res://EnemyData/Doughy/Doughnut.tres" id="7_6qj7s"]
+[ext_resource type="Resource" uid="uid://4t7tklgqjcs8" path="res://EnemyData/Doughy/HardTack.tres" id="8_ufmyb"]
+[ext_resource type="Resource" uid="uid://c6jhgi8n2pv52" path="res://EnemyData/Oceanic/Anemone.tres" id="9_xcsto"]
+[ext_resource type="Resource" uid="uid://snjvycj8qcr2" path="res://EnemyData/Oceanic/Barnacle.tres" id="10_ruvvc"]
+[ext_resource type="Resource" uid="uid://bkn4vhkfxsl1h" path="res://EnemyData/Oceanic/SeaAngel.tres" id="11_tdrp3"]
+[ext_resource type="Resource" uid="uid://d0a2feappom8m" path="res://EnemyData/Oceanic/SeaBunny.tres" id="12_lhljx"]
+[ext_resource type="Resource" uid="uid://uqhd6obfjniv" path="res://EnemyData/Doughy/RollingPin.tres" id="13_5jq6k"]
+[ext_resource type="Resource" uid="uid://nnc2x1sraaf6" path="res://EnemyData/Oceanic/Jellyfish.tres" id="14_v7v84"]
+[ext_resource type="Resource" uid="uid://c5ctnnjlicuo" path="res://EnemyData/Oceanic/SandShark.tres" id="15_73xxs"]
+[ext_resource type="Resource" uid="uid://do8vv37hxwv51" path="res://EnemyData/Oceanic/StoneFish.tres" id="16_aft65"]
+[ext_resource type="Resource" uid="uid://x04ox3nsp8al" path="res://EnemyData/Oceanic/SandDollar.tres" id="17_mjg4v"]
+[ext_resource type="Resource" uid="uid://nobxmi2c7hoc" path="res://EnemyData/Doughy/BiscuitMimic.tres" id="18_d7ypx"]
+[ext_resource type="Resource" uid="uid://y63dw1wxsmi7" path="res://EnemyData/Doughy/YeastCrawler.tres" id="19_r65gt"]
+[ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/Doughy/BiscuitMimic2.tres" id="20_p6m8q"]
+[ext_resource type="Resource" uid="uid://skuymh1v0uv0" path="res://EnemyData/Doughy/PretzelSpider.tres" id="21_p2bh3"]
+[ext_resource type="Resource" uid="uid://h1s3a5mrtlj0" path="res://EnemyData/Oceanic/GiantTubeWorm.tres" id="22_uols4"]
+[ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="23_nurd8"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="24_icv46"]
+[ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="25_m6xif"]
+[ext_resource type="Resource" uid="uid://dj5u6knknhfxk" path="res://Items/Nail.tres" id="26_wo2xb"]
+[ext_resource type="Resource" uid="uid://gl0847m0fkcn" path="res://Items/Whisk.tres" id="27_bjbyx"]
+[ext_resource type="Resource" uid="uid://bvicfvgmyrrlm" path="res://Items/Coffee.tres" id="28_150yd"]
+[ext_resource type="Resource" uid="uid://dy7t51qnxnbs8" path="res://Items/Pillow.tres" id="29_lddx6"]
+[ext_resource type="Resource" uid="uid://cr4shqx1wlda5" path="res://Items/Bubbles.tres" id="30_etlge"]
+[ext_resource type="Resource" uid="uid://dyvhn4yb0tlol" path="res://Items/IvoryKey.tres" id="31_g8886"]
+[ext_resource type="Resource" uid="uid://ccmau13wpcvhi" path="res://Items/OvenMitt.tres" id="32_3uv56"]
+[ext_resource type="Resource" uid="uid://b4mwhluiuvw3s" path="res://Items/LooseFang.tres" id="33_yobfe"]
+[ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="34_swgbc"]
+[ext_resource type="Resource" uid="uid://bm7xicdrdhcew" path="res://Items/SeaUrchin.tres" id="35_f65s2"]
+[ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="36_q34u5"]
+[ext_resource type="Resource" uid="uid://dtc0tkv7swm8o" path="res://Items/CoralTubes.tres" id="37_o0ibi"]
+[ext_resource type="Resource" uid="uid://cwcjc2ts7fq2j" path="res://Items/GoldAmulet.tres" id="38_0r6o6"]
+[ext_resource type="Resource" uid="uid://762xxggpwrrf" path="res://Items/PeaceCharm.tres" id="39_yqetd"]
+[ext_resource type="Resource" uid="uid://c3q126ueqif87" path="res://Items/DaggerHeart.tres" id="40_jf78i"]
+[ext_resource type="Resource" uid="uid://c7gwha53cxrx1" path="res://Items/GoldenHeart.tres" id="41_mqnyl"]
+[ext_resource type="Resource" uid="uid://caooq7deh85j5" path="res://Items/GuildBanner.tres" id="42_wbarr"]
+[ext_resource type="Resource" uid="uid://dn6m0afrnem0x" path="res://Items/GraffitiHeart.tres" id="43_kwj8k"]
+[ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="44_4vigo"]
+[ext_resource type="Resource" uid="uid://brgpd8v22l20t" path="res://Items/DurabilityScroll.tres" id="45_eom0o"]
+[ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="46_ba050"]
+[ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="47_s6jui"]
+
+[resource]
+script = ExtResource("46_ba050")
+id = -1
+name = "Debug Dungeon"
+enemies = Array[ExtResource("1_f5ab6")]([ExtResource("2_yu3ei"), ExtResource("3_i474w"), ExtResource("4_acybn"), ExtResource("5_ecgc2"), ExtResource("6_4tgwg"), ExtResource("7_6qj7s"), ExtResource("8_ufmyb"), ExtResource("9_xcsto"), ExtResource("10_ruvvc"), ExtResource("11_tdrp3"), ExtResource("12_lhljx"), ExtResource("13_5jq6k"), ExtResource("14_v7v84"), ExtResource("15_73xxs"), ExtResource("16_aft65"), ExtResource("17_mjg4v"), ExtResource("18_d7ypx"), ExtResource("19_r65gt"), ExtResource("20_p6m8q"), ExtResource("21_p2bh3"), ExtResource("22_uols4")])
+items = Array[ExtResource("24_icv46")]([ExtResource("25_m6xif"), ExtResource("26_wo2xb"), ExtResource("27_bjbyx"), ExtResource("28_150yd"), ExtResource("29_lddx6"), ExtResource("30_etlge"), ExtResource("31_g8886"), ExtResource("32_3uv56"), ExtResource("33_yobfe"), ExtResource("34_swgbc"), ExtResource("35_f65s2"), ExtResource("25_m6xif"), ExtResource("36_q34u5"), ExtResource("37_o0ibi"), ExtResource("38_0r6o6"), ExtResource("39_yqetd"), ExtResource("40_jf78i"), ExtResource("41_mqnyl"), ExtResource("42_wbarr"), ExtResource("43_kwj8k"), ExtResource("44_4vigo"), ExtResource("45_eom0o")])
+wall_texture = ExtResource("47_s6jui")
+floor_texture = ExtResource("23_nurd8")
+room_count = 500
+rooms_until_next_floor = 1
+description = "For debugging only.
+
+500 rooms
+Difficulty 1-10"
+metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

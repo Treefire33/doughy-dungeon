@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamInteractive" load_steps=2 format=3 uid="uid://bjjhl042nhbfc"]
+
+[ext_resource type="AudioStream" uid="uid://qqgud072jp1m" path="res://Audio/Music/MelancholicField.wav" id="1_anlot"]
+
+[resource]
+clip_count = 1
+clip_0/name = &"Melancholic Field"
+clip_0/stream = ExtResource("1_anlot")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0

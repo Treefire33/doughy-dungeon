@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bjksahff30una"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_1844h"]
+[ext_resource type="Texture2D" uid="uid://dp43bwhykniei" path="res://Sprites/Items/CloutiumPipe.tres" id="2_geg3h"]
+
+[resource]
+script = ExtResource("2_1844h")
+name = "Cloutium Pipe"
+flavour_text = "Starting to feel like a real Hydroneer!"
+description = "Damage leaks over to nearby enemies."
+price = 199
+sprite = ExtResource("2_geg3h")
+weight = 3.5
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

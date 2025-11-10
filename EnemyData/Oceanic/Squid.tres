@@ -7,11 +7,11 @@
 script = ExtResource("1_q87my")
 name = "Squid"
 flavour_text = "Buries itself in the sand, waiting for prey to crawl in."
-base_health = 20
-base_stamina = 8
-base_attack = 3
+base_health = 35
+base_stamina = 11
+base_attack = 4
 base_defense_duration = 5
-base_defense_durability = 2
+base_defense_durability = 3
 sprite = ExtResource("2_q87my")
 base_ai = "Aggressive"
 base_ai_five = "Smart"

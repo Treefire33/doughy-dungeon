@@ -14,6 +14,7 @@ func add_item(item: String, count: int = 1):
 		return;
 	for i in range(count):
 		player.add_item(item);
+	room_manager.player_ui.update_ui();
 
 func remove_item(item: String, count: int = 1):
 	if (room_manager == null):
@@ -23,6 +24,7 @@ func remove_item(item: String, count: int = 1):
 	player.items[item] -= count;
 	if (player.items[item] <= 0):
 		player.items.erase(item);
+	room_manager.player_ui.update_ui();
 
 func set_player_stat(stat_name: String, value: Variant):
 	match (stat_name):
@@ -53,11 +55,11 @@ func _ready() -> void:
 		DebugCommand.Parameter.new("room", DebugCommand.ParameterType.Int)
 	]);
 	DebugConsole.add_command("add_item", add_item, self, [
-		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items),
+		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items.keys()),
 		DebugCommand.Parameter.new("count", DebugCommand.ParameterType.Int)
 	]);
 	DebugConsole.add_command("remove_item", remove_item, self, [
-		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items),
+		DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items.keys()),
 		DebugCommand.Parameter.new("count", DebugCommand.ParameterType.Int)
 	]);
 	DebugConsole.add_command("set_player_stat", set_player_stat, self, [

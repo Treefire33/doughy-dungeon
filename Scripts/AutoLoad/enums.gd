@@ -23,7 +23,8 @@ enum PlayerAnimation {
 
 enum Character {
 	Midnight = 0,
-	Vendor = 1
+	Vendor = 1,
+	TripDawg = 100,
 }
 
 enum DialogueEmotion {

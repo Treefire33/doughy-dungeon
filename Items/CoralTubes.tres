@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dtc0tkv7swm8o"]
+
+[ext_resource type="Script" uid="uid://jta2mbxwq54k" path="res://Items/Functions/CoralTubesFunction.gd" id="1_yjq0b"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_b252y"]
+[ext_resource type="Texture2D" uid="uid://cjtgfanrkx7lt" path="res://Sprites/Items/CoralTubes.tres" id="3_b252y"]
+
+[resource]
+script = ExtResource("2_b252y")
+name = "Organ Coral"
+flavour_text = "A sweet melody plays from its tubes"
+description = "Resting heals (1 * stack) HP."
+price = 175
+sprite = ExtResource("3_b252y")
+weight = 5.5
+function = ExtResource("1_yjq0b")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

@@ -35,7 +35,7 @@ Audio="*res://Scripts/AutoLoad/audio.gd"
 Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
 debug_console="*res://addons/copper_dc/debug_console.tscn"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
-DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+DiscordRPCLoader="res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
 
 [display]
@@ -64,6 +64,7 @@ folder_colors={
 "res://EditorTools/": "purple",
 "res://EnemyData/": "orange",
 "res://Items/": "orange",
+"res://Items/Functions/": "gray",
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
 "res://Sprites/": "green",

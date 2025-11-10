@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dyvhn4yb0tlol"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_4fpd1"]
+[ext_resource type="Texture2D" uid="uid://dfulvibit42oa" path="res://Sprites/Items/IvoryKey.tres" id="2_gjp42"]
+
+[resource]
+script = ExtResource("2_4fpd1")
+name = "Ivory Key"
+flavour_text = "1-e-and-a, 2-e-and-a, 3-e-and-a..."
+description = "Every consecutive same-decision increases it's respective stat by 1."
+price = 240
+sprite = ExtResource("2_gjp42")
+weight = 0.4
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

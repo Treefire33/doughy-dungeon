@@ -12,3 +12,5 @@ func _ready():
 	settings_button.pressed.connect(func():
 		Settings.load_settings_menu(self);
 	);
+	await Audio.music_player.ready;
+	Audio.play_music(Audio.overworld_music);

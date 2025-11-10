@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://caooq7deh85j5"]
+
+[ext_resource type="Script" uid="uid://dw5puvch2g0b4" path="res://Items/Functions/GuildBannerFunction.gd" id="1_ocrt2"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_kw7f6"]
+[ext_resource type="Texture2D" uid="uid://q0dbm8jo4701" path="res://Sprites/Items/GuildBanner.tres" id="3_kw7f6"]
+
+[resource]
+script = ExtResource("2_kw7f6")
+name = "Guild Banner"
+flavour_text = "Show your pride of your priorities!"
+description = "(1, 2, 3) -> (3, 2, 1). 
+Show your priorities."
+price = 350
+sprite = ExtResource("3_kw7f6")
+weight = 1.2
+function = ExtResource("1_ocrt2")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

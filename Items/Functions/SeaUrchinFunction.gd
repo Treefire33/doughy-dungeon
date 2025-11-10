@@ -8,4 +8,4 @@ func decision(user: Entity, target: Entity, decision: Enum.Decision, stack_count
     if (sharp_count > 0): 
         if (randi_range(0, 100) < sharp_count * 5):
             ItemUtils.show_activation_toast("Sea Urchin Spikes");
-            user.health -= target.attack;
+            user.health -= user.attack;

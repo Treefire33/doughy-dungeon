@@ -28,6 +28,7 @@ func load_enemy(enemy_data: EnemyData):
 	self.selection_ai_type = enemy_data.target_selection_ai;
 	self.max_defending_duration = enemy_data.base_defense_duration;
 	self.max_defense_durability = enemy_data.base_defense_durability;
+	self.defense_durability = self.max_defending_duration;
 	
 var target_selection_ais = {
 	"Player": func(player: Player, _other_enemies: Array[Enemy]):
@@ -39,7 +40,7 @@ var target_selection_ais = {
 		return target,
 	"Target": func(player: Player, other_enemies: Array[Enemy]): # Exclusive to Anemone, who targets Jellyfish
 		for enemy in other_enemies:
-			if (enemy == self):
+			if (enemy == self || enemy == null):
 				continue;
 			if (enemy.name == "Jellyfish"):
 				return enemy;

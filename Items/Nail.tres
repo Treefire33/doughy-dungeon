@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://dj5u6knknhfxk"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_s7qyp"]
+[ext_resource type="Texture2D" uid="uid://dx21yehupyb8h" path="res://Sprites/Items/HKNail.tres" id="2_s50mj"]
+
+[resource]
+script = ExtResource("2_s7qyp")
+name = "Pure Nail"
+flavour_text = "The work of a skilled craftsman.
+The perfect weapon."
+description = "Caps attack at 5, but allows you to peirce through shield spells."
+price = 200
+sprite = ExtResource("2_s50mj")
+weight = 0.5
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"
