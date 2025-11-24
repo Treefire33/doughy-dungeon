@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://dhagtsmlg6sa6"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_w1v2k"]
+[ext_resource type="Texture2D" uid="uid://xgnks3xesafw" path="res://Sprites/Enemies/MagmaticDungeon/LesserStoneCritter.tres" id="2_rjk50"]
+
+[resource]
+script = ExtResource("1_w1v2k")
+name = "L. Stone Critter"
+flavour_text = "A smaller, weaker stone critter.
+Tends to cower away."
+base_health = 20
+base_stamina = 10
+base_attack = 3
+base_defense_duration = 5
+base_defense_durability = 3
+sprite = ExtResource("2_rjk50")
+base_ai = "Defensive"
+base_ai_five = "Defend"
+difficulty_range = Array[int]([0, 15])
+coins_range = Array[int]([20, 35])
+metadata/_custom_type_script = "uid://c8w2dfho12gr4"

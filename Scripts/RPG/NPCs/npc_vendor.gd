@@ -6,3 +6,4 @@ func _ready() -> void:
         self.visible = false;
         self.collider.process_mode = Node.PROCESS_MODE_DISABLED;
         return;
+

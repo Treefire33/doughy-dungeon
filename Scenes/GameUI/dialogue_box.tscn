@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cer6cdqaw15p1"]
+[gd_scene load_steps=3 format=3 uid="uid://cer6cdqaw15p1"]
 
 [ext_resource type="Script" uid="uid://4n7wj5yvmv5j" path="res://Scripts/UI/dialogue_box.gd" id="1_wbuxg"]
+[ext_resource type="Texture2D" uid="uid://cfhn3qiwl2rna" path="res://Sprites/Dialogue/tripdawg.tres" id="2_wbuxg"]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
@@ -32,6 +33,9 @@ offset_left = -0.25
 offset_top = 0.059999466
 offset_right = 0.24999237
 offset_bottom = -0.060005188
+texture = ExtResource("2_wbuxg")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="Dialogue" type="RichTextLabel" parent="."]
 layout_mode = 1

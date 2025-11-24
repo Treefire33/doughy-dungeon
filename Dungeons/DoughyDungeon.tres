@@ -36,6 +36,9 @@ enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_164du"), ExtResource("3_
 items = Array[ExtResource("13_4qdos")]([ExtResource("14_w7bhb"), ExtResource("15_4lamv"), ExtResource("16_d45b2"), ExtResource("17_ui381"), ExtResource("18_rfs6y"), ExtResource("19_aby3q"), ExtResource("20_164du"), ExtResource("21_g2dxu"), ExtResource("22_4sgh7"), ExtResource("23_cpyly"), ExtResource("24_6g7lf"), ExtResource("25_164du")])
 wall_texture = ExtResource("14_rfs6y")
 floor_texture = ExtResource("12_ui381")
-description = "100 Rooms
+description = "A dungeon comprised almost entirely out of doughy beasts and baking tools.
+Try not to eat them.
+
+100 Rooms
 Difficulty 1-10"
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

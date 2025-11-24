@@ -1,0 +1,380 @@
+[gd_scene load_steps=18 format=3 uid="uid://bnxhv0f4cpmu5"]
+
+[ext_resource type="Script" uid="uid://xoamwvqembae" path="res://Scripts/RPG/rpg_player.gd" id="1_wv30c"]
+[ext_resource type="Texture2D" uid="uid://dkputv4mfu3af" path="res://Sprites/Tiles/Water.tres" id="2_ibwra"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="3_s1egi"]
+[ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="4_8a8ed"]
+[ext_resource type="Texture2D" uid="uid://61hbrxxdu0t4" path="res://Sprites/Player/player_rpg_tattered.png" id="5_fgrew"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_57k7u"]
+
+[sub_resource type="Animation" id="Animation_birco"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eeauh"]
+_data = {
+&"RESET": SubResource("Animation_birco")
+}
+
+[sub_resource type="Animation" id="Animation_pa10k"]
+resource_name = "BackwardIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_npbpj"]
+resource_name = "BackwardWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 6, 8]
+}
+
+[sub_resource type="Animation" id="Animation_eeauh"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a8tyi"]
+resource_name = "ForwardWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xdpjr"]
+resource_name = "SidewaysIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xhvd6"]
+resource_name = "SidewaysWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 3, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sbuoh"]
+resource_name = "RightIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_71b5o"]
+resource_name = "RightWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 3, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdpjr"]
+_data = {
+&"BackwardIdle": SubResource("Animation_pa10k"),
+&"BackwardWalk": SubResource("Animation_npbpj"),
+&"ForwardIdle": SubResource("Animation_eeauh"),
+&"ForwardWalk": SubResource("Animation_a8tyi"),
+&"LeftIdle": SubResource("Animation_xdpjr"),
+&"LeftWalk": SubResource("Animation_xhvd6"),
+&"RightIdle": SubResource("Animation_sbuoh"),
+&"RightWalk": SubResource("Animation_71b5o")
+}
+
+[node name="RPGPlayer" type="Node2D"]
+script = ExtResource("1_wv30c")
+
+[node name="Camera" type="Camera2D" parent="."]
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0
+
+[node name="TextureRect" type="TextureRect" parent="Camera"]
+z_index = -10
+offset_left = -625.0
+offset_top = -500.0
+offset_right = 625.0
+offset_bottom = 500.0
+texture = ExtResource("2_ibwra")
+
+[node name="UI" type="Control" parent="Camera"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_left = -400.0
+offset_top = -225.0
+offset_right = 400.0
+offset_bottom = 225.0
+
+[node name="Inspect" type="Panel" parent="Camera/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.056
+anchor_right = 0.75000006
+anchor_bottom = 0.94400007
+offset_top = -0.20000076
+offset_right = -6.1035156e-05
+offset_bottom = 0.19998169
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DungeonInspect" type="VBoxContainer" parent="Camera/UI/Inspect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+theme = ExtResource("3_s1egi")
+
+[node name="Name" type="Label" parent="Camera/UI/Inspect/DungeonInspect"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "Doughy Alcove"
+label_settings = SubResource("LabelSettings_57k7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+uppercase = true
+
+[node name="Description" type="Label" parent="Camera/UI/Inspect/DungeonInspect"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+text = "A small section of the Doughy Dungeon. Contains small, weak, enemies"
+label_settings = SubResource("LabelSettings_57k7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+uppercase = true
+
+[node name="StaticPrompt" type="Label" parent="Camera/UI/Inspect/DungeonInspect"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+text = "[[Primary]] to Enter
+[[Secondary]] to Exit"
+label_settings = SubResource("LabelSettings_57k7u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="DialogueBox" parent="Camera/UI" instance=ExtResource("4_8a8ed")]
+visible = false
+layout_mode = 1
+
+[node name="Inventory" type="Control" parent="Camera/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("5_fgrew")
+hframes = 9
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eeauh"),
+&"PlayerRPG": SubResource("AnimationLibrary_xdpjr")
+}
+
+[node name="UpCast" type="RayCast2D" parent="."]
+process_mode = 3
+target_position = Vector2(0, 32)
+hit_from_inside = true
+
+[node name="SideCast" type="RayCast2D" parent="."]
+process_mode = 3
+target_position = Vector2(32, 0)
+hit_from_inside = true
+
+[node name="OmniCast" type="RayCast2D" parent="."]
+process_mode = 3
+target_position = Vector2(32, 0)
+hit_from_inside = true

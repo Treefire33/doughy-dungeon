@@ -17,3 +17,4 @@ class_name DungeonData
 
 @export_category("Misc")
 @export_multiline var description: String = "";
+@export var completed_scene: PackedScene;

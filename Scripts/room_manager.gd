@@ -117,18 +117,18 @@ func gen_safe_room():
 	player_ui.update_ui();
 	get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
 	if (room_count >= current_dungeon.room_count):
-		Audio.change_music(Audio.DungeonMusic.BossFightA);
-		# GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
-		# var final_scene = get_tree().create_tween();
-		# final_scene.tween_property(
-		# 	player_ui.fade_panel, 
-		# 	"modulate", 
-		# 	Color(0, 0, 0, 1), 
-		# 	0.35
-		# ).set_delay(2);
-		# final_scene.tween_callback(func():
-		# 	get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn");
-		# );
+		# Audio.change_music(Audio.DungeonMusic.BossFightA);
+		GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
+		var final_scene = get_tree().create_tween();
+		final_scene.tween_property(
+			player_ui.fade_panel, 
+			"modulate", 
+			Color(0, 0, 0, 1), 
+			0.35
+		).set_delay(2);
+		final_scene.tween_callback(func():
+			get_tree().change_scene_to_packed(current_dungeon.completed_scene);
+		);
 		return;
 	safe_room.get_parent().visible = true;
 	for i in range(1, 4):

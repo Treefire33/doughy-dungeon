@@ -38,6 +38,8 @@ wall_texture = ExtResource("11_ar2tq")
 floor_texture = ExtResource("3_smx4k")
 room_count = 50
 maximum_difficulty = 5
-description = "50 Rooms
+description = "A dungeon located on the ocean floor. Many beasts hunt here, so be careful.
+
+50 Rooms
 Difficulty 1-5"
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

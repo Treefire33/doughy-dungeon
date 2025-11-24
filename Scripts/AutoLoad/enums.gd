@@ -45,3 +45,10 @@ enum DungeonID {
 	Alcove, Oceanic, Doughy, Magamatic, Abyssal,
 	CliffSide, TrueAbyss
 }
+
+enum RPGItem {
+	Cloak,
+	Sword,
+	ShieldSpell,
+	Endurance
+}

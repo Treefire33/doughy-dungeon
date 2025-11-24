@@ -21,8 +21,11 @@ extends Node2D
 var last_direction: Vector2;
 var current_move_tween: Tween;
 var current_interactable: RPGInteractable;
+var disable_movement: bool = false;
 
 func move_player(movement_direction: Vector2):
+	if (disable_movement):
+		return
 	if (current_move_tween && current_move_tween.is_running()):
 		return;
 	if (movement_direction == Vector2.ZERO):
@@ -71,7 +74,7 @@ func show_prompt():
 	interaction_prompt.show();
 	interaction_prompt.position = current_interactable.position - interaction_prompt.size / 2;
 
-func rpg_interact():
+func rpg_interact() -> bool:
 	if (current_interactable is RPGDungeon):
 		if (dungeon_inspect.visible):
 			GlobalPlayer.current_dungeon = current_interactable.dungeon;
@@ -79,11 +82,13 @@ func rpg_interact():
 			tween.tween_property(get_parent(), "modulate", Color(0, 0, 0, 1), 0.8);
 			await tween.finished;
 			get_tree().change_scene_to_file("res://Scenes/game.tscn");
-			return;
+			return true;
 		dungeon_inspect.show();
 		dungeon_name.text = current_interactable.dungeon.name;
 		dungeon_description.text = current_interactable.dungeon.description;
-		return;
+		return true;
+	
+	return false;
 
 func _ready() -> void:
 	animator.play("PlayerRPG/ForwardIdle");
@@ -115,8 +120,9 @@ func _physics_process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if (Input.is_action_just_pressed("Primary")):
 		if (current_interactable == null): return;
-		rpg_interact();
+		disable_movement = await rpg_interact();
 	
 	if (Input.is_action_just_pressed("Secondary")):
+		disable_movement = false;
 		if (dungeon_inspect.visible):
 			dungeon_inspect.hide();

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://juaqlifaqeh0"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_jq6n7"]
+[ext_resource type="Texture2D" uid="uid://8y3h7hi6vt1k" path="res://Sprites/Enemies/MagmaticDungeon/Crystalis.tres" id="2_jq6n7"]
+
+[resource]
+script = ExtResource("1_jq6n7")
+name = "Crystalis"
+flavour_text = "A chrysalis housing a metamorphising crystal-pillar."
+base_health = 40
+base_attack = 10
+base_defense_duration = 3
+base_defense_durability = 2
+sprite = ExtResource("2_jq6n7")
+base_ai = "Defend"
+base_ai_five = "Defend"
+difficulty_range = Array[int]([3, 6])
+coins_range = Array[int]([20, 30])
+metadata/_custom_type_script = "uid://c8w2dfho12gr4"

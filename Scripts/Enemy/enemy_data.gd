@@ -60,5 +60,5 @@ var base_ai: String = "Default":
 	set (value):
 		target_selection_ai = value;
 
-@export_range(1, 10) var difficulty_range: Array[int] = []; 
+@export_range(1, 20) var difficulty_range: Array[int] = []; 
 @export_range(1, 1000) var coins_range: Array[int] = [];
