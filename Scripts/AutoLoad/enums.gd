@@ -52,3 +52,15 @@ enum RPGItem {
 	ShieldSpell,
 	Endurance
 }
+
+enum ModifierType { 
+    Additive,
+    Multiplicative,
+    Exponential,
+    Set
+}
+
+enum StatType {
+    MaxHealth, MaxStamina,
+    Attack, MaxDuration, MaxDurability
+}

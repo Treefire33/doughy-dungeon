@@ -59,11 +59,11 @@ func upgrade_stat(stat: int):
 	if (!in_safe_room): return;
 	match (stat):
 		0:
-			room_manager.player.max_health += 5;
+			room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxHealth, 5);
 		1: 
-			room_manager.player.max_stamina += 2;
+			room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxStamina, 2);
 		2:
-			room_manager.player.attack += 2;
+			room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.Attack, 2);
 	room_manager.player.health = room_manager.player.max_health;
 	room_manager.player.stamina = room_manager.player.max_stamina;
 	ToastParty.show({

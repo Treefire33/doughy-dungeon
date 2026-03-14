@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8euto25wvt14"]
+[gd_scene format=3 uid="uid://b8euto25wvt14"]
 
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_4gxqj"]
 [ext_resource type="Script" uid="uid://dhkfwfibh2li8" path="res://Scripts/main_menu.gd" id="1_55kwv"]
@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://djid0yo7wj06y" path="res://Sprites/MidnightLogo.aseprite" id="4_55kwv"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="4_twnyg"]
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node2D" unique_id=171530329]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=432770267]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 800.0
@@ -22,7 +22,7 @@ focus_next = NodePath("MenuButtons/Start")
 focus_previous = NodePath("MenuButtons/Start")
 script = ExtResource("1_55kwv")
 
-[node name="Background" type="ColorRect" parent="UI"]
+[node name="Background" type="ColorRect" parent="UI" unique_id=1756332704]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,7 +31,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2901961, 0.25882354, 0.2901961, 0.07058824)
 
-[node name="BG" type="TextureRect" parent="UI/Background"]
+[node name="BG" type="TextureRect" parent="UI/Background" unique_id=25495311]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -42,7 +42,7 @@ grow_vertical = 2
 texture = ExtResource("3_12m1t")
 stretch_mode = 1
 
-[node name="Wall" type="TextureRect" parent="UI/Background"]
+[node name="Wall" type="TextureRect" parent="UI/Background" unique_id=1585949292]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -54,7 +54,7 @@ grow_vertical = 2
 texture = ExtResource("1_4gxqj")
 stretch_mode = 1
 
-[node name="Floor" type="TextureRect" parent="UI/Background"]
+[node name="Floor" type="TextureRect" parent="UI/Background" unique_id=1994279448]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -69,7 +69,7 @@ texture = ExtResource("2_twnyg")
 stretch_mode = 1
 flip_h = true
 
-[node name="Logo" type="TextureRect" parent="UI"]
+[node name="Logo" type="TextureRect" parent="UI" unique_id=752854614]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.25
@@ -83,14 +83,14 @@ texture = ExtResource("4_55kwv")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="MenuButtons" type="Control" parent="UI"]
+[node name="MenuButtons" type="Control" parent="UI" unique_id=489705972]
 anchors_preset = 0
 offset_left = 300.0
 offset_top = 236.0
 offset_right = 500.0
 offset_bottom = 446.0
 
-[node name="Start" type="Button" parent="UI/MenuButtons"]
+[node name="Start" type="Button" parent="UI/MenuButtons" unique_id=1652083389]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -102,7 +102,7 @@ focus_next = NodePath("../Options")
 theme = ExtResource("4_twnyg")
 text = "START"
 
-[node name="Options" type="Button" parent="UI/MenuButtons"]
+[node name="Options" type="Button" parent="UI/MenuButtons" unique_id=1487156059]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.286
@@ -116,7 +116,7 @@ focus_previous = NodePath("../Start")
 theme = ExtResource("4_twnyg")
 text = "OPTIONS"
 
-[node name="Other" type="Button" parent="UI/MenuButtons"]
+[node name="Other" type="Button" parent="UI/MenuButtons" unique_id=895516745]
 visible = false
 layout_mode = 1
 anchors_preset = -1

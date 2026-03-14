@@ -81,14 +81,18 @@ func _run() -> void:
 		ResourceSaver.save(current_dialogue);
 	);
 
+	var j = 0;
 	for i in Enum.Character.values():
 		i = i as Enum.Character;
-		character_dropdown.add_item(Enum.Character.keys()[i], i);
+		character_dropdown.add_item(Enum.Character.keys()[j], i);
+		j += 1;
 	character_dropdown.select(0);
 
+	j = 0;
 	for i in Enum.DialogueEmotion.values():
 		i = i as Enum.DialogueEmotion;
-		emotion_dropdown.add_item(Enum.DialogueEmotion.keys()[i], i);
+		emotion_dropdown.add_item(Enum.DialogueEmotion.keys()[j], i);
+		j += 1
 	emotion_dropdown.select(0);
 
 	reload_speech_buttons();

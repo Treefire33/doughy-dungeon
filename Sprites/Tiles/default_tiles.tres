@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://brb3en8g8r7c0"]
+[gd_resource type="TileSet" format=3 uid="uid://brb3en8g8r7c0"]
 
 [ext_resource type="Texture2D" uid="uid://cpfeb6lkchsta" path="res://Sprites/Tiles/RPGTiles.aseprite" id="2_a0h8j"]
 

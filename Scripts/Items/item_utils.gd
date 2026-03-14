@@ -63,7 +63,7 @@ func activate_items(player: Player, function: String, ...args: Array) -> void:
 			continue;
 		if (data.function == null): continue;
 		if (data.unique_stacking):
-			_execute_item_func(data.function, function, args + [count]);
+			_execute_item_func(data.function, function, args + [RoomManager.instance, count]);
 		else:
 			for i in range(count):
-				_execute_item_func(data.function, function, args + [count]);
+				_execute_item_func(data.function, function, args + [RoomManager.instance, count]);

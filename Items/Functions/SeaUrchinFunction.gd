@@ -1,6 +1,6 @@
 extends ItemFunction
 
-func decision(user: Entity, target: Entity, decision: Enum.Decision, stack_count: int):
+func decision(user: Entity, target: Entity, decision: Enum.Decision, room_manager: RoomManager, stack_count: int):
     if (user is Player): return;
     if (target is not Player): return;
     target = target as Player;

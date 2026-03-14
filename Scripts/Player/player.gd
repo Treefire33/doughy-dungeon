@@ -22,7 +22,7 @@ func add_item(item_name: String):
 		var count: int = items[item];
 		var data: ItemData = ItemUtils.get_item_data(item);
 		if (data.function == null): continue;
-		ItemUtils._execute_item_func(data.function, "purchased", [self, item_name == item, count]);
+		ItemUtils._execute_item_func(data.function, "purchased", [self, item_name == item, RoomManager.instance, count]);
 
 var player_animation_to_name = {
 	Enum.PlayerAnimation.Idle: "Player/Idle",

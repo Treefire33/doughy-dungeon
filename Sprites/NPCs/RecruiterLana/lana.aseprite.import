@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dcin8dgrwohqq"
+path="res://.godot/imported/lana.aseprite-466fcd6ab51e9e4814910e1c1ba6d06a.res"
+
+[deps]
+
+source_file="res://Sprites/NPCs/RecruiterLana/lana.aseprite"
+dest_files=["res://.godot/imported/lana.aseprite-466fcd6ab51e9e4814910e1c1ba6d06a.res"]
+
+[params]
+

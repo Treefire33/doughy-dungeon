@@ -8,15 +8,19 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Midnight Dungeons"
 config/description="Rouge-like dungeon crawler."
 config/version="0.0.2"
 run/main_scene="uid://b8euto25wvt14"
-config/features=PackedStringArray("4.5", "Mobile")
+config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/fullsize=false
+boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 boot_splash/image="uid://ccqegmh4s4dev"
 config/icon="uid://b1yk2sgwhouw1"
@@ -29,14 +33,20 @@ animation/layers/only_include_visible_layers_by_default=true
 
 Enum="*res://Scripts/AutoLoad/enums.gd"
 ItemUtils="*res://Scripts/Items/item_utils.gd"
-ToastParty="*res://addons/toastparty/toast-autoload.gd"
+ToastParty="*uid://buwed4tb4brns"
 Settings="*res://Scripts/AutoLoad/settings.gd"
 Audio="*res://Scripts/AutoLoad/audio.gd"
 Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
-debug_console="*res://addons/copper_dc/debug_console.tscn"
+debug_console="*uid://bcs4bvx7fi2hm"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 DiscordRPCLoader="res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
+
+[debug]
+
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/shadowed_variable_base_class=0
 
 [display]
 

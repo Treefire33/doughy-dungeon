@@ -11,6 +11,6 @@ flavour_text = "A piece of the abyss, don't stare for too long."
 description = "???"
 price = 450
 sprite = ExtResource("2_kimae")
-weight = 0.09
+weight = 0.9
 function = ExtResource("1_h7wk7")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

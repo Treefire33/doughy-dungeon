@@ -1,10 +1,10 @@
 extends ItemFunction
 
-func room_decision(room_manager: RoomManager, decision: Enum.RoomDecision, stack_count: int):
+func room_decision(decision: Enum.RoomDecision, room_manager: RoomManager, stack_count: int):
 	if (decision == Enum.RoomDecision.StayClear):
 		room_manager.streak_difficulty = 0;
 		room_manager.streak_multiplier = 0;
-		ItemUtils.show_custom_toast("The oven has been turned off.");
+		ItemUtils.show_custom_toast("The oven shuts off.");
 		# ToastParty.show({
 		# "text": "Oven Mitt streak reset!",
 		# "text_size": Settings.toast_size,
