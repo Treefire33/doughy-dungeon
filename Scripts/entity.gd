@@ -102,11 +102,10 @@ func update_stat_mod(key: String, value: float) -> void:
 
 func remove_stat_mod(key: String, remove_all: bool = false) -> void:
     var index = stat_modifiers.find_custom(find_stat_mod.bind(key));
-    stat_modifiers.erase(stat_modifiers[index]);
-    if (remove_all):
-        while (index != -1):
-            index = stat_modifiers.find_custom(find_stat_mod.bind(key));
-            stat_modifiers.erase(stat_modifiers[index]);
+    while (index != -1):
+        stat_modifiers.erase(stat_modifiers[index]);
+        if (!remove_all): break;
+        index = stat_modifiers.find_custom(find_stat_mod.bind(key));
 
 var defense_broke_last_turn: bool = false;
 

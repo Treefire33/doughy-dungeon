@@ -1,8 +1,8 @@
-[gd_scene load_steps=68 format=3 uid="uid://cicj0kes4voa0"]
+[gd_scene format=3 uid="uid://cicj0kes4voa0"]
 
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_nb51f"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_nnt18"]
-[ext_resource type="Texture2D" uid="uid://b723c4u525tuk" path="res://Sprites/SafeRoom/Shop.png" id="3_ewbju"]
+[ext_resource type="Texture2D" uid="uid://dj46tr1pwf3nu" path="res://Sprites/SafeRoom/Shop.aseprite" id="3_81klo"]
 [ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="4_85qyi"]
 [ext_resource type="Script" uid="uid://c730dibuqkvem" path="res://Scripts/room_manager.gd" id="5_iivbl"]
 [ext_resource type="Script" uid="uid://bh1n8shephiis" path="res://Scripts/Player/player.gd" id="6_7nbq1"]
@@ -286,18 +286,18 @@ _data = {
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwurv"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=1496207552]
 
-[node name="Background" type="Node2D" parent="."]
+[node name="Background" type="Node2D" parent="." unique_id=416798358]
 
-[node name="Wall" type="TextureRect" parent="Background"]
+[node name="Wall" type="TextureRect" parent="Background" unique_id=1241360822]
 z_index = -1
 offset_right = 800.0
 offset_bottom = 450.0
 texture = ExtResource("1_nb51f")
 stretch_mode = 1
 
-[node name="Wall2" type="TextureRect" parent="Background"]
+[node name="Wall2" type="TextureRect" parent="Background" unique_id=1477122053]
 z_index = -1
 offset_left = 800.0
 offset_right = 1600.0
@@ -305,7 +305,7 @@ offset_bottom = 450.0
 texture = ExtResource("1_nb51f")
 stretch_mode = 1
 
-[node name="Floor" type="TextureRect" parent="Background"]
+[node name="Floor" type="TextureRect" parent="Background" unique_id=241140459]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -319,7 +319,7 @@ texture = ExtResource("2_nnt18")
 stretch_mode = 1
 flip_h = true
 
-[node name="Floor2" type="TextureRect" parent="Background"]
+[node name="Floor2" type="TextureRect" parent="Background" unique_id=256542221]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -334,7 +334,7 @@ texture = ExtResource("2_nnt18")
 stretch_mode = 1
 flip_h = true
 
-[node name="Gate" type="ColorRect" parent="Background"]
+[node name="Gate" type="ColorRect" parent="Background" unique_id=498444201]
 z_index = 2
 anchors_preset = 11
 anchor_left = 1.0
@@ -347,7 +347,7 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Gate2" type="ColorRect" parent="Background"]
+[node name="Gate2" type="ColorRect" parent="Background" unique_id=744448011]
 z_index = 2
 anchors_preset = 11
 anchor_left = 1.0
@@ -360,7 +360,7 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Gate3" type="ColorRect" parent="Background"]
+[node name="Gate3" type="ColorRect" parent="Background" unique_id=897521474]
 z_index = 2
 anchors_preset = 11
 anchor_left = 1.0
@@ -373,23 +373,26 @@ grow_horizontal = 0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SafeRoom" type="Node2D" parent="."]
+[node name="SafeRoom" type="Node2D" parent="." unique_id=1995804427]
 visible = false
 z_index = 1
 
-[node name="Shop" type="Node2D" parent="SafeRoom"]
+[node name="Shop" type="Node2D" parent="SafeRoom" unique_id=1366160872]
 position = Vector2(400, 195)
 
-[node name="ShopSprite" type="Sprite2D" parent="SafeRoom/Shop"]
-texture = ExtResource("3_ewbju")
+[node name="ShopSprite" type="Sprite2D" parent="SafeRoom/Shop" unique_id=244014801]
+texture = ExtResource("3_81klo")
+hframes = 2
+vframes = 2
+frame = 1
 
-[node name="Item1" type="Node2D" parent="SafeRoom/Shop"]
+[node name="Item1" type="Node2D" parent="SafeRoom/Shop" unique_id=1742309795]
 position = Vector2(-67, -60)
 
-[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item1"]
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item1" unique_id=1975484407]
 texture = ExtResource("4_85qyi")
 
-[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item1"]
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item1" unique_id=54890655]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
@@ -408,13 +411,13 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
-[node name="Item2" type="Node2D" parent="SafeRoom/Shop"]
+[node name="Item2" type="Node2D" parent="SafeRoom/Shop" unique_id=102677707]
 position = Vector2(-3, -60)
 
-[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item2"]
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item2" unique_id=1174156124]
 texture = ExtResource("4_85qyi")
 
-[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item2"]
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item2" unique_id=1697688177]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -440,13 +443,13 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
-[node name="Item3" type="Node2D" parent="SafeRoom/Shop"]
+[node name="Item3" type="Node2D" parent="SafeRoom/Shop" unique_id=1237401900]
 position = Vector2(61, -60)
 
-[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item3"]
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item3" unique_id=1839354649]
 texture = ExtResource("4_85qyi")
 
-[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item3"]
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item3" unique_id=1184824214]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
@@ -465,54 +468,85 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
-[node name="Chair" type="Sprite2D" parent="SafeRoom"]
+[node name="Shelf" type="Node2D" parent="SafeRoom" unique_id=1845961317]
+position = Vector2(400, 105)
+
+[node name="ShelfSprite" type="Sprite2D" parent="SafeRoom/Shelf" unique_id=157822434]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_81klo")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Item1" type="Node2D" parent="SafeRoom/Shelf" unique_id=103845858]
+position = Vector2(0, -25)
+
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shelf/Item1" unique_id=1932724763]
+texture = ExtResource("4_85qyi")
+
+[node name="Purchase" type="Button" parent="SafeRoom/Shelf/Item1" unique_id=375373976]
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+theme = ExtResource("10_vm72l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_tgy6u")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_81klo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fkdbe")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_22asu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vm72l")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_mg4q0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t8sx")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_exi56")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
+flat = true
+
+[node name="Chair" type="Sprite2D" parent="SafeRoom" unique_id=272211045]
 position = Vector2(232, 193)
 texture = ExtResource("6_exi56")
 
-[node name="Meow" type="Sprite2D" parent="SafeRoom"]
+[node name="Meow" type="Sprite2D" parent="SafeRoom" unique_id=42370709]
 z_index = 1
 position = Vector2(556, 199)
 texture = ExtResource("7_7t8sx")
 
-[node name="Vendor" type="Node2D" parent="SafeRoom"]
+[node name="Vendor" type="Node2D" parent="SafeRoom" unique_id=438208260]
 visible = false
 z_index = 1
 position = Vector2(529, 197)
 
-[node name="Sprite" type="Sprite2D" parent="SafeRoom/Vendor"]
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Vendor" unique_id=773305352]
 texture = ExtResource("8_fkdbe")
 flip_h = true
 hframes = 7
 region_rect = Rect2(0, 0, 128, 128)
 
-[node name="Animator" type="AnimationPlayer" parent="SafeRoom/Vendor"]
+[node name="Animator" type="AnimationPlayer" parent="SafeRoom/Vendor" unique_id=1270948367]
 root_node = NodePath("../Sprite")
-libraries = {
-&"": SubResource("AnimationLibrary_gglfx"),
-&"Vendor": ExtResource("9_81klo")
-}
+libraries/ = SubResource("AnimationLibrary_gglfx")
+libraries/Vendor = ExtResource("9_81klo")
 
-[node name="Chair2" type="Sprite2D" parent="SafeRoom"]
+[node name="Chair2" type="Sprite2D" parent="SafeRoom" unique_id=1569452825]
 position = Vector2(561, 196)
 texture = ExtResource("6_exi56")
 flip_h = true
 
-[node name="SafeRoomAnimations" type="AnimationPlayer" parent="SafeRoom"]
-libraries = {
-&"": SubResource("AnimationLibrary_cwurv")
-}
+[node name="SafeRoomAnimations" type="AnimationPlayer" parent="SafeRoom" unique_id=857053589]
+libraries/ = SubResource("AnimationLibrary_cwurv")
 
-[node name="GoldenBiscuit" type="Node2D" parent="."]
+[node name="GoldenBiscuit" type="Node2D" parent="." unique_id=881799590]
 visible = false
 z_index = 1
 
-[node name="EnemySpawn" type="Node2D" parent="GoldenBiscuit"]
+[node name="EnemySpawn" type="Node2D" parent="GoldenBiscuit" unique_id=1539936136]
 position = Vector2(575, 241)
 
-[node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn"]
+[node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn" unique_id=178775868]
 texture = ExtResource("8_exi56")
 
-[node name="RoomManager" type="Node" parent="." node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "safe_room_anims", "golden_biscuit")]
+[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "shelf", "safe_room_anims", "golden_biscuit")]
 script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
@@ -521,45 +555,44 @@ current_dungeon = ExtResource("12_81klo")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
+shelf = NodePath("../SafeRoom/Shelf")
 safe_room_anims = NodePath("../SafeRoom/SafeRoomAnimations")
 golden_biscuit = NodePath("../GoldenBiscuit")
 
-[node name="EnemySpawn3" type="Node2D" parent="RoomManager"]
+[node name="EnemySpawn3" type="Node2D" parent="RoomManager" unique_id=1826181721]
 position = Vector2(639, 296)
 
-[node name="EnemySpawn2" type="Node2D" parent="RoomManager"]
+[node name="EnemySpawn2" type="Node2D" parent="RoomManager" unique_id=1963553682]
 position = Vector2(639, 212)
 
-[node name="EnemySpawn" type="Node2D" parent="RoomManager"]
+[node name="EnemySpawn" type="Node2D" parent="RoomManager" unique_id=226280839]
 position = Vector2(575, 241)
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Player" type="Node2D" parent="." unique_id=685296421]
 z_index = 1
 position = Vector2(225, 225)
 script = ExtResource("6_7nbq1")
 
-[node name="Sprite" type="Sprite2D" parent="Player"]
+[node name="Sprite" type="Sprite2D" parent="Player" unique_id=1877316557]
 texture = ExtResource("11_mg4q0")
 hframes = 4
 vframes = 4
 frame = 8
 
-[node name="Shield" type="Sprite2D" parent="Player"]
+[node name="Shield" type="Sprite2D" parent="Player" unique_id=253125294]
 visible = false
 texture = ExtResource("12_mg4q0")
 hframes = 2
 
-[node name="Animator" type="AnimationPlayer" parent="Player"]
-libraries = {
-&"": SubResource("AnimationLibrary_a8tyi"),
-&"Player": ExtResource("12_exi56")
-}
-autoplay = "Player/Idle"
+[node name="Animator" type="AnimationPlayer" parent="Player" unique_id=196307539]
+libraries/ = SubResource("AnimationLibrary_a8tyi")
+libraries/Player = ExtResource("12_exi56")
+autoplay = &"Player/Idle"
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=1653346387]
 anchor_mode = 0
 
-[node name="PlayerUI" type="Control" parent="Camera" node_paths=PackedStringArray("room_manager", "stats_display", "inventory_display", "decision_panel", "room_select")]
+[node name="PlayerUI" type="Control" parent="Camera" unique_id=339884879 node_paths=PackedStringArray("room_manager", "stats_display", "inventory_display", "decision_panel", "room_select")]
 z_index = 3
 layout_mode = 3
 anchors_preset = 15
@@ -577,10 +610,10 @@ inventory_display = NodePath("Inventory")
 decision_panel = NodePath("DecisionPanel")
 room_select = NodePath("RoomSelect")
 
-[node name="Stats" parent="Camera/PlayerUI" instance=ExtResource("13_7nbq1")]
+[node name="Stats" parent="Camera/PlayerUI" unique_id=2063253076 instance=ExtResource("13_7nbq1")]
 layout_mode = 1
 
-[node name="Inventory" parent="Camera/PlayerUI" instance=ExtResource("15_exi56")]
+[node name="Inventory" parent="Camera/PlayerUI" unique_id=1102359742 instance=ExtResource("15_exi56")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -591,11 +624,11 @@ offset_top = 230.0
 offset_right = 800.0
 offset_bottom = 350.0
 
-[node name="DecisionPanel" parent="Camera/PlayerUI" instance=ExtResource("15_iivbl")]
+[node name="DecisionPanel" parent="Camera/PlayerUI" unique_id=291967297 instance=ExtResource("15_iivbl")]
 visible = false
 layout_mode = 1
 
-[node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI"]
+[node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI" unique_id=1848592322]
 visible = false
 z_as_relative = false
 layout_mode = 1
@@ -614,7 +647,7 @@ texture = ExtResource("12_fkdbe")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Select" type="Button" parent="Camera/PlayerUI/SelectionBox"]
+[node name="Select" type="Button" parent="Camera/PlayerUI/SelectionBox" unique_id=761593179]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -635,7 +668,7 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0qy5o")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
 flat = true
 
-[node name="Upgrades" type="ColorRect" parent="Camera/PlayerUI"]
+[node name="Upgrades" type="ColorRect" parent="Camera/PlayerUI" unique_id=1329253525]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -646,7 +679,7 @@ offset_top = 0.0499878
 offset_bottom = -0.100037
 color = Color(0, 0, 0, 1)
 
-[node name="Title" type="RichTextLabel" parent="Camera/PlayerUI/Upgrades"]
+[node name="Title" type="RichTextLabel" parent="Camera/PlayerUI/Upgrades" unique_id=1388161886]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -659,7 +692,7 @@ text = "UPGRADE
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Health" type="Button" parent="Camera/PlayerUI/Upgrades"]
+[node name="Health" type="Button" parent="Camera/PlayerUI/Upgrades" unique_id=844275383]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.292
@@ -675,7 +708,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Stamina" type="Button" parent="Camera/PlayerUI/Upgrades"]
+[node name="Stamina" type="Button" parent="Camera/PlayerUI/Upgrades" unique_id=1803107569]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.332
@@ -692,7 +725,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Attack" type="Button" parent="Camera/PlayerUI/Upgrades"]
+[node name="Attack" type="Button" parent="Camera/PlayerUI/Upgrades" unique_id=1624093678]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.665
@@ -709,13 +742,13 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Enemies" type="Control" parent="Camera/PlayerUI"]
+[node name="Enemies" type="Control" parent="Camera/PlayerUI" unique_id=1360850557]
 layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.178
 offset_bottom = -0.0999985
 
-[node name="Label" type="ColorRect" parent="Camera/PlayerUI/Enemies"]
+[node name="Label" type="ColorRect" parent="Camera/PlayerUI/Enemies" unique_id=619008635]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -730,7 +763,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="RichTextLabel" parent="Camera/PlayerUI/Enemies/Label"]
+[node name="Label" type="RichTextLabel" parent="Camera/PlayerUI/Enemies/Label" unique_id=1363120411]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -743,7 +776,7 @@ text = "SELECT AN ENEMY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Enemy1" type="Button" parent="Camera/PlayerUI/Enemies"]
+[node name="Enemy1" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=546896515]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.679
@@ -768,7 +801,7 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
-[node name="Enemy2" type="Button" parent="Camera/PlayerUI/Enemies"]
+[node name="Enemy2" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=1811806868]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.759
@@ -792,7 +825,7 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
-[node name="Enemy3" type="Button" parent="Camera/PlayerUI/Enemies"]
+[node name="Enemy3" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=953025593]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.759
@@ -816,7 +849,7 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
-[node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI"]
+[node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI" unique_id=1945430027]
 visible = false
 z_index = 4
 layout_mode = 1
@@ -828,12 +861,12 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="RoomSelect" parent="Camera/PlayerUI" instance=ExtResource("21_7t8sx")]
+[node name="RoomSelect" parent="Camera/PlayerUI" unique_id=1488271886 instance=ExtResource("21_7t8sx")]
 visible = false
 z_index = 5
 layout_mode = 1
 
-[node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI"]
+[node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI" unique_id=730180464]
 visible = false
 layout_mode = 0
 offset_left = 320.0
@@ -843,11 +876,11 @@ offset_bottom = 350.0
 theme = ExtResource("10_vm72l")
 text = "Proceed"
 
-[node name="DialogueBox" parent="Camera/PlayerUI" instance=ExtResource("26_81klo")]
+[node name="DialogueBox" parent="Camera/PlayerUI" unique_id=548800788 instance=ExtResource("26_81klo")]
 visible = false
 layout_mode = 1
 
-[node name="PauseGame" type="Button" parent="Camera/PlayerUI"]
+[node name="PauseGame" type="Button" parent="Camera/PlayerUI" unique_id=892418108]
 z_index = 5
 layout_mode = 1
 anchors_preset = -1

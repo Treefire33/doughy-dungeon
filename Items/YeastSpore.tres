@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dy35clpb4fqt7"]
+
+[ext_resource type="Script" uid="uid://b756sdu33a6dm" path="res://Items/PainfulFunctions/YeastSporeFunction.gd" id="1_fqdj2"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_r3uo7"]
+[ext_resource type="Texture2D" uid="uid://bnditmhokjhg" path="res://Sprites/Items/YeastSpore.tres" id="3_r3uo7"]
+
+[resource]
+script = ExtResource("2_r3uo7")
+name = "Yeast Spore"
+flavour_text = "Yeast Crawler egg... ugh"
+description = "Resting now decreases defense duration."
+sprite = ExtResource("3_r3uo7")
+weight = 10.0
+function = ExtResource("1_fqdj2")
+unique_stacking = true
+painful = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

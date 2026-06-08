@@ -29,23 +29,23 @@ func remove_item(item: String, count: int = 1):
 func set_player_stat(stat_name: String, value: Variant):
 	match (stat_name):
 		"max_health":
-			player.max_health = value;
+			player._max_health = value;
 		"health":
 			player.health = value;
 		"max_stamina":
-			player.max_stamina = value;
+			player._max_stamina = value;
 		"stamina":
 			player.stamina = value;
 		"max_defending_duration":
-			player.max_defending_duration = value;
+			player._max_defending_duration = value;
 		"defending_duration":
 			player.defending_duration = value;
 		"max_defense_durability":
-			player.max_defense_durability = value;
+			player._max_defense_durability = value;
 		"defense_durability":
 			player.defense_durability = value;
 		"attack":
-			player.attack = value;
+			player._attack = value;
 		"coins":
 			player.coins = value;
 	room_manager.player_ui.update_ui();

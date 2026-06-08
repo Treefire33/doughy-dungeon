@@ -63,7 +63,7 @@ project/assembly_name="Doughy Dungeon"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/toastparty/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/go_sheets/plugin.cfg", "res://addons/toastparty/plugin.cfg")
 
 [file_customization]
 
@@ -75,6 +75,7 @@ folder_colors={
 "res://EnemyData/": "orange",
 "res://Items/": "orange",
 "res://Items/Functions/": "gray",
+"res://Items/PainfulFunctions/": "gray",
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
 "res://Sprites/": "green",

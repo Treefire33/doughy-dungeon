@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DungeonData" load_steps=28 format=3 uid="uid://bwtevdgyame2h"]
+[gd_resource type="Resource" script_class="DungeonData" format=3 uid="uid://bwtevdgyame2h"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_a74m2"]
 [ext_resource type="Resource" uid="uid://do8vv37hxwv51" path="res://EnemyData/Oceanic/StoneFish.tres" id="2_cfuis"]

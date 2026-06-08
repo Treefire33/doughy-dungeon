@@ -32,6 +32,7 @@ var room_multiplier: float = 1.0:
         room_multiplier = clamp(value, 1, 100);
 var floor_count: int:
     get:
+        @warning_ignore("integer_division")
         return int(room_count / current_dungeon.rooms_until_next_floor) + 1;
 @export var player: Player;
 @export var camera: Camera2D;
@@ -114,7 +115,23 @@ func purchase_item(item_name: String, item_display):
     player_ui.update_ui();
     item_display.hide();
 
+func generate_shop_item(display_index: int, shelf_item: bool = false):
+    var item_display: Node2D = shelf.get_node("Item1") if shelf_item else safe_room.get_node("Item"+str(display_index));
+    item_display.show();
+    var item_button: Button = item_display.get_node("Purchase");
+    for connection in item_button.pressed.get_connections():
+        item_button.pressed.disconnect(connection.callable)
+    var item_name = ItemUtils.get_random_item(current_dungeon, shelf_item);
+    var item = ItemUtils.get_item_data(item_name);
+    item_display.get_node("Sprite").texture = item.sprite;
+    item_button.tooltip_text = item.name + "\n" + item.flavour_text;
+    if (!item.painful):
+        item_button.tooltip_text += "\n\n" + "Price: " + str(item.price);
+    item_button.tooltip_text += "\n" + item.description;
+    item_button.pressed.connect(purchase_item.bind(item_name, item_display));
+
 @export var safe_room: Node2D;
+@export var shelf: Node2D;
 @export var safe_room_anims: AnimationPlayer;
 @export var golden_biscuit: Node2D;
 func gen_safe_room():
@@ -139,19 +156,10 @@ func gen_safe_room():
         );
         return;
     safe_room.get_parent().visible = true;
+
     for i in range(1, 4):
-        var item_display: Node2D = safe_room.get_node("Item"+str(i))
-        item_display.show();
-        var item_button: Button = item_display.get_node("Purchase");
-        for connection in item_button.pressed.get_connections():
-            item_button.pressed.disconnect(connection.callable)
-        var item_name = ItemUtils.get_random_item(current_dungeon);
-        var item = ItemUtils.get_item_data(item_name);
-        item_display.get_node("Sprite").texture = item.sprite;
-        item_button.tooltip_text = item.name + \
-        "\n" + item.flavour_text + \
-        "\n\n" + "Price: " + str(item.price) + "\n" + item.description;
-        item_button.pressed.connect(purchase_item.bind(item_name, item_display));
+        generate_shop_item(i);
+    generate_shop_item(0, true);
 
     if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2 && !GlobalPlayer.met_vendor):
         safe_room_anims.play("VendorIntro");
@@ -333,6 +341,7 @@ func next_room(leaving_safe_room: bool = false):
         room_tween.tween_callback(gen_safe_room).set_delay(0.2)
     else:
         room_tween.tween_callback(gen_next_room).set_delay(0.2)
+    @warning_ignore("integer_division")
     if (room_count == current_dungeon.room_count / 2):
         Audio.change_music(Audio.DungeonMusic.QuickeningPace);
 

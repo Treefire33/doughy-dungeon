@@ -25,3 +25,6 @@ class_name ItemData
 
 ## Determines if the item has a unique function for stacking.
 @export var unique_stacking: bool = false;
+
+## Denotes if an item is painful or not.
+@export var painful: bool = false;

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b0mkdit6rebvk"]
+
+[ext_resource type="Script" uid="uid://bcgn6omve6j5s" path="res://Items/PainfulFunctions/SplinterFunction.gd" id="1_hj4ga"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_1iqir"]
+[ext_resource type="Texture2D" uid="uid://i0chkx6efahb" path="res://Sprites/Items/Splinter.tres" id="2_5o3cl"]
+
+[resource]
+script = ExtResource("2_1iqir")
+name = "Splinter"
+flavour_text = "ow"
+description = "Every enemy attack now does (1 * stack) more damage."
+sprite = ExtResource("2_5o3cl")
+weight = 10.0
+function = ExtResource("1_hj4ga")
+unique_stacking = true
+painful = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

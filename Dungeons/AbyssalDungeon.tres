@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DungeonData" load_steps=10 format=3 uid="uid://b354aug5gyjjh"]
+[gd_resource type="Resource" script_class="DungeonData" format=3 uid="uid://b354aug5gyjjh"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_u2tlb"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="3_xndj2"]
@@ -13,12 +13,14 @@
 [resource]
 script = ExtResource("9_1648l")
 id = 4
-name = "Magmatic Dungeon"
+name = "Abyssal Dungeon"
 items = Array[ExtResource("4_bdtq6")]([ExtResource("5_1yf2x"), ExtResource("6_qr6e0"), ExtResource("7_5w3kd"), ExtResource("8_swwu3")])
 wall_texture = ExtResource("10_p5f5t")
 floor_texture = ExtResource("3_xndj2")
 room_count = 200
 maximum_difficulty = 20
-description = "200 rooms.
+description = "This is it. The final challenge.
+
+200 rooms.
 Difficulty 1-20"
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddbbrbau3mji4"
-path="res://.godot/imported/SaferoomProps.png-413afa2c8c2d2b626dd9de3dda33b21f.ctex"
+uid="uid://b723c4u525tuk"
+path="res://.godot/imported/ShopOld.png-81ba87182f116cd26442643471f1aaa3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/SafeRoom/SaferoomProps.png"
-dest_files=["res://.godot/imported/SaferoomProps.png-413afa2c8c2d2b626dd9de3dda33b21f.ctex"]
+source_file="res://Sprites/SafeRoom/ShopOld.png"
+dest_files=["res://.godot/imported/ShopOld.png-81ba87182f116cd26442643471f1aaa3.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="DungeonData" load_steps=48 format=3 uid="uid://dpsc6wlv66o0m"]
+[gd_resource type="Resource" script_class="DungeonData" format=3 uid="uid://dpsc6wlv66o0m"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_f5ab6"]
 [ext_resource type="Resource" uid="uid://5qev5bx8khod" path="res://EnemyData/Doughy/Cake.tres" id="2_yu3ei"]
