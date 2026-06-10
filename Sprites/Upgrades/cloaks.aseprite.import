@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bktw8vo256ywc"
+path="res://.godot/imported/cloaks.aseprite-c45ce0e50851e10cf2821c2396494935.res"
+
+[deps]
+
+source_file="res://Sprites/Upgrades/cloaks.aseprite"
+dest_files=["res://.godot/imported/cloaks.aseprite-c45ce0e50851e10cf2821c2396494935.res"]
+
+[params]
+

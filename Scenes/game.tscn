@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c730dibuqkvem" path="res://Scripts/room_manager.gd" id="5_iivbl"]
 [ext_resource type="Script" uid="uid://bh1n8shephiis" path="res://Scripts/Player/player.gd" id="6_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://u130ujrllbuu" path="res://Sprites/SafeRoom/Chair.tres" id="6_exi56"]
+[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="6_tgy6u"]
 [ext_resource type="Texture2D" uid="uid://6ekikoy1yyx5" path="res://Sprites/SafeRoom/Meow.tres" id="7_7t8sx"]
 [ext_resource type="Script" uid="uid://crth17d1hrbtj" path="res://Scripts/UI/player_ui.gd" id="8_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
@@ -14,7 +15,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://ddmjimkaqyeqx" path="res://Sprites/NPCs/TheVendor/Animations/Vendor.res" id="9_81klo"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
 [ext_resource type="Texture2D" uid="uid://qjofli7jv6ub" path="res://Sprites/Player/player_tattered.png" id="11_mg4q0"]
-[ext_resource type="Resource" uid="uid://bwtevdgyame2h" path="res://Dungeons/OceanicDungeon.tres" id="12_81klo"]
+[ext_resource type="Resource" uid="uid://i6xwk6el8jyh" path="res://Dungeons/DoughyAlcove.tres" id="12_81klo"]
 [ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="12_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b0pvhoesh3677" path="res://Sprites/Player/shield.aseprite" id="12_mg4q0"]
@@ -386,6 +387,14 @@ hframes = 2
 vframes = 2
 frame = 1
 
+[node name="ShelfSprite" type="Sprite2D" parent="SafeRoom/Shop" unique_id=157822434]
+position = Vector2(-3, -100)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_81klo")
+hframes = 2
+vframes = 2
+frame = 2
+
 [node name="Item1" type="Node2D" parent="SafeRoom/Shop" unique_id=1742309795]
 position = Vector2(-67, -60)
 
@@ -410,6 +419,9 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
+
+[node name="TooltipTrigger" type="Node" parent="SafeRoom/Shop/Item1/Purchase" unique_id=2127331438]
+script = ExtResource("6_tgy6u")
 
 [node name="Item2" type="Node2D" parent="SafeRoom/Shop" unique_id=102677707]
 position = Vector2(-3, -60)
@@ -443,6 +455,9 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
+[node name="TooltipTrigger" type="Node" parent="SafeRoom/Shop/Item2/Purchase" unique_id=876264196]
+script = ExtResource("6_tgy6u")
+
 [node name="Item3" type="Node2D" parent="SafeRoom/Shop" unique_id=1237401900]
 position = Vector2(61, -60)
 
@@ -468,23 +483,16 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
 
-[node name="Shelf" type="Node2D" parent="SafeRoom" unique_id=1845961317]
-position = Vector2(400, 105)
+[node name="TooltipTrigger" type="Node" parent="SafeRoom/Shop/Item3/Purchase" unique_id=1941476123]
+script = ExtResource("6_tgy6u")
 
-[node name="ShelfSprite" type="Sprite2D" parent="SafeRoom/Shelf" unique_id=157822434]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_81klo")
-hframes = 2
-vframes = 2
-frame = 2
+[node name="Item4" type="Node2D" parent="SafeRoom/Shop" unique_id=103845858]
+position = Vector2(-3, -125)
 
-[node name="Item1" type="Node2D" parent="SafeRoom/Shelf" unique_id=103845858]
-position = Vector2(0, -25)
-
-[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shelf/Item1" unique_id=1932724763]
+[node name="Sprite" type="Sprite2D" parent="SafeRoom/Shop/Item4" unique_id=1932724763]
 texture = ExtResource("4_85qyi")
 
-[node name="Purchase" type="Button" parent="SafeRoom/Shelf/Item1" unique_id=375373976]
+[node name="Purchase" type="Button" parent="SafeRoom/Shop/Item4" unique_id=375373976]
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 32.0
@@ -502,6 +510,9 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nbq1")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_iivbl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_85qyi")
 flat = true
+
+[node name="TooltipTrigger" type="Node" parent="SafeRoom/Shop/Item4/Purchase" unique_id=1593227426]
+script = ExtResource("6_tgy6u")
 
 [node name="Chair" type="Sprite2D" parent="SafeRoom" unique_id=272211045]
 position = Vector2(232, 193)
@@ -546,7 +557,7 @@ position = Vector2(575, 241)
 [node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn" unique_id=178775868]
 texture = ExtResource("8_exi56")
 
-[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "shelf", "safe_room_anims", "golden_biscuit")]
+[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "safe_room_anims", "golden_biscuit")]
 script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
@@ -555,7 +566,6 @@ current_dungeon = ExtResource("12_81klo")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
-shelf = NodePath("../SafeRoom/Shelf")
 safe_room_anims = NodePath("../SafeRoom/SafeRoomAnimations")
 golden_biscuit = NodePath("../GoldenBiscuit")
 
@@ -701,12 +711,16 @@ anchor_bottom = 1.0
 offset_left = 1.0
 offset_top = -0.0400047
 offset_right = 0.119995
-tooltip_text = "Health Upgrade:
-+5 max health."
 icon = ExtResource("13_85qyi")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Upgrades/Health" unique_id=1611940433]
+script = ExtResource("6_tgy6u")
+text = "Health Upgrade:
++5 max health."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Stamina" type="Button" parent="Camera/PlayerUI/Upgrades" unique_id=1803107569]
 layout_mode = 1
@@ -718,12 +732,16 @@ anchor_bottom = 1.0
 offset_left = 0.119995
 offset_top = -0.0400047
 offset_right = -0.100006
-tooltip_text = "Stamina Upgrade:
-+2 max stamina."
 icon = ExtResource("14_iivbl")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Upgrades/Stamina" unique_id=211429118]
+script = ExtResource("6_tgy6u")
+text = "Stamina Upgrade:
++2 max stamina."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Attack" type="Button" parent="Camera/PlayerUI/Upgrades" unique_id=1624093678]
 layout_mode = 1
@@ -735,12 +753,16 @@ anchor_bottom = 1.0
 offset_left = -0.100006
 offset_top = -0.0400047
 offset_right = 0.0400085
-tooltip_text = "Attack Upgrade:
-+2 attack."
 icon = ExtResource("15_7nbq1")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Upgrades/Attack" unique_id=434407727]
+script = ExtResource("6_tgy6u")
+text = "Attack Upgrade:
++2 attack."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Enemies" type="Control" parent="Camera/PlayerUI" unique_id=1360850557]
 layout_mode = 1
@@ -801,6 +823,10 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Enemies/Enemy1" unique_id=1367515304]
+script = ExtResource("6_tgy6u")
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
 [node name="Enemy2" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=1811806868]
 layout_mode = 1
 anchors_preset = -1
@@ -824,6 +850,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
+
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Enemies/Enemy2" unique_id=186732019]
+script = ExtResource("6_tgy6u")
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Enemy3" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=953025593]
 layout_mode = 1
@@ -849,6 +879,10 @@ theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
 flat = true
 
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Enemies/Enemy3" unique_id=1022882667]
+script = ExtResource("6_tgy6u")
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
 [node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI" unique_id=1945430027]
 visible = false
 z_index = 4
@@ -869,9 +903,9 @@ layout_mode = 1
 [node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI" unique_id=730180464]
 visible = false
 layout_mode = 0
-offset_left = 320.0
-offset_top = 300.0
-offset_right = 500.0
+offset_left = 340.0
+offset_top = 310.0
+offset_right = 460.0
 offset_bottom = 350.0
 theme = ExtResource("10_vm72l")
 text = "Proceed"

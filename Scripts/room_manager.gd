@@ -115,23 +115,24 @@ func purchase_item(item_name: String, item_display):
     player_ui.update_ui();
     item_display.hide();
 
-func generate_shop_item(display_index: int, shelf_item: bool = false):
-    var item_display: Node2D = shelf.get_node("Item1") if shelf_item else safe_room.get_node("Item"+str(display_index));
+func generate_shop_item(display_index: int):
+    var item_display: Node2D = safe_room.get_node("Item"+str(display_index));
     item_display.show();
     var item_button: Button = item_display.get_node("Purchase");
+    var tooltip: TooltipTrigger = item_button.get_node("TooltipTrigger");
     for connection in item_button.pressed.get_connections():
         item_button.pressed.disconnect(connection.callable)
-    var item_name = ItemUtils.get_random_item(current_dungeon, shelf_item);
+    var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
     item_display.get_node("Sprite").texture = item.sprite;
-    item_button.tooltip_text = item.name + "\n" + item.flavour_text;
+    tooltip.text = item.name + "\n[s=8]" + item.flavour_text;
     if (!item.painful):
-        item_button.tooltip_text += "\n\n" + "Price: " + str(item.price);
-    item_button.tooltip_text += "\n" + item.description;
+        tooltip.text += "\n\n" + "Price: " + str(item.price);
+    tooltip.text += "\n[s=8]" + item.description;
+    
     item_button.pressed.connect(purchase_item.bind(item_name, item_display));
 
 @export var safe_room: Node2D;
-@export var shelf: Node2D;
 @export var safe_room_anims: AnimationPlayer;
 @export var golden_biscuit: Node2D;
 func gen_safe_room():
@@ -157,9 +158,8 @@ func gen_safe_room():
         return;
     safe_room.get_parent().visible = true;
 
-    for i in range(1, 4):
+    for i in range(1, 5):
         generate_shop_item(i);
-    generate_shop_item(0, true);
 
     if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2 && !GlobalPlayer.met_vendor):
         safe_room_anims.play("VendorIntro");
@@ -352,13 +352,15 @@ func _ready() -> void:
     await player_ui.ui_done;
     MidnightDebug.room_manager = self;
     MidnightDebug.player = self.player;
-    current_dungeon = GlobalPlayer.current_dungeon;
+    if (GlobalPlayer.current_dungeon):
+        current_dungeon = GlobalPlayer.current_dungeon;
     self.wall_rect.texture = self.current_dungeon.wall_texture;
     self.floor_rect.texture = self.current_dungeon.floor_texture;
     if (RoomManager.instance):
         RoomManager.instance.queue_free();
     RoomManager.instance = self;
     gen_room(Enum.RoomDecision.Proceed);
+    player_ui.update_ui();
     room_turn();
 
 var pause_menu: PackedScene = preload("res://Scenes/Menus/PauseMenu/pause_menu.tscn");

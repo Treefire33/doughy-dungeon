@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://mmdyi7frxt4n"]
 
+[ext_resource type="Texture2D" uid="uid://d0hoyd24xr65f" path="res://Sprites/Other/SliderGrabberMeshTexture.tres" id="1_ko64t"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpvoi"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
@@ -39,6 +41,23 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avwua"]
+bg_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sts5i"]
+bg_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_top = 4.0
+expand_margin_bottom = 4.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hevoe"]
+bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eevlq"]
 bg_color = Color(0, 0, 0, 1)
@@ -90,6 +109,13 @@ Button/styles/focus = SubResource("StyleBoxFlat_q4vyd")
 Button/styles/hover = SubResource("StyleBoxFlat_wn4m6")
 Button/styles/normal = SubResource("StyleBoxFlat_2ccob")
 Button/styles/pressed = SubResource("StyleBoxFlat_rk5vj")
+HSlider/constants/center_grabber = 1
+HSlider/icons/grabber = ExtResource("1_ko64t")
+HSlider/icons/grabber_disabled = ExtResource("1_ko64t")
+HSlider/icons/grabber_highlight = ExtResource("1_ko64t")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_avwua")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_sts5i")
+HSlider/styles/slider = SubResource("StyleBoxFlat_hevoe")
 Panel/styles/panel = SubResource("StyleBoxFlat_eevlq")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_eevlq")
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_bpvoi")

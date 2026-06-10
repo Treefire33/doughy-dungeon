@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmjvxujvl2nkc"]
+[gd_scene format=3 uid="uid://dmjvxujvl2nkc"]
 
 [ext_resource type="Script" uid="uid://bekqcpen8mmqh" path="res://Scenes/Menus/SettingsMenu/settings_menu.gd" id="1_437ti"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="1_un4yt"]
@@ -13,7 +13,7 @@ border_color = Color(1, 1, 1, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[node name="SettingsMenu" type="Control"]
+[node name="SettingsMenu" type="Control" unique_id=1581669506]
 z_index = 15
 layout_mode = 3
 anchor_left = 0.156
@@ -26,7 +26,7 @@ offset_right = -0.200012
 offset_bottom = -0.100037
 script = ExtResource("1_437ti")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1926411095]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Border" type="ColorRect" parent="."]
+[node name="Border" type="ColorRect" parent="." unique_id=1678457139]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -48,7 +48,7 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Title" type="RichTextLabel" parent="." unique_id=1883915344]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -58,7 +58,7 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SettingsContainer" type="VBoxContainer" parent="."]
+[node name="SettingsContainer" type="VBoxContainer" parent="." unique_id=289488908]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.024
@@ -70,12 +70,12 @@ offset_top = 0.1000061
 offset_right = -0.25
 offset_bottom = -0.099990845
 
-[node name="GameSpeed" type="HBoxContainer" parent="SettingsContainer"]
+[node name="GameSpeed" type="HBoxContainer" parent="SettingsContainer" unique_id=1772438004]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/GameSpeed"]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/GameSpeed" unique_id=2076962728]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -83,7 +83,7 @@ theme = ExtResource("1_un4yt")
 text = "GAME SPEED:"
 vertical_alignment = 1
 
-[node name="Value" type="SpinBox" parent="SettingsContainer/GameSpeed"]
+[node name="Value" type="SpinBox" parent="SettingsContainer/GameSpeed" unique_id=672296689]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
@@ -94,12 +94,12 @@ value = 1.0
 alignment = 1
 update_on_text_changed = true
 
-[node name="AudioVolume" type="HBoxContainer" parent="SettingsContainer"]
+[node name="AudioVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=467493214]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/AudioVolume"]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/AudioVolume" unique_id=837998163]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -107,7 +107,7 @@ theme = ExtResource("1_un4yt")
 text = "SFX VOLUME:"
 vertical_alignment = 1
 
-[node name="Value" type="HSlider" parent="SettingsContainer/AudioVolume"]
+[node name="Value" type="HSlider" parent="SettingsContainer/AudioVolume" unique_id=399542660]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -116,12 +116,12 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicVolume" type="HBoxContainer" parent="SettingsContainer"]
+[node name="MusicVolume" type="HBoxContainer" parent="SettingsContainer" unique_id=1901642795]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/MusicVolume"]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/MusicVolume" unique_id=1368366539]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -129,7 +129,7 @@ theme = ExtResource("1_un4yt")
 text = "MUSIC VOLUME:"
 vertical_alignment = 1
 
-[node name="Value" type="HSlider" parent="SettingsContainer/MusicVolume"]
+[node name="Value" type="HSlider" parent="SettingsContainer/MusicVolume" unique_id=876806778]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -138,12 +138,12 @@ max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="NotificationSize" type="HBoxContainer" parent="SettingsContainer"]
+[node name="NotificationSize" type="HBoxContainer" parent="SettingsContainer" unique_id=1138478948]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/NotificationSize"]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/NotificationSize" unique_id=3644210]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -151,7 +151,7 @@ theme = ExtResource("1_un4yt")
 text = "NOTIF SIZE:"
 vertical_alignment = 1
 
-[node name="Value" type="SpinBox" parent="SettingsContainer/NotificationSize"]
+[node name="Value" type="SpinBox" parent="SettingsContainer/NotificationSize" unique_id=1741735510]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
@@ -161,7 +161,7 @@ value = 8.0
 alignment = 1
 update_on_text_changed = true
 
-[node name="Keybinds" type="Button" parent="."]
+[node name="Keybinds" type="Button" parent="." unique_id=2043108459]
 layout_mode = 0
 offset_left = 12.0
 offset_top = 206.0
@@ -170,7 +170,7 @@ offset_bottom = 246.0
 theme = ExtResource("1_un4yt")
 text = "KEYBINDS"
 
-[node name="Done" type="Button" parent="."]
+[node name="Done" type="Button" parent="." unique_id=1791709479]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.867

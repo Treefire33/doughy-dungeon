@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://d1s5v61p2h0do"]
+
+[ext_resource type="Script" uid="uid://b0pr7pt61v1vn" path="res://Scenes/GameUI/midnight_tooltip.gd" id="1_siaa7"]
+
+[node name="Tooltip" type="ColorRect" unique_id=651109618]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_siaa7")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=715623489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TextContainer" type="VBoxContainer" parent="Margin" unique_id=1815788286]
+layout_mode = 2

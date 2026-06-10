@@ -94,6 +94,8 @@ func generate_rooms(room: RoomSelectButton):
 				new_room_button.text = "x"
 			Enum.RoomDecision.StayClear:
 				new_room_button.text = "o"
+			Enum.RoomDecision.NextBiome:
+				new_room_button.text = "\\"
 		new_room_button.pressed.connect(inspect_room.bind(new_room_button));
 		last_buttons.append(new_room_button);
 	last_buttons.sort_custom(func(a, b):

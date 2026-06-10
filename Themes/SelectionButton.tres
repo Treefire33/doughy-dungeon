@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bj7jly5hi6r2q"]
+[gd_resource type="Theme" format=3 uid="uid://bj7jly5hi6r2q"]
 
 [ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="1_pqvja"]
 

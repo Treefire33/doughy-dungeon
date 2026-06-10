@@ -1,0 +1,13 @@
+[gd_resource type="MeshTexture" format=3 uid="uid://d0hoyd24xr65f"]
+
+[ext_resource type="Texture2D" uid="uid://ct0f6rrnrq0m0" path="res://Sprites/Other/SliderHandle.aseprite" id="1_yerqj"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_05g2e"]
+size = Vector2(16, 16)
+center_offset = Vector3(8, 8, 0)
+orientation = 2
+
+[resource]
+mesh = SubResource("PlaneMesh_05g2e")
+base_texture = ExtResource("1_yerqj")
+image_size = Vector2(16, 16)

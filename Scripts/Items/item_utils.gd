@@ -21,9 +21,6 @@ func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String
             continue;
         keys.append(get_item_name(item));
         weights.append(item.weight);
-
-    if (keys.size() <= 0):
-        return "None";
     
     return keys[rng.rand_weighted(weights)];
 

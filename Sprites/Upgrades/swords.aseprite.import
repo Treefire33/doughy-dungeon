@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://5pylr5lk0kad"
+path="res://.godot/imported/swords.aseprite-fce7956f6bfae9ebee98cde97f818d1a.res"
+
+[deps]
+
+source_file="res://Sprites/Upgrades/swords.aseprite"
+dest_files=["res://.godot/imported/swords.aseprite-fce7956f6bfae9ebee98cde97f818d1a.res"]
+
+[params]
+
