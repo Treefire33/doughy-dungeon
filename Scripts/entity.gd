@@ -120,6 +120,31 @@ func hurt():
         await get_tree().create_timer(0.1 / Settings.game_speed).timeout;
         passes += 1;
 
+func turn_attack(target: Entity):
+    if (target == null): return;
+    if (target.defending_duration >= 1): 
+        target.defense_durability -= 1;
+        return;
+    if (self.stamina <= 0): return;
+    self.stamina -= 1;
+    Audio.play_audio(Audio.hit_sfx);
+    target.health -= self.attack;
+    
+func turn_defend(_target):
+    if (self.stamina <= 0): return;
+    self.stamina -= 1;
+    if (self.defending_duration != 0): return;
+    if (self.defense_broke_last_turn):
+        self.defense_broke_last_turn = false
+        return;
+    Audio.play_audio(Audio.defend_sfx);
+    self.defending_duration = self.max_defending_duration;
+    
+func turn_rest(_target):
+    if (self.stamina > self.max_stamina): 
+        self.stamina = self.max_stamina;
+    self.stamina += 1;
+
 @warning_ignore("shadowed_variable")
 func load_entity(
     _max_health: int, 

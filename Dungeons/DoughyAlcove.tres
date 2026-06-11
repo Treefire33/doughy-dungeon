@@ -6,8 +6,12 @@
 [ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/Doughy/BiscuitMimic2.tres" id="3_cwbeo"]
 [ext_resource type="Texture2D" uid="uid://cqew0cx3qwqvh" path="res://Sprites/Tiles/AlcoveFloor.png" id="5_u82xd"]
 [ext_resource type="Resource" uid="uid://b0mkdit6rebvk" path="res://Items/Splinter.tres" id="10_nyhs1"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="11_7q4tt"]
+[ext_resource type="Resource" uid="uid://umvw8h1wqo7a" path="res://Dungeons/Rooms/StandardProceed.tres" id="12_2rhw8"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_7cw5h"]
+[ext_resource type="Resource" uid="uid://bl0dvx71rcwsj" path="res://Dungeons/Rooms/StandardRiskIt.tres" id="13_68m17"]
 [ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="14_ch2lk"]
+[ext_resource type="Resource" uid="uid://ckow4hbuaumom" path="res://Dungeons/Rooms/StandardStayClear.tres" id="14_cug01"]
 [ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="15_l23lu"]
 [ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="16_eu7re"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="25_lbj72"]
@@ -17,6 +21,7 @@
 script = ExtResource("25_lbj72")
 name = "Doughy Alcove"
 enemies = Array[ExtResource("1_wca84")]([ExtResource("2_u82xd"), ExtResource("2_qkq8k"), ExtResource("3_cwbeo")])
+rooms = Array[ExtResource("11_7q4tt")]([ExtResource("12_2rhw8"), ExtResource("13_68m17"), ExtResource("14_cug01")])
 items = Array[ExtResource("13_7cw5h")]([ExtResource("14_ch2lk"), ExtResource("15_l23lu"), ExtResource("16_eu7re"), ExtResource("10_nyhs1")])
 wall_texture = ExtResource("26_ss5it")
 floor_texture = ExtResource("5_u82xd")

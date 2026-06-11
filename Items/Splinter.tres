@@ -9,6 +9,7 @@ script = ExtResource("2_1iqir")
 name = "Splinter"
 flavour_text = "ow"
 description = "Every enemy attack now does (1 * stack) more damage."
+price = -25
 sprite = ExtResource("2_5o3cl")
 weight = 10.0
 function = ExtResource("1_hj4ga")

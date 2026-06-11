@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://bl0dvx71rcwsj"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_f4iqb"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="2_8ihha"]
+
+[resource]
+script = ExtResource("2_8ihha")
+room_name = "Risk It"
+room_description = "Seems this room is filled with enemies from a floor below. Let's get 'em."
+room_type = 1
+room_weight = 1.0
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

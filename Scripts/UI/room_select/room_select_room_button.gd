@@ -1,4 +1,7 @@
 extends Button
 class_name RoomSelectButton
-var previous_direction: int = 0;
-var room_type: Enum.RoomDecision = Enum.RoomDecision.Proceed;
+var room_direction: Enum.Direction = Enum.Direction.None;
+var room_data: RoomData = null;
+var next_rooms: Array[RoomSelectButton] = [];
+var room_type: Enum.RoomDecision:
+    get: return self.room_data.room_type;

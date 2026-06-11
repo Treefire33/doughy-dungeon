@@ -127,7 +127,9 @@ func generate_shop_item(display_index: int):
     item_display.get_node("Sprite").texture = item.sprite;
     tooltip.text = item.name + "\n[s=8]" + item.flavour_text;
     if (!item.painful):
-        tooltip.text += "\n\n" + "Price: " + str(item.price);
+        tooltip.text += "\n\n" + "Price: %d coins" % item.price;
+    else:
+        tooltip.text += "\n\n" + "Reward: %d coins" % -item.price;
     tooltip.text += "\n[s=8]" + item.description;
     
     item_button.pressed.connect(purchase_item.bind(item_name, item_display));
@@ -185,39 +187,9 @@ func gen_safe_room():
         room_difficulty += 1;
     player.health = player.max_health;
     player.stamina = player.max_stamina;
+    player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor, current_dungeon.rooms, self.room_difficulty);
     player_ui.update_ui();
     next_room(true);
-    
-func turn_attack(user: Entity, target: Entity):
-    if (target == null): return;
-    if (target.defending_duration >= 1): 
-        target.defense_durability -= 1;
-        return;
-    if (user.stamina <= 0): return;
-    user.stamina -= 1;
-    Audio.play_audio(Audio.hit_sfx);
-    target.health -= user.attack;
-    
-func turn_defend(user: Entity, _target):
-    if (user.stamina <= 0): return;
-    user.stamina -= 1;
-    if (user.defending_duration != 0): return;
-    if (user.defense_broke_last_turn):
-        user.defense_broke_last_turn = false
-        return;
-    Audio.play_audio(Audio.defend_sfx);
-    user.defending_duration = user.max_defending_duration;
-    
-func turn_rest(user: Entity, _target):
-    if (user.stamina > user.max_stamina): 
-        user.stamina = user.max_stamina;
-    user.stamina += 1;
-    
-var turn_functions = [
-    turn_attack,
-    turn_defend,
-    turn_rest
-]
 
 func decision_text(decision: Enum.Decision):
     match decision:
@@ -236,6 +208,15 @@ func get_enemies_alive():
         num += 1;
     return num;
 
+func do_entity_turn(user: Entity, decision: Enum.Decision, target: Entity):
+    match (decision):
+        Enum.Decision.Attack:
+            user.turn_attack(target);
+        Enum.Decision.Defend:
+            user.turn_defend(target);
+        Enum.Decision.Rest:
+            user.turn_rest(target);
+
 func room_turn():
     var current_turn = 0;
     while (get_enemies_alive() > 0 and player.health > 0):
@@ -248,8 +229,7 @@ func room_turn():
                 var decision_info = await player_ui.player_decision;
                 var decision: Enum.Decision = decision_info[0];
                 var selected_enemy = decision_info[1];
-                # ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
-                turn_functions[decision].call(player, selected_enemy);
+                do_entity_turn(player, decision, selected_enemy);
                 if (player.stamina <= 0):
                     player.play_anim(Enum.PlayerAnimation.Rest);
                 else:
@@ -276,10 +256,7 @@ func room_turn():
                     enemy.defending_duration -= 1;
                     var decision = enemy.get_decision(player, room_difficulty);
                     var target = enemy.get_target(player, alive_enemies);
-                    turn_functions[decision].call(
-                        enemy, 
-                        target
-                    );
+                    do_entity_turn(enemy, decision, target);
 
                     ItemUtils.activate_items(player, "decision", enemy, target, decision);
 
@@ -312,9 +289,9 @@ func room_turn():
             Settings.room_count = room_count;
             get_tree().change_scene_to_file("res://Scenes/game_over.tscn");
         )
-        return
+        return;
     
-    next_room()
+    next_room();
     
 func gen_next_room():
     player_ui.room_select.request_room(self.room_count, self.current_dungeon.rooms_until_next_floor, current_dungeon.name.to_upper());
@@ -347,7 +324,6 @@ func next_room(leaving_safe_room: bool = false):
 
 func _ready() -> void:
     Audio.stop_music();
-    Audio.play_music(Audio.dungeon_music);
     await player.player_ready;
     await player_ui.ui_done;
     MidnightDebug.room_manager = self;
@@ -361,6 +337,8 @@ func _ready() -> void:
     RoomManager.instance = self;
     gen_room(Enum.RoomDecision.Proceed);
     player_ui.update_ui();
+    player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor, current_dungeon.rooms, self.room_difficulty);
+    Audio.play_music(Audio.dungeon_music);
     room_turn();
 
 var pause_menu: PackedScene = preload("res://Scenes/Menus/PauseMenu/pause_menu.tscn");

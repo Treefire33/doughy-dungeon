@@ -39,6 +39,7 @@ func play_audio(clip: AudioStream, position: float = 0):
 func play_music(clip: AudioStreamInteractive, position: float = 0):
 	music_player.volume_linear = Settings.music_volume;
 	music_player.stream = clip;
+	await music_player.ready;
 	music_player.play(position);
 	current_interactive_stream = music_player.get_stream_playback() as AudioStreamPlaybackInteractive;
 

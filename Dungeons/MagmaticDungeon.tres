@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://juaqlifaqeh0" path="res://EnemyData/Magmatic/Crystalis.tres" id="5_pq8q3"]
 [ext_resource type="Resource" uid="uid://kxu6ocuaxqyo" path="res://EnemyData/Magmatic/GreaterStoneCritter.tres" id="6_jsueo"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="12_1b1ok"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="13_cnslc"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_nawgy"]
 [ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="14_tvyb8"]
 [ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="15_jg2u3"]

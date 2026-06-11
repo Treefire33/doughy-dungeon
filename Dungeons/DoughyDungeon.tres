@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://bvicfvgmyrrlm" path="res://Items/Coffee.tres" id="23_cpyly"]
 [ext_resource type="Resource" uid="uid://brgpd8v22l20t" path="res://Items/DurabilityScroll.tres" id="24_6g7lf"]
 [ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="25_164du"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="26_g2dxu"]
 
 [resource]
 script = ExtResource("2_1q3vg")

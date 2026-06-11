@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="6_qr6e0"]
 [ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="7_5w3kd"]
 [ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="8_swwu3"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="8_u2tlb"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="9_1648l"]
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="10_p5f5t"]
 

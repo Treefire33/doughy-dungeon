@@ -7,8 +7,7 @@ var text: String = "";
 
 func _mouse_entered() -> void:
     if (self.text == ""): return;
-    global_tooltip.text = self.text;
-    global_tooltip.visible = true;
+    global_tooltip.toggle(self.text);
 
 func _mouse_exited() -> void:
     global_tooltip.visible = false;

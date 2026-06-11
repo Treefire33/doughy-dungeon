@@ -46,6 +46,7 @@
 [ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="44_4vigo"]
 [ext_resource type="Resource" uid="uid://brgpd8v22l20t" path="res://Items/DurabilityScroll.tres" id="45_eom0o"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="46_ba050"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="46_yu3ei"]
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="47_s6jui"]
 
 [resource]

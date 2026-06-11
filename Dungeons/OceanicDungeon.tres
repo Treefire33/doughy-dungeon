@@ -27,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://bm7xicdrdhcew" path="res://Items/SeaUrchin.tres" id="23_4yyok"]
 [ext_resource type="Resource" uid="uid://dyvhn4yb0tlol" path="res://Items/IvoryKey.tres" id="24_xmejm"]
 [ext_resource type="Resource" uid="uid://caooq7deh85j5" path="res://Items/GuildBanner.tres" id="25_2d6b7"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="26_4yyok"]
 
 [resource]
 script = ExtResource("10_ys1w1")

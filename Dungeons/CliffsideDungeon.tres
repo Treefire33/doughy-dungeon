@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_ic2ph"]
 [ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_b52jx"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="3_rju5x"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="4_bgtjc"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="8_4xwe1"]
 [ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="9_3jmgn"]
 

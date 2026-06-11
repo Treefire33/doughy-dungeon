@@ -7,8 +7,7 @@
 [resource]
 script = ExtResource("2_s7qyp")
 name = "Pure Nail"
-flavour_text = "The work of a skilled craftsman.
-The perfect weapon."
+flavour_text = "The work of a skilled craftsman. The perfect weapon."
 description = "Caps attack at 5, but allows you to peirce through shield spells."
 price = 200
 sprite = ExtResource("2_s50mj")

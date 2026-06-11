@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://umvw8h1wqo7a"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_220tb"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="2_xcy8y"]
+
+[resource]
+script = ExtResource("2_xcy8y")
+room_name = "Proceed"
+room_description = "Seems this room has been visited before, probably the safest."
+room_weight = 1.0
+metadata/_custom_type_script = "uid://bop2umllk0kqy"
