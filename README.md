@@ -1,3 +1,3 @@
-# doughy-dungeon
-Game made for the Brackeys Game Jam 2025.2
-This repository does not reflect the source of the original jam version.
+# Midnight Dungeons
+A game about a cat trying to find their mother by exploring various dungeons.
+An RPG roguelite dungeon-crawler inspired by games I may have played before.
