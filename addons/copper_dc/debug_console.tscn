@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcs4bvx7fi2hm"]
+[gd_scene format=3 uid="uid://bcs4bvx7fi2hm"]
 
-[ext_resource type="Script" path="res://addons/copper_dc/scripts/debug_console.gd" id="1_fs6bc"]
+[ext_resource type="Script" uid="uid://cnkqkqa0ralqs" path="res://addons/copper_dc/scripts/debug_console.gd" id="1_fs6bc"]
 
-[node name="Debug Console" type="CanvasLayer"]
+[node name="Debug Console" type="CanvasLayer" unique_id=1319053076]
 process_mode = 3
 layer = 100
 script = ExtResource("1_fs6bc")
 
-[node name="ConsolePanel" type="Panel" parent="."]
+[node name="ConsolePanel" type="Panel" parent="." unique_id=1130840413]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.498039)
 anchors_preset = 15
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_force_pass_scroll_events = false
 
-[node name="BoxContainer" type="VBoxContainer" parent="ConsolePanel"]
+[node name="BoxContainer" type="VBoxContainer" parent="ConsolePanel" unique_id=684082424]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,20 +25,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BoxContainer" type="HBoxContainer" parent="ConsolePanel/BoxContainer"]
+[node name="BoxContainer" type="HBoxContainer" parent="ConsolePanel/BoxContainer" unique_id=500455515]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="ConsolePanel/BoxContainer/BoxContainer"]
+[node name="Control" type="Control" parent="ConsolePanel/BoxContainer/BoxContainer" unique_id=1851714415]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Log Panel" type="Panel" parent="ConsolePanel/BoxContainer/BoxContainer"]
+[node name="Log Panel" type="Panel" parent="ConsolePanel/BoxContainer/BoxContainer" unique_id=1245294430]
 self_modulate = Color(1, 1, 1, 0.478431)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel" unique_id=1350077542]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,30 +50,30 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Log" type="ScrollContainer" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel/MarginContainer"]
+[node name="Log" type="ScrollContainer" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel/MarginContainer" unique_id=1232384362]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0.552941)
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel/MarginContainer/Log"]
+[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel/MarginContainer/Log" unique_id=944570744]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Log Content" type="RichTextLabel" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel/MarginContainer/Log/MarginContainer"]
+[node name="Log Content" type="RichTextLabel" parent="ConsolePanel/BoxContainer/BoxContainer/Log Panel/MarginContainer/Log/MarginContainer" unique_id=155556246]
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
 scroll_following = true
 
-[node name="Command Hint Header" type="Panel" parent="ConsolePanel/BoxContainer"]
+[node name="Command Hint Header" type="Panel" parent="ConsolePanel/BoxContainer" unique_id=1212639962]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.835294)
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ConsolePanel/BoxContainer/Command Hint Header"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ConsolePanel/BoxContainer/Command Hint Header" unique_id=734722789]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,13 +85,13 @@ fit_content = true
 scroll_following = true
 autowrap_mode = 0
 
-[node name="Command Hints Panel" type="Panel" parent="ConsolePanel/BoxContainer"]
+[node name="Command Hints Panel" type="Panel" parent="ConsolePanel/BoxContainer" unique_id=1282422932]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0.752941)
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer/Command Hints Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer/Command Hints Panel" unique_id=1429932328]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,11 +103,11 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="Command Hints" type="ScrollContainer" parent="ConsolePanel/BoxContainer/Command Hints Panel/MarginContainer"]
+[node name="Command Hints" type="ScrollContainer" parent="ConsolePanel/BoxContainer/Command Hints Panel/MarginContainer" unique_id=366808483]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ConsolePanel/BoxContainer/Command Hints Panel/MarginContainer/Command Hints"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ConsolePanel/BoxContainer/Command Hints Panel/MarginContainer/Command Hints" unique_id=1436115482]
 layout_mode = 2
 bbcode_enabled = true
 fit_content = true
@@ -115,20 +115,20 @@ scroll_following = true
 autowrap_mode = 0
 meta_underlined = false
 
-[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ConsolePanel/BoxContainer" unique_id=1535393247]
 layout_mode = 2
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="Command Field" type="LineEdit" parent="ConsolePanel/BoxContainer/MarginContainer"]
+[node name="Command Field" type="LineEdit" parent="ConsolePanel/BoxContainer/MarginContainer" unique_id=129435075]
 unique_name_in_owner = true
 layout_mode = 2
 placeholder_text = "Enter command here..."
 context_menu_enabled = false
 
-[node name="Stats" type="Label" parent="."]
+[node name="Stats" type="Label" parent="." unique_id=1637211243]
 unique_name_in_owner = true
 offset_left = 9.0
 offset_top = 8.0
@@ -136,7 +136,7 @@ offset_right = 163.0
 offset_bottom = 101.0
 size_flags_horizontal = 3
 
-[node name="Mini Log" type="ScrollContainer" parent="."]
+[node name="Mini Log" type="ScrollContainer" parent="." unique_id=1810678072]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 1, 1, 0.552941)
@@ -151,13 +151,13 @@ mouse_filter = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Mini Log"]
+[node name="MarginContainer" type="MarginContainer" parent="Mini Log" unique_id=1783442868]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/margin_right = 20
 
-[node name="Log Content" type="RichTextLabel" parent="Mini Log/MarginContainer"]
+[node name="Log Content" type="RichTextLabel" parent="Mini Log/MarginContainer" unique_id=1123696681]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

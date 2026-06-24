@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba5lxcv1w6t7c"]
+[gd_scene format=3 uid="uid://ba5lxcv1w6t7c"]
 
 [ext_resource type="Script" uid="uid://cq0d47lcy2cto" path="res://Scenes/Menus/KeybindsMenu/keybinds_menu.gd" id="1_jt20d"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_btykx"]
@@ -19,7 +19,7 @@ expand_margin_bottom = 4.0
 [sub_resource type="Theme" id="Theme_jukge"]
 Panel/styles/panel = SubResource("StyleBoxFlat_ciwsu")
 
-[node name="KeybindsMenu" type="Control"]
+[node name="KeybindsMenu" type="Control" unique_id=771087314]
 z_index = 16
 layout_mode = 3
 anchor_left = 0.156
@@ -32,7 +32,7 @@ offset_right = -0.200012
 offset_bottom = -0.100037
 script = ExtResource("1_jt20d")
 
-[node name="Decor" type="Control" parent="."]
+[node name="Decor" type="Control" parent="." unique_id=472693311]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="ColorRect" parent="Decor"]
+[node name="Background" type="ColorRect" parent="Decor" unique_id=1422766311]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Border" type="ColorRect" parent="Decor"]
+[node name="Border" type="ColorRect" parent="Decor" unique_id=139213449]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -62,7 +62,7 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="Decor"]
+[node name="Title" type="RichTextLabel" parent="Decor" unique_id=2126775005]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -72,16 +72,15 @@ text = "KEYBINDS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BindPreset" type="Control" parent="."]
+[node name="BindPreset" type="Control" parent="." unique_id=252229527]
 visible = false
 custom_minimum_size = Vector2(250, 50)
-layout_mode = 2
 anchors_preset = 0
 offset_top = 40.0
 offset_right = 250.0
 offset_bottom = 90.0
 
-[node name="KeybindName" type="RichTextLabel" parent="BindPreset"]
+[node name="KeybindName" type="RichTextLabel" parent="BindPreset" unique_id=304373095]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.692
@@ -93,7 +92,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Bind" parent="BindPreset" node_paths=PackedStringArray("keybinds_menu") instance=ExtResource("2_ciwsu")]
+[node name="Bind" parent="BindPreset" unique_id=812172580 node_paths=PackedStringArray("keybinds_menu") instance=ExtResource("2_ciwsu")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.7
@@ -102,7 +101,7 @@ offset_right = 0.0
 offset_bottom = 0.0
 keybinds_menu = NodePath("../..")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1393724318]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.133
@@ -114,13 +113,13 @@ follow_focus = true
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="KeybindsContainer" type="GridContainer" parent="ScrollContainer"]
+[node name="KeybindsContainer" type="GridContainer" parent="ScrollContainer" unique_id=619519650]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 2
 
-[node name="Done" type="Button" parent="."]
+[node name="Done" type="Button" parent="." unique_id=1477088836]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.867
@@ -135,7 +134,7 @@ grow_vertical = 0
 theme = ExtResource("2_btykx")
 text = "DONE"
 
-[node name="SettingKeybind" type="Panel" parent="."]
+[node name="SettingKeybind" type="Panel" parent="." unique_id=129763483]
 visible = false
 z_index = 5
 layout_mode = 1
@@ -151,7 +150,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_jukge")
 
-[node name="Label" type="RichTextLabel" parent="SettingKeybind"]
+[node name="Label" type="RichTextLabel" parent="SettingKeybind" unique_id=416595820]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -161,7 +160,7 @@ text = "PRESS ANY KEY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CancelKey" type="Button" parent="SettingKeybind"]
+[node name="CancelKey" type="Button" parent="SettingKeybind" unique_id=2109249845]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.583

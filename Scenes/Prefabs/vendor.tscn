@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo46ei7by7wus"]
+[gd_scene format=3 uid="uid://bo46ei7by7wus"]
 
 [ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="1_uggtg"]
 [ext_resource type="AnimationLibrary" uid="uid://ddmjimkaqyeqx" path="res://Sprites/NPCs/TheVendor/Animations/Vendor.res" id="2_vckpf"]
@@ -23,16 +23,14 @@ _data = {
 &"RESET": SubResource("Animation_hpqnc")
 }
 
-[node name="Vendor" type="Node2D"]
+[node name="Vendor" type="Node2D" unique_id=1318120773]
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1994594590]
 texture = ExtResource("1_uggtg")
 hframes = 7
 region_rect = Rect2(0, 0, 128, 128)
 
-[node name="Animator" type="AnimationPlayer" parent="."]
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1811904786]
 root_node = NodePath("../Sprite")
-libraries = {
-&"": SubResource("AnimationLibrary_gglfx"),
-&"Vendor": ExtResource("2_vckpf")
-}
+libraries/ = SubResource("AnimationLibrary_gglfx")
+libraries/Vendor = ExtResource("2_vckpf")

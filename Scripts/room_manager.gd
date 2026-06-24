@@ -200,7 +200,7 @@ func decision_text(decision: Enum.Decision):
     match decision:
         Enum.Decision.Attack:
             return "attacked";
-        Enum.Decision.Defend:
+        Enum.Decision.SpellDefend:
             return "started defending";
         Enum.Decision.Rest:
             return "rested";
@@ -217,7 +217,7 @@ func do_entity_turn(user: Entity, decision: Enum.Decision, target: Entity):
     match (decision):
         Enum.Decision.Attack:
             user.turn_attack(target);
-        Enum.Decision.Defend:
+        Enum.Decision.SpellDefend:
             user.turn_defend(target);
         Enum.Decision.Rest:
             user.turn_rest(target);
@@ -238,7 +238,7 @@ func room_turn():
                 if (player.stamina <= 0):
                     player.play_anim(Enum.PlayerAnimation.Rest);
                 else:
-                    player.play_anim(decision + 1);
+                    player.play_anim(player.decision_to_animation[decision]);
                 
                 ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
                     
@@ -257,7 +257,7 @@ func room_turn():
                 for enemy in alive_enemies:
                     if (enemy == null):
                         continue;
-                    enemy.notif.frame = 5;
+                    enemy.notif.visible = false;
                     enemy.defending_duration -= 1;
                     var decision = enemy.get_decision(player, room_difficulty);
                     var target = enemy.get_target(player, alive_enemies);
@@ -273,7 +273,7 @@ func room_turn():
                         "gravity": "top",
                         "direction": "right",
                     });
-                    enemy.notif.frame = 3 if enemy.defending_duration >= 1 else 5;
+                    enemy.notif.visible = true if enemy.defending_duration >= 1 else false;
                     
                 current_turn = 0;
         player_ui.update_ui();

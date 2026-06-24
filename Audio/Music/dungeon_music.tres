@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamInteractive" load_steps=4 format=3 uid="uid://wvlcdo7ktuah"]
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://wvlcdo7ktuah"]
 
 [ext_resource type="AudioStream" uid="uid://c8ci2p28grvgj" path="res://Audio/Music/IdleBattle.wav" id="1_8or5o"]
 [ext_resource type="AudioStream" uid="uid://dmcxjnyu44i13" path="res://Audio/Music/QuickeningPace.wav" id="2_jt357"]

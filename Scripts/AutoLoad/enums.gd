@@ -1,9 +1,13 @@
 extends Node
 
 enum Decision {
-	Attack = 0,
-	Defend = 1,
-	Rest = 2
+	Attack,
+	AttackHeavy,
+	Spell,
+	SpellDefend,	
+	SpellAttack,
+	SpellRetype,
+	Rest
 };
 
 enum RoomDecision {

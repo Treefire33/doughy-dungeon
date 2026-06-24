@@ -2,63 +2,232 @@
 
 [ext_resource type="Script" uid="uid://bdnlmaoase6uu" path="res://Scripts/UI/decision_panel.gd" id="1_8ex84"]
 [ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/ActionIcons/Attack.tres" id="2_drmvv"]
-[ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="3_dvcm2"]
+[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="3_cisa7"]
 [ext_resource type="Texture2D" uid="uid://bmsnqxrde1ksf" path="res://Sprites/Icons/ActionIcons/Rest.tres" id="4_cisa7"]
+[ext_resource type="Texture2D" uid="uid://b5q1rm3110rcw" path="res://Sprites/Icons/ActionIcons/Spell.tres" id="4_drmvv"]
+[ext_resource type="Texture2D" uid="uid://brmihfdnaob2h" path="res://Sprites/Icons/ActionIcons/SpellDefend.tres" id="5_5uw8l"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="5_drmvv"]
+[ext_resource type="Texture2D" uid="uid://dm5p0cj8x7ly7" path="res://Sprites/Icons/ActionIcons/SpellRetype.tres" id="6_hx2q3"]
+[ext_resource type="Texture2D" uid="uid://bnxh2gs4ktkfj" path="res://Sprites/Icons/ActionIcons/SpellAttack.tres" id="7_qdcan"]
 
-[node name="DecisionPanel" type="ColorRect"]
-offset_left = 340.0
-offset_top = 230.0
-offset_right = 460.0
-offset_bottom = 350.0
-color = Color(0, 0, 0, 1)
+[node name="DecisionPanel" type="Control" unique_id=1249531929]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.77800006
+offset_bottom = -0.10003662
 script = ExtResource("1_8ex84")
 
-[node name="Options" type="VBoxContainer" parent="."]
+[node name="Options" type="ColorRect" parent="." unique_id=178507044]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425
+anchor_top = 0.657
+anchor_right = 0.57500005
+anchor_bottom = 1.0
+offset_top = 0.05000305
+offset_right = -3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Container" type="VBoxContainer" parent="Options" unique_id=1325346685]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 3.0517578e-05
-offset_bottom = 1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
 
-[node name="Attack" type="Button" parent="Options"]
+[node name="Attack" type="Button" parent="Options/Container" unique_id=1745251583]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "ATTACK"
+text = "ATTACK
+"
 icon = ExtResource("2_drmvv")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Defend" type="Button" parent="Options"]
+[node name="Spell" type="Button" parent="Options/Container" unique_id=1409430160]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "DEFEND"
-icon = ExtResource("3_dvcm2")
+text = "SPELL"
+icon = ExtResource("4_drmvv")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Rest" type="Button" parent="Options"]
+[node name="Rest" type="Button" parent="Options/Container" unique_id=2119743307]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "REST"
+text = "REST
+"
 icon = ExtResource("4_cisa7")
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Cancel" type="Button" parent="."]
+[node name="AttackOptions" type="ColorRect" parent="." unique_id=290237663]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.25
+anchor_left = 0.187
+anchor_top = 0.42900002
+anchor_right = 0.81200004
+anchor_bottom = 0.57600003
+offset_left = 0.3999939
+offset_top = -0.15000916
+offset_right = 0.39996338
+offset_bottom = 8.399994
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Container" type="HBoxContainer" parent="AttackOptions" unique_id=576353935]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.583
-offset_bottom = 0.040000916
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackLight" type="Button" parent="AttackOptions/Container" unique_id=617807812]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "LIGHT"
+icon = ExtResource("2_drmvv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="AttackOptions/Container/AttackLight" unique_id=2087360620]
+script = ExtResource("3_cisa7")
+text = "Standard attack, deals 100% of your damage stat."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="AttackHeavy" type="Button" parent="AttackOptions/Container" unique_id=1700554105]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "HEAVY"
+icon = ExtResource("2_drmvv")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="AttackOptions/Container/AttackHeavy" unique_id=685601525]
+script = ExtResource("3_cisa7")
+text = "Heavier, more tiring, attack. Deals 150% - 300% of your damage stat but also requires more stamina."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="SpellOptions" type="ColorRect" parent="." unique_id=899967493]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.42900002
+anchor_right = 0.81200004
+anchor_bottom = 0.6
+offset_left = 0.3999939
+offset_top = -0.15000916
+offset_right = 0.39996338
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Container" type="HBoxContainer" parent="SpellOptions" unique_id=1278955564]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpellDefend" type="Button" parent="SpellOptions/Container" unique_id=1305096301]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "DEFEND"
+icon = ExtResource("5_5uw8l")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="SpellOptions/Container/SpellDefend" unique_id=1113194916]
+script = ExtResource("3_cisa7")
+text = "A shield spell which creates a barrier around you."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="SpellRetype" type="Button" parent="SpellOptions/Container" unique_id=759208024]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "RETYPE"
+icon = ExtResource("6_hx2q3")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="SpellOptions/Container/SpellRetype" unique_id=1547911518]
+script = ExtResource("3_cisa7")
+text = "A typing spell which changes your type."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="SpellAttack" type="Button" parent="SpellOptions/Container" unique_id=283140128]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "ATTACK"
+icon = ExtResource("7_qdcan")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="SpellOptions/Container/SpellAttack" unique_id=1547019597]
+script = ExtResource("3_cisa7")
+text = "An attack spell that deals 50% of your attack stat but doesn't consume stamina."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="SelectionPrompt" type="ColorRect" parent="." unique_id=2122486817]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.88600004
+anchor_right = 0.68700004
+anchor_bottom = 1.0
+offset_left = 0.3999939
+offset_top = -0.1000061
+offset_right = 0.39996338
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="RichTextLabel" parent="SelectionPrompt" unique_id=725806443]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_drmvv")
+bbcode_enabled = true
+text = "SELECT AN ENEMY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cancel" type="Button" parent="." unique_id=1324519500]
+visible = false
+layout_mode = 0
+offset_left = 340.0
+offset_top = 270.0
+offset_right = 460.0
+offset_bottom = 310.0
 size_flags_vertical = 3
 text = "CANCEL"
 icon_alignment = 1

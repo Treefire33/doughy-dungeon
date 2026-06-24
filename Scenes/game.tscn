@@ -561,7 +561,6 @@ offset_right = 800.0
 offset_bottom = 350.0
 
 [node name="DecisionPanel" parent="Camera/PlayerUI" unique_id=291967297 instance=ExtResource("15_iivbl")]
-visible = false
 layout_mode = 1
 
 [node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI" unique_id=1848592322]
@@ -695,34 +694,6 @@ layout_mode = 1
 anchor_right = 1.0
 anchor_bottom = 0.178
 offset_bottom = -0.0999985
-
-[node name="Label" type="ColorRect" parent="Camera/PlayerUI/Enemies" unique_id=619008635]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.312
-anchor_top = 3.75
-anchor_right = 0.687
-anchor_bottom = 4.375
-offset_left = 0.399994
-offset_top = -3.05176e-05
-offset_right = 0.399963
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Label" type="RichTextLabel" parent="Camera/PlayerUI/Enemies/Label" unique_id=1363120411]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("10_vm72l")
-bbcode_enabled = true
-text = "SELECT AN ENEMY"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Enemy1" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=546896515]
 layout_mode = 1

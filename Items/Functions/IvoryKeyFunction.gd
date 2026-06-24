@@ -25,7 +25,7 @@ func decision(
             attack += 1;
             user.update_stat_mod("ivoryAttack", attack);
             ItemUtils.show_custom_toast("The key ressonates at an A.");
-        Enum.Decision.Defend:
+        Enum.Decision.SpellDefend:
             defense += 1;
             user.update_stat_mod("ivoryDefense", defense);
             ItemUtils.show_custom_toast("The key ressonates at a D.");

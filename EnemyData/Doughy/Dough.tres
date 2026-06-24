@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://bl41so1um52lp"]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bl41so1um52lp"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_yc7o0"]
 [ext_resource type="Texture2D" uid="uid://bogftuoue45tn" path="res://Sprites/Enemies/DoughyDungeon/Dough.tres" id="2_cu0ah"]

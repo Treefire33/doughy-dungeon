@@ -1,4 +1,4 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bbs0gpnx37364"]
+[gd_resource type="AtlasTexture" format=3 uid="uid://bbs0gpnx37364"]
 
 [ext_resource type="Texture2D" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="1_8vi2o"]
 

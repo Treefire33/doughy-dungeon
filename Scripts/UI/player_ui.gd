@@ -26,8 +26,6 @@ signal _enemy_selected();
 @onready var attack_upgrade: Button = $Upgrades/Attack;
 
 # Enemy Selection
-@onready var select_enemy_panel: Control = $Enemies;
-@onready var select_enemy_label: Control = $Enemies/Label;
 @onready var enemy_buttons: Array[Button] = [
     $Enemies/Enemy1,
     $Enemies/Enemy2,
@@ -136,9 +134,9 @@ func update_ui():
     update_enemy_buttons();
     
 var action_to_index: Dictionary[String, int] = {
-    "Primary": 0,
-    "Secondary": 1,
-    "Tertiary": 2
+    "Primary": Enum.Decision.Attack,
+    "Secondary": Enum.Decision.Spell,
+    "Tertiary": Enum.Decision.Rest
 };
 func _input(event: InputEvent) -> void:
     if (Input.is_action_just_pressed("Quaternary")):
@@ -164,7 +162,7 @@ func _input(event: InputEvent) -> void:
             return;
         _enemy_selected.emit(enemy);
     elif (decision_panel.visible):
-        decision_panel.give_decision(self, decision);
+        decision_panel.player_decision(self, decision);
 
 func _on_room_manager_request_decision() -> void:
     decision_panel.show();

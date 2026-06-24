@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dtc0tkv7swm8o"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://dtc0tkv7swm8o"]
 
 [ext_resource type="Script" uid="uid://jta2mbxwq54k" path="res://Items/Functions/CoralTubesFunction.gd" id="1_yjq0b"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_b252y"]

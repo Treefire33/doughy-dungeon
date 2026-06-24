@@ -1,4 +1,4 @@
-[gd_resource type="AudioStreamInteractive" load_steps=2 format=3 uid="uid://bjjhl042nhbfc"]
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://bjjhl042nhbfc"]
 
 [ext_resource type="AudioStream" uid="uid://qqgud072jp1m" path="res://Audio/Music/MelancholicField.wav" id="1_anlot"]
 

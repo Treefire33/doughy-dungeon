@@ -7,5 +7,4 @@
 script = ExtResource("2_xcy8y")
 room_name = "Proceed"
 room_description = "Seems this room has been visited before, probably the safest."
-room_weight = 1.0
 metadata/_custom_type_script = "uid://bop2umllk0kqy"

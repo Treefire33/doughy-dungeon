@@ -1,4 +1,4 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://drcx2bgrq2urj"]
+[gd_resource type="AtlasTexture" format=3 uid="uid://drcx2bgrq2urj"]
 
 [ext_resource type="Texture2D" uid="uid://dda188wx3a0rm" path="res://Sprites/Enemies/enemies.aseprite" id="1_uv2wq"]
 

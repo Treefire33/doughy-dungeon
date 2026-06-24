@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd2q6pbmnaejf"]
+[gd_scene format=3 uid="uid://cd2q6pbmnaejf"]
 
 [ext_resource type="PackedScene" uid="uid://bo46ei7by7wus" path="res://Scenes/Prefabs/vendor.tscn" id="1_hpqnc"]
 
-[node name="Spriting" type="Node2D"]
+[node name="Spriting" type="Node2D" unique_id=1553309383]
 
-[node name="Vendor" parent="." instance=ExtResource("1_hpqnc")]
+[node name="Vendor" parent="." unique_id=512740090 instance=ExtResource("1_hpqnc")]

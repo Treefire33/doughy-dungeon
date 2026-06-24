@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cer6cdqaw15p1"]
+[gd_scene format=3 uid="uid://cer6cdqaw15p1"]
 
 [ext_resource type="Script" uid="uid://4n7wj5yvmv5j" path="res://Scripts/UI/dialogue_box.gd" id="1_wbuxg"]
 [ext_resource type="Texture2D" uid="uid://cfhn3qiwl2rna" path="res://Sprites/Dialogue/tripdawg.tres" id="2_wbuxg"]
 
-[node name="DialogueBox" type="Control"]
+[node name="DialogueBox" type="Control" unique_id=1426754256]
 layout_mode = 3
 anchor_left = 0.031000001
 anchor_top = 0.6
@@ -14,7 +14,7 @@ offset_right = -0.2000122
 offset_bottom = 0.049957275
 script = ExtResource("1_wbuxg")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="Panel" parent="." unique_id=1646407637]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="IconRect" type="TextureRect" parent="."]
+[node name="IconRect" type="TextureRect" parent="." unique_id=42292169]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.043
@@ -37,7 +37,7 @@ texture = ExtResource("2_wbuxg")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Dialogue" type="RichTextLabel" parent="."]
+[node name="Dialogue" type="RichTextLabel" parent="." unique_id=1184771552]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19100001

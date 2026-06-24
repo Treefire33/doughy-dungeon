@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://juaqlifaqeh0"]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://juaqlifaqeh0"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_jq6n7"]
 [ext_resource type="Texture2D" uid="uid://8y3h7hi6vt1k" path="res://Sprites/Enemies/MagmaticDungeon/Crystalis.tres" id="2_jq6n7"]

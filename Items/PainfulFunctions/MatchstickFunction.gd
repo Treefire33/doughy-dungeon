@@ -8,7 +8,7 @@ func decision(
 ):
     if (user is not Player): return;
 
-    if (decision == Enum.Decision.Defend):
+    if (decision == Enum.Decision.SpellDefend):
         burn_turns_left = 5;
     
     if (burn_turns_left == 0): return;

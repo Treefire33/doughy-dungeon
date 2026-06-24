@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://go_sheets_panel"]
+[gd_scene format=3 uid="uid://876nw3krqn68"]
 
-[ext_resource type="Script" path="res://addons/go_sheets/core/go_sheets_panel.gd" id="1_panel"]
+[ext_resource type="Script" uid="uid://dex8auioc1jmu" path="res://addons/go_sheets/core/go_sheets_panel.gd" id="1_panel"]
 
-[node name="GoSheetsPanel" type="Control"]
+[node name="GoSheetsPanel" type="Control" unique_id=111448748]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_panel")

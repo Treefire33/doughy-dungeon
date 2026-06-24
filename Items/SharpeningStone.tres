@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://jyw5mbmwm7jm"]
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://jyw5mbmwm7jm"]
 
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_scvqu"]
 [ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="2_as1kl"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://cm6le14a2ek4"]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cm6le14a2ek4"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_be7cb"]
 [ext_resource type="Texture2D" uid="uid://bsxynwaxwwnga" path="res://Sprites/Enemies/MagmaticDungeon/ParasiticStoneFish.tres" id="2_be7cb"]

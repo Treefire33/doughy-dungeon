@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://c5ctnnjlicuo"]
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c5ctnnjlicuo"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_vvxnp"]
 [ext_resource type="Texture2D" uid="uid://bo47vlfl4vc37" path="res://Sprites/Enemies/OceanicDungeon/SandShark.tres" id="2_vvxnp"]
