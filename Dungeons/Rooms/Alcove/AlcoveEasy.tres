@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://bp4gfronnuyea"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_hvb3l"]
+[ext_resource type="Resource" uid="uid://y63dw1wxsmi7" path="res://EnemyData/Doughy/YeastCrawler.tres" id="2_7a882"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="2_lp6rw"]
+
+[resource]
+script = ExtResource("2_lp6rw")
+room_name = "Crawler's Den"
+room_description = "Lots of Yeast Crawlers."
+room_character = "Y"
+enemies = Array[ExtResource("1_hvb3l")]([ExtResource("2_7a882")])
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

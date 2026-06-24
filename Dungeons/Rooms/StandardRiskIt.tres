@@ -7,6 +7,6 @@
 script = ExtResource("2_8ihha")
 room_name = "Risk It"
 room_description = "Seems this room is filled with enemies from a floor below. Let's get 'em."
+room_character = "x"
 room_type = 1
-room_weight = 1.0
 metadata/_custom_type_script = "uid://bop2umllk0kqy"

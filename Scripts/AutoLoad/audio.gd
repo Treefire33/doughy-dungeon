@@ -12,6 +12,7 @@ var item_activated: AudioStream = preload("res://Audio/ItemUsed.wav");
 
 var overworld_music: AudioStreamInteractive = preload("res://Audio/Music/overworld_music.tres");
 var dungeon_music: AudioStreamInteractive = preload("res://Audio/Music/dungeon_music.tres");
+var evilgrounds_music: AudioStreamInteractive = preload("res://Audio/Music/evilgrounds_music.tres");
 var music_player: AudioStreamPlayer;
 var current_interactive_stream: AudioStreamPlaybackInteractive;
 

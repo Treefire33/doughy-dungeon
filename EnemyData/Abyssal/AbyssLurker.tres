@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://sf4n37mdf7f0"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_sq163"]
+[ext_resource type="Texture2D" uid="uid://irwbnst6op8a" path="res://Sprites/Enemies/AbyssalDungeon/AbyssLurker.tres" id="2_77dwg"]
+
+[resource]
+script = ExtResource("1_sq163")
+name = "Abyss Lurker"
+flavour_text = "Human, beast, or something completely foreign? I can't tell and it's worrying."
+base_health = 40
+base_stamina = 20
+base_attack = 5
+base_defense_duration = 5
+base_defense_durability = 5
+sprite = ExtResource("2_77dwg")
+base_ai = "Smart"
+base_ai_five = "Smart"
+difficulty_range = Array[int]([1, 20])
+coins_range = Array[int]([20, 80])

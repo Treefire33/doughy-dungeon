@@ -18,11 +18,14 @@ func _init(
 
 static func apply_modifier(modifier: StatModifier, base: float):
     match(modifier.type):
+        Enum.ModifierType.Preset:
+            return modifier.value;
         Enum.ModifierType.Additive:
             return base + modifier.value;
         Enum.ModifierType.Multiplicative:
             return base * modifier.value;
         Enum.ModifierType.Exponential:
-            return base * modifier.value;
+            return pow(base, modifier.value);
         Enum.ModifierType.Set:
             return modifier.value;
+    return 1;

@@ -19,4 +19,5 @@ func _ready() -> void:
         node.mouse_exited.connect(_mouse_exited);
     
 func _process(delta: float) -> void:
+    if (!global_tooltip): global_tooltip = Tooltip.tooltip_template.instantiate() as Tooltip;
     if (global_tooltip.get_parent() == null): get_tree().current_scene.add_child(global_tooltip);

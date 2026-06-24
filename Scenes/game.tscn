@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cicj0kes4voa0"]
 
-[ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="1_nb51f"]
-[ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="2_nnt18"]
+[ext_resource type="Texture2D" uid="uid://d4embdhxbrn06" path="res://Sprites/Tiles/DungeonTiles/DoughyWall.tres" id="1_81klo"]
+[ext_resource type="Texture2D" uid="uid://7c3camomb7u7" path="res://Sprites/Tiles/DungeonTiles/DoughyFloor.tres" id="2_tgy6u"]
 [ext_resource type="Texture2D" uid="uid://dj46tr1pwf3nu" path="res://Sprites/SafeRoom/Shop.aseprite" id="3_81klo"]
 [ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="4_85qyi"]
 [ext_resource type="Script" uid="uid://c730dibuqkvem" path="res://Scripts/room_manager.gd" id="5_iivbl"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="6_tgy6u"]
 [ext_resource type="Texture2D" uid="uid://6ekikoy1yyx5" path="res://Sprites/SafeRoom/Meow.tres" id="7_7t8sx"]
 [ext_resource type="Script" uid="uid://crth17d1hrbtj" path="res://Scripts/UI/player_ui.gd" id="8_7t8sx"]
-[ext_resource type="Texture2D" uid="uid://2yvgv50wyo5e" path="res://Sprites/GoldBiscuit.png" id="8_exi56"]
 [ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="8_fkdbe"]
 [ext_resource type="AnimationLibrary" uid="uid://ddmjimkaqyeqx" path="res://Sprites/NPCs/TheVendor/Animations/Vendor.res" id="9_81klo"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="10_vm72l"]
@@ -295,15 +294,7 @@ _data = {
 z_index = -1
 offset_right = 800.0
 offset_bottom = 450.0
-texture = ExtResource("1_nb51f")
-stretch_mode = 1
-
-[node name="Wall2" type="TextureRect" parent="Background" unique_id=1477122053]
-z_index = -1
-offset_left = 800.0
-offset_right = 1600.0
-offset_bottom = 450.0
-texture = ExtResource("1_nb51f")
+texture = ExtResource("1_81klo")
 stretch_mode = 1
 
 [node name="Floor" type="TextureRect" parent="Background" unique_id=241140459]
@@ -316,63 +307,9 @@ offset_right = 800.0
 offset_bottom = 374.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_nnt18")
+texture = ExtResource("2_tgy6u")
 stretch_mode = 1
 flip_h = true
-
-[node name="Floor2" type="TextureRect" parent="Background" unique_id=256542221]
-z_index = -1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 800.0
-offset_top = 194.0
-offset_right = 1600.0
-offset_bottom = 374.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_nnt18")
-stretch_mode = 1
-flip_h = true
-
-[node name="Gate" type="ColorRect" parent="Background" unique_id=498444201]
-z_index = 2
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 750.0
-offset_right = 850.0
-offset_bottom = 450.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gate2" type="ColorRect" parent="Background" unique_id=744448011]
-z_index = 2
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -50.0
-offset_right = 50.0
-offset_bottom = 450.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gate3" type="ColorRect" parent="Background" unique_id=897521474]
-z_index = 2
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1550.0
-offset_right = 1650.0
-offset_bottom = 450.0
-grow_horizontal = 0
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="SafeRoom" type="Node2D" parent="." unique_id=1995804427]
 visible = false
@@ -547,17 +484,7 @@ flip_h = true
 [node name="SafeRoomAnimations" type="AnimationPlayer" parent="SafeRoom" unique_id=857053589]
 libraries/ = SubResource("AnimationLibrary_cwurv")
 
-[node name="GoldenBiscuit" type="Node2D" parent="." unique_id=881799590]
-visible = false
-z_index = 1
-
-[node name="EnemySpawn" type="Node2D" parent="GoldenBiscuit" unique_id=1539936136]
-position = Vector2(575, 241)
-
-[node name="Biscuit" type="Sprite2D" parent="GoldenBiscuit/EnemySpawn" unique_id=178775868]
-texture = ExtResource("8_exi56")
-
-[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "safe_room_anims", "golden_biscuit")]
+[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "safe_room_anims")]
 script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
@@ -567,7 +494,6 @@ player = NodePath("../Player")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
 safe_room_anims = NodePath("../SafeRoom/SafeRoomAnimations")
-golden_biscuit = NodePath("../GoldenBiscuit")
 
 [node name="EnemySpawn3" type="Node2D" parent="RoomManager" unique_id=1826181721]
 position = Vector2(639, 296)

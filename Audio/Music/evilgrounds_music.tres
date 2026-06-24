@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://gkduny5tqbyq"]
+
+[ext_resource type="AudioStream" uid="uid://cwnh3re81kmoo" path="res://Audio/Music/evilgrounds.wav" id="1_n1jp7"]
+
+[resource]
+clip_count = 1
+clip_0/name = &"evilgrounds"
+clip_0/stream = ExtResource("1_n1jp7")
+clip_0/auto_advance = 0

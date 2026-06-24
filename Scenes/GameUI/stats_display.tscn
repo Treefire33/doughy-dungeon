@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddhc62nuidtg3"]
+[gd_scene format=3 uid="uid://ddhc62nuidtg3"]
 
 [ext_resource type="Script" uid="uid://rgs2s588fupj" path="res://Scripts/UI/stats_display.gd" id="1_5r6ir"]
-[ext_resource type="Texture2D" uid="uid://782sqdh5mol3" path="res://Sprites/Icons/Health.tres" id="2_dsad8"]
+[ext_resource type="Texture2D" uid="uid://782sqdh5mol3" path="res://Sprites/Icons/ActionIcons/Health.tres" id="2_dsad8"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="3_qboys"]
-[ext_resource type="Texture2D" uid="uid://bpyvyaeyhvtc7" path="res://Sprites/Icons/Stamina.tres" id="4_1m4ne"]
+[ext_resource type="Texture2D" uid="uid://bpyvyaeyhvtc7" path="res://Sprites/Icons/ActionIcons/Stamina.tres" id="4_1m4ne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35xla"]
 bg_color = Color(0.870588, 0.878431, 0, 1)

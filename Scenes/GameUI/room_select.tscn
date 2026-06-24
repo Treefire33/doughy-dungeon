@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_b2nek"]
 [ext_resource type="Script" uid="uid://cwga4ms26dy67" path="res://Scripts/UI/room_select/room_select_room_button.gd" id="2_x8mgq"]
 
-[node name="RoomSelect" type="Control" unique_id=12217778 node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect", "room_count", "floor_count", "dungeon_name_label")]
+[node name="RoomSelect" type="Control" unique_id=12217778 node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect", "room_count", "floor_count", "dungeon_name_label", "room_button_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,7 @@ size_bound = 1
 room_count = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/RoomCount")
 floor_count = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/FloorCount")
 dungeon_name_label = NodePath("RoomsContainer/Rooms/Inspect/CameraUI/DungeonName")
+room_button_container = NodePath("RoomsContainer/Rooms/RoomUI")
 
 [node name="RoomsContainer" type="SubViewportContainer" parent="." unique_id=1338739376]
 layout_mode = 1
@@ -57,10 +58,13 @@ offset_left = 368.0
 offset_top = 193.0
 offset_right = 432.0
 offset_bottom = 257.0
+focus_mode = 0
+button_mask = 3
 text = "M"
 script = ExtResource("2_x8mgq")
 
 [node name="PlayerIcon" type="TextureRect" parent="RoomsContainer/Rooms/RoomUI" unique_id=1872289205]
+z_index = 1
 layout_mode = 0
 offset_left = 368.0
 offset_top = 193.0

@@ -1,5 +1,8 @@
 extends Button
 class_name RoomSelectButton
+
+var visited: bool = false;
+
 var room_direction: Enum.Direction = Enum.Direction.None;
 var room_data: RoomData = null;
 var next_rooms: Array[RoomSelectButton] = [];

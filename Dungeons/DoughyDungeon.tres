@@ -12,9 +12,8 @@
 [ext_resource type="Resource" uid="uid://8eevr4pkr5t8" path="res://EnemyData/Doughy/Oven.tres" id="9_7lnde"]
 [ext_resource type="Resource" uid="uid://skuymh1v0uv0" path="res://EnemyData/Doughy/PretzelSpider.tres" id="10_6hjup"]
 [ext_resource type="Resource" uid="uid://uqhd6obfjniv" path="res://EnemyData/Doughy/RollingPin.tres" id="11_8icql"]
-[ext_resource type="Texture2D" uid="uid://buvl4odvag5v2" path="res://Sprites/Tiles/Floor.png" id="12_ui381"]
+[ext_resource type="Texture2D" uid="uid://7c3camomb7u7" path="res://Sprites/Tiles/DungeonTiles/DoughyFloor.tres" id="12_g2dxu"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_4qdos"]
-[ext_resource type="Texture2D" uid="uid://b270ruum26m8a" path="res://Sprites/Tiles/Wall.png" id="14_rfs6y"]
 [ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="14_w7bhb"]
 [ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="15_4lamv"]
 [ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="16_d45b2"]
@@ -28,6 +27,7 @@
 [ext_resource type="Resource" uid="uid://brgpd8v22l20t" path="res://Items/DurabilityScroll.tres" id="24_6g7lf"]
 [ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="25_164du"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="26_g2dxu"]
+[ext_resource type="Texture2D" uid="uid://d4embdhxbrn06" path="res://Sprites/Tiles/DungeonTiles/DoughyWall.tres" id="28_4sgh7"]
 
 [resource]
 script = ExtResource("2_1q3vg")
@@ -35,8 +35,8 @@ id = 2
 name = "Doughy Dungeon"
 enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_164du"), ExtResource("3_g2dxu"), ExtResource("4_4sgh7"), ExtResource("5_cpyly"), ExtResource("6_6g7lf"), ExtResource("7_6gdni"), ExtResource("8_bdgk8"), ExtResource("9_7lnde"), ExtResource("10_6hjup"), ExtResource("11_8icql")])
 items = Array[ExtResource("13_4qdos")]([ExtResource("14_w7bhb"), ExtResource("15_4lamv"), ExtResource("16_d45b2"), ExtResource("17_ui381"), ExtResource("18_rfs6y"), ExtResource("19_aby3q"), ExtResource("20_164du"), ExtResource("21_g2dxu"), ExtResource("22_4sgh7"), ExtResource("23_cpyly"), ExtResource("24_6g7lf"), ExtResource("25_164du")])
-wall_texture = ExtResource("14_rfs6y")
-floor_texture = ExtResource("12_ui381")
+wall_texture = ExtResource("28_4sgh7")
+floor_texture = ExtResource("12_g2dxu")
 description = "A dungeon comprised almost entirely out of doughy beasts and baking tools.
 Try not to eat them.
 

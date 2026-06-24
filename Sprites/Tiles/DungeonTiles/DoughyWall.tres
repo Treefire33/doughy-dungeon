@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://d4embdhxbrn06"]
+
+[ext_resource type="Texture2D" uid="uid://b0pybdckufx4k" path="res://Sprites/Tiles/DungeonTiles.aseprite" id="1_hr854"]
+
+[resource]
+atlas = ExtResource("1_hr854")
+region = Rect2(0, 0, 128, 128)

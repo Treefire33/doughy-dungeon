@@ -7,6 +7,7 @@
 script = ExtResource("2_67khh")
 room_name = "Stay Clear"
 room_description = "Seems this room is filled with enemies, sneaking past might be safer."
+room_character = "o"
 room_type = 2
 room_length = 2
 metadata/_custom_type_script = "uid://bop2umllk0kqy"

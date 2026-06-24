@@ -18,8 +18,11 @@ config/name="Midnight Dungeons"
 config/description="Roguelite RPG dungeon crawler"
 config/version="0.0.2"
 run/main_scene="uid://b8euto25wvt14"
-config/features=PackedStringArray("4.6", "Mobile")
+config/custom_user_dir_name="MidnightDungeons"
+config/quit_on_go_back=false
+config/features=PackedStringArray("4.7", "Mobile")
 boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 boot_splash/stretch_mode=0
 boot_splash/use_filter=false
 boot_splash/image="uid://ccqegmh4s4dev"
@@ -59,7 +62,7 @@ mouse_cursor/custom_image="uid://ler003tb368l"
 
 [dotnet]
 
-project/assembly_name="Doughy Dungeon"
+project/assembly_name="MidnightDungeons"
 
 [editor_plugins]
 

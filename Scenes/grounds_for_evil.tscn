@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://baju4siqvb0tl"]
+
+[ext_resource type="SpriteFrames" uid="uid://dioh5vipamvkh" path="res://Sprites/evilgroundsanim.tres" id="1_gv5y6"]
+
+[node name="GroundsForEvil" type="Node2D" unique_id=373260012]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=413021080]
+offset_right = 800.0
+offset_bottom = 450.0
+color = Color(0, 0, 0, 1)
+
+[node name="evilgrounds" type="AnimatedSprite2D" parent="." unique_id=543408837]
+position = Vector2(400, 200)
+sprite_frames = ExtResource("1_gv5y6")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="." unique_id=520224993]
+modulate = Color(0.025363795, 0.025363805, 0.02536378, 0.74509805)
+offset_left = 312.0
+offset_top = 315.0
+offset_right = 488.0
+offset_bottom = 331.0
+text = "evilgrounds"
+horizontal_alignment = 1
+vertical_alignment = 1

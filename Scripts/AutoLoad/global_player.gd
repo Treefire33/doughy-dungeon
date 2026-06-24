@@ -13,6 +13,13 @@ var completed_dungeons: Array[bool] = [
 	false, false, # Side Dungeons (Cliff-Side, True Abyss)
 ];
 var has_abyss_heart: bool = false;
+var grounds_for_evil: int = 0; # Secret activates when counter hits 10, resets when "Start" is chosen.
+var _game_started: bool = false; # Checks if the game has started, prevents evilgrounds from happening from regular play.
+
+# Upgrades
+var current_cloak: Enum.Upgrades.Cloaks = Enum.Upgrades.Cloaks.Tattered;
+var current_sword: Enum.Upgrades.Swords = Enum.Upgrades.Swords.Wood;
+var current_shield: Enum.Upgrades.Shields = Enum.Upgrades.Shields.Standard;
 
 # Save Data:
 func save_player():
@@ -20,6 +27,7 @@ func save_player():
 	save_data.set_value("flags", "met_vendor", met_vendor);
 	save_data.set_value("flags", "completed_dungeons", completed_dungeons);
 	save_data.set_value("flags", "has_abyss_heart", has_abyss_heart);
+	save_data.set_value("flags", "grounds_for_evil", grounds_for_evil);
 
 	save_data.save("user://player_save.sav");
 
@@ -34,6 +42,7 @@ func load_player():
 			met_vendor = save_data.get_value(section, "met_vendor", false);
 			completed_dungeons = save_data.get_value(section, "completed_dungeons", [ false, false, false, false, false, false, false ]);
 			has_abyss_heart = save_data.get_value(section, "has_abyss_heart", false);
+			grounds_for_evil = save_data.get_value(section, "grounds_for_evil", 0);
 
 func _ready() -> void:
 	load_player();

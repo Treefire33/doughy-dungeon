@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cmedwe71s8yeb"]
+
+[ext_resource type="Script" uid="uid://ban45iviwadap" path="res://Items/Functions/LovelyHeartFunction.gd" id="1_os7fv"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_5tccb"]
+[ext_resource type="Texture2D" uid="uid://5rbxxj5p07bq" path="res://Sprites/Items/LovelyHeart.tres" id="3_5tccb"]
+
+[resource]
+script = ExtResource("2_5tccb")
+name = "Lovely Heart"
+flavour_text = "Wielding my love!"
+description = "Base attack stat is set to the number of heart items currently purchased."
+price = 250
+sprite = ExtResource("3_5tccb")
+weight = 1.07
+function = ExtResource("1_os7fv")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

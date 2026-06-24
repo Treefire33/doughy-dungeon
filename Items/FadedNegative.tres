@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://3qr4lecxqca7"]
+
+[ext_resource type="Script" uid="uid://b0u2g6qk23us2" path="res://Items/PainfulFunctions/FadedNegativeFunction.gd" id="1_copju"]
+[ext_resource type="Texture2D" uid="uid://c07jbabsyosxp" path="res://Sprites/Items/FadedNegative.tres" id="2_8g2eg"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_ckmo8"]
+
+[resource]
+script = ExtResource("2_ckmo8")
+name = "Faded Negative"
+flavour_text = "I... can't remember..."
+description = "Damage dealt has a chance to reflect back onto you."
+price = -100
+sprite = ExtResource("2_8g2eg")
+weight = 10.0
+function = ExtResource("1_copju")
+unique_stacking = true
+painful = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

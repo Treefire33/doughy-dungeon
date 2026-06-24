@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://8xd2nq8768rd"]
+[gd_scene format=3 uid="uid://8xd2nq8768rd"]
 
 [ext_resource type="Script" uid="uid://cvq0pmcgajwhs" path="res://Scripts/Enemy/enemy.gd" id="1_hghv2"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_pe7bt"]
 [ext_resource type="Texture2D" uid="uid://drcx2bgrq2urj" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic2.tres" id="3_ytpux"]
-[ext_resource type="Texture2D" uid="uid://bfggy4kx6sg0c" path="res://Sprites/DoughyIcons.png" id="4_ytpux"]
+[ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="4_07cr6"]
 [ext_resource type="AnimationLibrary" uid="uid://chm365vo5ctw7" path="res://Sprites/Enemies/Animations/Enemy.res" id="5_07cr6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe7bt"]
@@ -11,12 +11,12 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a801k"]
 
-[node name="Enemy" type="Node2D" node_paths=PackedStringArray("health_bar", "notif")]
+[node name="Enemy" type="Node2D" unique_id=1155350619 node_paths=PackedStringArray("health_bar", "notif")]
 script = ExtResource("1_hghv2")
 health_bar = NodePath("Health")
 notif = NodePath("Notif")
 
-[node name="Health" type="ProgressBar" parent="."]
+[node name="Health" type="ProgressBar" parent="." unique_id=466868539]
 offset_left = -32.0
 offset_top = -52.0
 offset_right = 32.0
@@ -27,19 +27,15 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1524926891]
 texture = ExtResource("3_ytpux")
 
-[node name="Notif" type="Sprite2D" parent="."]
+[node name="Notif" type="Sprite2D" parent="." unique_id=734849556]
+visible = false
 position = Vector2(0, -40)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_ytpux")
-hframes = 2
-vframes = 3
-frame = 5
+texture = ExtResource("4_07cr6")
 
-[node name="Animator" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_a801k"),
-&"Enemy": ExtResource("5_07cr6")
-}
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1778643066]
+libraries/ = SubResource("AnimationLibrary_a801k")
+libraries/Enemy = ExtResource("5_07cr6")

@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.noop"
-type="PackedDataContainer"
+importer="aseprite_wizard.plugin.static-texture"
+type="PortableCompressedTexture2D"
 uid="uid://5pylr5lk0kad"
 path="res://.godot/imported/swords.aseprite-fce7956f6bfae9ebee98cde97f818d1a.res"
 
@@ -12,3 +12,9 @@ dest_files=["res://.godot/imported/swords.aseprite-fce7956f6bfae9ebee98cde97f818
 
 [params]
 
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+first_frame_only=false
+sheet/sheet_type="columns"
+sheet/sheet_columns=4
+sheet/scale=1

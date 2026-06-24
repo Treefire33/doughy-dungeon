@@ -45,5 +45,14 @@ func _ready():
 		shield.frame = 0;
 		if (defense_durability == 0):
 			shield.frame = 1;
-	)
+	);
+
+	_max_health = Enum.Upgrades.cloak_data[GlobalPlayer.current_cloak]["Health"];
+	_max_stamina = Enum.Upgrades.cloak_data[GlobalPlayer.current_cloak]["Stamina"];
+
+	_attack = Enum.Upgrades.sword_data[GlobalPlayer.current_sword]["Attack"];
+
+	_max_defending_duration = Enum.Upgrades.shield_data[GlobalPlayer.current_shield]["DefenseDuration"];
+	_max_defense_durability = Enum.Upgrades.shield_data[GlobalPlayer.current_shield]["DefenseDurability"];
+
 	player_ready.emit();

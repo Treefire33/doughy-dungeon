@@ -25,9 +25,9 @@ func load_inventory(room_manager: RoomManager):
         new_item.visible = true;
         item_tooltip.text = data.name + \
         "\n" + data.flavour_text + "\n\n" + data.description;
-        new_item.get_node("Count").text = str(count)
+        new_item.get_node("Count").text = str(count);
         new_item.texture = data.sprite;
-        inventory_items.add_child(new_item)
+        inventory_items.add_child(new_item);
         
 func load_stats(room_manager: RoomManager, in_safe_room: bool):
     if (!self.visible): return;

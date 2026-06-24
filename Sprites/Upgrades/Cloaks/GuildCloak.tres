@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://md0qrnyxjoiy"]
+
+[ext_resource type="Texture2D" uid="uid://bktw8vo256ywc" path="res://Sprites/Upgrades/cloaks.aseprite" id="1_5xr5v"]
+
+[resource]
+atlas = ExtResource("1_5xr5v")
+region = Rect2(128, 0, 64, 64)

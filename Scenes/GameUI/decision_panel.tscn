@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2ayda41o3ped"]
+[gd_scene format=3 uid="uid://c2ayda41o3ped"]
 
 [ext_resource type="Script" uid="uid://bdnlmaoase6uu" path="res://Scripts/UI/decision_panel.gd" id="1_8ex84"]
-[ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/Attack.tres" id="2_drmvv"]
-[ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/Defend.tres" id="3_dvcm2"]
-[ext_resource type="Texture2D" uid="uid://bmsnqxrde1ksf" path="res://Sprites/Icons/Rest.tres" id="4_cisa7"]
+[ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/ActionIcons/Attack.tres" id="2_drmvv"]
+[ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="3_dvcm2"]
+[ext_resource type="Texture2D" uid="uid://bmsnqxrde1ksf" path="res://Sprites/Icons/ActionIcons/Rest.tres" id="4_cisa7"]
 
 [node name="DecisionPanel" type="ColorRect"]
 offset_left = 340.0

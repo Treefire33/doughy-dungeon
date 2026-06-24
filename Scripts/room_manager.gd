@@ -38,7 +38,12 @@ var floor_count: int:
 @export var camera: Camera2D;
     
 func get_random_enemy(difficulty: int) -> Enemy:
-    var selected_enemy = current_dungeon.enemies.pick_random();
+    var selected_enemy: EnemyData = null;
+    if (player_ui.room_select.current_room.room_data.enemies.size() > 0):
+        selected_enemy = player_ui.room_select.current_room.room_data.enemies.pick_random();
+    else:
+        selected_enemy = current_dungeon.enemies.pick_random();
+    
     if (
         difficulty < selected_enemy.difficulty_range[0] 
         or difficulty > selected_enemy.difficulty_range[1]
@@ -330,6 +335,7 @@ func _ready() -> void:
     MidnightDebug.player = self.player;
     if (GlobalPlayer.current_dungeon):
         current_dungeon = GlobalPlayer.current_dungeon;
+        if (current_dungeon.rooms.size() == 0): current_dungeon.rooms = RoomData.default_rooms;
     self.wall_rect.texture = self.current_dungeon.wall_texture;
     self.floor_rect.texture = self.current_dungeon.floor_texture;
     if (RoomManager.instance):

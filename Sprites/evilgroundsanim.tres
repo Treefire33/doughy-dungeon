@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dioh5vipamvkh"]
+
+[ext_resource type="Texture2D" uid="uid://b2ay6qvjn4dw7" path="res://Sprites/groundsforevil.aseprite" id="1_nd6cg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6k84f"]
+atlas = ExtResource("1_nd6cg")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i8vk"]
+atlas = ExtResource("1_nd6cg")
+region = Rect2(128, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6k84f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4i8vk")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
