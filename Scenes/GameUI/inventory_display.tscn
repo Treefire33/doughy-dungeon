@@ -102,9 +102,6 @@ layout_mode = 0
 offset_top = 23.0
 offset_right = 64.0
 offset_bottom = 87.0
-tooltip_text = "name
-flavour
-desc"
 theme = ExtResource("2_gvvfn")
 texture = ExtResource("3_tmpmi")
 stretch_mode = 5

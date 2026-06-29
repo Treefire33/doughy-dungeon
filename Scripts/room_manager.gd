@@ -5,6 +5,7 @@ signal request_decision;
 @export var player_ui: PlayerUI;
 @export var wall_rect: TextureRect;
 @export var floor_rect: TextureRect;
+@export var battle_manager: BattleManager;
 
 static var instance: RoomManager = null;
 
@@ -14,7 +15,7 @@ var enemy_prefab: PackedScene = preload("res://Scenes/Prefabs/enemy.tscn");
     $EnemySpawn,
     $EnemySpawn2,
     $EnemySpawn3
-]
+];
 
 @export var current_dungeon: DungeonData;
 var room_count: int = 1;
@@ -60,7 +61,6 @@ func get_random_enemy(difficulty: int) -> Enemy:
     new_enemy.attack += floor(delta_difficulty / 2);
     return new_enemy;
 
-var alive_enemies: Array[Enemy] = [null, null, null];
 var difficulty_num_enemies = {
     1: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3], 2: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3],
     3: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3], 4: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3],
@@ -94,10 +94,17 @@ func gen_room(decision: Enum.RoomDecision):
         room_difficulty
     ][(room_count - 1) % 10];
     
+    var alive_enemies: Array[Enemy] = [];
     for i in range(num_enemies):
         var enemy = get_random_enemy(room_difficulty);
-        enemy_spawns[i].add_child(enemy);
-        alive_enemies[i] = enemy;
+        enemy.enemy_index = i;
+        enemy.pressed.connect(player_ui.select_enemy.bind(enemy));
+        enemy.hover_area.mouse_entered.connect(player_ui.move_selection_box.bind(enemy));
+        enemy.hover_area.mouse_exited.connect(player_ui.move_selection_box.bind(null));
+        enemy_spawns[enemy.enemy_index].add_child(enemy);
+        alive_enemies.append(enemy);
+
+    battle_manager.start_battle(alive_enemies, player);
         
     print("Loaded Room");
     
@@ -141,7 +148,6 @@ func generate_shop_item(display_index: int):
 
 @export var safe_room: Node2D;
 @export var safe_room_anims: AnimationPlayer;
-@export var golden_biscuit: Node2D;
 func gen_safe_room():
     camera.position = Vector2.ZERO;
     player.position = Vector2(225, 225);
@@ -196,90 +202,15 @@ func gen_safe_room():
     player_ui.update_ui();
     next_room(true);
 
-func decision_text(decision: Enum.Decision):
-    match decision:
-        Enum.Decision.Attack:
-            return "attacked";
-        Enum.Decision.SpellDefend:
-            return "started defending";
-        Enum.Decision.Rest:
-            return "rested";
-
-func get_enemies_alive():
-    var num = 0;
-    for enemy in alive_enemies:
-        if enemy == null:
-            continue
-        num += 1;
-    return num;
-
-func do_entity_turn(user: Entity, decision: Enum.Decision, target: Entity):
-    match (decision):
-        Enum.Decision.Attack:
-            user.turn_attack(target);
-        Enum.Decision.SpellDefend:
-            user.turn_defend(target);
-        Enum.Decision.Rest:
-            user.turn_rest(target);
-
 func room_turn():
-    var current_turn = 0;
-    while (get_enemies_alive() > 0 and player.health > 0):
-        match (current_turn):
-            0:
-                if (player.stamina > 0):
-                    player.play_anim(Enum.PlayerAnimation.Idle);
-                player.defending_duration -= 1;
-                request_decision.emit();
-                var decision_info = await player_ui.player_decision;
-                var decision: Enum.Decision = decision_info[0];
-                var selected_enemy = decision_info[1];
-                do_entity_turn(player, decision, selected_enemy);
-                if (player.stamina <= 0):
-                    player.play_anim(Enum.PlayerAnimation.Rest);
-                else:
-                    player.play_anim(player.decision_to_animation[decision]);
-                
-                ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
-                    
-                current_turn = 1;
-                if (selected_enemy == null):
-                    continue
-                selected_enemy.update_health();
-                if (selected_enemy.health <= 0):
-                    ItemUtils.activate_items(player, "enemy_kill", player, selected_enemy);
-                    Audio.play_audio(Audio.die_sfx);
-                    player.coins += int(selected_enemy.get_coin_drops() * room_multiplier);
-                    selected_enemy.queue_free()
-                    var index = alive_enemies.find(selected_enemy);
-                    alive_enemies[index] = null;
-            1:
-                for enemy in alive_enemies:
-                    if (enemy == null):
-                        continue;
-                    enemy.notif.visible = false;
-                    enemy.defending_duration -= 1;
-                    var decision = enemy.get_decision(player, room_difficulty);
-                    var target = enemy.get_target(player, alive_enemies);
-                    do_entity_turn(enemy, decision, target);
-
-                    ItemUtils.activate_items(player, "decision", enemy, target, decision);
-
-                    ToastParty.show({
-                        "text": enemy.name + " " + decision_text(decision) + "!",
-                        "text_size": Settings.toast_size,
-                        "bgcolor": Color(0, 0, 0, 1),
-                        "color": Color(1, 1, 1, 1),
-                        "gravity": "top",
-                        "direction": "right",
-                    });
-                    enemy.notif.visible = true if enemy.defending_duration >= 1 else false;
-                    
-                current_turn = 0;
+    while (battle_manager.battle_active()):
+        await battle_manager.do_turn(self);
         player_ui.update_ui();
         await get_tree().create_timer(0.5 / Settings.game_speed).timeout
         player.update_shield();
     
+    battle_manager.clear_battle();
+
     if (player.health <= 0):
         Audio.play_audio(Audio.die_sfx);
         player.play_anim(Enum.PlayerAnimation.Dead);

@@ -26,27 +26,19 @@ signal _enemy_selected();
 @onready var attack_upgrade: Button = $Upgrades/Attack;
 
 # Enemy Selection
-@onready var enemy_buttons: Array[Button] = [
-    $Enemies/Enemy1,
-    $Enemies/Enemy2,
-    $Enemies/Enemy3,
-];
 var selecting_enemy: bool = false;
 
 # Safe Room Related
 var in_safe_room: bool = false;
 @onready var safe_room_proceed: Button = $SafeRoomProceed;
 
-func move_selection_box(enemy_index: int):
+func move_selection_box(enemy: Enemy):
     selection_box.visible = true;
-    if (
-        enemy_index == -1 
-        || room_manager.alive_enemies[enemy_index] == null
-    ):
+    if (enemy == null || enemy.health <= 0):
         selection_box.visible = false;
         return	
 
-    selection_box.position = enemy_buttons[enemy_index].position;
+    selection_box.position = enemy.get_parent().position - selection_box.size / 2;
 
 var translation_dict = {
     0: "health",
@@ -76,11 +68,9 @@ func upgrade_stat(stat: int):
     upgrades_panel.hide();
 
 func update_enemy_buttons():
-    for i in len(room_manager.alive_enemies):
-        var button: Button = enemy_buttons[i];
-        var tooltip: TooltipTrigger = button.get_node("TooltipTrigger") as TooltipTrigger;
-        var enemy: Enemy = room_manager.alive_enemies[i];
-        if (enemy == null):
+    for enemy in room_manager.battle_manager.get_enemies():
+        var tooltip: TooltipTrigger = enemy.hover_tooltip as TooltipTrigger;
+        if (enemy == null || enemy.health <= 0):
             tooltip.text = "";
             continue;
         
@@ -92,24 +82,19 @@ func update_enemy_buttons():
         "\n[s=8]Defense Durability: " + str(enemy.defense_durability) + \
         "\n[s=8]Attack: " + str(enemy.attack)
     
-func select_enemy(enemy_index: int):
+func select_enemy(enemy: Enemy):
     if (!selecting_enemy):
         return
-    if (room_manager.alive_enemies[enemy_index] == null):
+    if (enemy == null || enemy.health <= 0):
         return
-    _enemy_selected.emit(room_manager.alive_enemies[enemy_index]);
+    _enemy_selected.emit(enemy);
 
 func _ready() -> void:
+    room_manager.request_decision.connect(decision_panel.show);
     decision_panel.load_decisions(self);
     stats_display.update(room_manager);
     inventory_button.grab_focus();
     
-    var i = 0;
-    for button in enemy_buttons:
-        button.pressed.connect(select_enemy.bind(i));
-        button.mouse_entered.connect(move_selection_box.bind(i))
-        button.mouse_exited.connect(move_selection_box.bind(-1))
-        i += 1;
     update_enemy_buttons();
     
     inventory_button.pressed.connect(func():
@@ -157,12 +142,9 @@ func _input(event: InputEvent) -> void:
         return;
     
     if (selecting_enemy):
-        var enemy = room_manager.alive_enemies[decision];
+        var enemy = room_manager.battle_manager.get_enemies().get(decision);
         if (enemy == null):
             return;
         _enemy_selected.emit(enemy);
     elif (decision_panel.visible):
         decision_panel.player_decision(self, decision);
-
-func _on_room_manager_request_decision() -> void:
-    decision_panel.show();

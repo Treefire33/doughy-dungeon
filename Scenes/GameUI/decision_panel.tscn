@@ -15,6 +15,7 @@ layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.77800006
 offset_bottom = -0.10003662
+mouse_filter = 2
 script = ExtResource("1_8ex84")
 
 [node name="Options" type="ColorRect" parent="." unique_id=178507044]
@@ -77,14 +78,14 @@ anchors_preset = -1
 anchor_left = 0.187
 anchor_top = 0.42900002
 anchor_right = 0.81200004
-anchor_bottom = 0.57600003
+anchor_bottom = 0.6
 offset_left = 0.3999939
 offset_top = -0.15000916
 offset_right = 0.39996338
-offset_bottom = 8.399994
+offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Container" type="HBoxContainer" parent="AttackOptions" unique_id=576353935]
 layout_mode = 1
@@ -98,9 +99,9 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
 text = "LIGHT"
 icon = ExtResource("2_drmvv")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -113,9 +114,9 @@ metadata/_custom_type_script = "uid://drc261xy1tgvc"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
 text = "HEAVY"
 icon = ExtResource("2_drmvv")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -123,6 +124,16 @@ expand_icon = true
 script = ExtResource("3_cisa7")
 text = "Heavier, more tiring, attack. Deals 150% - 300% of your damage stat but also requires more stamina."
 metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Title" type="RichTextLabel" parent="AttackOptions" unique_id=1567133643]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.78300005
+anchor_right = 1.0
+offset_top = -0.019996643
+text = "ATTACKS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SpellOptions" type="ColorRect" parent="." unique_id=899967493]
 visible = false
@@ -138,7 +149,7 @@ offset_right = 0.39996338
 offset_bottom = -1.5258789e-05
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Container" type="HBoxContainer" parent="SpellOptions" unique_id=1278955564]
 layout_mode = 1
@@ -152,9 +163,9 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
 text = "DEFEND"
 icon = ExtResource("5_5uw8l")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -167,9 +178,9 @@ metadata/_custom_type_script = "uid://drc261xy1tgvc"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
 text = "RETYPE"
 icon = ExtResource("6_hx2q3")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -182,9 +193,9 @@ metadata/_custom_type_script = "uid://drc261xy1tgvc"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
 text = "ATTACK"
 icon = ExtResource("7_qdcan")
-flat = true
 icon_alignment = 1
 expand_icon = true
 
@@ -192,6 +203,106 @@ expand_icon = true
 script = ExtResource("3_cisa7")
 text = "An attack spell that deals 50% of your attack stat but doesn't consume stamina."
 metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Title" type="RichTextLabel" parent="SpellOptions" unique_id=957797760]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.78300005
+anchor_right = 1.0
+offset_top = -0.019996643
+text = "SPELLS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountOptions" type="ColorRect" parent="." unique_id=659502610]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.187
+anchor_top = 0.42900002
+anchor_right = 0.81200004
+anchor_bottom = 0.6
+offset_left = 0.3999939
+offset_top = -0.15000916
+offset_right = 0.39996338
+offset_bottom = -1.5258789e-05
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0)
+
+[node name="Container" type="HBoxContainer" parent="CountOptions" unique_id=1816699012]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DepthOne" type="Button" parent="CountOptions/Container" unique_id=454496301]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
+text = "1"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthOne" unique_id=845117001]
+script = ExtResource("3_cisa7")
+text = "Standard action depth, costs one turn."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="DepthTwo" type="Button" parent="CountOptions/Container" unique_id=1623447985]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
+text = "2"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthTwo" unique_id=1919855253]
+script = ExtResource("3_cisa7")
+text = "Slightly higher depth, costs two turns."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="DepthThree" type="Button" parent="CountOptions/Container" unique_id=1572445747]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
+text = "3"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthThree" unique_id=527990042]
+script = ExtResource("3_cisa7")
+text = "Even higher depth, costs three turns."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="DepthFour" type="Button" parent="CountOptions/Container" unique_id=1587578170]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("5_drmvv")
+text = "4"
+icon_alignment = 1
+expand_icon = true
+
+[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthFour" unique_id=1218573934]
+script = ExtResource("3_cisa7")
+text = "Highest action depth, costs 4 turns."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Title" type="RichTextLabel" parent="CountOptions" unique_id=1488114691]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.78300005
+anchor_right = 1.0
+offset_top = -0.019996643
+text = "ACTION DEPTH"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="SelectionPrompt" type="ColorRect" parent="." unique_id=2122486817]
 visible = false

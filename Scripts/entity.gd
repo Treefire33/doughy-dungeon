@@ -47,7 +47,7 @@ var max_stamina: int:
 var stamina: int:
     get: return stamina
     set (value):
-        stamina = clampi(value, 0, max_stamina);
+        stamina = clampi(value, -5, max_stamina);
 
 # Attack
 var _attack: int = 1;
@@ -83,6 +83,16 @@ var defense_durability: int = 1:
             defense_broke_last_turn = true;
             defense_durability = max_defense_durability;
         durability_changed.emit();
+
+var _speed: int = 1;
+var speed: int:
+    get:
+        @warning_ignore("narrowing_conversion")
+        return apply_stat_mods(Enum.StatType.Speed, _speed);
+
+var turn_points: int = 1:
+    set(value):
+        turn_points = clampi(value, -10, 1);
 
 var stat_modifiers: Array[StatModifier] = [];
 func add_stat_mod(
@@ -120,30 +130,36 @@ func hurt():
         await get_tree().create_timer(0.1 / Settings.game_speed).timeout;
         passes += 1;
 
-func turn_attack(target: Entity):
-    if (target == null): return;
-    if (target.defending_duration >= 1): 
-        target.defense_durability -= 1;
-        return;
-    if (self.stamina <= 0): return;
-    self.stamina -= 1;
-    Audio.play_audio(Audio.hit_sfx);
-    target.health -= self.attack;
-    
-func turn_defend(_target):
-    if (self.stamina <= 0): return;
-    self.stamina -= 1;
-    if (self.defending_duration != 0): return;
-    if (self.defense_broke_last_turn):
-        self.defense_broke_last_turn = false
-        return;
-    Audio.play_audio(Audio.defend_sfx);
-    self.defending_duration = self.max_defending_duration;
-    
-func turn_rest(_target):
-    if (self.stamina > self.max_stamina): 
-        self.stamina = self.max_stamina;
-    self.stamina += 1;
+func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
+    match (decision):
+        Enum.Decision.Attack, Enum.Decision.AttackHeavy, Enum.Decision.SpellAttack:
+            if (target == null): return 0;
+            if (target.defending_duration >= 1): 
+                target.defense_durability -= 1;
+                return 1;
+            if (self.stamina <= 0): return 0;
+            Audio.play_audio(Audio.hit_sfx);
+            var attack_damage: int = self.attack;
+            if (decision == Enum.Decision.AttackHeavy):
+                attack_damage = max(1, ceili(attack_damage + (count * attack_damage * 0.5)));
+                self.stamina -= count;
+            elif (decision == Enum.Decision.SpellAttack):
+                attack_damage = max(1, ceili(attack_damage * 0.5));
+            else:
+                self.stamina -= 1;
+            target.health -= attack_damage;
+        Enum.Decision.SpellDefend:
+            if (self.stamina <= 0): return 0;
+            self.stamina -= 1;
+            if (self.defending_duration != 0): return 0;
+            if (self.defense_broke_last_turn):
+                self.defense_broke_last_turn = false;
+                return 0;
+            Audio.play_audio(Audio.defend_sfx);
+            self.defending_duration = self.max_defending_duration;
+        Enum.Decision.Rest:
+            self.stamina += count;
+    return count;
 
 @warning_ignore("shadowed_variable")
 func load_entity(

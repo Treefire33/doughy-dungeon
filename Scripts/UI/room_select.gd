@@ -85,7 +85,7 @@ func generate_room(last_room: RoomSelectButton, room_pool: Array[RoomData], diff
     var possible_cover_room = 0;
     var iters = 0;
     while (possible_cover_room > -1 && possible_directions.size() > 0 && iters <= 100):
-        print(possible_directions.size());
+        # print(possible_directions.size());
         new_room.position = last_room.position + get_direction_offset(direction, new_room);
         possible_cover_room = rooms.find_custom(position_occupied.bind(new_room.position));
         possible_directions = possible_directions.filter(func(dir: Enum.Direction): return dir != direction);
@@ -93,7 +93,7 @@ func generate_room(last_room: RoomSelectButton, room_pool: Array[RoomData], diff
     
     # In the event we exhausted all possible directions, terminate node
     if (possible_directions.size() == 0 || iters > 100):
-        print("iter fail: ", iters > 100);
+        # print("iter fail: ", iters > 100);
         new_room.queue_free();
         return false;
     

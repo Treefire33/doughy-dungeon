@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b0pvhoesh3677" path="res://Sprites/Player/shield.aseprite" id="12_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://ddhc62nuidtg3" path="res://Scenes/GameUI/stats_display.tscn" id="13_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://cq6fs63b4mxdo" path="res://Sprites/Icons/UpgradeIcons/UpgradeHealth.tres" id="13_85qyi"]
+[ext_resource type="Script" uid="uid://bwvpfwom0xr8m" path="res://Scripts/battle_manager.gd" id="13_tgy6u"]
 [ext_resource type="Texture2D" uid="uid://cgc8ul7avjomb" path="res://Sprites/Icons/UpgradeIcons/UpgradeStamina.tres" id="14_iivbl"]
 [ext_resource type="Texture2D" uid="uid://dkkxnal01f2w3" path="res://Sprites/Icons/UpgradeIcons/UpgradeAttack.tres" id="15_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
@@ -242,50 +243,6 @@ _data = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8tyi"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kxtw2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjyqs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_copon"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wojap"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0wup"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8sys"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kuf18"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ocox"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7nf3m"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qy5o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mie3u"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ym3tv"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6uxt2"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmoi6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i26dy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3cha"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xe308"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oeip8"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ese38"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8m3t6"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mucmn"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cwurv"]
-
 [node name="Game" type="Node2D" unique_id=1496207552]
 
 [node name="Background" type="Node2D" parent="." unique_id=416798358]
@@ -484,11 +441,12 @@ flip_h = true
 [node name="SafeRoomAnimations" type="AnimationPlayer" parent="SafeRoom" unique_id=857053589]
 libraries/ = SubResource("AnimationLibrary_cwurv")
 
-[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "player", "camera", "safe_room", "safe_room_anims")]
+[node name="RoomManager" type="Node" parent="." unique_id=793838194 node_paths=PackedStringArray("player_ui", "wall_rect", "floor_rect", "battle_manager", "player", "camera", "safe_room", "safe_room_anims")]
 script = ExtResource("5_iivbl")
 player_ui = NodePath("../Camera/PlayerUI")
 wall_rect = NodePath("../Background/Wall")
 floor_rect = NodePath("../Background/Floor")
+battle_manager = NodePath("BattleManager")
 current_dungeon = ExtResource("12_81klo")
 player = NodePath("../Player")
 camera = NodePath("../Camera")
@@ -504,6 +462,10 @@ position = Vector2(639, 212)
 [node name="EnemySpawn" type="Node2D" parent="RoomManager" unique_id=226280839]
 position = Vector2(575, 241)
 
+[node name="BattleManager" type="Node" parent="RoomManager" unique_id=996855405]
+script = ExtResource("13_tgy6u")
+metadata/_custom_type_script = "uid://bwvpfwom0xr8m"
+
 [node name="Player" type="Node2D" parent="." unique_id=685296421]
 z_index = 1
 position = Vector2(225, 225)
@@ -513,7 +475,6 @@ script = ExtResource("6_7nbq1")
 texture = ExtResource("11_mg4q0")
 hframes = 4
 vframes = 4
-frame = 8
 
 [node name="Shield" type="Sprite2D" parent="Player" unique_id=253125294]
 visible = false
@@ -548,6 +509,7 @@ room_select = NodePath("RoomSelect")
 
 [node name="Stats" parent="Camera/PlayerUI" unique_id=2063253076 instance=ExtResource("13_7nbq1")]
 layout_mode = 1
+mouse_filter = 2
 
 [node name="Inventory" parent="Camera/PlayerUI" unique_id=1102359742 instance=ExtResource("15_exi56")]
 visible = false
@@ -559,12 +521,14 @@ anchor_bottom = 0.0
 offset_top = 230.0
 offset_right = 800.0
 offset_bottom = 350.0
+mouse_filter = 2
 
 [node name="DecisionPanel" parent="Camera/PlayerUI" unique_id=291967297 instance=ExtResource("15_iivbl")]
 layout_mode = 1
 
 [node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI" unique_id=1848592322]
 visible = false
+z_index = 999
 z_as_relative = false
 layout_mode = 1
 anchors_preset = 8
@@ -572,36 +536,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -34.0
-offset_right = 34.0
-offset_bottom = 34.0
+offset_left = -400.0
+offset_top = -225.0
+offset_right = -332.0
+offset_bottom = -157.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("12_fkdbe")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="Select" type="Button" parent="Camera/PlayerUI/SelectionBox" unique_id=761593179]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_kxtw2")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_wjyqs")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_copon")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_wojap")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_n0wup")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_q8sys")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kuf18")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2ocox")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_7nf3m")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_0qy5o")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mie3u")
-flat = true
 
 [node name="Upgrades" type="ColorRect" parent="Camera/PlayerUI" unique_id=1329253525]
 visible = false
@@ -612,6 +556,7 @@ anchor_right = 0.425
 anchor_bottom = 0.778
 offset_top = 0.0499878
 offset_bottom = -0.100037
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="RichTextLabel" parent="Camera/PlayerUI/Upgrades" unique_id=1388161886]
@@ -689,97 +634,6 @@ text = "Attack Upgrade:
 +2 attack."
 metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
-[node name="Enemies" type="Control" parent="Camera/PlayerUI" unique_id=1360850557]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.178
-offset_bottom = -0.0999985
-
-[node name="Enemy1" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=546896515]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.679
-anchor_top = 2.612
-anchor_right = 0.759
-anchor_bottom = 3.412
-offset_left = -0.200012
-offset_top = 0.039978
-offset_right = -0.200073
-offset_bottom = 0.039978
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
-flat = true
-
-[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Enemies/Enemy1" unique_id=1367515304]
-script = ExtResource("6_tgy6u")
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
-
-[node name="Enemy2" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=1811806868]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.759
-anchor_top = 2.25
-anchor_right = 0.839
-anchor_bottom = 3.05
-offset_left = -0.200073
-offset_right = -0.200012
-offset_bottom = -1.52588e-05
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
-flat = true
-
-[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Enemies/Enemy2" unique_id=186732019]
-script = ExtResource("6_tgy6u")
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
-
-[node name="Enemy3" type="Button" parent="Camera/PlayerUI/Enemies" unique_id=953025593]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.759
-anchor_top = 3.3
-anchor_right = 0.839
-anchor_bottom = 4.1
-offset_left = -0.200073
-offset_right = -0.200012
-offset_bottom = -3.05176e-05
-theme = ExtResource("10_vm72l")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ym3tv")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6uxt2")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_lmoi6")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_i26dy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_d3cha")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_xe308")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oeip8")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ese38")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_8m3t6")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mucmn")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cwurv")
-flat = true
-
-[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/Enemies/Enemy3" unique_id=1022882667]
-script = ExtResource("6_tgy6u")
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
-
 [node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI" unique_id=1945430027]
 visible = false
 z_index = 4
@@ -796,6 +650,7 @@ color = Color(0, 0, 0, 1)
 visible = false
 z_index = 5
 layout_mode = 1
+mouse_filter = 2
 
 [node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI" unique_id=730180464]
 visible = false
@@ -810,6 +665,7 @@ text = "Proceed"
 [node name="DialogueBox" parent="Camera/PlayerUI" unique_id=548800788 instance=ExtResource("26_81klo")]
 visible = false
 layout_mode = 1
+mouse_filter = 2
 
 [node name="PauseGame" type="Button" parent="Camera/PlayerUI" unique_id=892418108]
 z_index = 5

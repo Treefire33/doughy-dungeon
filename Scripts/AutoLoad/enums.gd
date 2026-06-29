@@ -68,7 +68,8 @@ enum ModifierType {
 
 enum StatType {
     MaxHealth, MaxStamina,
-    Attack, MaxDuration, MaxDurability
+    Attack, MaxDuration, MaxDurability,
+	Speed
 }
 
 class Upgrades:

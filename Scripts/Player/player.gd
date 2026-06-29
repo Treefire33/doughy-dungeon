@@ -65,4 +65,6 @@ func _ready():
     _max_defending_duration = Enum.Upgrades.shield_data[GlobalPlayer.current_shield]["DefenseDuration"];
     _max_defense_durability = Enum.Upgrades.shield_data[GlobalPlayer.current_shield]["DefenseDurability"];
 
+    _speed = 2;
+
     player_ready.emit();
