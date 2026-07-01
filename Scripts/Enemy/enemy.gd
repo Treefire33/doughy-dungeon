@@ -133,6 +133,9 @@ func get_coin_drops() -> int:
 func update_health():
     health_bar.value = float(health)/max_health;
 
+func update_shield():
+    notif.visible = defense_durability != 0 && defending_duration != 0;
+
 func _input(event: InputEvent) -> void:
     if (event is InputEventMouseButton):
         if (!_hovered): return;

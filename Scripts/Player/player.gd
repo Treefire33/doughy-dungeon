@@ -46,7 +46,7 @@ func play_anim(decision: Enum.PlayerAnimation):
     animator.play(player_animation_to_name[decision]);
 
 func update_shield():
-    shield.visible = defense_durability != 0 && defending_duration != 0
+    shield.visible = defense_durability != 0 && defending_duration != 0;
             
 func _ready():
     load_entity(15, 12, 2, $Sprite, $Animator);

@@ -24,7 +24,7 @@ var _max_health: int:
 var max_health: int:
     get: 
         @warning_ignore("narrowing_conversion") 
-        return apply_stat_mods(Enum.StatType.MaxHealth, _max_health);
+        return maxi(1, apply_stat_mods(Enum.StatType.MaxHealth, _max_health));
 var health: int:
     get: return health
     set (value):
@@ -74,14 +74,14 @@ var max_defense_durability: int:
         @warning_ignore("narrowing_conversion") 
         return apply_stat_mods(Enum.StatType.MaxDurability, _max_defense_durability);
 
+var defense_stun: bool = false;
 var defense_durability: int = 1:
     get: return defense_durability;
     set(value): 
         defense_durability = clampi(value, 0, max_defense_durability);
         if (defense_durability == 0):
             defending_duration = 0;
-            defense_broke_last_turn = true;
-            defense_durability = max_defense_durability;
+            defense_stun = true;
         durability_changed.emit();
 
 var _speed: int = 1;
@@ -117,10 +117,11 @@ func remove_stat_mod(key: String, remove_all: bool = false) -> void:
         if (!remove_all): break;
         index = stat_modifiers.find_custom(find_stat_mod.bind(key));
 
-var defense_broke_last_turn: bool = false;
-
 var sprite: Sprite2D;
 var animator: AnimationPlayer;
+
+# Virtual function for Player and Enemy
+func update_shield(): pass;
 
 func hurt():
     self.sprite.modulate = Color(1, 1, 1, 0);
@@ -142,7 +143,7 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
             var attack_damage: int = self.attack;
             if (decision == Enum.Decision.AttackHeavy):
                 attack_damage = max(1, ceili(attack_damage + (count * attack_damage * 0.5)));
-                self.stamina -= count;
+                self.stamina -= count * 2;
             elif (decision == Enum.Decision.SpellAttack):
                 attack_damage = max(1, ceili(attack_damage * 0.5));
             else:
@@ -152,11 +153,10 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
             if (self.stamina <= 0): return 0;
             self.stamina -= 1;
             if (self.defending_duration != 0): return 0;
-            if (self.defense_broke_last_turn):
-                self.defense_broke_last_turn = false;
-                return 0;
+            if (self.defense_stun): self.defense_stun = false; return 0;
             Audio.play_audio(Audio.defend_sfx);
             self.defending_duration = self.max_defending_duration;
+            self.defense_durability = self.max_defense_durability;
         Enum.Decision.Rest:
             self.stamina += count;
     return count;

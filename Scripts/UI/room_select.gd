@@ -128,6 +128,7 @@ func request_floor(rooms_per_floor: int, room_pool: Array[RoomData], difficulty:
     for button in current_room.get_parent().get_children():
         if (button is not Button || button == current_room): continue;
         button.queue_free();
+    current_room.next_rooms.clear();
     rooms.clear();
     rooms.append(current_room);
     generate_floor(rooms_per_floor, room_pool, difficulty);
@@ -185,8 +186,7 @@ var direction_action_dict: Dictionary[Enum.Direction, String] = {
     Enum.Direction.Right: "Right",
     Enum.Direction.Down: "Down"
 };
-func _input(event: InputEvent) -> void:
-    if (!event is InputEventKey): return;
+func _process(delta: float) -> void:
     if (!self.visible): return;
 
     if (selected_room != null && Input.is_action_just_pressed("Primary")):

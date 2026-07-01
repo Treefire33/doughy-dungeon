@@ -7,4 +7,4 @@ func decision(user: Entity, target: Entity, decision: Enum.Decision, room_manage
     for enemy in room_manager.alive_enemies:
         if (enemy == target || enemy == null):
             continue;
-        enemy.health -= (0.25 * stack_count) * user.attack;
+        enemy.health -= roundi((0.25 * stack_count) * user.attack);

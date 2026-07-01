@@ -21,11 +21,11 @@ func decision(
     if (user is not Player): return;
 
     match (decision):
-        Enum.Decision.Attack:
+        Enum.Decision.Attack, Enum.Decision.AttackHeavy, Enum.Decision.SpellAttack:
             attack += 1;
             user.update_stat_mod("ivoryAttack", attack);
             ItemUtils.show_custom_toast("The key ressonates at an A.");
-        Enum.Decision.SpellDefend:
+        Enum.Decision.SpellDefend, Enum.Decision.SpellRetype:
             defense += 1;
             user.update_stat_mod("ivoryDefense", defense);
             ItemUtils.show_custom_toast("The key ressonates at a D.");

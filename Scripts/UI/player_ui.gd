@@ -90,7 +90,7 @@ func select_enemy(enemy: Enemy):
     _enemy_selected.emit(enemy);
 
 func _ready() -> void:
-    room_manager.request_decision.connect(decision_panel.show);
+    room_manager.request_decision.connect(decision_panel.begin_decision);
     decision_panel.load_decisions(self);
     stats_display.update(room_manager);
     inventory_button.grab_focus();
@@ -119,9 +119,9 @@ func update_ui():
     update_enemy_buttons();
     
 var action_to_index: Dictionary[String, int] = {
-    "Primary": Enum.Decision.Attack,
-    "Secondary": Enum.Decision.Spell,
-    "Tertiary": Enum.Decision.Rest
+    "Primary": 0,
+    "Secondary": 1,
+    "Tertiary": 2
 };
 func _input(event: InputEvent) -> void:
     if (Input.is_action_just_pressed("Quaternary")):
@@ -129,6 +129,15 @@ func _input(event: InputEvent) -> void:
             _enemy_selected.emit("RESET");
             return;
         inventory_button.pressed.emit();
+    
+    if (Input.is_key_pressed(KEY_END)):
+        GlobalPlayer.grounds_for_evil = 0;
+        Audio.play_music(Audio.evilgrounds_music);
+        get_tree().change_scene_to_file.call_deferred("res://Scenes/grounds_for_evil.tscn");
+        return;
+
+    if (room_select.visible):
+        return;
 
     var decision = -1;
     for action in action_to_index:
@@ -137,14 +146,10 @@ func _input(event: InputEvent) -> void:
     
     if (decision == -1):
         return;
-
-    if (room_select.visible):
-        return;
     
+    if (decision >= room_manager.battle_manager.get_enemies().size()): return;
     if (selecting_enemy):
         var enemy = room_manager.battle_manager.get_enemies().get(decision);
         if (enemy == null):
             return;
         _enemy_selected.emit(enemy);
-    elif (decision_panel.visible):
-        decision_panel.player_decision(self, decision);

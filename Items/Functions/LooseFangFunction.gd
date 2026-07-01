@@ -3,7 +3,7 @@ extends ItemFunction
 func decision(user: Entity, target: Entity, decision: Enum.Decision, room_manager: RoomManager, stack_count: int):
 	if (target == null): return;
 	if (user is not Player): return;
-	if (decision != Enum.Decision.Attack): return;
+	if (!ItemUtils.decision_is_attack(decision)): return;
 	if (target.defending_duration != 0): return;
 	if (randi_range(0, 100) <= 10):
 		user.health += user.attack;

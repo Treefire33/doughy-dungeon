@@ -7,8 +7,8 @@
 [resource]
 script = ExtResource("2_0egcf")
 name = "Bubbles"
-flavour_text = "Wowie! So fun!!"
-description = "Shield spell becomes weak, yet infinitely long."
+flavour_text = "*POP* Wowie! *POP* So fun!!"
+description = "The Shield Spell now lasts infinitely longer, yet is extremely fragile."
 price = 150
 sprite = ExtResource("3_0egcf")
 weight = 4.0

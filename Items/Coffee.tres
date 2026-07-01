@@ -7,10 +7,12 @@
 [resource]
 script = ExtResource("1_0l1ee")
 name = "Coffee"
-flavour_text = "A strong smell emanates from it. It hurts your head."
-description = "Stamina won't drain."
-price = 300
+flavour_text = "A strong, aromatic smell eminates from the cup. It gives you a headache."
+description = "Stamina won't drain, period.
+However, sometimes you'll randomly take a single point of damage (remember that headache?)."
+price = 400
 sprite = ExtResource("3_68qpl")
-weight = 0.2
+weight = 0.1
 function = ExtResource("2_68qpl")
+unique_stacking = true
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

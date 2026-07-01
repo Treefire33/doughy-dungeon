@@ -13,15 +13,6 @@ func start_battle(enemies: Array[Enemy], player: Player):
     current_entities.append_array(enemies);
     current_entities.sort_custom(_sort_entity);
 
-func do_entity_turn(user: Entity, decision: Enum.Decision, target: Entity, count: int):
-    match (decision):
-        Enum.Decision.Attack:
-            user.turn_attack(target);
-        Enum.Decision.SpellDefend:
-            user.turn_defend(target);
-        Enum.Decision.Rest:
-            user.turn_rest(target);
-
 func decision_text(decision: Enum.Decision):
     match (decision):
         Enum.Decision.Attack, Enum.Decision.AttackHeavy, Enum.Decision.SpellAttack:
@@ -59,10 +50,12 @@ func do_turn(room_manager: RoomManager):
             if (decision_count == -1): continue;
             turn_cost = entity.turn(selected_enemy, decision, decision_count);
             ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
+
             if (player.stamina <= 0):
                 player.play_anim(Enum.PlayerAnimation.Rest);
             else:
                 player.play_anim(player.decision_to_animation[decision]);
+
             if (selected_enemy != null && selected_enemy.health <= 0):
                 ItemUtils.activate_items(player, "enemy_kill", player, selected_enemy);
                 Audio.play_audio(Audio.die_sfx);
@@ -72,7 +65,6 @@ func do_turn(room_manager: RoomManager):
             var enemy_decision = entity.get_decision(player, room_manager.room_difficulty);
             var enemy_target = entity.get_target(player, get_enemies());
             turn_cost = entity.turn(enemy_target, enemy_decision);
-            entity.notif.visible = enemy_target.defending_duration >= 1;
             ItemUtils.activate_items(player, "decision", entity, enemy_target, enemy_decision);
             ToastParty.show({
                 "text": entity.name + " " + decision_text(decision) + "!",
@@ -84,6 +76,7 @@ func do_turn(room_manager: RoomManager):
             });
         
         entity.turn_points -= turn_cost;
+        entity.update_shield();
 
 func battle_active() -> bool:
     var enemies_dead: int = 0;

@@ -39,7 +39,9 @@ func _ready() -> void:
 		var new_bind = bind_preset.duplicate();
 		new_bind.show();
 		new_bind.get_node("KeybindName").text = "%s:" % action;
-		new_bind.get_node("KeybindName").tooltip_text = Keybinds.get_action_description(action);
+		var new_trigger = TooltipTrigger.new();
+		new_trigger.text = Keybinds.get_action_description(action);
+		new_bind.get_node("KeybindName").add_child(new_trigger);
 		new_bind.get_node("Bind").associated_keybind = action;
 		keybinds_container.add_child(new_bind);
 	

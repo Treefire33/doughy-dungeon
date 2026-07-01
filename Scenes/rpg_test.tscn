@@ -50,7 +50,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdpjr")
 
 [node name="DoughyEntrance" type="Node2D" parent="." unique_id=232593653]
-position = Vector2(14, 208)
+position = Vector2(-1004, 257)
 script = ExtResource("7_wqeb0")
 dungeon = ExtResource("8_71b5o")
 
@@ -64,7 +64,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdpjr")
 
 [node name="DebugEntrance" type="Node2D" parent="." unique_id=240655259]
-position = Vector2(0, -145)
+position = Vector2(-1018, -96)
 script = ExtResource("7_wqeb0")
 dungeon = ExtResource("11_3cwuj")
 
@@ -92,7 +92,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdpjr")
 
 [node name="AbyssalEntrance" type="Node2D" parent="." unique_id=1287381749]
-position = Vector2(256, 208)
+position = Vector2(-762, 257)
 script = ExtResource("7_wqeb0")
 dungeon = ExtResource("13_2df08")
 
@@ -106,7 +106,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_xdpjr")
 
 [node name="MagmaticEntrance" type="Node2D" parent="." unique_id=2037472333]
-position = Vector2(128, 208)
+position = Vector2(-890, 257)
 script = ExtResource("7_wqeb0")
 dungeon = ExtResource("14_il827")
 

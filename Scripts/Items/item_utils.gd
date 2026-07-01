@@ -52,6 +52,12 @@ func show_custom_toast(item: String):
     });
     Audio.play_audio(Audio.item_activated);
 
+func decision_is_attack(decision: Enum.Decision) -> bool:
+    return decision == Enum.Decision.Attack || decision == Enum.Decision.AttackHeavy || decision == Enum.Decision.SpellAttack;
+
+func decision_is_spell(decision: Enum.Decision) -> bool:
+    return decision == Enum.Decision.SpellDefend || decision == Enum.Decision.SpellRetype || decision == Enum.Decision.SpellAttack;
+
 func _execute_item_func(function: Script, func_name: String, args: Array) -> void:
     var inst: Resource = function.new();
     var _inst_res = inst.callv(func_name, args);

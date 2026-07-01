@@ -4,3 +4,5 @@ func decision(user: Entity, target: Entity, decision: Enum.Decision, room_manage
 	if (user is not Player): return;
 	ItemUtils.show_activation_toast("Coffee");
 	user.stamina = user.max_stamina;
+	if (randi_range(1, 100) < 5):
+		user.health -= 1;

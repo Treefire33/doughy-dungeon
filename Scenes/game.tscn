@@ -25,9 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://dkkxnal01f2w3" path="res://Sprites/Icons/UpgradeIcons/UpgradeAttack.tres" id="15_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
-[ext_resource type="Texture2D" uid="uid://cgsr7xkulg7wk" path="res://Sprites/Other/PauseButton.png" id="20_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
 [ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="26_81klo"]
+[ext_resource type="Texture2D" uid="uid://bp06uts1l4hsw" path="res://Sprites/Icons/MenuIcons/Pause.tres" id="28_tgy6u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgy6u"]
 
@@ -679,8 +679,7 @@ offset_left = 0.199999
 offset_right = 0.199997
 offset_bottom = 0.0499992
 theme = ExtResource("10_vm72l")
-icon = ExtResource("20_7nbq1")
-icon_alignment = 1
+icon = ExtResource("28_tgy6u")
 expand_icon = true
 
 [connection signal="request_decision" from="RoomManager" to="Camera/PlayerUI" method="_on_room_manager_request_decision"]

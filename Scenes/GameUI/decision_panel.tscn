@@ -122,7 +122,9 @@ expand_icon = true
 
 [node name="TooltipTrigger" type="Node" parent="AttackOptions/Container/AttackHeavy" unique_id=685601525]
 script = ExtResource("3_cisa7")
-text = "Heavier, more tiring, attack. Deals 150% - 300% of your damage stat but also requires more stamina."
+text = "Heavier, more tiring, attack.
+[s=8]Deals 150% - 300% of your damage stat but also requires much more stamina.
+[s=8](Stamina cost = attack depth * 2)"
 metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Title" type="RichTextLabel" parent="AttackOptions" unique_id=1567133643]
