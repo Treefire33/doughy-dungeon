@@ -52,6 +52,18 @@ func show_custom_toast(item: String):
     });
     Audio.play_audio(Audio.item_activated);
 
+func get_tooltip_text(item_data: ItemData, shop_item: bool) -> String:
+    var res: String = "";
+    res = item_data.name + "\n[s=8]" + item_data.flavour_text;
+    if (shop_item):
+        if (!item_data.painful):
+            res += "\n\n" + "Price: %d coins" % item_data.price;
+        else:
+            res += "\n\n" + "Reward: %d coins" % -item_data.price;
+    for line in item_data.description.split('\n'):
+        res += "\n[s=8]" + line;
+    return res;
+
 func decision_is_attack(decision: Enum.Decision) -> bool:
     return decision == Enum.Decision.Attack || decision == Enum.Decision.AttackHeavy || decision == Enum.Decision.SpellAttack;
 

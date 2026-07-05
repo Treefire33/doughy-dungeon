@@ -72,6 +72,12 @@ enum StatType {
 	Speed
 }
 
+enum StatusEffect {
+    Burn, Poison, Stun, Influence,
+	Tired, Sadness, Bravery, Exhausted,
+	Crystallized, Wet
+}
+
 class Upgrades:
 	enum Cloaks {
 		Tattered, GuildApprentice, GuildMember, GuildMaster, BeetleWing,

@@ -30,16 +30,16 @@ animation/layers/only_include_visible_layers_by_default=true
 
 [autoload]
 
-Enum="*res://Scripts/AutoLoad/enums.gd"
-ItemUtils="*res://Scripts/Items/item_utils.gd"
+DiscordRPCLoader="*uid://e04bunvxq4xe"
 ToastParty="*uid://buwed4tb4brns"
-Settings="*res://Scripts/AutoLoad/settings.gd"
+debug_console="*uid://bcs4bvx7fi2hm"
+Enum="*res://Scripts/AutoLoad/enums.gd"
 Audio="*res://Scripts/AutoLoad/audio.gd"
 Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
-debug_console="*uid://bcs4bvx7fi2hm"
-MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
-DiscordRPCLoader="res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
+Settings="*res://Scripts/AutoLoad/settings.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
+ItemUtils="*res://Scripts/Items/item_utils.gd"
+MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 AccessibilityHelper="*uid://b0g45ldc0cbhi"
 
 [debug]

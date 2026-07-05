@@ -26,8 +26,7 @@ layout_mode = 0
 offset_right = 800.0
 offset_bottom = 100.0
 bbcode_enabled = true
-text = "[font size=\"50\"]GAME OVER[/font]
-[font size=\"25\"]YOU DIED[/font]"
+text = "[font size=\"50\"]GAME OVER[/font]"
 horizontal_alignment = 1
 vertical_alignment = 1
 

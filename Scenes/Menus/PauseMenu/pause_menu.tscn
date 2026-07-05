@@ -85,10 +85,20 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Return" type="Button" parent="PauseOptions" unique_id=1450669637]
+layout_mode = 2
+size_flags_vertical = 3
+text = "EXIT TO 
+WORLD"
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="Exit" type="Button" parent="PauseOptions" unique_id=1910026985]
 layout_mode = 2
 size_flags_vertical = 3
-text = "EXIT"
+text = "EXIT TO 
+MENU"
 flat = true
 icon_alignment = 1
 expand_icon = true

@@ -39,10 +39,12 @@ func do_turn(room_manager: RoomManager):
     # Do turns
     current_entities.sort_custom(_sort_entity);
     for entity in current_entities:
-        if (entity is Enemy): entity.update_health();
         if (entity.health <= 0): continue;
+
+        for effect in entity.status_effects:
+            effect.update_effect(entity);
+
         entity.defending_duration -= 1;
-        entity.turn_points += 1;
         if (entity.turn_points <= 0): continue;
 
         var turn_cost: int = 0;
@@ -76,6 +78,13 @@ func do_turn(room_manager: RoomManager):
             });
         
         entity.turn_points -= turn_cost;
+
+    # cleanup
+    for entity in current_entities:
+        if (entity is Enemy): entity.update_health();
+        StatusEffect.clean_effects(entity);
+
+        entity.turn_points += 1; # give a much needed turn point
         entity.update_shield();
 
 func battle_active() -> bool:

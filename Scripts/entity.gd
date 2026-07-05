@@ -117,6 +117,8 @@ func remove_stat_mod(key: String, remove_all: bool = false) -> void:
         if (!remove_all): break;
         index = stat_modifiers.find_custom(find_stat_mod.bind(key));
 
+var status_effects: Array[StatusEffect] = [];
+
 var sprite: Sprite2D;
 var animator: AnimationPlayer;
 
@@ -141,14 +143,19 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
             if (self.stamina <= 0): return 0;
             Audio.play_audio(Audio.hit_sfx);
             var attack_damage: int = self.attack;
+            var stun_chance: int = 10; # n / 100 chance
             if (decision == Enum.Decision.AttackHeavy):
                 attack_damage = max(1, ceili(attack_damage + (count * attack_damage * 0.5)));
+                stun_chance += count * 3;
                 self.stamina -= count * 2;
             elif (decision == Enum.Decision.SpellAttack):
                 attack_damage = max(1, ceili(attack_damage * 0.5));
+                stun_chance = 0;
             else:
                 self.stamina -= 1;
             target.health -= attack_damage;
+            if (randi_range(0, 100) <= stun_chance):
+                StatusEffect.apply_effect(target, count, Enum.StatusEffect.Stun);
         Enum.Decision.SpellDefend:
             if (self.stamina <= 0): return 0;
             self.stamina -= 1;

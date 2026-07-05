@@ -33,30 +33,30 @@ var current_page = 0;
 @onready var action_pages = {
     # primary actions
     0: {
-        0: self.attack_button,
-        1: self.spell_button,
-        2: self.rest_button
+        "Primary": self.attack_button,
+        "Secondary": self.spell_button,
+        "Tertiary": self.rest_button
     },
 
     # attack options
     1: {
-        0: self.attack_light,
-        1: self.attack_heavy
+        "Primary": self.attack_light,
+        "Secondary": self.attack_heavy
     },
 
     # spell options
     2: {
-        0: self.spell_defend,
-        1: self.spell_retype,
-        2: self.spell_attack
+        "Primary": self.spell_defend,
+        "Secondary": self.spell_retype,
+        "Tertiary": self.spell_attack
     },
 
     # depth options
     3: {
-        0: self.depth_one,
-        1: self.depth_two,
-        2: self.depth_three,
-        3: self.depth_four,
+        "Primary": self.depth_one,
+        "Secondary": self.depth_two,
+        "Tertiary": self.depth_three,
+        "Quinary": self.depth_four,
     },
 
     # blank page for enemy select
@@ -85,7 +85,7 @@ func load_decisions(player_ui: PlayerUI) -> void:
 
 func begin_decision():
     self.current_page = 0;
-    self.show();
+    options.show();
 
 func player_decision(player_ui: PlayerUI, decision: Enum.Decision):
     options.hide();
@@ -134,22 +134,23 @@ func player_decision(player_ui: PlayerUI, decision: Enum.Decision):
         options.show();
         return;
     player_ui.player_decision.emit(spec_decision, current_enemy, decision_count);
-    options.show();
 
-var action_to_index: Dictionary[String, int] = {
-    "Primary": 0,
-    "Secondary": 1,
-    "Tertiary": 2,
-    "Quinary": 3
-};
+var action_to_index: Array[String] = [
+    "Primary",
+    "Secondary",
+    "Tertiary",
+    "Quinary"
+];
+func _ready() -> void:
+    for page_index in action_pages:
+        var page = action_pages[page_index];
+        for action in page:
+            var action_object: Button = page[action] as Button;
+            AccessibilityHelper.make_keybind_helper(action_object, action);
 func _process(delta: float) -> void:
     if (!self.visible): return;
 
-    var decision = -1;
     for action in action_to_index:
         if (!Input.is_action_just_pressed(action)): continue;
-        decision = action_to_index[action];
-    if (decision <= -1): return;
-
-    if (!(action_pages[current_page] as Dictionary).has(decision)): return;
-    (action_pages[current_page][decision] as Button).pressed.emit();
+        if (!(action_pages[current_page] as Dictionary).has(action)): return;
+        (action_pages[current_page][action] as Button).pressed.emit();

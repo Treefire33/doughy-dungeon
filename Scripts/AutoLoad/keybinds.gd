@@ -1,5 +1,7 @@
 extends Node
 
+signal keybind_changed(action_name: String);
+
 var bindable_actions: Array[String] = [
     "Pause",
     "Reset",
@@ -29,6 +31,7 @@ var action_descriptions: Dictionary[String, String] = {
 func remap_action(action: String, event: InputEvent):
     InputMap.action_erase_events(action);
     InputMap.action_add_event(action, event);
+    keybind_changed.emit(action);
     
 func get_action_text(action: String) -> String:
     var events = InputMap.action_get_events(action);

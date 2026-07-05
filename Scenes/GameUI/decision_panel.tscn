@@ -43,6 +43,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_next = NodePath("../Spell")
+focus_previous = NodePath("../Rest")
 text = "ATTACK
 "
 icon = ExtResource("2_drmvv")
@@ -54,6 +56,8 @@ expand_icon = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_next = NodePath("../Rest")
+focus_previous = NodePath("../Attack")
 text = "SPELL"
 icon = ExtResource("4_drmvv")
 flat = true
@@ -64,6 +68,8 @@ expand_icon = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_next = NodePath("../Attack")
+focus_previous = NodePath("../Spell")
 text = "REST
 "
 icon = ExtResource("4_cisa7")

@@ -103,6 +103,7 @@ expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
 [resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 6
 Button/styles/disabled = SubResource("StyleBoxFlat_bpvoi")
 Button/styles/focus = SubResource("StyleBoxFlat_q4vyd")
@@ -121,6 +122,8 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_eevlq")
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_bpvoi")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ko64t")
 SpinBox/constants/buttons_width = 32
+TabContainer/constants/side_margin = 0
+TabContainer/font_sizes/font_size = 12
 TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
 TooltipPanel/styles/embedded_border = SubResource("StyleBoxFlat_5u8pc")
 TooltipPanel/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_p0un0")

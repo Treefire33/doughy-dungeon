@@ -12,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 0.77800006
 offset_top = 0.049987793
 offset_bottom = -0.10003662
+mouse_filter = 2
 script = ExtResource("1_viq6x")
 
 [node name="Upgrades" type="ColorRect" parent="." unique_id=490291093]
@@ -63,10 +64,11 @@ vertical_alignment = 1
 [node name="Items" type="ColorRect" parent="." unique_id=1967074812]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.425
+anchor_left = 0.57500005
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 460.0
-offset_right = 460.0
+offset_left = -3.0517578e-05
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Title" type="RichTextLabel" parent="Items" unique_id=621009805]
@@ -81,10 +83,11 @@ vertical_alignment = 1
 
 [node name="Scroll" type="ScrollContainer" parent="Items" unique_id=556080877]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_top = 0.192
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 23.0
+offset_top = -0.040000916
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_gvvfn")
@@ -128,6 +131,6 @@ theme = ExtResource("2_gvvfn")
 button_mask = 0
 flat = true
 
-[node name="TooltipTrigger" type="Node" parent="Items/Item" unique_id=531687176]
+[node name="TooltipTrigger" type="Node" parent="Items/Item/Button" unique_id=531687176]
 script = ExtResource("4_gvvfn")
 metadata/_custom_type_script = "uid://drc261xy1tgvc"

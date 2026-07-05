@@ -11,8 +11,12 @@ class_name StatsDisplay
 @onready var defense_display: RichTextLabel = $Defense/Display;
 @onready var attack_bar: ProgressBar = $Attack/Bar;
 @onready var attack_display: RichTextLabel = $Attack/Display;
+@onready var inventory_button: Button = $Inventory;
 
 @export var neo_mode: bool = false;
+
+func _ready() -> void:
+    AccessibilityHelper.make_keybind_helper(inventory_button, "Quaternary");
 
 func update(room_manager: RoomManager) -> void:
     var player = room_manager.player;

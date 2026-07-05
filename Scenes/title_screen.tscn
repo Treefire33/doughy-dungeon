@@ -93,15 +93,15 @@ offset_bottom = 446.0
 [node name="Start" type="Button" parent="UI/MenuButtons" unique_id=1652083389]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
+focus_previous = NodePath("../Quit")
 theme = ExtResource("4_twnyg")
 text = "START"
 
 [node name="Options" type="Button" parent="UI/MenuButtons" unique_id=1487156059]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Start")
+focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Start")
 theme = ExtResource("4_twnyg")
 text = "OPTIONS"
@@ -109,5 +109,7 @@ text = "OPTIONS"
 [node name="Quit" type="Button" parent="UI/MenuButtons" unique_id=895516745]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Options")
 theme = ExtResource("4_twnyg")
 text = "QUIT"

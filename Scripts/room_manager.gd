@@ -137,13 +137,7 @@ func generate_shop_item(display_index: int):
     var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
     item_display.get_node("Sprite").texture = item.sprite;
-    tooltip.text = item.name + "\n[s=8]" + item.flavour_text;
-    if (!item.painful):
-        tooltip.text += "\n\n" + "Price: %d coins" % item.price;
-    else:
-        tooltip.text += "\n\n" + "Reward: %d coins" % -item.price;
-    tooltip.text += "\n[s=8]" + item.description;
-    
+    tooltip.text = ItemUtils.get_tooltip_text(item, true);
     item_button.pressed.connect(purchase_item.bind(item_name, item_display));
 
 @export var safe_room: Node2D;

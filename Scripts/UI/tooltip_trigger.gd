@@ -15,6 +15,9 @@ func _mouse_exited() -> void:
 func _ready() -> void:
     var node = get_node("..");
     if (node is Control || node is CollisionObject2D):
+        if (node is Control):
+            node.focus_entered.connect(_mouse_entered);
+            node.focus_exited.connect(_mouse_exited);
         node.mouse_entered.connect(_mouse_entered);
         node.mouse_exited.connect(_mouse_exited);
     else:
