@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://bnxhv0f4cpmu5"]
 
 [ext_resource type="Script" uid="uid://xoamwvqembae" path="res://Scripts/RPG/rpg_player.gd" id="1_wv30c"]
-[ext_resource type="Texture2D" uid="uid://dkputv4mfu3af" path="res://Sprites/Tiles/Water.tres" id="2_ibwra"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="3_s1egi"]
-[ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="4_8a8ed"]
-[ext_resource type="Texture2D" uid="uid://61hbrxxdu0t4" path="res://Sprites/Player/player_rpg_tattered.png" id="5_fgrew"]
-[ext_resource type="Texture2D" uid="uid://bbl1yd502pn4s" path="res://Sprites/Upgrades/Cloaks/TatteredCloak.tres" id="5_ibwra"]
+[ext_resource type="PackedScene" uid="uid://cn2u81ry85eg1" path="res://Scenes/GameUI/rpg_ui.tscn" id="2_dgm50"]
+[ext_resource type="Texture2D" uid="uid://c8dnormfykoew" path="res://Sprites/Player/player_rpg_new.aseprite" id="6_ibwra"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_57k7u"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oo64u"]
+size = Vector2(64, 64)
 
 [sub_resource type="Animation" id="Animation_birco"]
 length = 0.001
@@ -55,7 +53,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [6]
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_npbpj"]
@@ -73,7 +71,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [7, 6, 8]
+"values": [10, 9, 11]
 }
 
 [sub_resource type="Animation" id="Animation_eeauh"]
@@ -195,7 +193,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [6]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -207,7 +205,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_71b5o"]
@@ -225,7 +223,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [4, 3, 5]
+"values": [7, 6, 8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -237,7 +235,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xdpjr"]
@@ -252,8 +250,9 @@ _data = {
 &"RightWalk": SubResource("Animation_71b5o")
 }
 
-[node name="RPGPlayer" type="Node2D" unique_id=931051791]
+[node name="RPGPlayer" type="CharacterBody2D" unique_id=1364925579 node_paths=PackedStringArray("rpg_ui")]
 script = ExtResource("1_wv30c")
+rpg_ui = NodePath("Camera/UI")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1344781562]
 limit_smoothed = true
@@ -264,149 +263,49 @@ drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
-[node name="TextureRect" type="TextureRect" parent="Camera" unique_id=1396027491]
-z_index = -10
-offset_left = -625.0
-offset_top = -500.0
-offset_right = 625.0
-offset_bottom = 500.0
-texture = ExtResource("2_ibwra")
+[node name="UI" parent="Camera" unique_id=2075885847 instance=ExtResource("2_dgm50")]
+offset_transform_enabled = true
+offset_transform_position = Vector2(-400, -225)
 
-[node name="UI" type="Control" parent="Camera" unique_id=1262303610]
-z_index = 100
-layout_mode = 3
-anchors_preset = 0
-offset_left = -400.0
-offset_top = -225.0
-offset_right = 400.0
-offset_bottom = 225.0
-
-[node name="Inspect" type="Panel" parent="Camera/UI" unique_id=234058677]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.056
-anchor_right = 0.75000006
-anchor_bottom = 0.94400007
-offset_top = -0.20000076
-offset_right = -6.1035156e-05
-offset_bottom = 0.19998169
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DungeonInspect" type="VBoxContainer" parent="Camera/UI/Inspect" unique_id=105277233]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 0
-theme = ExtResource("3_s1egi")
-
-[node name="Name" type="Label" parent="Camera/UI/Inspect/DungeonInspect" unique_id=1756457338]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-text = "Doughy Alcove"
-label_settings = SubResource("LabelSettings_57k7u")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-clip_text = true
-uppercase = true
-
-[node name="Description" type="Label" parent="Camera/UI/Inspect/DungeonInspect" unique_id=1838974034]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_vertical = 3
-text = "A small section of the Doughy Dungeon. Contains small, weak, enemies"
-label_settings = SubResource("LabelSettings_57k7u")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-clip_text = true
-uppercase = true
-
-[node name="StaticPrompt" type="Label" parent="Camera/UI/Inspect/DungeonInspect" unique_id=1962059414]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-text = "[[Primary]] to Enter
-[[Secondary]] to Exit"
-label_settings = SubResource("LabelSettings_57k7u")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-uppercase = true
-
-[node name="DialogueBox" parent="Camera/UI" unique_id=1106484237 instance=ExtResource("4_8a8ed")]
-visible = false
-layout_mode = 1
-
-[node name="Inventory" type="PanelContainer" parent="Camera/UI" unique_id=1386623667]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 200.0
-offset_top = 25.0
-offset_right = -200.0
-offset_bottom = -25.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="InventoryContainer" type="VBoxContainer" parent="Camera/UI/Inventory" unique_id=1533455077]
-layout_mode = 2
-
-[node name="Title" type="RichTextLabel" parent="Camera/UI/Inventory/InventoryContainer" unique_id=1183399355]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-size_flags_stretch_ratio = 0.15
-text = "INVENTORY"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ItemRow" type="HBoxContainer" parent="Camera/UI/Inventory/InventoryContainer" unique_id=1656554597]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-
-[node name="Icon" type="TextureRect" parent="Camera/UI/Inventory/InventoryContainer/ItemRow" unique_id=395050749]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.45
-texture = ExtResource("5_ibwra")
-stretch_mode = 3
-
-[node name="CurrentItem" type="RichTextLabel" parent="Camera/UI/Inventory/InventoryContainer/ItemRow" unique_id=1342908013]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "TATTERED CLOAK"
-vertical_alignment = 1
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=269109444]
+position = Vector2(0, 32.5)
+shape = SubResource("RectangleShape2D_oo64u")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1771876752]
-position = Vector2(0, -32)
-texture = ExtResource("5_fgrew")
-hframes = 9
+scale = Vector2(2, 2)
+texture = ExtResource("6_ibwra")
+hframes = 6
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"convert_fps_field": 30.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": true,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Animator",
+"scale": "1.0",
+"slice": "",
+"source": "res://Sprites/Player/player_rpg_new.aseprite",
+"source_uid": 7096081574418346694
+},
+"slice_section": false
+}
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=342741059]
 libraries/ = SubResource("AnimationLibrary_eeauh")
 libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
 
-[node name="UpCast" type="RayCast2D" parent="." unique_id=1385541106]
-process_mode = 3
-target_position = Vector2(0, 32)
-hit_from_inside = true
-
-[node name="SideCast" type="RayCast2D" parent="." unique_id=143663570]
-process_mode = 3
-target_position = Vector2(32, 0)
-hit_from_inside = true
-
-[node name="OmniCast" type="RayCast2D" parent="." unique_id=1201209630]
-process_mode = 3
-target_position = Vector2(32, 0)
+[node name="InteractionRay" type="RayCast2D" parent="." unique_id=1453006759]
+target_position = Vector2(0, 64)
+collision_mask = 2
 hit_from_inside = true

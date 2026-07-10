@@ -1,5 +1,5 @@
 extends RPGInteractable
-class_name RPGNPC
+class_name RPGNpc
 
 # Corresponds SceneID to Dialogue; 
 @export var dialogue_dict: Dictionary[int, DialogueData] = {};

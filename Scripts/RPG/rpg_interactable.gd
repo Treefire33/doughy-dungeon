@@ -1,4 +1,7 @@
-extends Node2D
+extends RPGEntity
 class_name RPGInteractable
 
-@onready var collider: StaticBody2D = $Collision;
+func _ready() -> void:
+    pass;
+    # self.set_collision_layer_value(1, false);
+    # self.set_collision_layer_value(2, true);

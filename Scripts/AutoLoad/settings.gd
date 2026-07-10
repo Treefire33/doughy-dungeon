@@ -9,7 +9,7 @@ var music_volume: float = 1:
         if (Audio.music_player != null):
             Audio.music_player.volume_linear = value;
 var toast_size: int = 12;
-var helpers_enabled: bool = false;
+var helpers_enabled: bool = true;
 
 var room_count: int = 0;
 
