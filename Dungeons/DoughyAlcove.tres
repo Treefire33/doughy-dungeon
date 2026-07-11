@@ -32,7 +32,7 @@ room_count = 30
 difficulty_floor_increment = 3
 rooms_until_next_floor = 5
 maximum_difficulty = 1
-description = "A small section of the Doughy Dungeon. Contains small, weak, enemies.
+description = "A ocean-facing segment of the Doughy Dungeon, covered in sand and small, parasitic insects.
 
 30 Rooms
 Difficulty 1-1"

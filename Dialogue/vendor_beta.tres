@@ -7,20 +7,14 @@
 script = ExtResource("1_bwdcm")
 character = 1
 emotion = 3
-speech = "Thanks for trying out the game Midnight!"
+speech = "Thanks for playing the dungeon demo for Midnight Dungeons!"
 
 [sub_resource type="Resource" id="Resource_yqd6u"]
 script = ExtResource("1_bwdcm")
 character = 1
-emotion = 4
-speech = "It's not exactly complete as of now, but I swear treefire33 will get to it eventually!"
-
-[sub_resource type="Resource" id="Resource_n2j8v"]
-script = ExtResource("1_bwdcm")
-character = 1
-speech = "Well, you got one dungeon left! Go and give it your best shot!"
+speech = "This is only a small snippet of the entire game (3 out of 9 (planned) dungeons), plus it doesn't include any of the RPG/story segments."
 
 [resource]
 script = ExtResource("2_yqd6u")
-dialogue = Array[ExtResource("1_bwdcm")]([SubResource("Resource_bwdcm"), SubResource("Resource_yqd6u"), SubResource("Resource_n2j8v")])
+dialogue = Array[ExtResource("1_bwdcm")]([SubResource("Resource_bwdcm"), SubResource("Resource_yqd6u")])
 metadata/_custom_type_script = "uid://18dcduftlk12"

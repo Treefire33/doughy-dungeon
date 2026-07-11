@@ -13,6 +13,8 @@ var _in_menu: bool = false;
 func enter_dungeon(dungeon: DungeonData):
     GlobalPlayer.current_dungeon = dungeon;
     var tween = get_tree().create_tween();
+    tween.set_parallel();
+    tween.tween_property(self, "color", Color(0, 0, 0, 1), 0.8);
     tween.tween_property(self, "modulate", Color(0, 0, 0, 1), 0.8);
     await tween.finished;
     get_tree().change_scene_to_file("res://Scenes/game.tscn");

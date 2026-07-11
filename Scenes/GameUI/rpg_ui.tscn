@@ -13,12 +13,11 @@ content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 
-[node name="UI" type="Control" unique_id=2075885847]
+[node name="UI" type="ColorRect" unique_id=1288018143]
 z_index = 100
-layout_mode = 3
-anchors_preset = 0
 offset_right = 800.0
 offset_bottom = 450.0
+color = Color(0, 0, 0, 0)
 script = ExtResource("1_nj4qm")
 
 [node name="Inspect" type="Panel" parent="." unique_id=536073389]

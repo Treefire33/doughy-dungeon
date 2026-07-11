@@ -1,9 +1,6 @@
 extends Control
 class_name DecisionPanel
 
-signal sub_decision(decision: Enum.Decision);
-signal depth_selected(depth: int);
-
 @onready var options: Control = $Options;
 @onready var attack_button: Button = $Options/Container/Attack;
 @onready var spell_button: Button = $Options/Container/Spell;
@@ -29,127 +26,179 @@ signal depth_selected(depth: int);
 @onready var selection_prompt_label: RichTextLabel = $SelectionPrompt/Label;
 
 # horrible
-var current_page = 0;
+enum DecisionPage {
+    BaseOptions, 
+    AttackOptions, 
+    SpellOptions, 
+    DepthOptions,
+    EnemySelect
+}
+var last_page: DecisionPage = DecisionPage.BaseOptions;
+var current_page: DecisionPage = DecisionPage.BaseOptions;
 @onready var action_pages = {
     # primary actions
-    0: {
+    DecisionPage.BaseOptions: {
+        "Page": self.options,
         "Primary": self.attack_button,
         "Secondary": self.spell_button,
         "Tertiary": self.rest_button
     },
 
     # attack options
-    1: {
+    DecisionPage.AttackOptions: {
+        "Page": self.attack_options,
         "Primary": self.attack_light,
-        "Secondary": self.attack_heavy
+        "Secondary": self.attack_heavy,
+        "Quaternary": self.cancel_button
     },
 
     # spell options
-    2: {
+    DecisionPage.SpellOptions: {
+        "Page": self.spell_options,
         "Primary": self.spell_defend,
         "Secondary": self.spell_retype,
-        "Tertiary": self.spell_attack
+        "Tertiary": self.spell_attack,
+        "Quaternary": self.cancel_button
     },
 
     # depth options
-    3: {
+    DecisionPage.DepthOptions: {
+        "Page": self.depth_options,
         "Primary": self.depth_one,
         "Secondary": self.depth_two,
         "Tertiary": self.depth_three,
         "Quinary": self.depth_four,
+        "Quaternary": self.cancel_button
     },
 
     # blank page for enemy select
-    4: {
-
+    DecisionPage.EnemySelect: {
+        "Page": null,
+        "Quaternary": self.cancel_button
     }
 };
 
+var player_ui: PlayerUI = null;
+var _selected_decision: Enum.Decision = Enum.Decision.Attack;
+var _selected_depth: int = 1;
+var _selected_enemy: Variant = null;
+
 func load_decisions(player_ui: PlayerUI) -> void:
-    attack_button.pressed.connect(player_decision.bind(player_ui, Enum.Decision.Attack));
-    attack_light.pressed.connect(sub_decision.emit.bind(Enum.Decision.Attack));
-    attack_heavy.pressed.connect(sub_decision.emit.bind(Enum.Decision.AttackHeavy));
+    self.player_ui = player_ui;
 
-    spell_button.pressed.connect(player_decision.bind(player_ui, Enum.Decision.Spell));
-    spell_attack.pressed.connect(sub_decision.emit.bind(Enum.Decision.SpellAttack));
-    spell_defend.pressed.connect(sub_decision.emit.bind(Enum.Decision.SpellDefend));
-    spell_retype.pressed.connect(sub_decision.emit.bind(Enum.Decision.SpellRetype));
+    attack_button.pressed.connect(base_decision.bind(Enum.Decision.Attack));
+    spell_button.pressed.connect(base_decision.bind(Enum.Decision.Spell));
+    rest_button.pressed.connect(base_decision.bind(Enum.Decision.Rest));
 
-    depth_one.pressed.connect(depth_selected.emit.bind(1));
-    depth_two.pressed.connect(depth_selected.emit.bind(2));
-    depth_three.pressed.connect(depth_selected.emit.bind(3));
-    depth_four.pressed.connect(depth_selected.emit.bind(4));
+    attack_light.pressed.connect(attack_decision.bind(Enum.Decision.Attack));
+    attack_heavy.pressed.connect(attack_decision.bind(Enum.Decision.AttackHeavy));
+    
+    spell_defend.pressed.connect(spell_decision.bind(Enum.Decision.SpellDefend));
+    spell_retype.pressed.connect(spell_decision.bind(Enum.Decision.SpellRetype));
+    spell_attack.pressed.connect(spell_decision.bind(Enum.Decision.SpellAttack));
 
-    rest_button.pressed.connect(player_decision.bind(player_ui, Enum.Decision.Rest));
-    cancel_button.pressed.connect(player_ui._enemy_selected.emit.bind("RESET"));
+    depth_one.pressed.connect(depth_decision.bind(1));
+    depth_two.pressed.connect(depth_decision.bind(2));
+    depth_three.pressed.connect(depth_decision.bind(3));
+    depth_four.pressed.connect(depth_decision.bind(4));
+
+    cancel_button.pressed.connect(cancel_page);
 
 func begin_decision():
-    self.current_page = 0;
-    options.show();
+    _selected_decision = Enum.Decision.Attack;
+    _selected_depth = 1;
+    _selected_enemy = null;
+    move_page(DecisionPage.BaseOptions);
 
-func player_decision(player_ui: PlayerUI, decision: Enum.Decision):
-    options.hide();
-    var spec_decision: Enum.Decision = decision;
-    var decision_count: int = 1;
-    match (decision):
-        Enum.Decision.Attack:
-            current_page = 1;
+func move_page(target_page: DecisionPage):
+    if (self.action_pages.has(current_page) && self.action_pages[current_page]["Page"]): self.action_pages[current_page]["Page"].visible = false;
+    if (self.action_pages.has(target_page) && self.action_pages[target_page]["Page"]): self.action_pages[target_page]["Page"].visible = true;
+    last_page = current_page;
+    current_page = target_page;
+    selection_prompt.hide();
+    cancel_button.hide();
+    player_ui.making_decision = true;
+    player_ui.selecting_enemy = false;
+
+    match (current_page):
+        DecisionPage.BaseOptions:
+            player_ui.making_decision = false;
+        DecisionPage.AttackOptions:
             selection_prompt_label.text = "Select Attack Type";
             selection_prompt.show();
-            attack_options.show();
-            spec_decision = await sub_decision;
-            attack_options.hide();
-            selection_prompt.hide();
-        
-        Enum.Decision.Spell:
-            current_page = 2;
+            cancel_button.show();
+        DecisionPage.SpellOptions:
             selection_prompt_label.text = "Select Spell";
             selection_prompt.show();
-            spell_options.show();
-            spec_decision = await sub_decision;
-            spell_options.hide();
-            selection_prompt.hide();
-    
-    if (spec_decision == Enum.Decision.AttackHeavy || spec_decision == Enum.Decision.Rest):
-        current_page = 3;
-        selection_prompt_label.text = "Select Action Depth";
-        selection_prompt.show();
-        depth_options.show();
-        decision_count = await depth_selected;
-        depth_options.hide();
-        selection_prompt.hide();
-    
-    var current_enemy: Variant = null;
-    cancel_button.show();
-    if (spec_decision == Enum.Decision.Attack || spec_decision == Enum.Decision.AttackHeavy || spec_decision == Enum.Decision.SpellAttack):
-        current_page = 4;
-        player_ui.selecting_enemy = true;
-        selection_prompt.show();
-        selection_prompt_label.text = "Select an Enemy";
-        current_enemy = await player_ui._enemy_selected;
-        selection_prompt.hide();
-        player_ui.selecting_enemy = false;
-    cancel_button.hide();
-    if (current_enemy is String):
-        options.show();
-        return;
-    player_ui.player_decision.emit(spec_decision, current_enemy, decision_count);
+            cancel_button.show();
+        DecisionPage.DepthOptions:
+            selection_prompt_label.text = "Select Action Depth";
+            selection_prompt.show();
+            cancel_button.show();
+        DecisionPage.EnemySelect:
+            selection_prompt_label.text = "Select an Enemy";
+            selection_prompt.show();
+            cancel_button.show();
+            player_ui.selecting_enemy = true;
+            _selected_enemy = await player_ui._enemy_selected;
+            enemy_select();
+
+func cancel_page():
+    match (current_page):
+        DecisionPage.AttackOptions, DecisionPage.SpellOptions:
+            move_page(DecisionPage.BaseOptions);
+        DecisionPage.DepthOptions, DecisionPage.EnemySelect:
+            move_page(last_page);
+
+func base_decision(decision: Enum.Decision):
+    _selected_decision = decision;
+    match (decision):
+        Enum.Decision.Attack:
+            move_page(DecisionPage.AttackOptions);
+        Enum.Decision.Spell:
+            move_page(DecisionPage.SpellOptions);
+        Enum.Decision.Rest:
+            move_page(DecisionPage.DepthOptions);
+
+func attack_decision(decision: Enum.Decision):
+    _selected_decision = decision;
+    if (decision == Enum.Decision.AttackHeavy): move_page(DecisionPage.DepthOptions);
+    else: move_page(DecisionPage.EnemySelect);
+
+func spell_decision(decision: Enum.Decision):
+    _selected_decision = decision;
+    if (decision == Enum.Decision.SpellAttack):
+        move_page(DecisionPage.EnemySelect);
+    else: submit_decision();
+
+func depth_decision(depth: int):
+    _selected_depth = depth;
+    if (_selected_decision == Enum.Decision.AttackHeavy): move_page(DecisionPage.EnemySelect);
+    else: submit_decision();
+
+func enemy_select():
+    player_ui.selecting_enemy = false;
+    submit_decision();
+
+func submit_decision():
+    player_ui.making_decision = false;
+    player_ui.player_decision.emit(_selected_decision, _selected_enemy, _selected_depth);
 
 var action_to_index: Array[String] = [
-    "Primary",
-    "Secondary",
-    "Tertiary",
+    "Primary", "Secondary",
+    "Tertiary", "Quaternary",
     "Quinary"
 ];
 func _ready() -> void:
     for page_index in action_pages:
         var page = action_pages[page_index];
         for action in page:
+            if (action == "Page"): continue;
             var action_object: Button = page[action] as Button;
             AccessibilityHelper.make_keybind_helper(action_object, action);
 func _process(delta: float) -> void:
     if (!self.visible): return;
-
+    
     for action in action_to_index:
         if (!Input.is_action_just_pressed(action)): continue;
         if (!(action_pages[current_page] as Dictionary).has(action)): return;

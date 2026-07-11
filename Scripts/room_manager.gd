@@ -37,6 +37,24 @@ var floor_count: int:
         return int(room_count / current_dungeon.rooms_until_next_floor) + 1;
 @export var player: Player;
 @export var camera: Camera2D;
+
+func complete_dungeon(status: String):
+    player_ui.fade_panel.visible = true;
+    player_ui.fade_panel.modulate = Color(0, 0, 0, 0);
+    var new_tween = get_tree().create_tween()
+    new_tween.tween_property(
+        player_ui.fade_panel, 
+        "modulate", 
+        Color(0, 0, 0, 1), 
+        2.0 / Settings.game_speed
+    ).set_delay(0.5);
+    player_ui.game_completed.load_info(
+        player, self,
+        status
+    );
+    new_tween.tween_callback(func():
+        player_ui.game_completed.visible = true;
+    )
     
 func get_random_enemy(difficulty: int) -> Enemy:
     var selected_enemy: EnemyData = null;
@@ -152,16 +170,17 @@ func gen_safe_room():
     if (room_count >= current_dungeon.room_count):
         # Audio.change_music(Audio.DungeonMusic.BossFightA);
         GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
-        var final_scene = get_tree().create_tween();
-        final_scene.tween_property(
-            player_ui.fade_panel, 
-            "modulate", 
-            Color(0, 0, 0, 1), 
-            0.35
-        ).set_delay(2);
-        final_scene.tween_callback(func():
-            get_tree().change_scene_to_packed(current_dungeon.completed_scene);
-        );
+        # var final_scene = get_tree().create_tween();
+        # final_scene.tween_property(
+        #     player_ui.fade_panel, 
+        #     "modulate", 
+        #     Color(0, 0, 0, 1), 
+        #     0.35
+        # ).set_delay(2);
+        # final_scene.tween_callback(func():
+        #     get_tree().change_scene_to_packed(current_dungeon.completed_scene);
+        # );
+        complete_dungeon("DUNGEON COMPLETE");
         return;
     safe_room.get_parent().visible = true;
 
@@ -208,17 +227,7 @@ func room_turn():
     if (player.health <= 0):
         Audio.play_audio(Audio.die_sfx);
         player.play_anim(Enum.PlayerAnimation.Dead);
-        var new_tween = get_tree().create_tween()
-        new_tween.tween_property(
-            player_ui.fade_panel, 
-            "modulate", 
-            Color(0, 0, 0, 1), 
-            2.0 / Settings.game_speed
-        ).set_delay(0.5);
-        new_tween.tween_callback(func():
-            Settings.room_count = room_count;
-            get_tree().change_scene_to_file("res://Scenes/game_over.tscn");
-        )
+        complete_dungeon("DUNGEON FAILED");
         return;
     
     next_room();

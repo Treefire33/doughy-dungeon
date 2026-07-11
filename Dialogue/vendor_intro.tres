@@ -19,8 +19,7 @@ metadata/_custom_type_script = "uid://c1wkyurcxei88"
 [sub_resource type="Resource" id="Resource_xdp8d"]
 script = ExtResource("1_vyvsa")
 character = 1
-emotion = 4
-speech = "Sorry for the scare, it's just you seem familiar..."
+speech = "Sorry for the scare, but it's just that you seem familiar..."
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_64q3m"]
@@ -33,20 +32,14 @@ metadata/_custom_type_script = "uid://c1wkyurcxei88"
 script = ExtResource("1_vyvsa")
 character = 1
 emotion = 1
-speech = "I got it!"
+speech = "Oh! Got it!"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_j8m5q"]
 script = ExtResource("1_vyvsa")
 character = 1
-speech = "You're that new kid from the Guild of Priorities!"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_uj213"]
-script = ExtResource("1_vyvsa")
-character = 1
-emotion = 2
-speech = "Midnight, was it?"
+emotion = 3
+speech = "You're that shapeshifter from the guild! Midnight, was it?"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_2po8i"]
@@ -59,29 +52,27 @@ metadata/_custom_type_script = "uid://c1wkyurcxei88"
 script = ExtResource("1_vyvsa")
 character = 1
 emotion = 4
-speech = "I'll take that as a yes..."
+speech = "I'll assume that was a yes..."
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_glxmw"]
 script = ExtResource("1_vyvsa")
 character = 1
-speech = "Anyways, I've seen you quite a few times. You've even bought some of my stock!"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_ivxvh"]
-script = ExtResource("1_vyvsa")
-character = 1
-emotion = 3
-speech = "You can call me The Vendor. "
+speech = "Anyways, call me the Vendor, name's not important. Since we're both shapeshifters, thought I'd introduce myself! It's not often we see one another."
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_vyvsa"]
 script = ExtResource("1_vyvsa")
 character = 1
-speech = "Feel free to leave at any time! I'll be back on the surface, come by sometime."
+speech = "Anyhow, I'll be here 'til you're out of the dungeon. After that, maybe stop by my cabin? After all,"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_uj213"]
+script = ExtResource("1_vyvsa")
+character = 1
+speech = "I'm probably the one of the only shapeshifters still kicking."
 
 [resource]
 script = ExtResource("1_cmyia")
-dialogue = Array[ExtResource("1_vyvsa")]([SubResource("Resource_cxjmr"), SubResource("Resource_tq7uu"), SubResource("Resource_xdp8d"), SubResource("Resource_64q3m"), SubResource("Resource_2qlhb"), SubResource("Resource_j8m5q"), SubResource("Resource_uj213"), SubResource("Resource_2po8i"), SubResource("Resource_mv37d"), SubResource("Resource_glxmw"), SubResource("Resource_ivxvh"), SubResource("Resource_vyvsa")])
+dialogue = Array[ExtResource("1_vyvsa")]([SubResource("Resource_cxjmr"), SubResource("Resource_tq7uu"), SubResource("Resource_xdp8d"), SubResource("Resource_64q3m"), SubResource("Resource_2qlhb"), SubResource("Resource_j8m5q"), SubResource("Resource_2po8i"), SubResource("Resource_mv37d"), SubResource("Resource_glxmw"), SubResource("Resource_vyvsa"), SubResource("Resource_uj213")])
 metadata/_custom_type_script = "uid://18dcduftlk12"

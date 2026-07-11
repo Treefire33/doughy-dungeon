@@ -11,8 +11,6 @@ var music_volume: float = 1:
 var toast_size: int = 12;
 var helpers_enabled: bool = true;
 
-var room_count: int = 0;
-
 var settings_menu: PackedScene = preload("res://Scenes/Menus/SettingsMenu/settings_menu.tscn");
 
 func load_settings_menu(node: Node):

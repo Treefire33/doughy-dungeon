@@ -18,6 +18,7 @@ signal _enemy_selected();
 @onready var fade_panel: ColorRect = $FadePanel;
 @onready var pause_game_button: Button = $PauseGame;
 @onready var dialogue_box: DialogueBox = $DialogueBox;
+@onready var game_completed: GameOver = $GameComplete;
 
 # Safe Room Upgrading Panel
 @onready var upgrades_panel: ColorRect = $Upgrades;
@@ -25,8 +26,9 @@ signal _enemy_selected();
 @onready var stamina_upgrade: Button = $Upgrades/Stamina;
 @onready var attack_upgrade: Button = $Upgrades/Attack;
 
-# Enemy Selection
+# Decision
 var selecting_enemy: bool = false;
+var making_decision: bool = false;
 
 # Safe Room Related
 var in_safe_room: bool = false;
@@ -124,10 +126,7 @@ var action_to_index: Dictionary[String, int] = {
     "Tertiary": 2
 };
 func _input(event: InputEvent) -> void:
-    if (Input.is_action_just_pressed("Quaternary")):
-        if (selecting_enemy):
-            _enemy_selected.emit("RESET");
-            return;
+    if (Input.is_action_just_pressed("Quaternary") && !making_decision):
         inventory_button.pressed.emit();
     
     if (Input.is_key_pressed(KEY_END)):

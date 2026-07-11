@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8dnormfykoew" path="res://Sprites/Player/player_rpg_new.aseprite" id="6_ibwra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo64u"]
-size = Vector2(64, 64)
+size = Vector2(60, 60)
 
 [sub_resource type="Animation" id="Animation_birco"]
 length = 0.001
