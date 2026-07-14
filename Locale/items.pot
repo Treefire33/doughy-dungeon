@@ -1,0 +1,408 @@
+# LANGUAGE translation for Midnight Dungeons for the following files:
+# res://Items/AbyssFragment.gd
+# res://Items/AbyssHeart.gd
+# res://Items/BluePotion.gd
+# res://Items/Bubbles.gd
+# res://Items/CloutiumPipe.gd
+# res://Items/Coffee.gd
+# res://Items/CoralTubes.gd
+# res://Items/DaggerHeart.gd
+# res://Items/DurabilityScroll.gd
+# res://Items/FadedNegative.gd
+# res://Items/GoldAmulet.gd
+# res://Items/GoldenHeart.gd
+# res://Items/GraffitiHeart.gd
+# res://Items/GuildBanner.gd
+# res://Items/IvoryKey.gd
+# res://Items/LooseFang.gd
+# res://Items/LovelyHeart.gd
+# res://Items/Matchstick.gd
+# res://Items/Nail.gd
+# res://Items/OvenMitt.gd
+# res://Items/PeaceCharm.gd
+# res://Items/Pillow.gd
+# res://Items/RedPotion.gd
+# res://Items/SeaUrchin.gd
+# res://Items/SeaUrchinPainful.gd
+# res://Items/SharpeningStone.gd
+# res://Items/Splinter.gd
+# res://Items/TarotOne.gd
+# res://Items/TarotTwo.gd
+# res://Items/Whisk.gd
+# res://Items/YeastSpore.gd
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Midnight Dungeons\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: Items/AbyssFragment.gd:4
+msgid "Fragment of the Abyss"
+msgstr ""
+
+#: Items/AbyssFragment.gd:5
+msgid "A piece of the abyss, don't stare for too long."
+msgstr ""
+
+#: Items/AbyssFragment.gd:6
+msgid "???"
+msgstr ""
+
+#: Items/AbyssHeart.gd:4
+msgid "Abyss Heart"
+msgstr ""
+
+#: Items/AbyssHeart.gd:5
+msgid "The heart of the abyss. A strange force overwhelmes you."
+msgstr ""
+
+#: Items/AbyssHeart.gd:6
+msgid "Every room passed, -1 max health, +5 max stamina. Every item bought, +1 max health, -5 max stamina. Every enemy killed, +1 attack. Every time you rest, -1 attack."
+msgstr ""
+
+#: Items/BluePotion.gd:4
+msgid "Blue Potion"
+msgstr ""
+
+#: Items/BluePotion.gd:5
+msgid "Inspiring!"
+msgstr ""
+
+#: Items/BluePotion.gd:6
+msgid "Increases Shield Spell duration by 1 turn."
+msgstr ""
+
+#: Items/Bubbles.gd:4
+msgid "Bubbles"
+msgstr ""
+
+#: Items/Bubbles.gd:5
+msgid "*POP* Wowie! *POP* So fun!!"
+msgstr ""
+
+#: Items/Bubbles.gd:6
+msgid "The Shield Spell now lasts infinitely longer, yet is extremely fragile."
+msgstr ""
+
+#: Items/CloutiumPipe.gd:4
+msgid "Cloutium Pipe"
+msgstr ""
+
+#: Items/CloutiumPipe.gd:5
+msgid "Starting to feel like a real Hydroneer!"
+msgstr ""
+
+#: Items/CloutiumPipe.gd:6
+msgid "Damage leaks over to nearby enemies."
+msgstr ""
+
+#: Items/Coffee.gd:4
+msgid "Coffee"
+msgstr ""
+
+#: Items/Coffee.gd:5
+msgid "A strong, aromatic smell eminates from the cup. It gives you a headache."
+msgstr ""
+
+#: Items/Coffee.gd:6
+msgid "Stamina won't drain, period. However, sometimes you'll randomly take a single point of damage (remember that headache?)."
+msgstr ""
+
+#: Items/CoralTubes.gd:4
+msgid "Organ Coral"
+msgstr ""
+
+#: Items/CoralTubes.gd:5
+msgid "A sweet melody plays from its tubes"
+msgstr ""
+
+#: Items/CoralTubes.gd:6
+msgid "Resting heals (1 * stack) HP."
+msgstr ""
+
+#: Items/DaggerHeart.gd:4
+msgid "Dagger Heart"
+msgstr ""
+
+#: Items/DaggerHeart.gd:5
+msgid "If you're willing to bear the pain..."
+msgstr ""
+
+#: Items/DaggerHeart.gd:6
+msgid "Halve your health and double your damage  (Applied once on purchase)."
+msgstr ""
+
+#: Items/DurabilityScroll.gd:4
+msgid "Durability Scroll"
+msgstr ""
+
+#: Items/DurabilityScroll.gd:5
+msgid "A scroll containing arcane instructions."
+msgstr ""
+
+#: Items/DurabilityScroll.gd:6
+msgid "Increases Shield Spell durability by 1 HP."
+msgstr ""
+
+#: Items/FadedNegative.gd:4
+msgid "Faded Negative"
+msgstr ""
+
+#: Items/FadedNegative.gd:5
+msgid "I... can't remember..."
+msgstr ""
+
+#: Items/FadedNegative.gd:6
+msgid "Damage dealt has a chance to reflect back onto you."
+msgstr ""
+
+#: Items/GoldAmulet.gd:4
+msgid "Gold Amulet"
+msgstr ""
+
+#: Items/GoldAmulet.gd:5
+msgid "Lustrous amulet made of pure gold."
+msgstr ""
+
+#: Items/GoldAmulet.gd:6
+msgid "Enemies drop more coins."
+msgstr ""
+
+#: Items/GoldenHeart.gd:4
+msgid "Golden Heart"
+msgstr ""
+
+#: Items/GoldenHeart.gd:5
+msgid "Feeling like pure- AU! My heart..."
+msgstr ""
+
+#: Items/GoldenHeart.gd:6
+msgid "Your health scales with the amount of coins you have."
+msgstr ""
+
+#: Items/GraffitiHeart.gd:4
+msgid "Graffiti Heart"
+msgstr ""
+
+#: Items/GraffitiHeart.gd:5
+msgid "Reminds you of a melancholic sunrise..."
+msgstr ""
+
+#: Items/GraffitiHeart.gd:6
+msgid "Random chance to heal for 50% health."
+msgstr ""
+
+#: Items/GuildBanner.gd:4
+msgid "Guild Banner"
+msgstr ""
+
+#: Items/GuildBanner.gd:5
+msgid "Show your pride of your priorities!"
+msgstr ""
+
+#: Items/GuildBanner.gd:6
+msgid "(1, 2, 3) -> (3, 2, 1). Show your priorities."
+msgstr ""
+
+#: Items/IvoryKey.gd:4
+msgid "Ivory Key"
+msgstr ""
+
+#: Items/IvoryKey.gd:5
+msgid "1-e-and-a, 2-e-and-a, 3-e-and-a..."
+msgstr ""
+
+#: Items/IvoryKey.gd:6
+msgid "Every consecutive same-decision increases its respective stat by 1, only for that room however."
+msgstr ""
+
+#: Items/LooseFang.gd:4
+msgid "Loose Fang"
+msgstr ""
+
+#: Items/LooseFang.gd:5
+msgid "A tooth from an unknown creature, it feels oddly familiar."
+msgstr ""
+
+#: Items/LooseFang.gd:6
+msgid "On attack, 10% chance to siphon health."
+msgstr ""
+
+#: Items/LovelyHeart.gd:4
+msgid "Lovely Heart"
+msgstr ""
+
+#: Items/LovelyHeart.gd:5
+msgid "Wielding my love!"
+msgstr ""
+
+#: Items/LovelyHeart.gd:6
+msgid "Base attack stat is set to the number of heart items currently purchased."
+msgstr ""
+
+#: Items/Matchstick.gd:4
+msgid "Matchstick"
+msgstr ""
+
+#: Items/Matchstick.gd:5
+msgid "I don't want to light this..."
+msgstr ""
+
+#: Items/Matchstick.gd:6
+msgid "Defending now applies one stack of burn."
+msgstr ""
+
+#: Items/Nail.gd:4
+msgid "Pure Nail"
+msgstr ""
+
+#: Items/Nail.gd:5
+msgid "The work of a skilled craftsman. The perfect weapon."
+msgstr ""
+
+#: Items/Nail.gd:6
+msgid "Caps attack at 5, but allows you to peirce through shield spells."
+msgstr ""
+
+#: Items/OvenMitt.gd:4
+msgid "Oven Mitt"
+msgstr ""
+
+#: Items/OvenMitt.gd:5
+msgid "Hot-hot-hot- HOT!!"
+msgstr ""
+
+#: Items/OvenMitt.gd:6
+msgid "Each room completed adds +1 to difficulty and +0.1x to multiplier. Resets when staying clear."
+msgstr ""
+
+#: Items/PeaceCharm.gd:4
+msgid "Peace Charm"
+msgstr ""
+
+#: Items/PeaceCharm.gd:5
+msgid "A symbol of peace used by many guilds. Soothing."
+msgstr ""
+
+#: Items/PeaceCharm.gd:6
+msgid "On defend or rest, 40% chance to regen 40% health."
+msgstr ""
+
+#: Items/Pillow.gd:4
+msgid "Pillow"
+msgstr ""
+
+#: Items/Pillow.gd:5
+msgid "Comfy!"
+msgstr ""
+
+#: Items/Pillow.gd:6
+msgid "Reseting recovers more stamina."
+msgstr ""
+
+#: Items/RedPotion.gd:4
+msgid "Red Potion"
+msgstr ""
+
+#: Items/RedPotion.gd:5
+msgid "Healthy!"
+msgstr ""
+
+#: Items/RedPotion.gd:6
+msgid "Increases max health by 2."
+msgstr ""
+
+#: Items/SeaUrchin.gd:4
+#: Items/SeaUrchinPainful.gd:4
+msgid "Urchin"
+msgstr ""
+
+#: Items/SeaUrchin.gd:5
+msgid "I won't make the same mistake twic- OUCH!"
+msgstr ""
+
+#: Items/SeaUrchin.gd:6
+msgid "I'm not actually sure what this does."
+msgstr ""
+
+#: Items/SeaUrchinPainful.gd:5
+msgid "I won't make the same mistake thri- ow..."
+msgstr ""
+
+#: Items/SeaUrchinPainful.gd:6
+msgid "I'm not actually sure what this does, but it can't be good."
+msgstr ""
+
+#: Items/SharpeningStone.gd:4
+msgid "Sharpening Stone"
+msgstr ""
+
+#: Items/SharpeningStone.gd:5
+msgid "How do you sharpen a wooden sword?"
+msgstr ""
+
+#: Items/SharpeningStone.gd:6
+msgid "On attack, 25% chance to deal damage again."
+msgstr ""
+
+#: Items/Splinter.gd:4
+msgid "Splinter"
+msgstr ""
+
+#: Items/Splinter.gd:5
+msgid "ow"
+msgstr ""
+
+#: Items/Splinter.gd:6
+msgid "Every enemy attack now does (1 * stack) more damage."
+msgstr ""
+
+#: Items/TarotOne.gd:4
+msgid "The Folly - I"
+msgstr ""
+
+#: Items/TarotOne.gd:5
+#: Items/TarotOne.gd:6
+msgid "FOLLY PLACEHOLDER"
+msgstr ""
+
+#: Items/TarotTwo.gd:4
+msgid "The Spellcaster - II"
+msgstr ""
+
+#: Items/TarotTwo.gd:5
+#: Items/TarotTwo.gd:6
+msgid "SPELL PLACEHOLDER"
+msgstr ""
+
+#: Items/Whisk.gd:4
+msgid "Whisk"
+msgstr ""
+
+#: Items/Whisk.gd:5
+msgid "Shaking (stirring) things up!"
+msgstr ""
+
+#: Items/Whisk.gd:6
+msgid "On attack, damage is randomized between base attack and 50% of max health."
+msgstr ""
+
+#: Items/YeastSpore.gd:4
+msgid "Yeast Spore"
+msgstr ""
+
+#: Items/YeastSpore.gd:5
+msgid "Yeast Crawler egg... ugh"
+msgstr ""
+
+#: Items/YeastSpore.gd:6
+msgid "Resting now decreases defense duration."
+msgstr ""
+
+msgid "Midnight Dungeons"
+msgstr ""

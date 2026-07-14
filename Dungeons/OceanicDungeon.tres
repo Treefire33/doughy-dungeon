@@ -8,30 +8,14 @@
 [ext_resource type="Resource" uid="uid://snjvycj8qcr2" path="res://EnemyData/Oceanic/Barnacle.tres" id="5_gcidq"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="6_kqfiu"]
 [ext_resource type="Resource" uid="uid://d0a2feappom8m" path="res://EnemyData/Oceanic/SeaBunny.tres" id="6_ys1w1"]
-[ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="7_5s1xb"]
 [ext_resource type="Resource" uid="uid://c6jhgi8n2pv52" path="res://EnemyData/Oceanic/Anemone.tres" id="7_knl70"]
 [ext_resource type="Resource" uid="uid://x04ox3nsp8al" path="res://EnemyData/Oceanic/SandDollar.tres" id="8_1nog7"]
-[ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="8_ceub8"]
-[ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="8_cfuis"]
 [ext_resource type="Resource" uid="uid://nnc2x1sraaf6" path="res://EnemyData/Oceanic/Jellyfish.tres" id="9_f6ojf"]
-[ext_resource type="Resource" uid="uid://b4mwhluiuvw3s" path="res://Items/LooseFang.tres" id="9_gcidq"]
-[ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="9_skv5b"]
 [ext_resource type="Resource" uid="uid://dke42syc18r32" path="res://EnemyData/Oceanic/Squid.tres" id="10_jeomi"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="10_ys1w1"]
 [ext_resource type="Resource" uid="uid://c5ctnnjlicuo" path="res://EnemyData/Oceanic/SandShark.tres" id="11_f7sna"]
 [ext_resource type="Texture2D" uid="uid://cnu85k83jvosf" path="res://Sprites/Tiles/DungeonTiles/OceanicFloor.tres" id="12_wnklr"]
-[ext_resource type="Resource" uid="uid://brgpd8v22l20t" path="res://Items/DurabilityScroll.tres" id="19_f6ojf"]
-[ext_resource type="Resource" uid="uid://dn6m0afrnem0x" path="res://Items/GraffitiHeart.tres" id="20_jeomi"]
-[ext_resource type="Resource" uid="uid://c3q126ueqif87" path="res://Items/DaggerHeart.tres" id="21_f7sna"]
-[ext_resource type="Resource" uid="uid://dtc0tkv7swm8o" path="res://Items/CoralTubes.tres" id="22_wnklr"]
-[ext_resource type="Resource" uid="uid://bm7xicdrdhcew" path="res://Items/SeaUrchin.tres" id="23_4yyok"]
-[ext_resource type="Resource" uid="uid://dyvhn4yb0tlol" path="res://Items/IvoryKey.tres" id="24_xmejm"]
-[ext_resource type="Resource" uid="uid://caooq7deh85j5" path="res://Items/GuildBanner.tres" id="25_2d6b7"]
-[ext_resource type="Resource" uid="uid://b0mkdit6rebvk" path="res://Items/Splinter.tres" id="26_3s3c2"]
 [ext_resource type="Texture2D" uid="uid://bh75k5skdvlfx" path="res://Sprites/Tiles/DungeonTiles/OceanicWall.tres" id="27_4yyok"]
-[ext_resource type="Resource" uid="uid://cs3ica8c6du4g" path="res://Items/Matchstick.tres" id="27_le4sc"]
-[ext_resource type="Resource" uid="uid://cf140fl7bb7ty" path="res://Items/SeaUrchinPainful.tres" id="28_t58lf"]
-[ext_resource type="Resource" uid="uid://cr4shqx1wlda5" path="res://Items/Bubbles.tres" id="29_gbs4f"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="30_x6yp5"]
 
 [resource]
@@ -39,7 +23,6 @@ script = ExtResource("10_ys1w1")
 id = 1
 name = "Oceanic Dungeon"
 enemies = Array[ExtResource("1_a74m2")]([ExtResource("2_cfuis"), ExtResource("3_gcidq"), ExtResource("4_ar2tq"), ExtResource("5_gcidq"), ExtResource("6_ys1w1"), ExtResource("7_knl70"), ExtResource("8_1nog7"), ExtResource("9_f6ojf"), ExtResource("10_jeomi"), ExtResource("11_f7sna")])
-items = Array[ExtResource("6_kqfiu")]([ExtResource("7_5s1xb"), ExtResource("8_ceub8"), ExtResource("9_skv5b"), ExtResource("8_cfuis"), ExtResource("9_gcidq"), ExtResource("19_f6ojf"), ExtResource("20_jeomi"), ExtResource("21_f7sna"), ExtResource("22_wnklr"), ExtResource("23_4yyok"), ExtResource("24_xmejm"), ExtResource("25_2d6b7"), ExtResource("26_3s3c2"), ExtResource("27_le4sc"), ExtResource("28_t58lf"), ExtResource("29_gbs4f")])
 wall_texture = ExtResource("27_4yyok")
 floor_texture = ExtResource("12_wnklr")
 room_count = 50

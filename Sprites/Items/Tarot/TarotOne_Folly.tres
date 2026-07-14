@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://b2j2ht02yekgj"]
+
+[ext_resource type="Texture2D" uid="uid://bp7e6dltec3e0" path="res://Sprites/Items/Tarot/tarot.aseprite" id="1_s4ma4"]
+
+[resource]
+atlas = ExtResource("1_s4ma4")
+region = Rect2(0, 0, 64, 64)

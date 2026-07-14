@@ -1,14 +1,13 @@
 extends Node
 
-var load_path: String:
-    get: return "res://Items/%s.tres";
-
 var all_items: Dictionary[String, ItemData] = (
     func():
-        var final: Dictionary[String, ItemData] = {}
+        var item_list: Dictionary[String, ItemData] = {};
         for item in DirAccess.get_files_at("res://Items"):
-            final[item.left(-5)] = load(load_path % item.left(-5));
-        return final;
+            var parts = item.split('.');
+            if (parts[1] != "gd" || parts.size() > 2): continue;
+            item_list[parts[0]] = (load("res://Items/%s" % item) as GDScript).new();
+        return item_list;
 ).call();
 
 func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String:
@@ -17,10 +16,11 @@ func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String
     var keys = [];
     var weights = [];
     for item in dungeon_data.items:
-        if (painful != item.painful):
+        var item_data: ItemData = get_item_data(item);
+        if (painful != item_data.painful):
             continue;
-        keys.append(get_item_name(item));
-        weights.append(item.weight);
+        keys.append(item);
+        weights.append(item_data.weight);
     
     return keys[rng.rand_weighted(weights)];
 

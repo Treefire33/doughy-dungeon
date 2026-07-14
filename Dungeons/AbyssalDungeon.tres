@@ -4,13 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cuaq11ljqcmqg" path="res://Sprites/Tiles/DungeonTiles/AbyssalFloor.tres" id="2_u2tlb"]
 [ext_resource type="Resource" uid="uid://sf4n37mdf7f0" path="res://EnemyData/Abyssal/AbyssLurker.tres" id="2_xndj2"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="4_bdtq6"]
-[ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="5_1yf2x"]
-[ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="6_qr6e0"]
-[ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="7_5w3kd"]
-[ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="8_swwu3"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="8_u2tlb"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="9_1648l"]
-[ext_resource type="Resource" uid="uid://b0mkdit6rebvk" path="res://Items/Splinter.tres" id="9_bdtq6"]
 [ext_resource type="Texture2D" uid="uid://dp672erbb2bok" path="res://Sprites/Tiles/DungeonTiles/AbyssalWall.tres" id="10_ilo2m"]
 
 [resource]
@@ -18,7 +13,6 @@ script = ExtResource("9_1648l")
 id = 4
 name = "Abyssal Dungeon"
 enemies = Array[ExtResource("1_u2tlb")]([ExtResource("2_xndj2")])
-items = Array[ExtResource("4_bdtq6")]([ExtResource("5_1yf2x"), ExtResource("6_qr6e0"), ExtResource("7_5w3kd"), ExtResource("8_swwu3"), ExtResource("9_bdtq6")])
 wall_texture = ExtResource("10_ilo2m")
 floor_texture = ExtResource("2_u2tlb")
 room_count = 200

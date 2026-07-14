@@ -9,11 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cb0ir6w78a37n" path="res://Sprites/Tiles/DungeonTiles/MagmaticFloor.tres" id="7_cnslc"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="13_cnslc"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_nawgy"]
-[ext_resource type="Resource" uid="uid://jyw5mbmwm7jm" path="res://Items/SharpeningStone.tres" id="14_tvyb8"]
-[ext_resource type="Resource" uid="uid://cjecp2mlrlyge" path="res://Items/BluePotion.tres" id="15_jg2u3"]
 [ext_resource type="Texture2D" uid="uid://6vr1mrbq2yyf" path="res://Sprites/Tiles/DungeonTiles/MagmaticWall.tres" id="15_pq8q3"]
-[ext_resource type="Resource" uid="uid://cms721rjrf1w1" path="res://Items/RedPotion.tres" id="16_y16pm"]
-[ext_resource type="Resource" uid="uid://dp84m7pjrfbt4" path="res://Items/AbyssFragment.tres" id="17_lftbj"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="26_ao6gx"]
 
 [resource]
@@ -21,7 +17,6 @@ script = ExtResource("26_ao6gx")
 id = 3
 name = "Magmatic Dungeon"
 enemies = Array[ExtResource("1_1b1ok")]([ExtResource("2_3vgpg"), ExtResource("3_k1c42"), ExtResource("4_cnslc"), ExtResource("5_pq8q3"), ExtResource("6_jsueo")])
-items = Array[ExtResource("13_nawgy")]([ExtResource("14_tvyb8"), ExtResource("15_jg2u3"), ExtResource("16_y16pm"), ExtResource("17_lftbj")])
 wall_texture = ExtResource("15_pq8q3")
 floor_texture = ExtResource("7_cnslc")
 room_count = 150

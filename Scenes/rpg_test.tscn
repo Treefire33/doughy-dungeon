@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://drbowooa7ayyf" path="res://Dungeons/DoughyDungeon.tres" id="7_vcj0l"]
 [ext_resource type="Script" uid="uid://da11h8jjenhy5" path="res://Scripts/RPG/rpg_dungeon.gd" id="7_wqeb0"]
 [ext_resource type="Resource" uid="uid://b8o5ctipmns3f" path="res://Dialogue/vendor_beta.tres" id="8_euyhw"]
+[ext_resource type="Resource" uid="uid://dpsc6wlv66o0m" path="res://Dungeons/DebugDungeon.tres" id="8_ivg0g"]
 [ext_resource type="Resource" uid="uid://bwtevdgyame2h" path="res://Dungeons/OceanicDungeon.tres" id="9_euyhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pa10k"]
@@ -342,6 +343,26 @@ static_body = true
 shape = SubResource("RectangleShape2D_pa10k")
 
 [node name="Sprite" type="Sprite2D" parent="DoughyEntrance" unique_id=427404370]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("6_a8tyi")
+
+[node name="DEBUGEntrance" type="CharacterBody2D" parent="." unique_id=1232358613]
+position = Vector2(241, 182)
+rotation = 0.9669124
+collision_layer = 3
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("7_wqeb0")
+dungeon = ExtResource("8_ivg0g")
+static_body = true
+
+[node name="Collider" type="CollisionShape2D" parent="DEBUGEntrance" unique_id=1686664011]
+shape = SubResource("RectangleShape2D_pa10k")
+
+[node name="Sprite" type="Sprite2D" parent="DEBUGEntrance" unique_id=1716558169]
 y_sort_enabled = true
 scale = Vector2(2, 2)
 texture = ExtResource("6_a8tyi")
