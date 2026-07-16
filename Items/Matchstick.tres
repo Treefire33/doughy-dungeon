@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cs3ica8c6du4g"]
+
+[ext_resource type="Script" uid="uid://hakg8mvu3kgi" path="res://Items/PainfulFunctions/MatchstickFunction.gd" id="1_op4wt"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_wworn"]
+[ext_resource type="Texture2D" uid="uid://dmpumww3k308i" path="res://Sprites/Items/Matchstick.tres" id="2_wworn"]
+
+[resource]
+script = ExtResource("1_wworn")
+name = "Matchstick"
+flavour_text = "I don't want to light this..."
+description = "Defending now applies one stack of burn."
+price = -75
+sprite = ExtResource("2_wworn")
+weight = 10.0
+function = ExtResource("1_op4wt")
+unique_stacking = true
+painful = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

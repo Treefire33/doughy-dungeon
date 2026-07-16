@@ -55,11 +55,11 @@ func _ready() -> void:
         DebugCommand.Parameter.new("room", DebugCommand.ParameterType.Int)
     ]);
     DebugConsole.add_command("add_item", add_item, self, [
-        DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items.keys()),
+        DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.items_registry.get_all_string_ids()),
         DebugCommand.Parameter.new("count", DebugCommand.ParameterType.Int)
     ]);
     DebugConsole.add_command("remove_item", remove_item, self, [
-        DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.all_items.keys()),
+        DebugCommand.Parameter.new("item", DebugCommand.ParameterType.Options, ItemUtils.items_registry.get_all_string_ids()),
         DebugCommand.Parameter.new("count", DebugCommand.ParameterType.Int)
     ]);
     DebugConsole.add_command("set_player_stat", set_player_stat, self, [

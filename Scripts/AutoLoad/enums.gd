@@ -46,9 +46,12 @@ enum Direction {
 	Down = 2, Right = 3
 }
 
-enum DungeonID {
-	Alcove, Oceanic, Doughy, Magamatic, Abyssal,
-	CliffSide, TrueAbyss
+enum Dungeon {
+	All = -1, # Item pools
+	Alcove, Oceanic, Doughy, Magamatic, Abyssal, # Base-game dungeons
+	HavenOne, HavenTwo, HavenThree, # Havens
+	CliffSide, TrueAbyss, # True ending dungeons
+	TrueAlcove
 }
 
 enum RPGItem {

@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bxkogq4efko37" path="res://Sprites/Tiles/DungeonTiles/AlcoveFloor.tres" id="5_68m17"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="11_7q4tt"]
 [ext_resource type="Resource" uid="uid://umvw8h1wqo7a" path="res://Dungeons/Rooms/StandardProceed.tres" id="12_2rhw8"]
-[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_7cw5h"]
 [ext_resource type="Resource" uid="uid://bl0dvx71rcwsj" path="res://Dungeons/Rooms/StandardRiskIt.tres" id="13_68m17"]
 [ext_resource type="Resource" uid="uid://ckow4hbuaumom" path="res://Dungeons/Rooms/StandardStayClear.tres" id="14_cug01"]
 [ext_resource type="Resource" uid="uid://bp4gfronnuyea" path="res://Dungeons/Rooms/Alcove/AlcoveEasy.tres" id="15_68m17"]
@@ -18,6 +17,7 @@
 
 [resource]
 script = ExtResource("25_lbj72")
+id = 1
 name = "Doughy Alcove"
 enemies = Array[ExtResource("1_wca84")]([ExtResource("2_u82xd"), ExtResource("2_qkq8k"), ExtResource("3_cwbeo")])
 rooms = Array[ExtResource("11_7q4tt")]([ExtResource("12_2rhw8"), ExtResource("13_68m17"), ExtResource("14_cug01"), ExtResource("15_68m17"), ExtResource("16_cug01")])

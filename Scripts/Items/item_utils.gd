@@ -1,34 +1,28 @@
 extends Node
 
-var all_items: Dictionary[String, ItemData] = (
-    func():
-        var item_list: Dictionary[String, ItemData] = {};
-        for item in DirAccess.get_files_at("res://Items"):
-            var parts = item.split('.');
-            if (parts[1] != "gd" || parts.size() > 2): continue;
-            item_list[parts[0]] = (load("res://Items/%s" % item) as GDScript).new();
-        return item_list;
-).call();
+const items_registry: Registry = preload("res://YARDRegistries/items.tres");
+# var all_items: Dictionary[StringName, ItemData] = items_registry.load_all_blocking("ItemData") as Dictionary[StringName, ItemData];
 
 func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String:
     var rng = RandomNumberGenerator.new();
     
     var keys = [];
     var weights = [];
-    for item in dungeon_data.items:
+    for item in items_registry.where({
+        &"dungeon_pool": func(v: Array): return v.has(Enum.Dungeon.All) || v.has(dungeon_data.id),
+        &"painful": painful
+    }):
         var item_data: ItemData = get_item_data(item);
-        if (painful != item_data.painful):
-            continue;
         keys.append(item);
         weights.append(item_data.weight);
     
     return keys[rng.rand_weighted(weights)];
 
 func get_item_name(item_data: ItemData) -> String:
-    return all_items.find_key(item_data);
+    return items_registry.get_string_id_of(item_data);
 
 func get_item_data(item_name: String) -> ItemData:
-    return all_items[item_name];
+    return items_registry.load_entry(item_name, "ItemData", ResourceLoader.CacheMode.CACHE_MODE_REUSE);
 
 func show_activation_toast(item: String):
     ToastParty.show({
@@ -41,9 +35,9 @@ func show_activation_toast(item: String):
     });
     Audio.play_audio(Audio.item_activated);
 
-func show_custom_toast(item: String):
+func show_custom_toast(message: String):
     ToastParty.show({
-        "text": item,
+        "text": message,
         "text_size": Settings.toast_size,
         "bgcolor": Color(0, 0, 0, 1),
         "color": Color(1, 1, 1, 1),

@@ -1,0 +1,905 @@
+# LANGUAGE translation for Midnight Dungeons for the following files:
+# res://Items/AbyssFragment.tres
+# res://Items/AbyssHeart.tres
+# res://Items/BluePotion.tres
+# res://Items/Bubbles.tres
+# res://Items/CloutiumPipe.tres
+# res://Items/Coffee.tres
+# res://Items/CoralTubes.tres
+# res://Items/DaggerHeart.tres
+# res://Items/DurabilityScroll.tres
+# res://Items/FadedNegative.tres
+# res://Items/GoldAmulet.tres
+# res://Items/GoldenHeart.tres
+# res://Items/GraffitiHeart.tres
+# res://Items/GuildBanner.tres
+# res://Items/IvoryKey.tres
+# res://Items/LooseFang.tres
+# res://Items/LovelyHeart.tres
+# res://Items/Matchstick.tres
+# res://Items/Nail.tres
+# res://Items/OvenMitt.tres
+# res://Items/PeaceCharm.tres
+# res://Items/Pillow.tres
+# res://Items/RedPotion.tres
+# res://Items/SeaUrchin.tres
+# res://Items/SeaUrchinPainful.tres
+# res://Items/SharpeningStone.tres
+# res://Items/Splinter.tres
+# res://Items/Whisk.tres
+# res://Items/YeastSpore.tres
+# res://Dungeons/AbyssalDungeon.tres
+# res://Dungeons/CliffsideDungeon.tres
+# res://Dungeons/DoughyAlcove.tres
+# res://Dungeons/DoughyDungeon.tres
+# res://Dungeons/MagmaticDungeon.tres
+# res://Dungeons/OceanicDungeon.tres
+# res://EnemyData/Abyssal/AbyssLurker.tres
+# res://EnemyData/Doughy/BiscuitMimic2.tres
+# res://EnemyData/Doughy/BiscuitMimic.tres
+# res://EnemyData/Doughy/Cake.tres
+# res://EnemyData/Doughy/Dough.tres
+# res://EnemyData/Doughy/Doughnut.tres
+# res://EnemyData/Doughy/HardTack.tres
+# res://EnemyData/Doughy/Loafer.tres
+# res://EnemyData/Doughy/Oven.tres
+# res://EnemyData/Doughy/PretzelSpider.tres
+# res://EnemyData/Doughy/RollingPin.tres
+# res://EnemyData/Doughy/YeastCrawler.tres
+# res://EnemyData/Magmatic/Crystalis.tres
+# res://EnemyData/Magmatic/GreaterStoneCritter.tres
+# res://EnemyData/Magmatic/LesserStoneCritter.tres
+# res://EnemyData/Magmatic/MagmaBlob.tres
+# res://EnemyData/Magmatic/ParasiticStoneFish.tres
+# res://EnemyData/Oceanic/Anemone.tres
+# res://EnemyData/Oceanic/Barnacle.tres
+# res://EnemyData/Oceanic/GiantTubeWorm.tres
+# res://EnemyData/Oceanic/Jellyfish.tres
+# res://EnemyData/Oceanic/SandDollar.tres
+# res://EnemyData/Oceanic/SandShark.tres
+# res://EnemyData/Oceanic/SeaAngel.tres
+# res://EnemyData/Oceanic/SeaBunny.tres
+# res://EnemyData/Oceanic/Squid.tres
+# res://EnemyData/Oceanic/StoneFish.tres
+# res://Scenes/game.tscn
+# res://Scenes/game_over.tscn
+# res://Scenes/grounds_for_evil.tscn
+#
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Midnight Dungeons\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: Items/AbyssFragment.tres
+msgid "Fragment of the Abyss"
+msgstr ""
+
+#: Items/AbyssFragment.tres
+msgid "A piece of the abyss, don't stare for too long."
+msgstr ""
+
+#: Items/AbyssFragment.tres
+msgid "???"
+msgstr ""
+
+#: Items/AbyssHeart.tres
+msgid "Abyss Heart"
+msgstr ""
+
+#: Items/AbyssHeart.tres
+msgid "The heart of the abyss. A strange force overwhelmes you."
+msgstr ""
+
+#: Items/AbyssHeart.tres
+msgid ""
+"Every room passed, -1 max health, +5 max stamina. \n"
+"Every item bought, +1 max health, -5 max stamina.\n"
+"Every enemy killed, +1 attack.\n"
+"Every time you rest, -1 attack."
+msgstr ""
+
+#: Items/BluePotion.tres
+msgid "Blue Potion"
+msgstr ""
+
+#: Items/BluePotion.tres
+msgid "Inspiring!"
+msgstr ""
+
+#: Items/BluePotion.tres
+msgid "Increases Shield Spell duration by 1 turn."
+msgstr ""
+
+#: Items/Bubbles.tres
+msgid "Bubbles"
+msgstr ""
+
+#: Items/Bubbles.tres
+msgid "*POP* Wowie! *POP* So fun!!"
+msgstr ""
+
+#: Items/Bubbles.tres
+msgid "The Shield Spell now lasts infinitely longer, yet is extremely fragile."
+msgstr ""
+
+#: Items/CloutiumPipe.tres
+msgid "Cloutium Pipe"
+msgstr ""
+
+#: Items/CloutiumPipe.tres
+msgid "Starting to feel like a real Hydroneer!"
+msgstr ""
+
+#: Items/CloutiumPipe.tres
+msgid "Damage leaks over to nearby enemies."
+msgstr ""
+
+#: Items/Coffee.tres
+msgid "Coffee"
+msgstr ""
+
+#: Items/Coffee.tres
+msgid ""
+"A strong, aromatic smell eminates from the cup. It gives you a headache."
+msgstr ""
+
+#: Items/Coffee.tres
+msgid ""
+"Stamina won't drain, period.\n"
+"However, sometimes you'll randomly take a single point of damage (remember "
+"that headache?)."
+msgstr ""
+
+#: Items/CoralTubes.tres
+msgid "Organ Coral"
+msgstr ""
+
+#: Items/CoralTubes.tres
+msgid "A sweet melody plays from its tubes"
+msgstr ""
+
+#: Items/CoralTubes.tres
+msgid "Resting heals (1 * stack) HP."
+msgstr ""
+
+#: Items/DaggerHeart.tres
+msgid "Dagger Heart"
+msgstr ""
+
+#: Items/DaggerHeart.tres
+msgid "If you're willing to bear the pain..."
+msgstr ""
+
+#: Items/DaggerHeart.tres
+msgid ""
+"Halve your health and double your damage \n"
+"(Applied once on purchase)."
+msgstr ""
+
+#: Items/DurabilityScroll.tres
+msgid "Durability Scroll"
+msgstr ""
+
+#: Items/DurabilityScroll.tres
+msgid "A scroll containing arcane instructions."
+msgstr ""
+
+#: Items/DurabilityScroll.tres
+msgid "Increases Shield Spell durability by 1 HP."
+msgstr ""
+
+#: Items/FadedNegative.tres
+msgid "Faded Negative"
+msgstr ""
+
+#: Items/FadedNegative.tres
+msgid "I... can't remember..."
+msgstr ""
+
+#: Items/FadedNegative.tres
+msgid "Damage dealt has a chance to reflect back onto you."
+msgstr ""
+
+#: Items/GoldAmulet.tres
+msgid "Gold Amulet"
+msgstr ""
+
+#: Items/GoldAmulet.tres
+msgid "Lustrous amulet made of pure gold."
+msgstr ""
+
+#: Items/GoldAmulet.tres
+msgid "Enemies drop more coins."
+msgstr ""
+
+#: Items/GoldenHeart.tres
+msgid "Golden Heart"
+msgstr ""
+
+#: Items/GoldenHeart.tres
+msgid "Feeling like pure- AU! My heart..."
+msgstr ""
+
+#: Items/GoldenHeart.tres
+msgid "Your health scales with the amount of coins you have."
+msgstr ""
+
+#: Items/GraffitiHeart.tres
+msgid "Graffiti Heart"
+msgstr ""
+
+#: Items/GraffitiHeart.tres
+msgid "Reminds you of a melancholic sunrise..."
+msgstr ""
+
+#: Items/GraffitiHeart.tres
+msgid "Random chance to heal for 50% health."
+msgstr ""
+
+#: Items/GuildBanner.tres
+msgid "Guild Banner"
+msgstr ""
+
+#: Items/GuildBanner.tres
+msgid "Show your pride of your priorities!"
+msgstr ""
+
+#: Items/GuildBanner.tres
+msgid ""
+"(1, 2, 3) -> (3, 2, 1). \n"
+"Show your priorities."
+msgstr ""
+
+#: Items/IvoryKey.tres
+msgid "Ivory Key"
+msgstr ""
+
+#: Items/IvoryKey.tres
+msgid "1-e-and-a, 2-e-and-a, 3-e-and-a..."
+msgstr ""
+
+#: Items/IvoryKey.tres
+msgid ""
+"Every consecutive same-decision increases its respective stat by 1, only for "
+"that room however."
+msgstr ""
+
+#: Items/LooseFang.tres
+msgid "Loose Fang"
+msgstr ""
+
+#: Items/LooseFang.tres
+msgid "A tooth from an unknown creature, it feels oddly familiar."
+msgstr ""
+
+#: Items/LooseFang.tres
+msgid "On attack, 10% chance to siphon health."
+msgstr ""
+
+#: Items/LovelyHeart.tres
+msgid "Lovely Heart"
+msgstr ""
+
+#: Items/LovelyHeart.tres
+msgid "Wielding my love!"
+msgstr ""
+
+#: Items/LovelyHeart.tres
+msgid ""
+"Base attack stat is set to the number of heart items currently purchased."
+msgstr ""
+
+#: Items/Matchstick.tres
+msgid "Matchstick"
+msgstr ""
+
+#: Items/Matchstick.tres
+msgid "I don't want to light this..."
+msgstr ""
+
+#: Items/Matchstick.tres
+msgid "Defending now applies one stack of burn."
+msgstr ""
+
+#: Items/Nail.tres
+msgid "Pure Nail"
+msgstr ""
+
+#: Items/Nail.tres
+msgid "The work of a skilled craftsman. The perfect weapon."
+msgstr ""
+
+#: Items/Nail.tres
+msgid "Caps attack at 5, but allows you to peirce through shield spells."
+msgstr ""
+
+#: Items/OvenMitt.tres
+msgid "Oven Mitt"
+msgstr ""
+
+#: Items/OvenMitt.tres
+msgid "Hot-hot-hot- HOT!!"
+msgstr ""
+
+#: Items/OvenMitt.tres
+msgid ""
+"Each room completed adds +1 to difficulty\n"
+"and +0.1x to multiplier.\n"
+"Resets when staying clear."
+msgstr ""
+
+#: Items/PeaceCharm.tres
+msgid "Peace Charm"
+msgstr ""
+
+#: Items/PeaceCharm.tres
+msgid "A symbol of peace used by many guilds. Soothing."
+msgstr ""
+
+#: Items/PeaceCharm.tres
+msgid "On defend or rest, 40% chance to regen 40% health."
+msgstr ""
+
+#: Items/Pillow.tres
+msgid "Pillow"
+msgstr ""
+
+#: Items/Pillow.tres
+msgid "Comfy!"
+msgstr ""
+
+#: Items/Pillow.tres
+msgid "Reseting recovers more stamina."
+msgstr ""
+
+#: Items/RedPotion.tres
+msgid "Red Potion"
+msgstr ""
+
+#: Items/RedPotion.tres
+msgid "Healthy!"
+msgstr ""
+
+#: Items/RedPotion.tres
+msgid "Increases max health by 2."
+msgstr ""
+
+#: Items/SeaUrchin.tres Items/SeaUrchinPainful.tres
+msgid "Urchin"
+msgstr ""
+
+#: Items/SeaUrchin.tres
+msgid "I won't make the same mistake twic- OUCH!"
+msgstr ""
+
+#: Items/SeaUrchin.tres
+msgid "I'm not actually sure what this does."
+msgstr ""
+
+#: Items/SeaUrchinPainful.tres
+msgid "I won't make the same mistake thri- ow..."
+msgstr ""
+
+#: Items/SeaUrchinPainful.tres
+msgid "I'm not actually sure what this does, but it can't be good."
+msgstr ""
+
+#: Items/SharpeningStone.tres
+msgid "Sharpening Stone"
+msgstr ""
+
+#: Items/SharpeningStone.tres
+msgid "How do you sharpen a wooden sword?"
+msgstr ""
+
+#: Items/SharpeningStone.tres
+msgid "On attack, 25% chance to deal damage again."
+msgstr ""
+
+#: Items/Splinter.tres
+msgid "Splinter"
+msgstr ""
+
+#: Items/Splinter.tres
+msgid "ow"
+msgstr ""
+
+#: Items/Splinter.tres
+msgid "Every enemy attack now does (1 * stack) more damage."
+msgstr ""
+
+#: Items/Whisk.tres
+msgid "Whisk"
+msgstr ""
+
+#: Items/Whisk.tres
+msgid "Shaking (stirring) things up!"
+msgstr ""
+
+#: Items/Whisk.tres
+msgid ""
+"On attack, damage is randomized between\n"
+"base attack and 50% of max health."
+msgstr ""
+
+#: Items/YeastSpore.tres
+msgid "Yeast Spore"
+msgstr ""
+
+#: Items/YeastSpore.tres
+msgid "Yeast Crawler egg... ugh"
+msgstr ""
+
+#: Items/YeastSpore.tres
+msgid "Resting now decreases defense duration."
+msgstr ""
+
+#: Dungeons/AbyssalDungeon.tres
+msgid "Abyssal Dungeon"
+msgstr ""
+
+#: Dungeons/AbyssalDungeon.tres
+msgid ""
+"This is it. The final challenge.\n"
+"\n"
+"200 rooms.\n"
+"Difficulty 1-20"
+msgstr ""
+
+#: Dungeons/CliffsideDungeon.tres
+msgid "Cliffside Dungeon"
+msgstr ""
+
+#: Dungeons/CliffsideDungeon.tres
+msgid ""
+"A nook carved into a cliffside that leads into a dungeon filled with all "
+"kinds of beasts.\n"
+"Please Midnight, learn the truth. You're the only one who can save us.\n"
+"\n"
+"300 rooms.\n"
+"Difficulty 1-30"
+msgstr ""
+
+#: Dungeons/DoughyAlcove.tres
+msgid "Doughy Alcove"
+msgstr ""
+
+#: Dungeons/DoughyAlcove.tres
+msgid ""
+"A ocean-facing segment of the Doughy Dungeon, covered in sand and small, "
+"parasitic insects.\n"
+"\n"
+"30 Rooms\n"
+"Difficulty 1-1"
+msgstr ""
+
+#: Dungeons/DoughyDungeon.tres
+msgid "Doughy Dungeon"
+msgstr ""
+
+#: Dungeons/DoughyDungeon.tres
+msgid ""
+"A dungeon comprised almost entirely out of doughy beasts and baking tools. "
+"I'd suggest eating before entering.\n"
+"\n"
+"100 Rooms\n"
+"Difficulty 1-10"
+msgstr ""
+
+#: Dungeons/MagmaticDungeon.tres
+msgid "Magmatic Dungeon"
+msgstr ""
+
+#: Dungeons/MagmaticDungeon.tres
+msgid ""
+"A dungeon located in the core of a volcano. The beasts who reside here are "
+"typically crystal and stone, as organic matter tends to... burn.\n"
+"\n"
+"150 Rooms\n"
+"Difficulty 1-15"
+msgstr ""
+
+#: Dungeons/OceanicDungeon.tres
+msgid "Oceanic Dungeon"
+msgstr ""
+
+#: Dungeons/OceanicDungeon.tres
+msgid ""
+"A dungeon located on the ocean floor. Many beasts hunt here, so be careful.\n"
+"\n"
+"50 Rooms\n"
+"Difficulty 1-5"
+msgstr ""
+
+#: EnemyData/Abyssal/AbyssLurker.tres
+msgid "Abyss Lurker"
+msgstr ""
+
+#: EnemyData/Abyssal/AbyssLurker.tres
+msgid ""
+"Human, beast, or something completely foreign? I can't tell and it's "
+"worrying."
+msgstr ""
+
+#: EnemyData/Doughy/BiscuitMimic2.tres EnemyData/Doughy/BiscuitMimic.tres
+msgid "Biscuit Mimic"
+msgstr ""
+
+#: EnemyData/Doughy/BiscuitMimic2.tres EnemyData/Doughy/BiscuitMimic.tres
+msgid "Once baked good turned monster."
+msgstr ""
+
+#: EnemyData/Doughy/Cake.tres
+msgid "Cake"
+msgstr ""
+
+#: EnemyData/Doughy/Cake.tres
+msgid "So many eyes... it's unnerving."
+msgstr ""
+
+#: EnemyData/Doughy/Dough.tres
+msgid "Dough"
+msgstr ""
+
+#: EnemyData/Doughy/Dough.tres
+msgid "The first step in the large world of baking."
+msgstr ""
+
+#: EnemyData/Doughy/Doughnut.tres
+msgid "Don't-Nut"
+msgstr ""
+
+#: EnemyData/Doughy/Doughnut.tres
+msgid "Seems happy to just be here."
+msgstr ""
+
+#: EnemyData/Doughy/HardTack.tres
+msgid "Hard Tack"
+msgstr ""
+
+#: EnemyData/Doughy/HardTack.tres
+msgid "..."
+msgstr ""
+
+#: EnemyData/Doughy/Loafer.tres
+msgid "Loafer"
+msgstr ""
+
+#: EnemyData/Doughy/Loafer.tres
+msgid "Would rather lay around than be here."
+msgstr ""
+
+#: EnemyData/Doughy/Oven.tres
+msgid "Oven"
+msgstr ""
+
+#: EnemyData/Doughy/Oven.tres
+msgid ""
+"Why is it called an oven when you \"of-in\"\n"
+"the cold food \"of-out-hot\" eat the food?"
+msgstr ""
+
+#: EnemyData/Doughy/PretzelSpider.tres
+msgid "Pretzel Spider"
+msgstr ""
+
+#: EnemyData/Doughy/PretzelSpider.tres
+msgid "Looks delicious... yet scary"
+msgstr ""
+
+#: EnemyData/Doughy/RollingPin.tres
+msgid "Rolling Pin"
+msgstr ""
+
+#: EnemyData/Doughy/RollingPin.tres
+msgid "It'll flatten you like dough."
+msgstr ""
+
+#: EnemyData/Doughy/YeastCrawler.tres
+msgid "Yeast Crawler"
+msgstr ""
+
+#: EnemyData/Doughy/YeastCrawler.tres
+msgid ""
+"The second step in the large\n"
+"world of bread making."
+msgstr ""
+
+#: EnemyData/Magmatic/Crystalis.tres
+msgid "Crystalis"
+msgstr ""
+
+#: EnemyData/Magmatic/Crystalis.tres
+msgid "A chrysalis housing a metamorphising crystal-pillar."
+msgstr ""
+
+#: EnemyData/Magmatic/GreaterStoneCritter.tres
+msgid "Greater Stone Critter"
+msgstr ""
+
+#: EnemyData/Magmatic/GreaterStoneCritter.tres
+msgid ""
+"A larger, tankier, stone critter. \n"
+"Protects the weak and young critters."
+msgstr ""
+
+#: EnemyData/Magmatic/LesserStoneCritter.tres
+msgid "Lesser Stone Critter"
+msgstr ""
+
+#: EnemyData/Magmatic/LesserStoneCritter.tres
+msgid ""
+"A smaller, weaker stone critter.\n"
+"Tends to cower away."
+msgstr ""
+
+#: EnemyData/Magmatic/MagmaBlob.tres
+msgid "Magma Blob"
+msgstr ""
+
+#: EnemyData/Magmatic/MagmaBlob.tres
+msgid "A beast made of pure magma. Scorching hot!"
+msgstr ""
+
+#: EnemyData/Magmatic/ParasiticStoneFish.tres
+msgid "Parasitic Stone Fish"
+msgstr ""
+
+#: EnemyData/Magmatic/ParasiticStoneFish.tres
+msgid ""
+"A fish that feeds off the body of a L. Stone Critter. \n"
+"The critter has since reclaimed its body."
+msgstr ""
+
+#: EnemyData/Oceanic/Anemone.tres
+msgid "Mimicry Anemone"
+msgstr ""
+
+#: EnemyData/Oceanic/Anemone.tres
+msgid "More interested in luring jellyfish to eat..."
+msgstr ""
+
+#: EnemyData/Oceanic/Barnacle.tres
+msgid "Barnacle Cannon"
+msgstr ""
+
+#: EnemyData/Oceanic/Barnacle.tres
+msgid "Fires acidic projectiles from its mouth, weak."
+msgstr ""
+
+#: EnemyData/Oceanic/GiantTubeWorm.tres
+msgid "Giant Tube Worms"
+msgstr ""
+
+#: EnemyData/Oceanic/GiantTubeWorm.tres
+msgid "Strange beasts, rising from the sand to feast."
+msgstr ""
+
+#: EnemyData/Oceanic/Jellyfish.tres
+msgid "Jellyfish"
+msgstr ""
+
+#: EnemyData/Oceanic/Jellyfish.tres
+msgid "Just floats around..."
+msgstr ""
+
+#: EnemyData/Oceanic/SandDollar.tres
+msgid "Sand Coin"
+msgstr ""
+
+#: EnemyData/Oceanic/SandDollar.tres
+msgid "Kinda looks like a coin!"
+msgstr ""
+
+#: EnemyData/Oceanic/SandShark.tres
+msgid "Sand Shark"
+msgstr ""
+
+#: EnemyData/Oceanic/SandShark.tres
+msgid "Awwwww- OWCH"
+msgstr ""
+
+#: EnemyData/Oceanic/SeaAngel.tres
+msgid "Sea Angel"
+msgstr ""
+
+#: EnemyData/Oceanic/SeaAngel.tres
+msgid "A seemingly innocent beast..."
+msgstr ""
+
+#: EnemyData/Oceanic/SeaBunny.tres
+msgid "Sea Bunny"
+msgstr ""
+
+#: EnemyData/Oceanic/SeaBunny.tres
+msgid "Awwwwwwww"
+msgstr ""
+
+#: EnemyData/Oceanic/Squid.tres
+msgid "Squid"
+msgstr ""
+
+#: EnemyData/Oceanic/Squid.tres
+msgid "Buries itself in the sand, waiting for prey to crawl in."
+msgstr ""
+
+#: EnemyData/Oceanic/StoneFish.tres
+msgid "Stone Fish"
+msgstr ""
+
+#: EnemyData/Oceanic/StoneFish.tres
+msgid "A beast made of fish and stone."
+msgstr ""
+
+#: Scenes/game.tscn
+msgid ""
+"UPGRADE\n"
+"[font size=\"8\"]Select one upgrade to apply.[/font]"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid ""
+"Health Upgrade:\n"
+"+5 max health."
+msgstr ""
+
+#: Scenes/game.tscn
+msgid ""
+"Stamina Upgrade:\n"
+"+2 max stamina."
+msgstr ""
+
+#: Scenes/game.tscn
+msgid ""
+"Attack Upgrade:\n"
+"+2 attack."
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "DUNGEON FAILED"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "CONTINUE"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "TRY AGAIN"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "ROOM REACHED: 50"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "MAX HEALTH: 10"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "MAX STAMINA: 10"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "ATTACK: 10"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "DAMAGE TAKEN: 10"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "ITEMS:"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "1"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "Proceed"
+msgstr ""
+
+#: Scenes/game_over.tscn
+msgid "[font size=\"50\"]GAME OVER[/font]"
+msgstr ""
+
+#: Scenes/game_over.tscn
+msgid "You reached: Room 50"
+msgstr ""
+
+#: Scenes/game_over.tscn
+msgid "TRY AGAIN?"
+msgstr ""
+
+#: Scenes/grounds_for_evil.tscn
+msgid ""
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why why why why why why why why why why "
+"why why why why why why why why why why"
+msgstr ""
+
+#: Scenes/grounds_for_evil.tscn
+msgid "evilgrounds"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "SETTINGS"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "General"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "GAME SPEED:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "NOTIF SIZE:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Audio"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "SFX VOLUME:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "MUSIC VOLUME:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Language"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Language:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Accessibility"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "KEYBINDS:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "KEYBINDS"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "KEYBIND HELPERS:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "DONE"
+msgstr ""
+
+msgid "Midnight Dungeons"
+msgstr ""

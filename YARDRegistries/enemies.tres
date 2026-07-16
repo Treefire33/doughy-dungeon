@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://ciuug0mv74ww7"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_2w38j"]
+
+[resource]
+script = ExtResource("1_2w38j")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([".tres"]),
+&"class_restrictions": Array[StringName]([&"\"res://Scripts/Enemy/enemy_data.gd\""]),
+&"recursive_scan": true,
+&"scan_directories": Array[String](["res://EnemyData"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://4t7tklgqjcs8": &"HardTack",
+&"uid://5fpxxrfff03d": &"MagmaBlob",
+&"uid://5qev5bx8khod": &"Cake",
+&"uid://8eevr4pkr5t8": &"Oven",
+&"uid://baw4p1ofsps4f": &"Loafer",
+&"uid://bkn4vhkfxsl1h": &"SeaAngel",
+&"uid://bl41so1um52lp": &"Dough",
+&"uid://c5ctnnjlicuo": &"SandShark",
+&"uid://c6jhgi8n2pv52": &"Anemone",
+&"uid://cm6le14a2ek4": &"ParasiticStoneFish",
+&"uid://cuo1o6sehbglr": &"Doughnut",
+&"uid://d0a2feappom8m": &"SeaBunny",
+&"uid://dfk4ejclh8201": &"BiscuitMimic2",
+&"uid://dhagtsmlg6sa6": &"LesserStoneCritter",
+&"uid://dke42syc18r32": &"Squid",
+&"uid://do8vv37hxwv51": &"StoneFish",
+&"uid://h1s3a5mrtlj0": &"GiantTubeWorm",
+&"uid://juaqlifaqeh0": &"Crystalis",
+&"uid://kxu6ocuaxqyo": &"GreaterStoneCritter",
+&"uid://nnc2x1sraaf6": &"Jellyfish",
+&"uid://nobxmi2c7hoc": &"BiscuitMimic",
+&"uid://sf4n37mdf7f0": &"AbyssLurker",
+&"uid://skuymh1v0uv0": &"PretzelSpider",
+&"uid://snjvycj8qcr2": &"Barnacle",
+&"uid://uqhd6obfjniv": &"RollingPin",
+&"uid://x04ox3nsp8al": &"SandDollar",
+&"uid://y63dw1wxsmi7": &"YeastCrawler"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"AbyssLurker": &"uid://sf4n37mdf7f0",
+&"Anemone": &"uid://c6jhgi8n2pv52",
+&"Barnacle": &"uid://snjvycj8qcr2",
+&"BiscuitMimic": &"uid://nobxmi2c7hoc",
+&"BiscuitMimic2": &"uid://dfk4ejclh8201",
+&"Cake": &"uid://5qev5bx8khod",
+&"Crystalis": &"uid://juaqlifaqeh0",
+&"Dough": &"uid://bl41so1um52lp",
+&"Doughnut": &"uid://cuo1o6sehbglr",
+&"GiantTubeWorm": &"uid://h1s3a5mrtlj0",
+&"GreaterStoneCritter": &"uid://kxu6ocuaxqyo",
+&"HardTack": &"uid://4t7tklgqjcs8",
+&"Jellyfish": &"uid://nnc2x1sraaf6",
+&"LesserStoneCritter": &"uid://dhagtsmlg6sa6",
+&"Loafer": &"uid://baw4p1ofsps4f",
+&"MagmaBlob": &"uid://5fpxxrfff03d",
+&"Oven": &"uid://8eevr4pkr5t8",
+&"ParasiticStoneFish": &"uid://cm6le14a2ek4",
+&"PretzelSpider": &"uid://skuymh1v0uv0",
+&"RollingPin": &"uid://uqhd6obfjniv",
+&"SandDollar": &"uid://x04ox3nsp8al",
+&"SandShark": &"uid://c5ctnnjlicuo",
+&"SeaAngel": &"uid://bkn4vhkfxsl1h",
+&"SeaBunny": &"uid://d0a2feappom8m",
+&"Squid": &"uid://dke42syc18r32",
+&"StoneFish": &"uid://do8vv37hxwv51",
+&"YeastCrawler": &"uid://y63dw1wxsmi7"
+})

@@ -88,27 +88,27 @@ layout_mode = 0
 offset_left = 300.0
 offset_top = 236.0
 offset_right = 500.0
-offset_bottom = 446.0
+offset_bottom = 430.0
 
 [node name="Start" type="Button" parent="UI/MenuButtons" unique_id=1652083389]
-custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+size_flags_vertical = 3
 focus_next = NodePath("../Options")
 focus_previous = NodePath("../Quit")
 theme = ExtResource("4_twnyg")
 text = "START"
 
 [node name="Options" type="Button" parent="UI/MenuButtons" unique_id=1487156059]
-custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+size_flags_vertical = 3
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Start")
 theme = ExtResource("4_twnyg")
 text = "OPTIONS"
 
 [node name="Quit" type="Button" parent="UI/MenuButtons" unique_id=895516745]
-custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+size_flags_vertical = 3
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Options")
 theme = ExtResource("4_twnyg")
@@ -117,13 +117,13 @@ text = "QUIT"
 [node name="StatusLabel" type="RichTextLabel" parent="UI" unique_id=1431096887]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.36400002
-anchor_top = 0.45100003
-anchor_right = 0.63000005
+anchor_left = 0.25
+anchor_top = 0.462
+anchor_right = 0.75000006
 anchor_bottom = 0.5
-offset_left = -0.2000122
-offset_top = 0.049987793
-offset_right = -3.0517578e-05
+offset_top = 0.099990845
+offset_right = -0.00012207031
+offset_bottom = -1.0
 text = "DUNGEON DEMO"
 horizontal_alignment = 1
 vertical_alignment = 1

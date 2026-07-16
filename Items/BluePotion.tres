@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cjecp2mlrlyge"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_crjcn"]
+[ext_resource type="Script" uid="uid://22eoocl70s1" path="res://Items/Functions/BluePotionFunction.gd" id="1_ymsjn"]
+[ext_resource type="Texture2D" uid="uid://duw6twapubfgm" path="res://Sprites/Items/BluePotion.tres" id="2_crjcn"]
+
+[resource]
+script = ExtResource("1_crjcn")
+name = "Blue Potion"
+flavour_text = "Inspiring!"
+description = "Increases Shield Spell duration by 1 turn."
+price = 75
+sprite = ExtResource("2_crjcn")
+weight = 8.0
+function = ExtResource("1_ymsjn")
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

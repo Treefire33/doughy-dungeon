@@ -13,7 +13,7 @@ border_color = Color(1, 1, 1, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[node name="SettingsMenu" type="Control" unique_id=1581669506]
+[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "keybinds_button", "settings_done")]
 z_index = 15
 layout_mode = 3
 anchor_left = 0.156
@@ -25,6 +25,15 @@ offset_top = 0.0499954
 offset_right = -0.200012
 offset_bottom = -0.100037
 script = ExtResource("1_437ti")
+game_speed = NodePath("SettingsContainer/General/Margin/Settings/GameSpeed/Value")
+notif_size = NodePath("SettingsContainer/General/Margin/Settings/NotificationSize/Value")
+fullscreen_button = NodePath("SettingsContainer/General/Margin/Settings/Fullscreen/Value")
+audio_volume = NodePath("SettingsContainer/Audio/Margin/Settings/AudioVolume/Value")
+music_volume = NodePath("SettingsContainer/Audio/Margin/Settings/MusicVolume/Value")
+language_dropdown = NodePath("SettingsContainer/Language/Margin/Settings/Language/Value")
+keybind_helpers = NodePath("SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers/Value")
+keybinds_button = NodePath("SettingsContainer/Accessibility/Margin/Settings/Keybinds/Value")
+settings_done = NodePath("Done")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1926411095]
 layout_mode = 1
@@ -71,16 +80,28 @@ offset_right = -0.25
 offset_bottom = -0.099990845
 current_tab = 0
 
-[node name="General" type="VBoxContainer" parent="SettingsContainer" unique_id=289488908]
+[node name="General" type="Control" parent="SettingsContainer" unique_id=710312207]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="GameSpeed" type="HBoxContainer" parent="SettingsContainer/General" unique_id=1772438004]
+[node name="Margin" type="MarginContainer" parent="SettingsContainer/General" unique_id=1076234691]
+layout_mode = 0
+offset_right = 519.0
+offset_bottom = 32.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Settings" type="VBoxContainer" parent="SettingsContainer/General/Margin" unique_id=418371103]
+layout_mode = 2
+
+[node name="GameSpeed" type="HBoxContainer" parent="SettingsContainer/General/Margin/Settings" unique_id=1772438004]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/GameSpeed" unique_id=2076962728]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/Margin/Settings/GameSpeed" unique_id=2076962728]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -89,7 +110,7 @@ theme_override_font_sizes/normal_font_size = 12
 text = "GAME SPEED:"
 vertical_alignment = 1
 
-[node name="Value" type="SpinBox" parent="SettingsContainer/General/GameSpeed" unique_id=672296689]
+[node name="Value" type="SpinBox" parent="SettingsContainer/General/Margin/Settings/GameSpeed" unique_id=672296689]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
@@ -100,58 +121,12 @@ value = 1.0
 alignment = 1
 update_on_text_changed = true
 
-[node name="AudioVolume" type="HBoxContainer" parent="SettingsContainer/General" unique_id=467493214]
+[node name="NotificationSize" type="HBoxContainer" parent="SettingsContainer/General/Margin/Settings" unique_id=1138478948]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/AudioVolume" unique_id=837998163]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.75
-theme = ExtResource("1_un4yt")
-theme_override_font_sizes/normal_font_size = 12
-text = "SFX VOLUME:"
-vertical_alignment = 1
-
-[node name="Value" type="HSlider" parent="SettingsContainer/General/AudioVolume" unique_id=399542660]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="MusicVolume" type="HBoxContainer" parent="SettingsContainer/General" unique_id=1901642795]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/MusicVolume" unique_id=1368366539]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.75
-theme = ExtResource("1_un4yt")
-theme_override_font_sizes/normal_font_size = 12
-text = "MUSIC VOLUME:"
-vertical_alignment = 1
-
-[node name="Value" type="HSlider" parent="SettingsContainer/General/MusicVolume" unique_id=876806778]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
-max_value = 1.0
-step = 0.01
-value = 1.0
-
-[node name="NotificationSize" type="HBoxContainer" parent="SettingsContainer/General" unique_id=1138478948]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/NotificationSize" unique_id=3644210]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/Margin/Settings/NotificationSize" unique_id=3644210]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -160,7 +135,7 @@ theme_override_font_sizes/normal_font_size = 12
 text = "NOTIF SIZE:"
 vertical_alignment = 1
 
-[node name="Value" type="SpinBox" parent="SettingsContainer/General/NotificationSize" unique_id=1741735510]
+[node name="Value" type="SpinBox" parent="SettingsContainer/General/Margin/Settings/NotificationSize" unique_id=1741735510]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
@@ -170,33 +145,154 @@ value = 8.0
 alignment = 1
 update_on_text_changed = true
 
-[node name="KeybindHelpers" type="HBoxContainer" parent="SettingsContainer/General" unique_id=25539526]
+[node name="Fullscreen" type="HBoxContainer" parent="SettingsContainer/General/Margin/Settings" unique_id=1221498151]
+custom_maximum_size = Vector2(-1, 16)
+propagate_maximum_size = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/KeybindHelpers" unique_id=1974593795]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/Margin/Settings/Fullscreen" unique_id=322144940]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 theme = ExtResource("1_un4yt")
 theme_override_font_sizes/normal_font_size = 12
-text = "KEYBIND HELPERS:"
+text = "FULLSCREEN:"
 vertical_alignment = 1
 
-[node name="Value" type="CheckBox" parent="SettingsContainer/General/KeybindHelpers" unique_id=1074093692]
+[node name="Value" type="CheckBox" parent="SettingsContainer/General/Margin/Settings/Fullscreen" unique_id=1406612241]
+custom_maximum_size = Vector2(16, 16)
 layout_mode = 2
-size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
-text = "TOGGLE"
+button_pressed = true
 alignment = 1
 
-[node name="Keybinds" type="HBoxContainer" parent="SettingsContainer/General" unique_id=26668412]
+[node name="Audio" type="Control" parent="SettingsContainer" unique_id=663247716]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Margin" type="MarginContainer" parent="SettingsContainer/Audio" unique_id=781472898]
+layout_mode = 0
+offset_right = 519.0
+offset_bottom = 44.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Settings" type="VBoxContainer" parent="SettingsContainer/Audio/Margin" unique_id=1670453539]
+layout_mode = 2
+
+[node name="AudioVolume" type="HBoxContainer" parent="SettingsContainer/Audio/Margin/Settings" unique_id=467493214]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/Keybinds" unique_id=809363023]
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Audio/Margin/Settings/AudioVolume" unique_id=837998163]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "SFX VOLUME:"
+vertical_alignment = 1
+
+[node name="Value" type="HSlider" parent="SettingsContainer/Audio/Margin/Settings/AudioVolume" unique_id=399542660]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="SettingsContainer/Audio/Margin/Settings" unique_id=1901642795]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Audio/Margin/Settings/MusicVolume" unique_id=1368366539]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "MUSIC VOLUME:"
+vertical_alignment = 1
+
+[node name="Value" type="HSlider" parent="SettingsContainer/Audio/Margin/Settings/MusicVolume" unique_id=876806778]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_55kwv")
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="Language" type="Control" parent="SettingsContainer" unique_id=711755611]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Margin" type="MarginContainer" parent="SettingsContainer/Language" unique_id=1269272663]
+layout_mode = 0
+offset_right = 519.0
+offset_bottom = 24.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Settings" type="VBoxContainer" parent="SettingsContainer/Language/Margin" unique_id=811328399]
+layout_mode = 2
+
+[node name="Language" type="HBoxContainer" parent="SettingsContainer/Language/Margin/Settings" unique_id=1753061981]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Language/Margin/Settings/Language" unique_id=247338605]
+custom_minimum_size = Vector2(217, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "Language:"
+vertical_alignment = 1
+
+[node name="Value" type="OptionButton" parent="SettingsContainer/Language/Margin/Settings/Language" unique_id=1094517065]
+custom_maximum_size = Vector2(290, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_un4yt")
+allow_reselect = true
+
+[node name="Accessibility" type="Control" parent="SettingsContainer" unique_id=2076578314]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Margin" type="MarginContainer" parent="SettingsContainer/Accessibility" unique_id=303420544]
+layout_mode = 0
+offset_right = 519.0
+offset_bottom = 48.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Settings" type="VBoxContainer" parent="SettingsContainer/Accessibility/Margin" unique_id=58075526]
+layout_mode = 2
+
+[node name="Keybinds" type="HBoxContainer" parent="SettingsContainer/Accessibility/Margin/Settings" unique_id=26668412]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Accessibility/Margin/Settings/Keybinds" unique_id=809363023]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
@@ -205,11 +301,34 @@ theme_override_font_sizes/normal_font_size = 12
 text = "KEYBINDS:"
 vertical_alignment = 1
 
-[node name="Value" type="Button" parent="SettingsContainer/General/Keybinds" unique_id=2043108459]
+[node name="Value" type="Button" parent="SettingsContainer/Accessibility/Margin/Settings/Keybinds" unique_id=2043108459]
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_un4yt")
 text = "KEYBINDS"
+
+[node name="KeybindHelpers" type="HBoxContainer" parent="SettingsContainer/Accessibility/Margin/Settings" unique_id=25539526]
+custom_maximum_size = Vector2(-1, 16)
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers" unique_id=1974593795]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "KEYBIND HELPERS:"
+vertical_alignment = 1
+
+[node name="Value" type="CheckBox" parent="SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers" unique_id=1074093692]
+custom_maximum_size = Vector2(16, 16)
+layout_mode = 2
+theme = ExtResource("1_un4yt")
+button_pressed = true
+alignment = 1
 
 [node name="Done" type="Button" parent="." unique_id=1791709479]
 layout_mode = 1

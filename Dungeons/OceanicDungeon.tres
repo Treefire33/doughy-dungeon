@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://bkn4vhkfxsl1h" path="res://EnemyData/Oceanic/SeaAngel.tres" id="3_gcidq"]
 [ext_resource type="Resource" uid="uid://h1s3a5mrtlj0" path="res://EnemyData/Oceanic/GiantTubeWorm.tres" id="4_ar2tq"]
 [ext_resource type="Resource" uid="uid://snjvycj8qcr2" path="res://EnemyData/Oceanic/Barnacle.tres" id="5_gcidq"]
-[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="6_kqfiu"]
 [ext_resource type="Resource" uid="uid://d0a2feappom8m" path="res://EnemyData/Oceanic/SeaBunny.tres" id="6_ys1w1"]
 [ext_resource type="Resource" uid="uid://c6jhgi8n2pv52" path="res://EnemyData/Oceanic/Anemone.tres" id="7_knl70"]
 [ext_resource type="Resource" uid="uid://x04ox3nsp8al" path="res://EnemyData/Oceanic/SandDollar.tres" id="8_1nog7"]
@@ -20,7 +19,7 @@
 
 [resource]
 script = ExtResource("10_ys1w1")
-id = 1
+id = 2
 name = "Oceanic Dungeon"
 enemies = Array[ExtResource("1_a74m2")]([ExtResource("2_cfuis"), ExtResource("3_gcidq"), ExtResource("4_ar2tq"), ExtResource("5_gcidq"), ExtResource("6_ys1w1"), ExtResource("7_knl70"), ExtResource("8_1nog7"), ExtResource("9_f6ojf"), ExtResource("10_jeomi"), ExtResource("11_f7sna")])
 wall_texture = ExtResource("27_4yyok")

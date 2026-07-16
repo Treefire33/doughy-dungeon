@@ -1,11 +1,10 @@
 extends Resource
 class_name DungeonData
 
-@export var id: int;
+@export var id: Enum.Dungeon;
 @export var name: String;
 @export var enemies: Array[EnemyData] = [];
 @export var rooms: Array[RoomData] = [];
-@export var items: Array[String] = [];
 @export var wall_texture: Texture;
 @export var floor_texture: Texture;
 

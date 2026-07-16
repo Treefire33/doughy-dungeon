@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://cy3q7lddy20iq"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_r5k3j"]
+
+[resource]
+script = ExtResource("1_r5k3j")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([".tres"]),
+&"class_restrictions": Array[StringName]([&"\"res://Scripts/Items/item_data.gd\""]),
+&"recursive_scan": true,
+&"scan_directories": Array[String](["res://Items"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://3qr4lecxqca7": &"FadedNegative",
+&"uid://762xxggpwrrf": &"PeaceCharm",
+&"uid://b0mkdit6rebvk": &"Splinter",
+&"uid://b4mwhluiuvw3s": &"LooseFang",
+&"uid://bjksahff30una": &"CloutiumPipe",
+&"uid://bm7xicdrdhcew": &"SeaUrchin",
+&"uid://brgpd8v22l20t": &"DurabilityScroll",
+&"uid://bvicfvgmyrrlm": &"Coffee",
+&"uid://c3q126ueqif87": &"DaggerHeart",
+&"uid://c7gwha53cxrx1": &"GoldenHeart",
+&"uid://caooq7deh85j5": &"GuildBanner",
+&"uid://ccmau13wpcvhi": &"OvenMitt",
+&"uid://cf140fl7bb7ty": &"SeaUrchinPainful",
+&"uid://cjecp2mlrlyge": &"BluePotion",
+&"uid://cmedwe71s8yeb": &"LovelyHeart",
+&"uid://cms721rjrf1w1": &"RedPotion",
+&"uid://cr4shqx1wlda5": &"Bubbles",
+&"uid://cs3ica8c6du4g": &"Matchstick",
+&"uid://cwcjc2ts7fq2j": &"GoldAmulet",
+&"uid://dcsjhxtiqj382": &"AbyssHeart",
+&"uid://dj5u6knknhfxk": &"Nail",
+&"uid://dn6m0afrnem0x": &"GraffitiHeart",
+&"uid://dp84m7pjrfbt4": &"AbyssFragment",
+&"uid://dtc0tkv7swm8o": &"CoralTubes",
+&"uid://dy35clpb4fqt7": &"YeastSpore",
+&"uid://dy7t51qnxnbs8": &"Pillow",
+&"uid://dyvhn4yb0tlol": &"IvoryKey",
+&"uid://gl0847m0fkcn": &"Whisk",
+&"uid://jyw5mbmwm7jm": &"SharpeningStone"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"AbyssFragment": &"uid://dp84m7pjrfbt4",
+&"AbyssHeart": &"uid://dcsjhxtiqj382",
+&"BluePotion": &"uid://cjecp2mlrlyge",
+&"Bubbles": &"uid://cr4shqx1wlda5",
+&"CloutiumPipe": &"uid://bjksahff30una",
+&"Coffee": &"uid://bvicfvgmyrrlm",
+&"CoralTubes": &"uid://dtc0tkv7swm8o",
+&"DaggerHeart": &"uid://c3q126ueqif87",
+&"DurabilityScroll": &"uid://brgpd8v22l20t",
+&"FadedNegative": &"uid://3qr4lecxqca7",
+&"GoldAmulet": &"uid://cwcjc2ts7fq2j",
+&"GoldenHeart": &"uid://c7gwha53cxrx1",
+&"GraffitiHeart": &"uid://dn6m0afrnem0x",
+&"GuildBanner": &"uid://caooq7deh85j5",
+&"IvoryKey": &"uid://dyvhn4yb0tlol",
+&"LooseFang": &"uid://b4mwhluiuvw3s",
+&"LovelyHeart": &"uid://cmedwe71s8yeb",
+&"Matchstick": &"uid://cs3ica8c6du4g",
+&"Nail": &"uid://dj5u6knknhfxk",
+&"OvenMitt": &"uid://ccmau13wpcvhi",
+&"PeaceCharm": &"uid://762xxggpwrrf",
+&"Pillow": &"uid://dy7t51qnxnbs8",
+&"RedPotion": &"uid://cms721rjrf1w1",
+&"SeaUrchin": &"uid://bm7xicdrdhcew",
+&"SeaUrchinPainful": &"uid://cf140fl7bb7ty",
+&"SharpeningStone": &"uid://jyw5mbmwm7jm",
+&"Splinter": &"uid://b0mkdit6rebvk",
+&"Whisk": &"uid://gl0847m0fkcn",
+&"YeastSpore": &"uid://dy35clpb4fqt7"
+})

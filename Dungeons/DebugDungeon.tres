@@ -23,14 +23,12 @@
 [ext_resource type="Resource" uid="uid://dfk4ejclh8201" path="res://EnemyData/Doughy/BiscuitMimic2.tres" id="20_p6m8q"]
 [ext_resource type="Resource" uid="uid://skuymh1v0uv0" path="res://EnemyData/Doughy/PretzelSpider.tres" id="21_p2bh3"]
 [ext_resource type="Resource" uid="uid://h1s3a5mrtlj0" path="res://EnemyData/Oceanic/GiantTubeWorm.tres" id="22_uols4"]
-[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="24_icv46"]
 [ext_resource type="Texture2D" uid="uid://d4embdhxbrn06" path="res://Sprites/Tiles/DungeonTiles/DoughyWall.tres" id="28_65gm7"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="46_ba050"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="46_yu3ei"]
 
 [resource]
 script = ExtResource("46_ba050")
-id = -2
 name = "Debug Dungeon"
 enemies = Array[ExtResource("1_f5ab6")]([ExtResource("2_yu3ei"), ExtResource("3_i474w"), ExtResource("4_acybn"), ExtResource("5_ecgc2"), ExtResource("6_4tgwg"), ExtResource("7_6qj7s"), ExtResource("8_ufmyb"), ExtResource("9_xcsto"), ExtResource("10_ruvvc"), ExtResource("11_tdrp3"), ExtResource("12_lhljx"), ExtResource("13_5jq6k"), ExtResource("14_v7v84"), ExtResource("15_73xxs"), ExtResource("16_aft65"), ExtResource("17_mjg4v"), ExtResource("18_d7ypx"), ExtResource("19_r65gt"), ExtResource("20_p6m8q"), ExtResource("21_p2bh3"), ExtResource("22_uols4")])
 wall_texture = ExtResource("28_65gm7")

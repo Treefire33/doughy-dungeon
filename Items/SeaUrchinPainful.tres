@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cf140fl7bb7ty"]
+
+[ext_resource type="Script" uid="uid://bmxohknilg8ok" path="res://Items/PainfulFunctions/SeaUrchinPainfulFunction.gd" id="1_an6yx"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_g62gw"]
+[ext_resource type="Texture2D" uid="uid://bjk71eginobqg" path="res://Sprites/Items/SeaUrchin.tres" id="3_dvsh1"]
+
+[resource]
+script = ExtResource("2_g62gw")
+name = "Urchin"
+flavour_text = "I won't make the same mistake thri- ow..."
+description = "I'm not actually sure what this does, but it can't be good."
+price = -25
+sprite = ExtResource("3_dvsh1")
+weight = 1.0
+function = ExtResource("1_an6yx")
+unique_stacking = true
+painful = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

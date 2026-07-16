@@ -13,7 +13,7 @@ var text: String = "":
 
 var default_line_size: int = 12;
 var padding: Vector2 = Vector2(32, 32);
-var max_size: Vector2i = Vector2i(250, 200);
+var max_size: Vector2i = Vector2i(250, 300);
 var locked: bool = false;
 
 @onready var text_container: VBoxContainer = $Margin/TextContainer;
@@ -35,7 +35,7 @@ func _process_text(text: String) -> Array:
             if (i >= text.length() || text[i + 1] != "s"):
                 final_text += text[i];
                 i += 1;
-                continue ;
+                continue;
             i += 3; # should skip over [s=
             var size_text: String = "";
             while (text[i].is_valid_int()):
@@ -43,7 +43,7 @@ func _process_text(text: String) -> Array:
                 i += 1;
             detected_size = int(size_text);
             i += 1; # skips over ]
-            continue ;
+            continue;
         
         final_text += text[i];
         i += 1;

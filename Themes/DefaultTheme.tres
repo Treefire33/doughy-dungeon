@@ -1,5 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://mmdyi7frxt4n"]
 
+[ext_resource type="Texture2D" uid="uid://yuhn3pqi5gav" path="res://Sprites/Other/checkmark.aseprite" id="1_2ccob"]
 [ext_resource type="Texture2D" uid="uid://d0hoyd24xr65f" path="res://Sprites/Other/SliderGrabberMeshTexture.tres" id="1_ko64t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpvoi"]
@@ -42,6 +43,20 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hvsms"]
+size = Vector2(0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7c3mr"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ccob"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avwua"]
 bg_color = Color(1, 1, 1, 1)
 corner_detail = 1
@@ -59,6 +74,42 @@ anti_aliasing = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hevoe"]
 bg_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7288i"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8k4y"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14jnw"]
+bg_color = Color(0.11764706, 0.11764706, 0.11764706, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eevlq"]
 bg_color = Color(0, 0, 0, 1)
 border_width_left = 2
@@ -67,10 +118,52 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kaug1"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpvoi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ko64t"]
 bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_msoka"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lm8t5"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u2i3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8mikk"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+expand_margin_right = 2.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5u8pc"]
 bg_color = Color(1, 1, 1, 1)
@@ -110,6 +203,13 @@ Button/styles/focus = SubResource("StyleBoxFlat_q4vyd")
 Button/styles/hover = SubResource("StyleBoxFlat_wn4m6")
 Button/styles/normal = SubResource("StyleBoxFlat_2ccob")
 Button/styles/pressed = SubResource("StyleBoxFlat_rk5vj")
+CheckBox/constants/align_to_largest_stylebox = 1
+CheckBox/font_sizes/font_size = 12
+CheckBox/icons/checked = ExtResource("1_2ccob")
+CheckBox/icons/unchecked = SubResource("PlaceholderTexture2D_hvsms")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_7c3mr")
+CheckBox/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2ccob")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_7c3mr")
 HSlider/constants/center_grabber = 1
 HSlider/icons/grabber = ExtResource("1_ko64t")
 HSlider/icons/grabber_disabled = ExtResource("1_ko64t")
@@ -117,13 +217,26 @@ HSlider/icons/grabber_highlight = ExtResource("1_ko64t")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_avwua")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_sts5i")
 HSlider/styles/slider = SubResource("StyleBoxFlat_hevoe")
+OptionButton/font_sizes/font_size = 12
+OptionButton/styles/hover = SubResource("StyleBoxFlat_7288i")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_l8k4y")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_14jnw")
 Panel/styles/panel = SubResource("StyleBoxFlat_eevlq")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_eevlq")
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_7288i")
+PopupMenu/styles/separator = SubResource("StyleBoxLine_kaug1")
 ProgressBar/styles/background = SubResource("StyleBoxEmpty_bpvoi")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ko64t")
 SpinBox/constants/buttons_width = 32
+TabContainer/colors/font_unselected_color = Color(1, 1, 1, 1)
 TabContainer/constants/side_margin = 0
+TabContainer/constants/tab_separation = 4
 TabContainer/font_sizes/font_size = 12
+TabContainer/styles/panel = SubResource("StyleBoxFlat_msoka")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_lm8t5")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_6u2i3")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_8mikk")
 TooltipLabel/colors/font_color = Color(1, 1, 1, 1)
 TooltipPanel/styles/embedded_border = SubResource("StyleBoxFlat_5u8pc")
 TooltipPanel/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_p0un0")

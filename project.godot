@@ -32,7 +32,6 @@ import/import_plugin/default_automatic_importer="Static Texture"
 
 [autoload]
 
-DiscordRPCLoader="*uid://e04bunvxq4xe"
 ToastParty="*uid://buwed4tb4brns"
 debug_console="*uid://bcs4bvx7fi2hm"
 Enum="*res://Scripts/AutoLoad/enums.gd"
@@ -54,7 +53,7 @@ gdscript/warnings/shadowed_variable_base_class=0
 
 window/size/viewport_width=800
 window/size/viewport_height=450
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://ler003tb368l"
 
@@ -64,7 +63,7 @@ project/assembly_name="MidnightDungeons"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/discord-rpc-gd/plugin.cfg", "res://addons/toastparty/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/midnight_resource_translator/plugin.cfg", "res://addons/toastparty/plugin.cfg", "res://addons/yard/plugin.cfg")
 
 [file_customization]
 
@@ -81,7 +80,8 @@ folder_colors={
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
 "res://Sprites/": "green",
-"res://Themes/": "gray"
+"res://Themes/": "gray",
+"res://YARDRegistries/": "teal"
 }
 
 [gui]
@@ -156,9 +156,9 @@ toggle_debug={
 [internationalization]
 
 locale/translation_remaps={}
-locale/translations=PackedStringArray("res://Locale/en_CA/en_CA.mo")
-locale/translations_pot_files=PackedStringArray("res://Items/AbyssFragment.gd", "res://Items/AbyssHeart.gd", "res://Items/BluePotion.gd", "res://Items/Bubbles.gd", "res://Items/CloutiumPipe.gd", "res://Items/Coffee.gd", "res://Items/CoralTubes.gd", "res://Items/DaggerHeart.gd", "res://Items/DurabilityScroll.gd", "res://Items/FadedNegative.gd", "res://Items/GoldAmulet.gd", "res://Items/GoldenHeart.gd", "res://Items/GraffitiHeart.gd", "res://Items/GuildBanner.gd", "res://Items/IvoryKey.gd", "res://Items/LooseFang.gd", "res://Items/LovelyHeart.gd", "res://Items/Matchstick.gd", "res://Items/Nail.gd", "res://Items/OvenMitt.gd", "res://Items/PeaceCharm.gd", "res://Items/Pillow.gd", "res://Items/RedPotion.gd", "res://Items/SeaUrchin.gd", "res://Items/SeaUrchinPainful.gd", "res://Items/SharpeningStone.gd", "res://Items/Splinter.gd", "res://Items/TarotOne.gd", "res://Items/TarotTwo.gd", "res://Items/Whisk.gd", "res://Items/YeastSpore.gd")
-locale/test="en_CA"
+locale/translations=PackedStringArray("res://Locale/en_US/en_US.po")
+locale/translations_pot_files=PackedStringArray("res://Items/AbyssFragment.tres", "res://Items/AbyssHeart.tres", "res://Items/BluePotion.tres", "res://Items/Bubbles.tres", "res://Items/CloutiumPipe.tres", "res://Items/Coffee.tres", "res://Items/CoralTubes.tres", "res://Items/DaggerHeart.tres", "res://Items/DurabilityScroll.tres", "res://Items/FadedNegative.tres", "res://Items/GoldAmulet.tres", "res://Items/GoldenHeart.tres", "res://Items/GraffitiHeart.tres", "res://Items/GuildBanner.tres", "res://Items/IvoryKey.tres", "res://Items/LooseFang.tres", "res://Items/LovelyHeart.tres", "res://Items/Matchstick.tres", "res://Items/Nail.tres", "res://Items/OvenMitt.tres", "res://Items/PeaceCharm.tres", "res://Items/Pillow.tres", "res://Items/RedPotion.tres", "res://Items/SeaUrchin.tres", "res://Items/SeaUrchinPainful.tres", "res://Items/SharpeningStone.tres", "res://Items/Splinter.tres", "res://Items/Whisk.tres", "res://Items/YeastSpore.tres", "res://Dungeons/AbyssalDungeon.tres", "res://Dungeons/CliffsideDungeon.tres", "res://Dungeons/DoughyAlcove.tres", "res://Dungeons/DoughyDungeon.tres", "res://Dungeons/MagmaticDungeon.tres", "res://Dungeons/OceanicDungeon.tres", "res://EnemyData/Abyssal/AbyssLurker.tres", "res://EnemyData/Doughy/BiscuitMimic2.tres", "res://EnemyData/Doughy/BiscuitMimic.tres", "res://EnemyData/Doughy/Cake.tres", "res://EnemyData/Doughy/Dough.tres", "res://EnemyData/Doughy/Doughnut.tres", "res://EnemyData/Doughy/HardTack.tres", "res://EnemyData/Doughy/Loafer.tres", "res://EnemyData/Doughy/Oven.tres", "res://EnemyData/Doughy/PretzelSpider.tres", "res://EnemyData/Doughy/RollingPin.tres", "res://EnemyData/Doughy/YeastCrawler.tres", "res://EnemyData/Magmatic/Crystalis.tres", "res://EnemyData/Magmatic/GreaterStoneCritter.tres", "res://EnemyData/Magmatic/LesserStoneCritter.tres", "res://EnemyData/Magmatic/MagmaBlob.tres", "res://EnemyData/Magmatic/ParasiticStoneFish.tres", "res://EnemyData/Oceanic/Anemone.tres", "res://EnemyData/Oceanic/Barnacle.tres", "res://EnemyData/Oceanic/GiantTubeWorm.tres", "res://EnemyData/Oceanic/Jellyfish.tres", "res://EnemyData/Oceanic/SandDollar.tres", "res://EnemyData/Oceanic/SandShark.tres", "res://EnemyData/Oceanic/SeaAngel.tres", "res://EnemyData/Oceanic/SeaBunny.tres", "res://EnemyData/Oceanic/Squid.tres", "res://EnemyData/Oceanic/StoneFish.tres", "res://Scenes/game.tscn", "res://Scenes/game_over.tscn", "res://Scenes/grounds_for_evil.tscn", "res://Scenes/Menus/SettingsMenu/settings_menu.tscn")
+locale/fallback="en_US"
 locale/locale_filter_mode=0
 
 [rendering]

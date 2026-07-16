@@ -3,14 +3,13 @@
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_u2tlb"]
 [ext_resource type="Texture2D" uid="uid://cuaq11ljqcmqg" path="res://Sprites/Tiles/DungeonTiles/AbyssalFloor.tres" id="2_u2tlb"]
 [ext_resource type="Resource" uid="uid://sf4n37mdf7f0" path="res://EnemyData/Abyssal/AbyssLurker.tres" id="2_xndj2"]
-[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="4_bdtq6"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="8_u2tlb"]
 [ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="9_1648l"]
 [ext_resource type="Texture2D" uid="uid://dp672erbb2bok" path="res://Sprites/Tiles/DungeonTiles/AbyssalWall.tres" id="10_ilo2m"]
 
 [resource]
 script = ExtResource("9_1648l")
-id = 4
+id = 5
 name = "Abyssal Dungeon"
 enemies = Array[ExtResource("1_u2tlb")]([ExtResource("2_xndj2")])
 wall_texture = ExtResource("10_ilo2m")

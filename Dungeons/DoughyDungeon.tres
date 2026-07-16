@@ -13,13 +13,12 @@
 [ext_resource type="Resource" uid="uid://skuymh1v0uv0" path="res://EnemyData/Doughy/PretzelSpider.tres" id="10_6hjup"]
 [ext_resource type="Resource" uid="uid://uqhd6obfjniv" path="res://EnemyData/Doughy/RollingPin.tres" id="11_8icql"]
 [ext_resource type="Texture2D" uid="uid://7c3camomb7u7" path="res://Sprites/Tiles/DungeonTiles/DoughyFloor.tres" id="12_g2dxu"]
-[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="13_4qdos"]
 [ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="26_g2dxu"]
 [ext_resource type="Texture2D" uid="uid://d4embdhxbrn06" path="res://Sprites/Tiles/DungeonTiles/DoughyWall.tres" id="28_4sgh7"]
 
 [resource]
 script = ExtResource("2_1q3vg")
-id = 2
+id = 3
 name = "Doughy Dungeon"
 enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_164du"), ExtResource("3_g2dxu"), ExtResource("4_4sgh7"), ExtResource("5_cpyly"), ExtResource("6_6g7lf"), ExtResource("7_6gdni"), ExtResource("8_bdgk8"), ExtResource("9_7lnde"), ExtResource("10_6hjup"), ExtResource("11_8icql")])
 wall_texture = ExtResource("28_4sgh7")
