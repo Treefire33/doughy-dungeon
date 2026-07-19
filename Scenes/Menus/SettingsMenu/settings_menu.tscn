@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://dmjvxujvl2nkc"]
 
 [ext_resource type="Script" uid="uid://bekqcpen8mmqh" path="res://Scenes/Menus/SettingsMenu/settings_menu.gd" id="1_437ti"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="1_un4yt"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="1_un4yt"]
+[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="3_7f7if"]
+[ext_resource type="Script" uid="uid://c7c45m1uucjsc" path="res://Scripts/UI/midnight_checkbox.gd" id="3_v1a1j"]
+[ext_resource type="Texture2D" uid="uid://yuhn3pqi5gav" path="res://Sprites/Other/checkmark.aseprite" id="4_o0qv1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55kwv"]
 bg_color = Color(0, 0, 0, 1)
@@ -13,7 +16,8 @@ border_color = Color(1, 1, 1, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "keybinds_button", "settings_done")]
+[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "helper_aligment", "keybinds_button", "settings_done")]
+process_mode = 3
 z_index = 15
 layout_mode = 3
 anchor_left = 0.156
@@ -32,6 +36,7 @@ audio_volume = NodePath("SettingsContainer/Audio/Margin/Settings/AudioVolume/Val
 music_volume = NodePath("SettingsContainer/Audio/Margin/Settings/MusicVolume/Value")
 language_dropdown = NodePath("SettingsContainer/Language/Margin/Settings/Language/Value")
 keybind_helpers = NodePath("SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers/Value")
+helper_aligment = NodePath("SettingsContainer/Accessibility/Margin/Settings/HelperAlignment/Value")
 keybinds_button = NodePath("SettingsContainer/Accessibility/Margin/Settings/Keybinds/Value")
 settings_done = NodePath("Done")
 
@@ -110,6 +115,11 @@ theme_override_font_sizes/normal_font_size = 12
 text = "GAME SPEED:"
 vertical_alignment = 1
 
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/General/Margin/Settings/GameSpeed/Name" unique_id=1831594345]
+script = ExtResource("3_7f7if")
+text = "Sets the speed of dungeon gameplay, this does not affect RPG segements."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
 [node name="Value" type="SpinBox" parent="SettingsContainer/General/Margin/Settings/GameSpeed" unique_id=672296689]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -134,6 +144,11 @@ theme = ExtResource("1_un4yt")
 theme_override_font_sizes/normal_font_size = 12
 text = "NOTIF SIZE:"
 vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/General/Margin/Settings/NotificationSize/Name" unique_id=194273923]
+script = ExtResource("3_7f7if")
+text = "Sets the text size of combat notifications."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Value" type="SpinBox" parent="SettingsContainer/General/Margin/Settings/NotificationSize" unique_id=1741735510]
 layout_mode = 2
@@ -161,12 +176,19 @@ theme_override_font_sizes/normal_font_size = 12
 text = "FULLSCREEN:"
 vertical_alignment = 1
 
-[node name="Value" type="CheckBox" parent="SettingsContainer/General/Margin/Settings/Fullscreen" unique_id=1406612241]
-custom_maximum_size = Vector2(16, 16)
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/General/Margin/Settings/Fullscreen/Name" unique_id=1651920877]
+script = ExtResource("3_7f7if")
+text = "Toggles fullscreen."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Value" type="Button" parent="SettingsContainer/General/Margin/Settings/Fullscreen" unique_id=70517383]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 theme = ExtResource("1_un4yt")
-button_pressed = true
-alignment = 1
+toggle_mode = true
+script = ExtResource("3_v1a1j")
+check_texture = ExtResource("4_o0qv1")
+metadata/_custom_type_script = "uid://c7c45m1uucjsc"
 
 [node name="Audio" type="Control" parent="SettingsContainer" unique_id=663247716]
 visible = false
@@ -199,6 +221,11 @@ theme_override_font_sizes/normal_font_size = 12
 text = "SFX VOLUME:"
 vertical_alignment = 1
 
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Audio/Margin/Settings/AudioVolume/Name" unique_id=856050331]
+script = ExtResource("3_7f7if")
+text = "Volume of SFX and other related audio."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
 [node name="Value" type="HSlider" parent="SettingsContainer/Audio/Margin/Settings/AudioVolume" unique_id=399542660]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -221,6 +248,11 @@ theme = ExtResource("1_un4yt")
 theme_override_font_sizes/normal_font_size = 12
 text = "MUSIC VOLUME:"
 vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Audio/Margin/Settings/MusicVolume/Name" unique_id=714604904]
+script = ExtResource("3_7f7if")
+text = "Volume of music and other related audio."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Value" type="HSlider" parent="SettingsContainer/Audio/Margin/Settings/MusicVolume" unique_id=876806778]
 layout_mode = 2
@@ -263,6 +295,12 @@ theme_override_font_sizes/normal_font_size = 12
 text = "Language:"
 vertical_alignment = 1
 
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Language/Margin/Settings/Language/Name" unique_id=1980587919]
+script = ExtResource("3_7f7if")
+text = "Sets the language and locale for the game.
+[s=8]Note: there are many untranslated strings still present in the game."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
 [node name="Value" type="OptionButton" parent="SettingsContainer/Language/Margin/Settings/Language" unique_id=1094517065]
 custom_maximum_size = Vector2(290, -1)
 layout_mode = 2
@@ -301,6 +339,11 @@ theme_override_font_sizes/normal_font_size = 12
 text = "KEYBINDS:"
 vertical_alignment = 1
 
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Accessibility/Margin/Settings/Keybinds/Name" unique_id=1120385986]
+script = ExtResource("3_7f7if")
+text = "View the keybinds menu."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
 [node name="Value" type="Button" parent="SettingsContainer/Accessibility/Margin/Settings/Keybinds" unique_id=2043108459]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -323,12 +366,54 @@ theme_override_font_sizes/normal_font_size = 12
 text = "KEYBIND HELPERS:"
 vertical_alignment = 1
 
-[node name="Value" type="CheckBox" parent="SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers" unique_id=1074093692]
-custom_maximum_size = Vector2(16, 16)
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers/Name" unique_id=100949692]
+script = ExtResource("3_7f7if")
+text = "Toggles the display of various keybind reminders."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Value" type="Button" parent="SettingsContainer/Accessibility/Margin/Settings/KeybindHelpers" unique_id=1727488837]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 theme = ExtResource("1_un4yt")
-button_pressed = true
+toggle_mode = true
+script = ExtResource("3_v1a1j")
+check_texture = ExtResource("4_o0qv1")
+metadata/_custom_type_script = "uid://c7c45m1uucjsc"
+
+[node name="HelperAlignment" type="HBoxContainer" parent="SettingsContainer/Accessibility/Margin/Settings" unique_id=1271089701]
+layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Accessibility/Margin/Settings/HelperAlignment" unique_id=232527277]
+custom_minimum_size = Vector2(217, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "Language:"
+vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Accessibility/Margin/Settings/HelperAlignment/Name" unique_id=330598530]
+script = ExtResource("3_7f7if")
+text = "Sets the alignment of said keybind reminders."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Value" type="OptionButton" parent="SettingsContainer/Accessibility/Margin/Settings/HelperAlignment" unique_id=912451463]
+custom_maximum_size = Vector2(290, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_un4yt")
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "Left"
+popup/item_0/id = 0
+popup/item_1/text = "Center"
+popup/item_1/id = 1
+popup/item_2/text = "Right"
+popup/item_2/id = 2
 
 [node name="Done" type="Button" parent="." unique_id=1791709479]
 layout_mode = 1

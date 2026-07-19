@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_wworn")
 name = "Matchstick"
-flavour_text = "I don't want to light this..."
+flavour_text = "Strike a match, light a fire!"
 description = "Defending now applies one stack of burn."
 price = -75
 sprite = ExtResource("2_wworn")

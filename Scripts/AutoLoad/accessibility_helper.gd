@@ -15,6 +15,7 @@ func update_action_binds(action_name: String):
     for helper: Control in current_keybind_helpers[action_name]:
         helper.visible = Settings.helpers_enabled;
         helper.get_node("Keybind").text = Keybinds.get_action_text(action_name);
+        helper.get_node("Keybind").horizontal_alignment = Settings.helper_alignment;
 
 func make_keybind_helper(node: Control, action_name: String):
     var new_helper: Control = keybind_helper.instantiate();

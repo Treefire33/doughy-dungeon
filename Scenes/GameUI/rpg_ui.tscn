@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn2u81ry85eg1"]
 
 [ext_resource type="Script" uid="uid://ctxomdos1o1vs" path="res://Scripts/UI/rpg_ui.gd" id="1_nj4qm"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_jsq1u"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_jsq1u"]
 [ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="3_aj82v"]
 [ext_resource type="Texture2D" uid="uid://bbl1yd502pn4s" path="res://Sprites/Upgrades/Cloaks/TatteredCloak.tres" id="4_qe5ut"]
 
@@ -13,7 +13,7 @@ content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 
-[node name="UI" type="ColorRect" unique_id=1288018143]
+[node name="UI" type="ColorRect" unique_id=383094572]
 z_index = 100
 offset_right = 800.0
 offset_bottom = 450.0

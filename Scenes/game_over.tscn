@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhvvdw7ml2htg"]
 
 [ext_resource type="Script" uid="uid://xffga17t265" path="res://Scripts/game_over.gd" id="1_8fo1c"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="1_ojehl"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="1_ojehl"]
 
 [node name="GameOver" type="Node2D" unique_id=1903410295]
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmsnqxrde1ksf" path="res://Sprites/Icons/ActionIcons/Rest.tres" id="4_cisa7"]
 [ext_resource type="Texture2D" uid="uid://b5q1rm3110rcw" path="res://Sprites/Icons/ActionIcons/Spell.tres" id="4_drmvv"]
 [ext_resource type="Texture2D" uid="uid://brmihfdnaob2h" path="res://Sprites/Icons/ActionIcons/SpellDefend.tres" id="5_5uw8l"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="5_drmvv"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="5_drmvv"]
 [ext_resource type="Texture2D" uid="uid://dm5p0cj8x7ly7" path="res://Sprites/Icons/ActionIcons/SpellRetype.tres" id="6_hx2q3"]
 [ext_resource type="Texture2D" uid="uid://bnxh2gs4ktkfj" path="res://Sprites/Icons/ActionIcons/SpellAttack.tres" id="7_qdcan"]
 

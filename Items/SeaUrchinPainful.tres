@@ -8,7 +8,7 @@
 script = ExtResource("2_g62gw")
 name = "Urchin"
 flavour_text = "I won't make the same mistake thri- ow..."
-description = "I'm not actually sure what this does, but it can't be good."
+description = "I'm not really sure what this does?"
 price = -25
 sprite = ExtResource("3_dvsh1")
 weight = 1.0

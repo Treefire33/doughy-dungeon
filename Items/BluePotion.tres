@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_crjcn")
 name = "Blue Potion"
-flavour_text = "Inspiring!"
+flavour_text = "Magical!"
 description = "Increases Shield Spell duration by 1 turn."
 price = 75
 sprite = ExtResource("2_crjcn")

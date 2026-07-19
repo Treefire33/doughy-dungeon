@@ -113,8 +113,8 @@ func _ready() -> void:
     stamina_upgrade.pressed.connect(upgrade_stat.bind(1));
     attack_upgrade.pressed.connect(upgrade_stat.bind(2));
     
-    pause_game_button.pressed.connect(room_manager.pause_game)
-    emit_signal("ui_done")
+    pause_game_button.pressed.connect(Settings.pause_game.bind(self));
+    emit_signal("ui_done");
     
 func update_ui():
     stats_display.update(room_manager);
@@ -125,7 +125,10 @@ var action_to_index: Dictionary[String, int] = {
     "Secondary": 1,
     "Tertiary": 2
 };
-func _input(event: InputEvent) -> void:
+func _process(delta: float) -> void:
+    if (Input.is_action_just_pressed("Pause")):
+        Settings.pause_game(self);
+
     if (Input.is_action_just_pressed("Quaternary") && !making_decision):
         inventory_button.pressed.emit();
     

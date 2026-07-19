@@ -281,16 +281,6 @@ func _ready() -> void:
     Audio.play_music(Audio.dungeon_music);
     room_turn();
 
-var pause_menu: PackedScene = preload("res://Scenes/Menus/PauseMenu/pause_menu.tscn");
-var paused: bool = false;
-func pause_game():
-    paused = true;
-    var new_pause_menu: PauseMenu = pause_menu.instantiate();
-    player_ui.add_child(new_pause_menu);
-    new_pause_menu.load_pause_menu(self);
-
-func _input(event: InputEvent) -> void:
-    if (Input.is_action_just_pressed("Pause") and !paused):
-        pause_game()
+func _process(delta: float) -> void:
     if (Input.is_action_just_pressed("Reset")):
         get_tree().change_scene_to_file("res://Scenes/game.tscn");

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8xd2nq8768rd"]
 
 [ext_resource type="Script" uid="uid://cvq0pmcgajwhs" path="res://Scripts/Enemy/enemy.gd" id="1_hghv2"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_pe7bt"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_pe7bt"]
 [ext_resource type="Texture2D" uid="uid://drcx2bgrq2urj" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic2.tres" id="3_ytpux"]
 [ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="4_07cr6"]
 [ext_resource type="AnimationLibrary" uid="uid://chm365vo5ctw7" path="res://Sprites/Enemies/Animations/Enemy.res" id="5_07cr6"]

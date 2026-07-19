@@ -59,4 +59,6 @@ func _process(delta: float) -> void:
             update_dungeon_inspect(_current_interactable.dungeon);
         elif (_current_interactable is RPGNpc):
             dialogue_box.skip_dialogue();
+    elif (Input.is_action_just_pressed("Pause")):
+        Settings.pause_game(self);
 

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dgtxstmndoer6"]
+
+[ext_resource type="Texture2D" uid="uid://yuhn3pqi5gav" path="res://Sprites/Other/checkmark.aseprite" id="1_4qau0"]
+[ext_resource type="Script" uid="uid://c7c45m1uucjsc" path="res://Scripts/UI/midnight_checkbox.gd" id="1_og7yc"]
+
+[node name="MidnightCheckbox" type="Button" unique_id=497248863]
+offset_right = 32.0
+offset_bottom = 32.0
+toggle_mode = true
+script = ExtResource("1_og7yc")
+check_texture = ExtResource("1_4qau0")

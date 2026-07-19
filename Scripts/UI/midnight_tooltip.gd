@@ -1,22 +1,21 @@
-extends ColorRect
+extends Control
 class_name Tooltip
 
 static var tooltip_template: PackedScene = preload("res://Scenes/GameUI/tooltip.tscn");
 
-var queued_recalculation: bool = false;
 var text: String = "":
     get: return text;
     set(value):
-        if (! self.is_node_ready()): return ;
+        if (!self.is_node_ready()): return;
         text = value;
-        queued_recalculation = true;
+        queue_redraw();
 
 var default_line_size: int = 12;
 var padding: Vector2 = Vector2(32, 32);
-var max_size: Vector2i = Vector2i(250, 300);
+var max_size: Vector2i = Vector2i(280, 200);
 var locked: bool = false;
 
-@onready var text_container: VBoxContainer = $Margin/TextContainer;
+@onready var text_container: VBoxContainer = $TextContainer;
 
 func _create_text_label(label_text: String, size: int = default_line_size) -> RichTextLabel:
     var new_label = RichTextLabel.new();
@@ -63,27 +62,21 @@ func _regenerate_tooltip() -> void:
     _generate_tooltip_text();
 
 func toggle(new_text: String):
-    self.visible = false;
     self.text = new_text;
-    _regenerate_tooltip();
     self.visible = true;
 
 func _ready() -> void:
+    self.z_index = 999;
     self.visible = false;
+
+func _draw() -> void:
+    self.size = Vector2(0, 0);
     _regenerate_tooltip();
+    self.size = Vector2(max(max_size.x, self.text_container.size.x), min(max_size.y, self.text_container.size.y + default_line_size));
     
 func _process(delta: float) -> void:
+    queue_redraw();
     if (!self.visible): return;
-    if (queued_recalculation):
-        self.visible = false;
-        _regenerate_tooltip();
-        self.queued_recalculation = false;
-        self.visible = true;
-    self.z_index = 999;
-    var height: int = default_line_size * 2;
-    for label: RichTextLabel in text_container.get_children():
-        height += default_line_size;
-    self.size = Vector2(max_size.x, min(max_size.y, height));
     var position = get_viewport().get_mouse_position().min(get_viewport().get_visible_rect().size - self.size - self.padding);
     if (self.locked):
         position = get_viewport().get_mouse_position().min(self.trigger.get_viewport_rect().size);

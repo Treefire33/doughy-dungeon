@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rgs2s588fupj" path="res://Scripts/UI/stats_display.gd" id="1_5r6ir"]
 [ext_resource type="Texture2D" uid="uid://782sqdh5mol3" path="res://Sprites/Icons/ActionIcons/Health.tres" id="2_dsad8"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="3_qboys"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="3_qboys"]
 [ext_resource type="Texture2D" uid="uid://bpyvyaeyhvtc7" path="res://Sprites/Icons/ActionIcons/Stamina.tres" id="4_1m4ne"]
 [ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="5_dsad8"]
 [ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="6_j6apt"]

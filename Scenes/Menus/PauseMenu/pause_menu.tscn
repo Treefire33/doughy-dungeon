@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b32apeoqpsfnd" path="res://Scenes/Menus/PauseMenu/pause_menu.gd" id="1_xybiy"]
 
-[node name="PauseMenu" type="Control" unique_id=524549715]
+[node name="PauseMenu" type="Control" unique_id=524549715 node_paths=PackedStringArray("resume_button", "restart_button", "options_button", "return_button", "exit_button")]
+process_mode = 3
 z_index = 10
 layout_mode = 3
 anchor_left = 0.375
@@ -15,6 +16,11 @@ offset_bottom = -0.100067
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xybiy")
+resume_button = NodePath("PauseOptions/Resume")
+restart_button = NodePath("PauseOptions/Restart")
+options_button = NodePath("PauseOptions/Options")
+return_button = NodePath("PauseOptions/Return")
+exit_button = NodePath("PauseOptions/Exit")
 
 [node name="Blur" type="ColorRect" parent="." unique_id=175692860]
 z_index = -1

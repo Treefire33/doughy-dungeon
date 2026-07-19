@@ -56,4 +56,3 @@ func _ready() -> void:
 
 func _exit_tree() -> void:
 	save_player();
-

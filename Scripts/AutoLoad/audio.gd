@@ -54,4 +54,5 @@ func stop_music():
 
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new();
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS;
 	get_node("/root/").add_child.call_deferred(music_player);

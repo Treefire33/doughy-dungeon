@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bxl6mqljkxkhm" path="res://Sprites/Player/player_icon.aseprite" id="1_3cuo2"]
 [ext_resource type="Script" uid="uid://dlmk4pnkbrgk7" path="res://Scripts/UI/room_select/room_select_camera.gd" id="1_j2het"]
-[ext_resource type="Script" uid="uid://f02n6mte20r4" path="res://Scripts/UI/room_select.gd" id="1_x8mgq"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="2_b2nek"]
+[ext_resource type="Script" uid="uid://f02n6mte20r4" path="res://Scripts/UI/room_select/room_select.gd" id="1_x8mgq"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_b2nek"]
 [ext_resource type="Script" uid="uid://cwga4ms26dy67" path="res://Scripts/UI/room_select/room_select_room_button.gd" id="2_x8mgq"]
 
 [node name="RoomSelect" type="Control" unique_id=12217778 node_paths=PackedStringArray("room_button", "midnight_icon", "select_camera", "selection_inspect", "room_count", "floor_count", "dungeon_name_label", "room_button_container")]

@@ -1,26 +1,31 @@
 extends Control
 class_name PauseMenu
 
-@onready var resume_button: Button = $PauseOptions/Resume;
-@onready var restart_button: Button = $PauseOptions/Restart;
-@onready var options_button: Button = $PauseOptions/Options;
-@onready var return_button: Button = $PauseOptions/Return;
-@onready var exit_button: Button = $PauseOptions/Exit;
+@export var resume_button: Button;
+@export var restart_button: Button;
+@export var options_button: Button;
+@export var return_button: Button;
+@export var exit_button: Button;
 
-func load_pause_menu(room_manager: RoomManager):
+func load_pause_menu(parent: Control):
     resume_button.pressed.connect(func():
-        room_manager.paused = false;
-        self.queue_free();
-    )
+        Settings.game_paused = false;
+        queue_free();
+    );
     restart_button.pressed.connect(func():
         get_tree().change_scene_to_file("res://Scenes/game.tscn");
-    )
+    );
     options_button.pressed.connect(func():
-        Settings.load_settings_menu(room_manager.player_ui);
-    )
+        Settings.load_settings_menu(parent);
+    );
     return_button.pressed.connect(func():
         get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn");
-    )
+    );
     exit_button.pressed.connect(func():
         get_tree().change_scene_to_file("res://Scenes/title_screen.tscn");
-    )
+    );
+
+func _process(delta: float) -> void:
+    if (!self.visible || !Settings.game_paused): return;
+    if (Input.is_action_just_pressed("Pause")):
+        resume_button.pressed.emit();

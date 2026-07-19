@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_gv7lh")
 name = "Loose Fang"
-flavour_text = "A tooth from an unknown creature, it feels oddly familiar."
+flavour_text = "A sharp fang from an unknown beast."
 description = "On attack, 10% chance to siphon health."
 price = 135
 sprite = ExtResource("2_gv7lh")

@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("2_ckmo8")
 name = "Faded Negative"
-flavour_text = "I... can't remember..."
+flavour_text = "...mom?"
 description = "Damage dealt has a chance to reflect back onto you."
 price = -100
 sprite = ExtResource("2_8g2eg")

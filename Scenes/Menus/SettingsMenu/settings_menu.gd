@@ -3,11 +3,12 @@ class_name SettingsMenu
 
 @export var game_speed: SpinBox;
 @export var notif_size: SpinBox;
-@export var fullscreen_button: CheckBox;
+@export var fullscreen_button: MidnightCheckbox;
 @export var audio_volume: Slider;
 @export var music_volume: Slider;
 @export var language_dropdown: OptionButton;
-@export var keybind_helpers: CheckBox;
+@export var keybind_helpers: MidnightCheckbox;
+@export var helper_aligment: OptionButton;
 @export var keybinds_button: Button;
 @export var settings_done: Button;
 
@@ -37,6 +38,10 @@ func _ready():
     keybind_helpers.toggled.connect(func(toggled: bool):
         Settings.helpers_enabled = toggled;
         AccessibilityHelper.update_binds();
+    );
+
+    helper_aligment.item_selected.connect(func(idx):
+        Settings.helper_alignment = idx;
     );
     
     keybinds_button.pressed.connect(func():

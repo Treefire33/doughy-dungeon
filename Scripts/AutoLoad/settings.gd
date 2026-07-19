@@ -10,6 +10,10 @@ var music_volume: float = 1:
             Audio.music_player.volume_linear = value;
 var toast_size: int = 12;
 var helpers_enabled: bool = true;
+var helper_alignment: int = 0:
+    set (value):
+        helper_alignment = value;
+        AccessibilityHelper.update_binds();
 var language: String = "automatic":
     get: return language;
     set (value):
@@ -28,13 +32,27 @@ var fullscreen: bool = false:
         else:
             DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
 
-var settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
-
+var _settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
 func load_settings_menu(node: Node):
-    if (!is_instance_valid(settings_menu)): settings_menu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
-    settings_menu.visible = true;
-    if (settings_menu.get_parent() == node): return;
-    node.add_child(settings_menu);
+    if (!is_instance_valid(_settings_menu)): _settings_menu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
+    _settings_menu.visible = true;
+    if (_settings_menu.get_parent() == node): return;
+    node.add_child(_settings_menu);
+
+var _pause_menu: PauseMenu = load("res://Scenes/Menus/PauseMenu/pause_menu.tscn").instantiate();
+var game_paused: bool = false:
+    get: return game_paused;
+    set (value):
+        game_paused = value;
+        get_tree().paused = game_paused;
+func pause_game(node: Control):
+    if (game_paused): return;
+    if (!is_instance_valid(_pause_menu)): _pause_menu = load("res://Scenes/Menus/PauseMenu/pause_menu.tscn").instantiate();
+    game_paused = true;
+    _pause_menu.visible = true;
+    if (_pause_menu.get_parent() == node): return;
+    _pause_menu.load_pause_menu(node);
+    node.add_child(_pause_menu);
     
 func load_settings():
     var settings = ConfigFile.new()
@@ -49,6 +67,7 @@ func load_settings():
             music_volume = settings.get_value(section, "music_volume", 1);
             toast_size = settings.get_value(section, "toast_size", 12);
             helpers_enabled = settings.get_value(section, "helpers_enabled", false);
+            helper_alignment = settings.get_value(section, "helper_alignment", 0);
             language = settings.get_value(section, "language", "automatic");
             fullscreen = settings.get_value(section, "fullscreen", false);
         elif (section == "keybinds"):
@@ -63,6 +82,7 @@ func save_settings():
     settings.set_value("game_settings", "music_volume", music_volume);
     settings.set_value("game_settings", "toast_size", toast_size);
     settings.set_value("game_settings", "helpers_enabled", helpers_enabled);
+    settings.set_value("game_settings", "helper_alignment", helper_alignment);
     settings.set_value("game_settings", "language", language);
     settings.set_value("game_settings", "fullscreen", fullscreen);
     

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c60ebkmhlgbjj" path="res://Sprites/main_menu.aseprite" id="3_12m1t"]
 [ext_resource type="Texture2D" uid="uid://djid0yo7wj06y" path="res://Sprites/MidnightLogo.aseprite" id="4_55kwv"]
 [ext_resource type="Texture2D" uid="uid://7c3camomb7u7" path="res://Sprites/Tiles/DungeonTiles/DoughyFloor.tres" id="4_n82rj"]
-[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/DefaultTheme.tres" id="4_twnyg"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="4_twnyg"]
 
 [node name="TitleScreen" type="Node2D" unique_id=171530329]
 
