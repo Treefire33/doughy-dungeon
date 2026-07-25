@@ -31,3 +31,6 @@ class_name ItemData
 
 ## Which dungeon's item pools this item appears in.
 @export var dungeon_pool: Array[Enum.Dungeon] = [ Enum.Dungeon.All ];
+
+## Which dungeon's item pools this item WONT appear in.
+@export var dungeon_exclude_pool: Array[Enum.Dungeon] = [];

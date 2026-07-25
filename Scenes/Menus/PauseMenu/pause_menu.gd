@@ -10,18 +10,23 @@ class_name PauseMenu
 func load_pause_menu(parent: Control):
     resume_button.pressed.connect(func():
         Settings.game_paused = false;
+        if (is_instance_valid(Settings._settings_menu)):
+            Settings._settings_menu.queue_free();
         queue_free();
     );
     restart_button.pressed.connect(func():
+        Settings.game_paused = false;
         get_tree().change_scene_to_file("res://Scenes/game.tscn");
     );
     options_button.pressed.connect(func():
         Settings.load_settings_menu(parent);
     );
     return_button.pressed.connect(func():
+        Settings.game_paused = false;
         get_tree().change_scene_to_file("res://Scenes/rpg_test.tscn");
     );
     exit_button.pressed.connect(func():
+        Settings.game_paused = false;
         get_tree().change_scene_to_file("res://Scenes/title_screen.tscn");
     );
 

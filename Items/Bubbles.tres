@@ -14,4 +14,5 @@ sprite = ExtResource("3_0egcf")
 weight = 4.0
 function = ExtResource("1_8fftx")
 unique_stacking = true
+dungeon_pool = Array[int]([1])
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

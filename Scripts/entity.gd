@@ -2,17 +2,8 @@ extends Node2D
 class_name Entity
 signal durability_changed;
 
-static func sort_stat_mods(modA: StatModifier, modB: StatModifier):
-    return modA.type < modB.type;
-static func find_stat_mod(mod: StatModifier, key: String):
-    return mod.key == key;
-
 func apply_stat_mods(stat_type: Enum.StatType, stat_value: float) -> float:
-    var stat = stat_value;
-    for mod in self.stat_modifiers:
-        if (mod.stat != stat_type): continue;
-        stat = StatModifier.apply_modifier(mod, stat);
-    return stat;
+    return StatModifier.apply_stat_mods(stat_modifiers, stat_type, stat_value);
 
 # Health
 var _max_health: int:
@@ -101,21 +92,13 @@ func add_stat_mod(
     value: float,
     key: String = ""
 ) -> void:
-    stat_modifiers.append(StatModifier.new(mod_type, stat_type, value, key));
-    stat_modifiers.sort_custom(sort_stat_mods);
+    StatModifier.add_stat_mod(stat_modifiers, mod_type, stat_type, value, key);
 
 func update_stat_mod(key: String, value: float) -> void:
-    var index = stat_modifiers.find_custom(find_stat_mod.bind(key));
-    if (index < 0): return;
-    var mod = stat_modifiers[index];
-    mod.value = value;
+    StatModifier.update_stat_mod(stat_modifiers, key, value);
 
 func remove_stat_mod(key: String, remove_all: bool = false) -> void:
-    var index = stat_modifiers.find_custom(find_stat_mod.bind(key));
-    while (index != -1):
-        stat_modifiers.erase(stat_modifiers[index]);
-        if (!remove_all): break;
-        index = stat_modifiers.find_custom(find_stat_mod.bind(key));
+    StatModifier.remove_stat_mod(stat_modifiers, key, remove_all);
 
 var status_effects: Array[StatusEffect] = [];
 
@@ -145,9 +128,9 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
             var attack_damage: int = self.attack;
             var stun_chance: int = 10; # n / 100 chance
             if (decision == Enum.Decision.AttackHeavy):
-                attack_damage = max(1, ceili(attack_damage + (count * attack_damage * 0.5)));
+                attack_damage = max(1, ceili(attack_damage + (count * attack_damage * 0.75)));
                 stun_chance += count * 3;
-                self.stamina -= count * 2;
+                self.stamina -= floori(count * 1.5);
             elif (decision == Enum.Decision.SpellAttack):
                 attack_damage = max(1, ceili(attack_damage * 0.5));
                 stun_chance = 0;

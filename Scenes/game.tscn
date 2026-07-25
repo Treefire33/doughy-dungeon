@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://qfikmbdmm8g3" path="res://Sprites/Icons/MenuIcons/Magnify.tres" id="26_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="26_81klo"]
 [ext_resource type="Script" uid="uid://xffga17t265" path="res://Scripts/game_over.gd" id="26_cwurv"]
 [ext_resource type="Texture2D" uid="uid://bukeyqj7moayo" path="res://Sprites/Player/happy_midnight.tres" id="27_mucmn"]
@@ -199,7 +200,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(0.26794344, 0.5, 1),
 "update": 0,
-"values": [Vector2(556, 199), Vector2(543, 200), Vector2(530, 240)]
+"values": [Vector2(556, 200), Vector2(543, 200), Vector2(530, 240)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -470,6 +471,10 @@ position = Vector2(639, 212)
 [node name="EnemySpawn" type="Node2D" parent="RoomManager" unique_id=226280839]
 position = Vector2(575, 241)
 
+[node name="BossSpawn" type="Node2D" parent="RoomManager" unique_id=295453892]
+position = Vector2(620, 195)
+scale = Vector2(2, 2)
+
 [node name="BattleManager" type="Node" parent="RoomManager" unique_id=996855405]
 script = ExtResource("13_tgy6u")
 metadata/_custom_type_script = "uid://bwvpfwom0xr8m"
@@ -519,21 +524,12 @@ room_select = NodePath("RoomSelect")
 layout_mode = 1
 mouse_filter = 2
 
-[node name="Inventory" parent="Camera/PlayerUI" unique_id=1102359742 instance=ExtResource("15_exi56")]
-visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_top = 230.0
-offset_right = 800.0
-offset_bottom = 350.0
-
 [node name="DecisionPanel" parent="Camera/PlayerUI" unique_id=291967297 instance=ExtResource("15_iivbl")]
 layout_mode = 1
+offset_top = 2.0
+offset_bottom = 1.8999634
 
-[node name="SelectionBox" type="TextureRect" parent="Camera/PlayerUI" unique_id=1848592322]
+[node name="SelectionBox" type="NinePatchRect" parent="Camera/PlayerUI" unique_id=1949541535]
 visible = false
 z_index = 1
 layout_mode = 1
@@ -548,22 +544,22 @@ offset_right = -332.0
 offset_bottom = -157.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 texture = ExtResource("12_fkdbe")
-expand_mode = 1
-stretch_mode = 5
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
-[node name="Upgrades" type="ColorRect" parent="Camera/PlayerUI" unique_id=1329253525]
+[node name="Upgrades" type="Panel" parent="Camera/PlayerUI" unique_id=1812481481]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.511
+anchor_top = 0.51600003
 anchor_right = 0.425
 anchor_bottom = 0.778
-offset_top = 0.0499878
-offset_bottom = -0.100037
+offset_top = -0.2000122
+offset_bottom = -0.10006714
 mouse_filter = 2
-color = Color(0, 0, 0, 1)
 
 [node name="Title" type="RichTextLabel" parent="Camera/PlayerUI/Upgrades" unique_id=1388161886]
 layout_mode = 1
@@ -639,6 +635,41 @@ script = ExtResource("6_tgy6u")
 text = "Attack Upgrade:
 +2 attack."
 metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="SafeRoomReroll" type="Button" parent="Camera/PlayerUI" unique_id=1862496652]
+visible = false
+layout_mode = 0
+offset_left = 340.0
+offset_top = 270.0
+offset_right = 460.0
+offset_bottom = 310.0
+theme = ExtResource("10_vm72l")
+text = "Reroll"
+
+[node name="TooltipTrigger" type="Node" parent="Camera/PlayerUI/SafeRoomReroll" unique_id=1944444566]
+script = ExtResource("6_tgy6u")
+text = "Reroll the current item selection, once."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI" unique_id=730180464]
+visible = false
+layout_mode = 0
+offset_left = 340.0
+offset_top = 310.0
+offset_right = 460.0
+offset_bottom = 350.0
+theme = ExtResource("10_vm72l")
+text = "Proceed"
+
+[node name="Inventory" parent="Camera/PlayerUI" unique_id=1102359742 instance=ExtResource("15_exi56")]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_bottom = 1.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FadePanel" type="ColorRect" parent="Camera/PlayerUI" unique_id=1945430027]
 visible = false
@@ -822,22 +853,25 @@ metadata/_custom_type_script = "uid://drc261xy1tgvc"
 visible = false
 z_index = 5
 layout_mode = 1
-mouse_filter = 2
-
-[node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI" unique_id=730180464]
-visible = false
-layout_mode = 0
-offset_left = 340.0
-offset_top = 310.0
-offset_right = 460.0
-offset_bottom = 350.0
-theme = ExtResource("10_vm72l")
-text = "Proceed"
 
 [node name="DialogueBox" parent="Camera/PlayerUI" unique_id=548800788 instance=ExtResource("26_81klo")]
 visible = false
 layout_mode = 1
-mouse_filter = 2
+
+[node name="ShowRoomSelect" type="Button" parent="Camera/PlayerUI" unique_id=1531888765]
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_top = 0.1
+anchor_right = 0.051000003
+anchor_bottom = 0.171
+offset_left = 0.19999886
+offset_right = 0.19999313
+offset_bottom = 0.049995422
+theme = ExtResource("10_vm72l")
+icon = ExtResource("26_8m3t6")
+expand_icon = true
 
 [node name="PauseGame" type="Button" parent="Camera/PlayerUI" unique_id=892418108]
 z_index = 5

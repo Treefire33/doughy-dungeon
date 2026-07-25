@@ -2,13 +2,13 @@ extends Control
 class_name InventoryDisplay
 
 # Inventory
-@onready var inventory_item: TextureRect = $Items/Item;
-@onready var inventory_items: GridContainer = $Items/Scroll/ItemsContainer;
+@onready var inventory_item: TextureRect = $Panel/Item;
+@onready var inventory_items: Container = $Panel/Scroll/ItemsContainer;
 
 # Stats
-@onready var stats_panel: ColorRect = $Upgrades;
-@onready var room_difficulty: RichTextLabel = $Upgrades/Difficulty;
-@onready var room_multiplier: RichTextLabel = $Upgrades/Multiplier;
+@onready var stats_panel: Control = $Panel;
+@onready var room_difficulty: RichTextLabel = $Panel/RoomStats/Difficulty;
+@onready var room_multiplier: RichTextLabel = $Panel/RoomStats/Multiplier;
 
 func load_inventory(room_manager: RoomManager):
     self.visible = !self.visible;
@@ -30,7 +30,6 @@ func load_inventory(room_manager: RoomManager):
         
 func load_stats(room_manager: RoomManager, in_safe_room: bool):
     if (!self.visible): return;
-    stats_panel.visible = !in_safe_room;
     room_difficulty.text = "ROOM DIFFICULTY: %s" % str(room_manager.room_difficulty);
     room_multiplier.text = "ROOM MULTIPLIER: %s" % str(room_manager.room_multiplier);
     

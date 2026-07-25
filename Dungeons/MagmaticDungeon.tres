@@ -13,12 +13,13 @@
 
 [resource]
 script = ExtResource("26_ao6gx")
-id = 4
+id = 3
 name = "Magmatic Dungeon"
 enemies = Array[ExtResource("1_1b1ok")]([ExtResource("2_3vgpg"), ExtResource("3_k1c42"), ExtResource("4_cnslc"), ExtResource("5_pq8q3"), ExtResource("6_jsueo")])
 wall_texture = ExtResource("15_pq8q3")
 floor_texture = ExtResource("7_cnslc")
 room_count = 150
+minimum_difficulty = 5
 maximum_difficulty = 15
 description = "A dungeon located in the core of a volcano. The beasts who reside here are typically crystal and stone, as organic matter tends to... burn.
 

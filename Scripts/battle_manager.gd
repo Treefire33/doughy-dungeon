@@ -61,7 +61,7 @@ func do_turn(room_manager: RoomManager):
             if (selected_enemy != null && selected_enemy.health <= 0):
                 ItemUtils.activate_items(player, "enemy_kill", player, selected_enemy);
                 Audio.play_audio(Audio.die_sfx);
-                player.coins += int(selected_enemy.get_coin_drops() * room_manager.room_multiplier);
+                player.coins += room_manager.difficulty_adjust(selected_enemy.get_coin_drops() * room_manager.room_multiplier);
                 selected_enemy.visible = false;
         else:
             var enemy_decision = entity.get_decision(player, room_manager.room_difficulty);
@@ -69,7 +69,7 @@ func do_turn(room_manager: RoomManager):
             turn_cost = entity.turn(enemy_target, enemy_decision);
             ItemUtils.activate_items(player, "decision", entity, enemy_target, enemy_decision);
             ToastParty.show({
-                "text": entity.name + " " + decision_text(decision) + "!",
+                "text": entity.name + " " + decision_text(enemy_decision) + "!",
                 "text_size": Settings.toast_size,
                 "bgcolor": Color(0, 0, 0, 1),
                 "color": Color(1, 1, 1, 1),

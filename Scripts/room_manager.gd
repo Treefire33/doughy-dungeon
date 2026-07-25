@@ -17,26 +17,52 @@ var enemy_prefab: PackedScene = preload("res://Scenes/Prefabs/enemy.tscn");
     $EnemySpawn3
 ];
 
+@onready var boss_spawn: Node2D = $BossSpawn;
+
 @export var current_dungeon: DungeonData;
 var room_count: int = 1;
-var temp_difficulty = 0;
-var streak_difficulty = 0;
-var room_difficulty = 1:
-    get: return clampi(room_difficulty + temp_difficulty + streak_difficulty, current_dungeon.minimum_difficulty, current_dungeon.maximum_difficulty);
+
+var room_stat_modifiers: Array[StatModifier] = [
+    StatModifier.new(Enum.ModifierType.Additive, Enum.StatType.RoomDifficulty, 0, "tempDifficultyRoom"),
+    StatModifier.new(Enum.ModifierType.Additive, Enum.StatType.RoomMultiplier, 0, "tempMultiplierRoom"),
+];
+
+var _room_multiplier: float = 1.0:
+    get: return _room_multiplier;
     set (value):
-        room_difficulty = clampi(value, 1, 10);
-var temp_multiplier: float = 0.0;
-var streak_multiplier: float = 0.0;
+        _room_multiplier = clamp(value, 1, 100);
 var room_multiplier: float = 1.0:
-    get: return clamp(room_multiplier + temp_multiplier + streak_multiplier, 1, 100);
+    get: 
+        return max(1, StatModifier.apply_stat_mods(room_stat_modifiers, Enum.StatType.RoomMultiplier, _room_multiplier));
+
+var _room_difficulty: int = 1:
+    get: return _room_difficulty;
     set (value):
-        room_multiplier = clamp(value, 1, 100);
+        _room_difficulty = clampi(value, current_dungeon.minimum_difficulty, current_dungeon.maximum_difficulty);
+var room_difficulty = 1:
+    get: 
+        @warning_ignore("narrowing_conversion") 
+        return clampi(
+            StatModifier.apply_stat_mods(room_stat_modifiers, Enum.StatType.RoomDifficulty, _room_difficulty), 
+            current_dungeon.minimum_difficulty, 
+            current_dungeon.maximum_difficulty
+        );
+
 var floor_count: int:
     get:
         @warning_ignore("integer_division")
         return int(room_count / current_dungeon.rooms_until_next_floor) + 1;
 @export var player: Player;
 @export var camera: Camera2D;
+
+# wowie it's the function that scales EVERYTHING
+func difficulty_adjust(scale_value: float, scale_factor: float = 0.11)-> int:
+    var diff_scale: float = room_difficulty if room_difficulty > floor_count else floor_count;
+    var scale_step_one: float = (scale_factor * diff_scale) + 0.5;
+    var scale_step_two: float = scale_step_one * scale_value;
+    var scale_step_three: int = floori(scale_step_two) if diff_scale <= current_dungeon.maximum_difficulty * 0.5 else ceili(scale_step_two);
+
+    return scale_step_three;
 
 func complete_dungeon(status: String):
     player_ui.fade_panel.visible = true;
@@ -56,6 +82,17 @@ func complete_dungeon(status: String):
         player_ui.game_completed.visible = true;
     )
     
+func load_enemy(enemy_data: EnemyData, difficulty: int = 1) -> Enemy:
+    var new_enemy: Enemy = enemy_prefab.instantiate();
+    new_enemy.load_enemy(enemy_data);
+    new_enemy.name = enemy_data.name;
+    new_enemy._max_health = max(difficulty_adjust(new_enemy.health), 1);
+    new_enemy._max_stamina = max(difficulty_adjust(new_enemy.stamina), 1);
+    new_enemy._attack = max(difficulty_adjust(new_enemy.attack), 1);
+    new_enemy._max_defending_duration = max(difficulty_adjust(new_enemy._max_defending_duration, 0.12), 1);
+    new_enemy._max_defense_durability = max(difficulty_adjust(new_enemy._max_defense_durability, 0.1), 1);
+    return new_enemy;
+
 func get_random_enemy(difficulty: int) -> Enemy:
     var selected_enemy: EnemyData = null;
     if (player_ui.room_select.current_room.room_data.enemies.size() > 0):
@@ -67,71 +104,72 @@ func get_random_enemy(difficulty: int) -> Enemy:
         difficulty < selected_enemy.difficulty_range[0] 
         or difficulty > selected_enemy.difficulty_range[1]
     ):
-        return get_random_enemy(difficulty)
-    var new_enemy: Enemy = enemy_prefab.instantiate();
-    new_enemy.load_enemy(selected_enemy);
-    new_enemy.name = selected_enemy.name
-    # Enemy health and stamina scale by +1 per difficulty
-    # Enemy attack scales by +.5 per difficulty
-    var delta_difficulty = difficulty - selected_enemy.difficulty_range[0];
-    new_enemy.health += delta_difficulty;
-    new_enemy.stamina += delta_difficulty;
-    new_enemy.attack += floor(delta_difficulty / 2);
-    return new_enemy;
+        return get_random_enemy(difficulty);
+    
+    return load_enemy(selected_enemy, difficulty);
 
 var difficulty_num_enemies = {
-    1: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3], 2: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3],
-    3: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3], 4: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3],
-    
-    5: [1, 1, 1, 2, 2, 2, 2, 2, 3, 3], 6: [1, 1, 1, 2, 2, 2, 2, 2, 3, 3],
-    
-    7: [1, 1, 2, 2, 2, 2, 3, 3, 3, 3], 8: [1, 1, 2, 2, 2, 2, 3, 3, 3, 3],
-    9: [1, 1, 2, 2, 2, 2, 3, 3, 3, 3],
-    
-    10: [2, 2, 2, 2, 2, 3, 3, 3, 3, 3]
+    1: [1, 1, 1, 1, 1, 2, 2, 2, 2, 3],
+    5: [1, 1, 1, 2, 2, 2, 2, 2, 3, 3],
+    7: [1, 1, 2, 2, 2, 2, 3, 3, 3, 3],
+    10: [2, 2, 2, 2, 2, 3, 3, 3, 3, 3],
+    15: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
 };
 
+func get_num_enemies(difficulty: int):
+    if (!difficulty_num_enemies.has(difficulty)): return get_num_enemies(difficulty - 1);
+
+    return difficulty_num_enemies[difficulty][
+        (room_count - 1) % 10
+    ];
+
 func gen_room(decision: Enum.RoomDecision):	
-    temp_difficulty = 0;
-    temp_multiplier = 0;
+    StatModifier.update_stat_mod(room_stat_modifiers, "tempDifficultyRoom", 0);
+    StatModifier.update_stat_mod(room_stat_modifiers, "tempMultiplierRoom", 0);
     match (decision):
         Enum.RoomDecision.RiskIt:
-            temp_difficulty = 2;
-            temp_multiplier = .5;
+            StatModifier.update_stat_mod(room_stat_modifiers, "tempDifficultyRoom", 2);
+            StatModifier.update_stat_mod(room_stat_modifiers, "tempMultiplierRoom", 0.5);
         Enum.RoomDecision.StayClear:
             if (room_count % current_dungeon.rooms_until_next_floor != 0):
                 room_count += 1;
             player.stamina += 5;
-            temp_difficulty = 1;
+            StatModifier.update_stat_mod(room_stat_modifiers, "tempDifficultyRoom", 1);
             
     ItemUtils.activate_items(player, "room_decision", decision);
     
     player.health += int(player.max_health * 0.4);
     
-    var num_enemies = difficulty_num_enemies[
-        room_difficulty
-    ][(room_count - 1) % 10];
-    
     var alive_enemies: Array[Enemy] = [];
-    for i in range(num_enemies):
-        var enemy = get_random_enemy(room_difficulty);
-        enemy.enemy_index = i;
+    if (decision != Enum.RoomDecision.Boss):
+        for i in range(get_num_enemies(room_difficulty)):
+            var enemy = get_random_enemy(room_difficulty);
+            enemy.enemy_index = i;
+            enemy.pressed.connect(player_ui.select_enemy.bind(enemy));
+            enemy.hover_area.mouse_entered.connect(player_ui.move_selection_box.bind(enemy));
+            enemy.hover_area.mouse_exited.connect(player_ui.move_selection_box.bind(null));
+            enemy_spawns[enemy.enemy_index].add_child(enemy);
+            alive_enemies.append(enemy);
+    else:
+        var enemy = load_enemy(current_dungeon.boss_enemy, room_difficulty);
+        enemy.enemy_index = 0;
         enemy.pressed.connect(player_ui.select_enemy.bind(enemy));
         enemy.hover_area.mouse_entered.connect(player_ui.move_selection_box.bind(enemy));
         enemy.hover_area.mouse_exited.connect(player_ui.move_selection_box.bind(null));
-        enemy_spawns[enemy.enemy_index].add_child(enemy);
+        boss_spawn.add_child(enemy);
         alive_enemies.append(enemy);
 
     battle_manager.start_battle(alive_enemies, player);
         
     print("Loaded Room");
-    
-func purchase_item(item_name: String, item_display):
+
+var purchased_indicies = []; 
+func purchase_item(item_name: String, item_display, display_index: int):
     var item = ItemUtils.get_item_data(item_name);
-    if (player.coins <= 0 or player.coins < item.price):
+    if (player.coins <= 0 or player.coins < difficulty_adjust(item.price)):
         return;
     
-    player.coins -= item.price;
+    player.coins -= difficulty_adjust(item.price);
     ToastParty.show({
         "text": "Puchased %s!" % item.name,
         "text_size": Settings.toast_size,
@@ -144,6 +182,7 @@ func purchase_item(item_name: String, item_display):
     Audio.play_audio(Audio.purchase_sfx);
     player_ui.update_ui();
     item_display.hide();
+    purchased_indicies.append(display_index);
 
 func generate_shop_item(display_index: int):
     var item_display: Node2D = safe_room.get_node("Item"+str(display_index));
@@ -155,8 +194,13 @@ func generate_shop_item(display_index: int):
     var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
     item_display.get_node("Sprite").texture = item.sprite;
-    tooltip.text = ItemUtils.get_tooltip_text(item, true);
-    item_button.pressed.connect(purchase_item.bind(item_name, item_display));
+    tooltip.text = ItemUtils.get_tooltip_text(item, true, true, difficulty_adjust(item.price));
+    item_button.pressed.connect(purchase_item.bind(item_name, item_display, display_index));
+
+func gen_safe_room_items():
+    for i in range(1, 5):
+        if (purchased_indicies.has(i)): continue;
+        generate_shop_item(i);
 
 @export var safe_room: Node2D;
 @export var safe_room_anims: AnimationPlayer;
@@ -167,27 +211,12 @@ func gen_safe_room():
     player.stamina = player.max_stamina;
     player_ui.update_ui();
     get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
-    if (room_count >= current_dungeon.room_count):
-        # Audio.change_music(Audio.DungeonMusic.BossFightA);
-        GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
-        # var final_scene = get_tree().create_tween();
-        # final_scene.tween_property(
-        #     player_ui.fade_panel, 
-        #     "modulate", 
-        #     Color(0, 0, 0, 1), 
-        #     0.35
-        # ).set_delay(2);
-        # final_scene.tween_callback(func():
-        #     get_tree().change_scene_to_packed(current_dungeon.completed_scene);
-        # );
-        complete_dungeon("DUNGEON COMPLETE");
-        return;
     safe_room.get_parent().visible = true;
 
-    for i in range(1, 5):
-        generate_shop_item(i);
+    purchased_indicies.clear();
+    gen_safe_room_items();
 
-    if (current_dungeon.name == "Oceanic Dungeon" && floor_count == 2 && !GlobalPlayer.met_vendor):
+    if (current_dungeon.id == Enum.Dungeon.Oceanic && floor_count == 2 && !GlobalPlayer.met_vendor):
         safe_room_anims.play("VendorIntro");
         await safe_room_anims.animation_finished;
         player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.tres"));
@@ -201,14 +230,16 @@ func gen_safe_room():
         GlobalPlayer.met_vendor = true;
 
     player_ui.safe_room_proceed.show();
+    player_ui.safe_room_reroll.show();
     player_ui.upgrades_panel.show();
     player_ui.in_safe_room = true;
     await player_ui.room_select.room_decision;
     player_ui.safe_room_proceed.hide();
+    player_ui.safe_room_reroll.hide();
     player_ui.upgrades_panel.hide();
     player_ui.in_safe_room = false;
     if (floor_count % current_dungeon.difficulty_floor_increment == 0):
-        room_difficulty += 1;
+        _room_difficulty += 1;
     player.health = player.max_health;
     player.stamina = player.max_stamina;
     player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor, current_dungeon.rooms, self.room_difficulty);
@@ -233,8 +264,12 @@ func room_turn():
     next_room();
     
 func gen_next_room():
-    player_ui.room_select.request_room(self.room_count, self.current_dungeon.rooms_until_next_floor, current_dungeon.name.to_upper());
-    var decision: Enum.RoomDecision = await player_ui.room_select.room_decision;
+    var decision: Enum.RoomDecision = Enum.RoomDecision.Proceed;
+    if (room_count >= current_dungeon.room_count):
+        decision = Enum.RoomDecision.Boss;
+    else:
+        player_ui.room_select.request_room(self.room_count, self.current_dungeon.rooms_until_next_floor, current_dungeon.name.to_upper());
+        decision = await player_ui.room_select.room_decision;
     camera.position = Vector2.ZERO;
     player.position = Vector2(225, 225);
     get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35)
@@ -247,19 +282,25 @@ func next_room(leaving_safe_room: bool = false):
     player.play_anim(Enum.PlayerAnimation.Idle);
     player_ui.fade_panel.modulate = Color(0, 0, 0, 0);
     player_ui.fade_panel.visible = true;
-    var room_tween = camera.create_tween()
-    room_tween.set_parallel()
-    room_tween.tween_property(player, "position", Vector2(1025, 225), 1.0 / Settings.game_speed)
-    room_tween.tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 1), 1.5 / Settings.game_speed)
-    room_tween.set_parallel(false)
+    var room_tween = camera.create_tween();
+    room_tween.set_parallel();
+    room_tween.tween_property(player, "position", Vector2(1025, 225), 1.0 / Settings.game_speed);
+    room_tween.tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 1), 1.5 / Settings.game_speed);
+    room_tween.set_parallel(false);
     safe_room.get_parent().visible = false;
-    if (room_count % current_dungeon.rooms_until_next_floor == 0 and !leaving_safe_room):
-        room_tween.tween_callback(gen_safe_room).set_delay(0.2)
+    if (room_count > current_dungeon.room_count):
+        GlobalPlayer.completed_dungeons[current_dungeon.id] = true;
+        complete_dungeon("DUNGEON COMPLETE");
+        return;
+    elif (room_count % current_dungeon.rooms_until_next_floor == 0 && room_count < current_dungeon.room_count && !leaving_safe_room):
+        room_tween.tween_callback(gen_safe_room).set_delay(0.2);
     else:
-        room_tween.tween_callback(gen_next_room).set_delay(0.2)
+        room_tween.tween_callback(gen_next_room).set_delay(0.2);
     @warning_ignore("integer_division")
     if (room_count == current_dungeon.room_count / 2):
         Audio.change_music(Audio.DungeonMusic.QuickeningPace);
+    elif (room_count >= current_dungeon.room_count):
+        Audio.change_music(Audio.DungeonMusic.BossFightA);
 
 func _ready() -> void:
     Audio.stop_music();
@@ -277,7 +318,7 @@ func _ready() -> void:
     RoomManager.instance = self;
     gen_room(Enum.RoomDecision.Proceed);
     player_ui.update_ui();
-    player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor, current_dungeon.rooms, self.room_difficulty);
+    player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor - 1, current_dungeon.rooms, self.room_difficulty);
     Audio.play_music(Audio.dungeon_music);
     room_turn();
 

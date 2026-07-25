@@ -8,7 +8,7 @@
 
 [resource]
 script = ExtResource("8_4xwe1")
-id = 9
+id = 8
 name = "Cliffside Dungeon"
 wall_texture = ExtResource("6_phqf7")
 floor_texture = ExtResource("2_bgtjc")

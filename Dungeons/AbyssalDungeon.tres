@@ -9,12 +9,13 @@
 
 [resource]
 script = ExtResource("9_1648l")
-id = 5
+id = 4
 name = "Abyssal Dungeon"
 enemies = Array[ExtResource("1_u2tlb")]([ExtResource("2_xndj2")])
 wall_texture = ExtResource("10_ilo2m")
 floor_texture = ExtResource("2_u2tlb")
 room_count = 200
+minimum_difficulty = 10
 maximum_difficulty = 20
 description = "This is it. The final challenge.
 

@@ -13,4 +13,5 @@ price = 100
 sprite = ExtResource("2_kimae")
 weight = 0.9
 function = ExtResource("1_h7wk7")
+dungeon_exclude_pool = Array[int]([0])
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

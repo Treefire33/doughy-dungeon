@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cqgob3msi671q"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_hfdjj"]
+[ext_resource type="Texture2D" uid="uid://cjmjehop5wdji" path="res://Sprites/Enemies/Bosses/yeast_mother.aseprite" id="2_hfdjj"]
+
+[resource]
+script = ExtResource("1_hfdjj")
+name = "Yeast Mother"
+flavour_text = "The first step in the large bug- I mean large bug- I mean-"
+base_health = 200
+base_attack = 2
+base_defense_duration = 3
+base_defense_durability = 2
+sprite = ExtResource("2_hfdjj")
+base_ai = "Defensive"
+base_ai_five = "Smart"
+speed = 0
+difficulty_range = Array[int]([10, 10])
+coins_range = Array[int]([300, 450])

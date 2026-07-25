@@ -109,6 +109,7 @@ func begin_decision():
     _selected_depth = 1;
     _selected_enemy = null;
     move_page(DecisionPage.BaseOptions);
+    self.visible = true;
 
 func move_page(target_page: DecisionPage):
     if (self.action_pages.has(current_page) && self.action_pages[current_page]["Page"]): self.action_pages[current_page]["Page"].visible = false;
@@ -183,6 +184,7 @@ func enemy_select():
 func submit_decision():
     player_ui.making_decision = false;
     player_ui.player_decision.emit(_selected_decision, _selected_enemy, _selected_depth);
+    self.visible = false;
 
 var action_to_index: Array[String] = [
     "Primary", "Secondary",

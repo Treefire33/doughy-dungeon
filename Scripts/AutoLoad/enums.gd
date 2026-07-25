@@ -15,6 +15,7 @@ enum RoomDecision {
 	RiskIt = 1,
 	StayClear = 2,
 	NextBiome = 3,
+	Boss = 4
 }
 
 enum PlayerAnimation {
@@ -72,7 +73,9 @@ enum ModifierType {
 enum StatType {
     MaxHealth, MaxStamina,
     Attack, MaxDuration, MaxDurability,
-	Speed
+	Speed,
+
+	RoomDifficulty, RoomMultiplier
 }
 
 enum StatusEffect {

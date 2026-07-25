@@ -63,7 +63,7 @@ project/assembly_name="MidnightDungeons"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/midnight_resource_translator/plugin.cfg", "res://addons/toastparty/plugin.cfg", "res://addons/yard/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/copper_dc/plugin.cfg", "res://addons/midnight_resource_translator/plugin.cfg", "res://addons/toastparty/plugin.cfg")
 
 [file_customization]
 
@@ -80,13 +80,13 @@ folder_colors={
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
 "res://Sprites/": "green",
-"res://Themes/": "gray",
-"res://YARDRegistries/": "teal"
+"res://Themes/": "gray"
 }
 
 [gui]
 
 timers/tooltip_delay_sec=0.0
+fonts/dynamic_fonts/use_oversampling=false
 theme/default_font_antialiasing=0
 theme/default_font_subpixel_positioning=0
 theme/custom="uid://bipp2u77tfnw5"

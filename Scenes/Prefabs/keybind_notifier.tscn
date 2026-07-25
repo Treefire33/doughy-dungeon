@@ -6,6 +6,12 @@ content_margin_top = 2.0
 content_margin_right = 2.0
 content_margin_bottom = 2.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_oo64u"]
+font_size = 12
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
 [node name="KeybindNotifier" type="Control" unique_id=15504640]
 layout_mode = 3
 anchors_preset = 15
@@ -15,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Keybind" type="RichTextLabel" parent="." unique_id=1130397039]
+[node name="Keybind" type="Label" parent="." unique_id=671352833]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,9 +32,7 @@ offset_right = 10.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/outline_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_3uyyj")
 text = "Z"
-scroll_active = false
+label_settings = SubResource("LabelSettings_oo64u")
 vertical_alignment = 2

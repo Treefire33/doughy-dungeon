@@ -65,5 +65,5 @@ func _ready():
     
     settings_done.grab_focus();
     settings_done.pressed.connect(func():
-        self.visible = false;
+        queue_free();
     );

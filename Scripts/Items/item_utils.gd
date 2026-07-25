@@ -1,17 +1,46 @@
 extends Node
 
-const items_registry: Registry = preload("res://YARDRegistries/items.tres");
-# var all_items: Dictionary[StringName, ItemData] = items_registry.load_all_blocking("ItemData") as Dictionary[StringName, ItemData];
+var item_database: Dictionary[StringName, ItemData] = (
+    func():
+        var items_directory = ResourceLoader.list_directory("res://Items/");
+        var final: Dictionary[StringName, ItemData] = {};
+        for file in items_directory:
+            if (!file.ends_with(".tres")): continue;
+            final[file.trim_suffix(".tres")] = ResourceLoader.load("res://Items/%s" % file);
+        return final;
+).call();
+
+func _database_where(database: Dictionary, conditions: Dictionary[StringName, Variant]) -> Array[StringName]:
+    var final: Array[StringName] = database.keys();
+    for condition in conditions.keys():
+        var eval: Variant = conditions[condition];
+
+        for item_name in final:
+            var prop = database[item_name].get(condition);
+            if (prop == null): continue;
+
+            if (typeof(eval) == typeof(prop)):
+                if (eval != prop): final.erase(item_name); continue;
+            elif(typeof(eval) == TYPE_CALLABLE):
+                if (!eval.call(prop)): final.erase(item_name); continue;
+            else:
+                push_error("Eval case for property: %s either does not match the property's type or is not a method." % condition);
+                continue;
+    
+    return final;
+
 
 func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String:
     var rng = RandomNumberGenerator.new();
     
+    var item_pool = _database_where(item_database, {
+        &"dungeon_pool": func(v: Array): return v.has(Enum.Dungeon.All) || v.has(dungeon_data.id),
+        &"dungeon_exclude_pool": func(v: Array): return !v.has(dungeon_data.id),
+        &"painful": painful
+    });
     var keys = [];
     var weights = [];
-    for item in items_registry.where({
-        &"dungeon_pool": func(v: Array): return v.has(Enum.Dungeon.All) || v.has(dungeon_data.id),
-        &"painful": painful
-    }):
+    for item in item_pool:
         var item_data: ItemData = get_item_data(item);
         keys.append(item);
         weights.append(item_data.weight);
@@ -19,10 +48,10 @@ func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String
     return keys[rng.rand_weighted(weights)];
 
 func get_item_name(item_data: ItemData) -> String:
-    return items_registry.get_string_id_of(item_data);
+    return item_database.find_key(item_data);
 
 func get_item_data(item_name: String) -> ItemData:
-    return items_registry.load_entry(item_name, "ItemData", ResourceLoader.CacheMode.CACHE_MODE_REUSE);
+    return item_database[item_name];
 
 func show_activation_toast(item: String):
     ToastParty.show({
@@ -46,14 +75,15 @@ func show_custom_toast(message: String):
     });
     Audio.play_audio(Audio.item_activated);
 
-func get_tooltip_text(item_data: ItemData, shop_item: bool) -> String:
+const tt_item_name_template = "%s\n[s=8](%s)"; 
+func get_tooltip_text(item_data: ItemData, shop_item: bool, override = false, override_price: int = 0) -> String:
     var res: String = "";
-    res = item_data.name + "\n[s=8]" + item_data.flavour_text;
+    res = tt_item_name_template % [item_data.name, item_data.flavour_text];
     if (shop_item):
         if (!item_data.painful):
-            res += "\n\n" + "Price: %d coins" % item_data.price;
+            res += "\n\n" + "Price: %d coins" % (override_price if override else item_data.price);
         else:
-            res += "\n\n" + "Reward: %d coins" % -item_data.price;
+            res += "\n\n" + "Reward: %d coins" % -(override_price if override else item_data.price);
     for line in item_data.description.split('\n'):
         res += "\n[s=8]" + line;
     return res;

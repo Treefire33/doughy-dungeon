@@ -18,13 +18,14 @@
 
 [resource]
 script = ExtResource("2_1q3vg")
-id = 3
+id = 2
 name = "Doughy Dungeon"
 enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_164du"), ExtResource("3_g2dxu"), ExtResource("4_4sgh7"), ExtResource("5_cpyly"), ExtResource("6_6g7lf"), ExtResource("7_6gdni"), ExtResource("8_bdgk8"), ExtResource("9_7lnde"), ExtResource("10_6hjup"), ExtResource("11_8icql")])
 wall_texture = ExtResource("28_4sgh7")
 floor_texture = ExtResource("12_g2dxu")
+minimum_difficulty = 3
 description = "A dungeon comprised almost entirely out of doughy beasts and baking tools. I'd suggest eating before entering.
 
 100 Rooms
-Difficulty 1-10"
+Difficulty 3-10"
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

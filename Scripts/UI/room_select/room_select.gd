@@ -23,6 +23,14 @@ var current_room: RoomSelectButton = null;
 var selected_room: RoomSelectButton = null;
 var rooms: Array[RoomSelectButton] = [];
 
+func colour_buttons():
+    for button in rooms:
+        button.disabled = !(current_room.next_rooms.has(button) || current_room == button);
+        if (button == current_room): button.modulate = Color(1, 1, 1, 0.75); # current room
+        elif (button.visited): button.modulate = Color(1, 1, 1, 0.65); # visited
+        elif (button.disabled): button.modulate = Color(1, 1, 1, 0.45); # too far/unvisited
+        else: button.modulate = Color(1, 1, 1, 1); # visible rooms
+
 func invert_direction(current_direction: Enum.Direction):
     match (current_direction):
         Enum.Direction.Left:
@@ -107,7 +115,7 @@ func generate_room(last_room: RoomSelectButton, room_pool: Array[RoomData], diff
     #     for possible_dir in directions.filter(func(dir: Enum.Direction): return dir != direction):
     #         generate_room(new_room, room_pool, difficulty, possible_dir, room_depth - 1);
 
-    if (!generate_room(new_room, room_pool, difficulty, direction, room_depth - 1)):
+    if (!generate_room(new_room, room_pool, difficulty, direction, room_depth - new_room.room_data.room_length)):
         new_room.queue_free();
         rooms.remove_at(index);
         return false;
@@ -122,7 +130,7 @@ func generate_room(last_room: RoomSelectButton, room_pool: Array[RoomData], diff
 
 func generate_floor(rooms_per_floor: int, room_pool: Array[RoomData], difficulty: int) -> void:
     for i in range(4):
-        generate_room(current_room, room_pool, difficulty, i as Enum.Direction, rooms_per_floor - 1);
+        generate_room(current_room, room_pool, difficulty, i as Enum.Direction, rooms_per_floor);
 
 func request_floor(rooms_per_floor: int, room_pool: Array[RoomData], difficulty: int):
     for button in current_room.get_parent().get_children():
@@ -132,15 +140,12 @@ func request_floor(rooms_per_floor: int, room_pool: Array[RoomData], difficulty:
     rooms.clear();
     rooms.append(current_room);
     generate_floor(rooms_per_floor, room_pool, difficulty);
+    colour_buttons();
 
 func request_room(room_number: int, floor_count_mod: int, dungeon_name: String):
     selection_inspect.visible = false;
-    for button in rooms:
-        button.disabled = !(current_room.next_rooms.has(button) || current_room == button);
-        if (button == current_room): button.modulate = Color(1, 1, 1, 0.75); # current room
-        elif (button.visited): button.modulate = Color(1, 1, 1, 0.65); # visited
-        elif (button.disabled): button.modulate = Color(1, 1, 1, 0.45); # too far/unvisited
-        else: button.modulate = Color(1, 1, 1, 1); # visible rooms
+
+    colour_buttons();
 
     self.visible = true;
     room_count.text = "ROOM: %d" % room_number;

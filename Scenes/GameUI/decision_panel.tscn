@@ -10,6 +10,15 @@
 [ext_resource type="Texture2D" uid="uid://dm5p0cj8x7ly7" path="res://Sprites/Icons/ActionIcons/SpellRetype.tres" id="6_hx2q3"]
 [ext_resource type="Texture2D" uid="uid://bnxh2gs4ktkfj" path="res://Sprites/Icons/ActionIcons/SpellAttack.tres" id="7_qdcan"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx2q3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_detail = 1
+anti_aliasing = false
+
 [node name="DecisionPanel" type="Control" unique_id=1249531929]
 layout_mode = 3
 anchor_right = 1.0
@@ -18,7 +27,7 @@ offset_bottom = -0.10003662
 mouse_filter = 2
 script = ExtResource("1_8ex84")
 
-[node name="Options" type="ColorRect" parent="." unique_id=178507044]
+[node name="Options" type="Panel" parent="." unique_id=1396504328]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.425
@@ -29,7 +38,7 @@ offset_top = 0.05000305
 offset_right = -3.0517578e-05
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hx2q3")
 
 [node name="Container" type="VBoxContainer" parent="Options" unique_id=1325346685]
 layout_mode = 1
@@ -312,7 +321,7 @@ text = "ACTION DEPTH"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SelectionPrompt" type="ColorRect" parent="." unique_id=2122486817]
+[node name="SelectionPrompt" type="Panel" parent="." unique_id=671315850]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -325,7 +334,7 @@ offset_top = -0.1000061
 offset_right = 0.39996338
 grow_horizontal = 2
 grow_vertical = 0
-color = Color(0, 0, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hx2q3")
 
 [node name="Label" type="RichTextLabel" parent="SelectionPrompt" unique_id=725806443]
 layout_mode = 1
@@ -344,10 +353,11 @@ vertical_alignment = 1
 visible = false
 layout_mode = 0
 offset_left = 340.0
-offset_top = 270.0
+offset_top = 272.0
 offset_right = 460.0
-offset_bottom = 310.0
+offset_bottom = 312.0
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_hx2q3")
 text = "CANCEL"
 icon_alignment = 1
 expand_icon = true

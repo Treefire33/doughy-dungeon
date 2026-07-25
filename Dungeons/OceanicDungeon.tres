@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DungeonData" format=3 uid="uid://bwtevdgyame2h"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_a74m2"]
-[ext_resource type="PackedScene" uid="uid://b8euto25wvt14" path="res://Scenes/title_screen.tscn" id="1_le4sc"]
+[ext_resource type="Resource" uid="uid://sa7uaipmehb5" path="res://EnemyData/Oceanic/OceanSunfish.tres" id="1_kqfiu"]
 [ext_resource type="Resource" uid="uid://do8vv37hxwv51" path="res://EnemyData/Oceanic/StoneFish.tres" id="2_cfuis"]
 [ext_resource type="Resource" uid="uid://bkn4vhkfxsl1h" path="res://EnemyData/Oceanic/SeaAngel.tres" id="3_gcidq"]
 [ext_resource type="Resource" uid="uid://h1s3a5mrtlj0" path="res://EnemyData/Oceanic/GiantTubeWorm.tres" id="4_ar2tq"]
@@ -19,9 +19,10 @@
 
 [resource]
 script = ExtResource("10_ys1w1")
-id = 2
+id = 1
 name = "Oceanic Dungeon"
 enemies = Array[ExtResource("1_a74m2")]([ExtResource("2_cfuis"), ExtResource("3_gcidq"), ExtResource("4_ar2tq"), ExtResource("5_gcidq"), ExtResource("6_ys1w1"), ExtResource("7_knl70"), ExtResource("8_1nog7"), ExtResource("9_f6ojf"), ExtResource("10_jeomi"), ExtResource("11_f7sna")])
+boss_enemy = ExtResource("1_kqfiu")
 wall_texture = ExtResource("27_4yyok")
 floor_texture = ExtResource("12_wnklr")
 room_count = 50
@@ -30,5 +31,4 @@ description = "A dungeon located on the ocean floor. Many beasts hunt here, so b
 
 50 Rooms
 Difficulty 1-5"
-completed_scene = ExtResource("1_le4sc")
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

@@ -15,4 +15,5 @@ weight = 10.0
 function = ExtResource("1_fqdj2")
 unique_stacking = true
 painful = true
+dungeon_pool = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

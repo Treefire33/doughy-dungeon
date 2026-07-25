@@ -13,15 +13,16 @@ signal _enemy_selected();
 @export var room_select: RoomSelect;
 
 # Misc UI
-@onready var selection_box: TextureRect = $SelectionBox;
+@onready var selection_box: Control = $SelectionBox;
 @onready var inventory_button: Button = $Stats/Inventory;
 @onready var fade_panel: ColorRect = $FadePanel;
 @onready var pause_game_button: Button = $PauseGame;
+@onready var show_room_select_button: Button = $ShowRoomSelect;
 @onready var dialogue_box: DialogueBox = $DialogueBox;
 @onready var game_completed: GameOver = $GameComplete;
 
 # Safe Room Upgrading Panel
-@onready var upgrades_panel: ColorRect = $Upgrades;
+@onready var upgrades_panel: Control = $Upgrades;
 @onready var health_upgrade: Button = $Upgrades/Health;
 @onready var stamina_upgrade: Button = $Upgrades/Stamina;
 @onready var attack_upgrade: Button = $Upgrades/Attack;
@@ -33,6 +34,7 @@ var making_decision: bool = false;
 # Safe Room Related
 var in_safe_room: bool = false;
 @onready var safe_room_proceed: Button = $SafeRoomProceed;
+@onready var safe_room_reroll: Button = $SafeRoomReroll;
 
 func move_selection_box(enemy: Enemy):
     selection_box.visible = true;
@@ -40,6 +42,7 @@ func move_selection_box(enemy: Enemy):
         selection_box.visible = false;
         return	
 
+    selection_box.size = enemy.sprite.get_rect().size * enemy.global_scale;
     selection_box.position = enemy.get_parent().position - selection_box.size / 2;
 
 var translation_dict = {
@@ -91,6 +94,7 @@ func select_enemy(enemy: Enemy):
         return
     _enemy_selected.emit(enemy);
 
+var previewing_room_select: bool = false;
 func _ready() -> void:
     room_manager.request_decision.connect(decision_panel.begin_decision);
     decision_panel.load_decisions(self);
@@ -108,12 +112,22 @@ func _ready() -> void:
             return
         room_select.room_decision.emit();
     );
+    safe_room_reroll.pressed.connect(func():
+        room_manager.gen_safe_room_items();
+        safe_room_reroll.hide();    
+    );
     
     health_upgrade.pressed.connect(upgrade_stat.bind(0));
     stamina_upgrade.pressed.connect(upgrade_stat.bind(1));
     attack_upgrade.pressed.connect(upgrade_stat.bind(2));
     
     pause_game_button.pressed.connect(Settings.pause_game.bind(self));
+    show_room_select_button.pressed.connect(func():
+        previewing_room_select = !previewing_room_select;
+        fade_panel.modulate = Color(1, 1, 1, int(previewing_room_select));
+        fade_panel.visible = previewing_room_select;
+        room_select.visible = previewing_room_select;
+    );
     emit_signal("ui_done");
     
 func update_ui():
@@ -138,8 +152,13 @@ func _process(delta: float) -> void:
         get_tree().change_scene_to_file.call_deferred("res://Scenes/grounds_for_evil.tscn");
         return;
 
-    if (room_select.visible):
+    if (room_select.visible && !previewing_room_select):
+        show_room_select_button.visible = false;
+        room_select.selection_accept.disabled = false;
         return;
+    else:
+        show_room_select_button.visible = true;
+        room_select.selection_accept.disabled = true;
 
     var decision = -1;
     for action in action_to_index:
@@ -152,6 +171,6 @@ func _process(delta: float) -> void:
     if (decision >= room_manager.battle_manager.get_enemies().size()): return;
     if (selecting_enemy):
         var enemy = room_manager.battle_manager.get_enemies().get(decision);
-        if (enemy == null):
+        if (enemy == null || enemy.health <= 0):
             return;
         _enemy_selected.emit(enemy);
