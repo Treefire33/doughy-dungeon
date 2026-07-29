@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bllw17sb4bp73"]
+
+[ext_resource type="Texture2D" uid="uid://ci8223bndr1mo" path="res://Sprites/Icons/StatusIcons/Burn.tres" id="1_p3xu6"]
+
+[node name="StatusSlot" type="Control" unique_id=245472023]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Icon" type="TextureRect" parent="." unique_id=952792787]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p3xu6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Count" type="RichTextLabel" parent="." unique_id=2049471680]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(4, 4)
+theme_override_font_sizes/normal_font_size = 8
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 2

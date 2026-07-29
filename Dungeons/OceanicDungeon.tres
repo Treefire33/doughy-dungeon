@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_a74m2"]
 [ext_resource type="Resource" uid="uid://sa7uaipmehb5" path="res://EnemyData/Oceanic/OceanSunfish.tres" id="1_kqfiu"]
+[ext_resource type="AudioStream" uid="uid://ca5dnxu781s32" path="res://Dungeons/Music/oceanic_music.tres" id="2_5s1xb"]
 [ext_resource type="Resource" uid="uid://do8vv37hxwv51" path="res://EnemyData/Oceanic/StoneFish.tres" id="2_cfuis"]
 [ext_resource type="Resource" uid="uid://bkn4vhkfxsl1h" path="res://EnemyData/Oceanic/SeaAngel.tres" id="3_gcidq"]
 [ext_resource type="Resource" uid="uid://h1s3a5mrtlj0" path="res://EnemyData/Oceanic/GiantTubeWorm.tres" id="4_ar2tq"]
@@ -25,6 +26,7 @@ enemies = Array[ExtResource("1_a74m2")]([ExtResource("2_cfuis"), ExtResource("3_
 boss_enemy = ExtResource("1_kqfiu")
 wall_texture = ExtResource("27_4yyok")
 floor_texture = ExtResource("12_wnklr")
+dungeon_music = ExtResource("2_5s1xb")
 room_count = 50
 maximum_difficulty = 5
 description = "A dungeon located on the ocean floor. Many beasts hunt here, so be careful.

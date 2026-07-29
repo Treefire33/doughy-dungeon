@@ -33,6 +33,58 @@ max_value = 1.0
 value = 1.0
 show_percentage = false
 
+[node name="StatusIcons" type="GridContainer" parent="." unique_id=1393680186]
+offset_left = 36.0
+offset_top = -53.0
+offset_right = 121.0
+offset_bottom = 32.0
+columns = 3
+
+[node name="Slot1" type="Control" parent="StatusIcons" unique_id=1682116420]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot2" type="Control" parent="StatusIcons" unique_id=1563460779]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot3" type="Control" parent="StatusIcons" unique_id=1450720260]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot4" type="Control" parent="StatusIcons" unique_id=228950828]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot5" type="Control" parent="StatusIcons" unique_id=1196511785]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot6" type="Control" parent="StatusIcons" unique_id=1069941904]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot7" type="Control" parent="StatusIcons" unique_id=1791514190]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot8" type="Control" parent="StatusIcons" unique_id=1391154705]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot9" type="Control" parent="StatusIcons" unique_id=1249163881]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1524926891]
 texture = ExtResource("3_ytpux")
 

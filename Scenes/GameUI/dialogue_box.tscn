@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cer6cdqaw15p1"]
 
 [ext_resource type="Script" uid="uid://4n7wj5yvmv5j" path="res://Scripts/UI/dialogue_box.gd" id="1_wbuxg"]
-[ext_resource type="Texture2D" uid="uid://cfhn3qiwl2rna" path="res://Sprites/Dialogue/tripdawg.tres" id="2_wbuxg"]
+[ext_resource type="Texture2D" uid="uid://bp55cjataifem" path="res://Sprites/Dialogue/midnight_dialogue.tres" id="2_wbuxg"]
 
 [node name="DialogueBox" type="Control" unique_id=1426754256]
 layout_mode = 3

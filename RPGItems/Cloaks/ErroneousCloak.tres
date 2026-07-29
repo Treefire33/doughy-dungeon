@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://nhlg714puup5"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_ycvy0"]
+
+[resource]
+script = ExtResource("1_ycvy0")
+name = "Erroneous Mantle"
+description = "I'll always be with you, Midnight! Through evil and good, I'll stick by."
+max_health = 33
+max_stamina = 33
+attack = 2
+max_defense_duration = 1
+max_defense_durability = 1
+metadata/_custom_type_script = "uid://i8t58il84vkc"

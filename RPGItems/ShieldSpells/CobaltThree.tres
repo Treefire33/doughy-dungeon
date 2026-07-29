@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://celd6jpfcgr6d"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_n0n76"]
+
+[resource]
+script = ExtResource("1_n0n76")
+item_type = 2
+name = "Cobalt III"
+description = "The strongest version of the Cobalt Spell."
+max_defense_duration = 6
+max_defense_durability = 15
+metadata/_custom_type_script = "uid://i8t58il84vkc"

@@ -12,6 +12,10 @@ var _tile_position: Vector2 = Vector2.ZERO;
 var _tile_speed: int = 5;
 var _last_direction: Vector2 = Vector2.ZERO;
 
+func _set_collision(enabled: bool = true) -> void:
+    var collider = get_node("Collider") as CollisionShape2D;
+    collider.disabled = !enabled;
+
 func _physics_process(delta: float) -> void:
     if (static_body): return;
 

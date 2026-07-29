@@ -51,6 +51,9 @@ func get_random_room(room_pool: Array[RoomData], difficulty: int) -> RoomData:
         possible_rooms.append(room);
         weights.append(room.room_weight);
     
+    if (possible_rooms.size() <= 0):
+        return RoomData.default_rooms[0];
+
     return possible_rooms[rng.rand_weighted(weights)];
 
 func generate_room_object(room_pool: Array[RoomData], difficulty: int) -> RoomSelectButton:
@@ -170,6 +173,9 @@ func select_room():
     current_room.visited = true;
     current_room = selected_room;
     selected_room = null;
+    if (current_room.room_data.room_length < 0): # All "Error" rooms have a room length of -1.
+        get_tree().change_scene_to_file.call_deferred("res://Scenes/grounds_for_evil.tscn");
+        return;
     room_decision.emit(current_room.room_type);
     self.visible = false;
 
@@ -180,7 +186,10 @@ func _ready() -> void:
     selection_accept.pressed.connect(select_room);
 
     current_room = room_button;
-    current_room.room_data = RoomData.default_rooms[0];
+    current_room.room_data = get_random_room(
+        GlobalPlayer.current_dungeon.rooms if (GlobalPlayer.current_dungeon != null) else RoomData.default_rooms, 
+        GlobalPlayer.current_dungeon.minimum_difficulty if (GlobalPlayer.current_dungeon != null) else 1
+    );
     current_room.pressed.connect(inspect_room.bind(current_room));
     rooms.append(current_room);
     room_button = room_button.duplicate(DuplicateFlags.DUPLICATE_SCRIPTS);

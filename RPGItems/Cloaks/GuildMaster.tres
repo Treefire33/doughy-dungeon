@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://cvxsk5ly3scfq"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_ervh4"]
+
+[resource]
+script = ExtResource("1_ervh4")
+name = "Master's Cloak"
+description = "A custom-made cloak bearing your priorities. A patch reading \"Master\" is sewn on."
+max_health = 45
+max_stamina = 30
+metadata/_custom_type_script = "uid://i8t58il84vkc"

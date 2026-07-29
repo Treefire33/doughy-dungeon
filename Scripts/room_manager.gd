@@ -298,9 +298,9 @@ func next_room(leaving_safe_room: bool = false):
         room_tween.tween_callback(gen_next_room).set_delay(0.2);
     @warning_ignore("integer_division")
     if (room_count == current_dungeon.room_count / 2):
-        Audio.change_music(Audio.DungeonMusic.QuickeningPace);
+        Audio.change_music(Audio.DungeonMusic.Quickening);
     elif (room_count >= current_dungeon.room_count):
-        Audio.change_music(Audio.DungeonMusic.BossFightA);
+        Audio.change_music(Audio.DungeonMusic.BossFight);
 
 func _ready() -> void:
     Audio.stop_music();
@@ -319,7 +319,8 @@ func _ready() -> void:
     gen_room(Enum.RoomDecision.Proceed);
     player_ui.update_ui();
     player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor - 1, current_dungeon.rooms, self.room_difficulty);
-    Audio.play_music(Audio.dungeon_music);
+    Audio.play_music(current_dungeon.dungeon_music);
+    Audio.change_music(Audio.DungeonMusic.Idle);
     room_turn();
 
 func _process(delta: float) -> void:

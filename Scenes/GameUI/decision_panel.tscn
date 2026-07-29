@@ -19,13 +19,32 @@ border_color = Color(1, 1, 1, 1)
 corner_detail = 1
 anti_aliasing = false
 
-[node name="DecisionPanel" type="Control" unique_id=1249531929]
+[node name="DecisionPanel" type="Control" unique_id=1249531929 node_paths=PackedStringArray("options", "attack_button", "spell_button", "rest_button", "spell_options", "spell_attack", "spell_defend", "spell_retype", "attack_options", "attack_light", "attack_heavy", "depth_options", "depth_one", "depth_two", "depth_three", "depth_four", "cancel_button", "selection_prompt", "selection_prompt_label")]
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.77800006
 offset_bottom = -0.10003662
 mouse_filter = 2
 script = ExtResource("1_8ex84")
+options = NodePath("Options")
+attack_button = NodePath("Options/Container/Attack")
+spell_button = NodePath("Options/Container/Spell")
+rest_button = NodePath("Options/Container/Rest")
+spell_options = NodePath("SpellOptions")
+spell_attack = NodePath("SpellOptions/Container/SpellAttack")
+spell_defend = NodePath("SpellOptions/Container/SpellDefend")
+spell_retype = NodePath("SpellOptions/Container/SpellRetype")
+attack_options = NodePath("AttackOptions")
+attack_light = NodePath("AttackOptions/Container/AttackLight")
+attack_heavy = NodePath("AttackOptions/Container/AttackHeavy")
+depth_options = NodePath("CountOptions")
+depth_one = NodePath("CountOptions/Container/DepthOne")
+depth_two = NodePath("CountOptions/Container/DepthTwo")
+depth_three = NodePath("CountOptions/Container/DepthThree")
+depth_four = NodePath("CountOptions/Container/DepthFour")
+cancel_button = NodePath("Cancel")
+selection_prompt = NodePath("SelectionPrompt")
+selection_prompt_label = NodePath("SelectionPrompt/Label")
 
 [node name="Options" type="Panel" parent="." unique_id=1396504328]
 layout_mode = 1
@@ -40,13 +59,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hx2q3")
 
-[node name="Container" type="VBoxContainer" parent="Options" unique_id=1325346685]
+[node name="Container" type="BoxContainer" parent="Options" unique_id=2105485000]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+vertical = true
 
 [node name="Attack" type="Button" parent="Options/Container" unique_id=1745251583]
 layout_mode = 2

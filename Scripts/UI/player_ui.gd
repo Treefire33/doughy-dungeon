@@ -147,8 +147,6 @@ func _process(delta: float) -> void:
         inventory_button.pressed.emit();
     
     if (Input.is_key_pressed(KEY_END)):
-        GlobalPlayer.grounds_for_evil = 0;
-        Audio.play_music(Audio.evilgrounds_music);
         get_tree().change_scene_to_file.call_deferred("res://Scenes/grounds_for_evil.tscn");
         return;
 

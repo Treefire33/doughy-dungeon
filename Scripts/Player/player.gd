@@ -50,7 +50,7 @@ func update_shield():
     shield.visible = defense_durability != 0 && defending_duration != 0;
             
 func _ready():
-    load_entity(15, 12, 2, $Sprite, $Animator);
+    load_entity(15, 12, 2, $Sprite, $Animator, $StatusIcons);
     play_anim(Enum.PlayerAnimation.Idle);
     durability_changed.connect(func():
         shield.frame = 0;
@@ -58,14 +58,11 @@ func _ready():
             shield.frame = 1;
     );
 
-    _max_health = Enum.Upgrades.cloak_data[GlobalPlayer.current_cloak]["Health"];
-    _max_stamina = Enum.Upgrades.cloak_data[GlobalPlayer.current_cloak]["Stamina"];
-
-    _attack = Enum.Upgrades.sword_data[GlobalPlayer.current_sword]["Attack"];
-
-    _max_defending_duration = Enum.Upgrades.shield_data[GlobalPlayer.current_shield]["DefenseDuration"];
-    _max_defense_durability = Enum.Upgrades.shield_data[GlobalPlayer.current_shield]["DefenseDurability"];
-
-    _speed = 2;
+    _max_health = GlobalPlayer.get_upgrade_stat("max_health");
+    _max_stamina = GlobalPlayer.get_upgrade_stat("max_stamina");
+    _attack = GlobalPlayer.get_upgrade_stat("attack");
+    _max_defending_duration = GlobalPlayer.get_upgrade_stat("max_defense_duration");
+    _max_defense_durability = GlobalPlayer.get_upgrade_stat("max_defense_durability");
+    _speed = max(2, GlobalPlayer.get_upgrade_stat("speed"));
 
     player_ready.emit();

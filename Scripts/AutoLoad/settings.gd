@@ -32,6 +32,13 @@ var fullscreen: bool = false:
         else:
             DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
 
+var horiz_decision_panel: bool = false:
+    get: return horiz_decision_panel
+    set (value):
+        horiz_decision_panel = value;
+        if (RoomManager.instance):
+            RoomManager.instance.player_ui.decision_panel.horizify_panel();
+
 var _settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
 func load_settings_menu(node: Node):
     if (!is_instance_valid(_settings_menu)): _settings_menu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
@@ -70,6 +77,7 @@ func load_settings():
             helper_alignment = settings.get_value(section, "helper_alignment", 0);
             language = settings.get_value(section, "language", "automatic");
             fullscreen = settings.get_value(section, "fullscreen", false);
+            horiz_decision_panel = settings.get_value(section, "horiz_decision_panel", false);
         elif (section == "keybinds"):
             for action in Keybinds.bindable_actions:
                 var event = settings.get_value("keybinds", action, InputEventAction.new());
@@ -85,6 +93,7 @@ func save_settings():
     settings.set_value("game_settings", "helper_alignment", helper_alignment);
     settings.set_value("game_settings", "language", language);
     settings.set_value("game_settings", "fullscreen", fullscreen);
+    settings.set_value("game_settings", "horiz_decision_panel", horiz_decision_panel);
     
     for action in Keybinds.bindable_actions:
         settings.set_value("keybinds", action, Keybinds.get_action_bind(action));

@@ -26,5 +26,6 @@ class Parameter:
 		self.options = options
 
 enum ParameterType {
-	Int, Float, String, Bool, Options
+	Int, Float, String, Bool, Options,
+	Variant
 }

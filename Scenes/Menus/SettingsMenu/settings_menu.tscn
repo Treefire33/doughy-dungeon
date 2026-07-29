@@ -16,7 +16,7 @@ border_color = Color(1, 1, 1, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "helper_aligment", "keybinds_button", "settings_done")]
+[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "horiz_panel", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "helper_aligment", "keybinds_button", "settings_done")]
 process_mode = 3
 z_index = 15
 layout_mode = 3
@@ -32,6 +32,7 @@ script = ExtResource("1_437ti")
 game_speed = NodePath("SettingsContainer/General/Margin/Settings/GameSpeed/Value")
 notif_size = NodePath("SettingsContainer/General/Margin/Settings/NotificationSize/Value")
 fullscreen_button = NodePath("SettingsContainer/General/Margin/Settings/Fullscreen/Value")
+horiz_panel = NodePath("SettingsContainer/General/Margin/Settings/HorizPanel/Value")
 audio_volume = NodePath("SettingsContainer/Audio/Margin/Settings/AudioVolume/Value")
 music_volume = NodePath("SettingsContainer/Audio/Margin/Settings/MusicVolume/Value")
 language_dropdown = NodePath("SettingsContainer/Language/Margin/Settings/Language/Value")
@@ -182,6 +183,37 @@ text = "Toggles fullscreen."
 metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Value" type="Button" parent="SettingsContainer/General/Margin/Settings/Fullscreen" unique_id=70517383]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("1_un4yt")
+toggle_mode = true
+script = ExtResource("3_v1a1j")
+check_texture = ExtResource("4_o0qv1")
+metadata/_custom_type_script = "uid://c7c45m1uucjsc"
+
+[node name="HorizPanel" type="HBoxContainer" parent="SettingsContainer/General/Margin/Settings" unique_id=1703131448]
+custom_maximum_size = Vector2(-1, 16)
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/Margin/Settings/HorizPanel" unique_id=1058743630]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "HORIZONTAL DECISION PANEL:"
+vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/General/Margin/Settings/HorizPanel/Name" unique_id=1078072308]
+script = ExtResource("3_7f7if")
+text = "The base decisions panel in the dungeon segments lays its choices out along the length of the player stats bar.
+[s=8]Doesn't work"
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Value" type="Button" parent="SettingsContainer/General/Margin/Settings/HorizPanel" unique_id=1047069527]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 theme = ExtResource("1_un4yt")
@@ -392,7 +424,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.75
 theme = ExtResource("1_un4yt")
 theme_override_font_sizes/normal_font_size = 12
-text = "Language:"
+text = "HELPER TEXT ALIGN:"
 vertical_alignment = 1
 
 [node name="TooltipTrigger" type="Node" parent="SettingsContainer/Accessibility/Margin/Settings/HelperAlignment/Name" unique_id=330598530]

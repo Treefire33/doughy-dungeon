@@ -4,6 +4,7 @@ class_name SettingsMenu
 @export var game_speed: SpinBox;
 @export var notif_size: SpinBox;
 @export var fullscreen_button: MidnightCheckbox;
+@export var horiz_panel: MidnightCheckbox;
 @export var audio_volume: Slider;
 @export var music_volume: Slider;
 @export var language_dropdown: OptionButton;
@@ -62,8 +63,17 @@ func _ready():
     fullscreen_button.toggled.connect(func(toggled: bool):
         Settings.fullscreen = toggled;
     );
+
+    horiz_panel.set_pressed_no_signal(Settings.horiz_decision_panel);
+    horiz_panel.toggled.connect(func(toggled: bool):
+        Settings.horiz_decision_panel = toggled;
+    );
     
     settings_done.grab_focus();
     settings_done.pressed.connect(func():
         queue_free();
     );
+
+    var platform = OS.get_name();
+    if (platform == "Web" || platform == "iOS" || platform == "Android"):
+        fullscreen_button.visible = false;

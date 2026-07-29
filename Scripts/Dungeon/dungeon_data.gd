@@ -8,9 +8,10 @@ class_name DungeonData
 @export var rooms: Array[RoomData] = [];
 @export var wall_texture: Texture;
 @export var floor_texture: Texture;
+@export var dungeon_music: AudioStreamInteractive;
 
 @export_category("Dungeon Info")
-@export_range(10, 500) var room_count: int = 100;
+@export var room_count: int = 100;
 @export var difficulty_floor_increment: int = 1;
 @export var rooms_until_next_floor: int = 10;
 @export var minimum_difficulty: int = 1;

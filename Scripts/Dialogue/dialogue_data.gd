@@ -17,6 +17,8 @@ static var character_icons: Dictionary[Enum.Character, AtlasTexture] = {
 };
 
 static func get_character_icon(character: Enum.Character, emotion: Enum.DialogueEmotion):
+    if (character == Enum.Character.None):
+        return null;
     var icons = character_icons[character];
     icons.region = Rect2i(emotion * 64, icons.region.position.y, 64, 64);
     if (character == Enum.Character.TripDawg):

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://5jq5jwl5elx5"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_4vm5k"]
+
+[resource]
+script = ExtResource("1_4vm5k")
+item_type = 1
+name = "Wood Sword"
+description = "A wooden sword. Both light and very blunt."
+attack = 1
+metadata/_custom_type_script = "uid://i8t58il84vkc"

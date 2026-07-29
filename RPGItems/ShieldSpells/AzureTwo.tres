@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://b6rs1t8bc2lxd"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_spwe0"]
+
+[resource]
+script = ExtResource("1_spwe0")
+item_type = 2
+name = "Azure Spell II"
+description = "A stronger version of the Azure Spell."
+max_defense_duration = 10
+max_defense_durability = 4
+metadata/_custom_type_script = "uid://i8t58il84vkc"

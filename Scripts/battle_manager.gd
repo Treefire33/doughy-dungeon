@@ -47,6 +47,7 @@ func do_turn(room_manager: RoomManager):
         entity.defending_duration -= 1;
         if (entity.turn_points <= 0): continue;
 
+        if (StatusEffect.has_effect(entity, Enum.StatusEffect.Crystallized)): continue;
         var turn_cost: int = 0;
         if (entity is Player):
             if (decision_count == -1): continue;
@@ -77,6 +78,8 @@ func do_turn(room_manager: RoomManager):
                 "direction": "right",
             });
         
+        if (StatusEffect.has_effect(entity, Enum.StatusEffect.Exhausted)):
+            turn_cost += 1;
         entity.turn_points -= turn_cost;
 
     # cleanup
@@ -86,6 +89,7 @@ func do_turn(room_manager: RoomManager):
 
         entity.turn_points += 1; # give a much needed turn point
         entity.update_shield();
+        entity.update_status_notifs();
 
 func battle_active() -> bool:
     var enemies_dead: int = 0;

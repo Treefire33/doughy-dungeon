@@ -42,6 +42,7 @@ GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
 ItemUtils="*res://Scripts/Items/item_utils.gd"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 AccessibilityHelper="*uid://b0g45ldc0cbhi"
+RPGEventBus="*uid://07mj5ajgs8um"
 
 [debug]
 
@@ -77,6 +78,7 @@ folder_colors={
 "res://Items/Functions/": "gray",
 "res://Items/PainfulFunctions/": "gray",
 "res://Locale/": "pink",
+"res://RPGItems/": "orange",
 "res://Scenes/": "purple",
 "res://Scripts/": "red",
 "res://Sprites/": "green",

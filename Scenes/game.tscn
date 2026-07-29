@@ -499,6 +499,58 @@ libraries/ = SubResource("AnimationLibrary_a8tyi")
 libraries/Player = ExtResource("12_exi56")
 autoplay = &"Player/Idle"
 
+[node name="StatusIcons" type="GridContainer" parent="Player" unique_id=96466188]
+offset_left = 25.0
+offset_top = -40.0
+offset_right = 110.0
+offset_bottom = 45.0
+columns = 3
+
+[node name="Slot1" type="Control" parent="Player/StatusIcons" unique_id=358907982]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot2" type="Control" parent="Player/StatusIcons" unique_id=1359794829]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot3" type="Control" parent="Player/StatusIcons" unique_id=96554289]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot4" type="Control" parent="Player/StatusIcons" unique_id=567759249]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot5" type="Control" parent="Player/StatusIcons" unique_id=705306958]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot6" type="Control" parent="Player/StatusIcons" unique_id=369616839]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot7" type="Control" parent="Player/StatusIcons" unique_id=1726950646]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot8" type="Control" parent="Player/StatusIcons" unique_id=699528917]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Slot9" type="Control" parent="Player/StatusIcons" unique_id=1721776627]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="Camera" type="Camera2D" parent="." unique_id=1653346387]
 anchor_mode = 0
 

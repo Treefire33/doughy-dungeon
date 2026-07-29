@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://dbxlvgqk1hio6"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_wf8y5"]
+
+[resource]
+script = ExtResource("1_wf8y5")
+item_type = 1
+name = "Iron Sword"
+description = "A ferric sword. Heavy and deadly."
+attack = 6
+metadata/_custom_type_script = "uid://i8t58il84vkc"

@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://baju4siqvb0tl"]
 
+[ext_resource type="Script" uid="uid://ne0xsvetiobn" path="res://Scripts/grounds_for_evil.gd" id="1_dfe45"]
 [ext_resource type="SpriteFrames" uid="uid://dioh5vipamvkh" path="res://Sprites/evilgroundsanim.tres" id="1_gv5y6"]
 
 [node name="GroundsForEvil" type="Node2D" unique_id=373260012]
+script = ExtResource("1_dfe45")
 
 [node name="background" type="ColorRect" parent="." unique_id=413021080]
 offset_right = 800.0

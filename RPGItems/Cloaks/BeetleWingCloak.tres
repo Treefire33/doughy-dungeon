@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://wcr1f6rauf2j"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_waj2i"]
+
+[resource]
+script = ExtResource("1_waj2i")
+name = "Beetle-Wing Cloak"
+description = "Wings gathered from the carapace of a long extinct beetle beast. A gift from the Vendor."
+max_health = 50
+max_stamina = 40
+metadata/_custom_type_script = "uid://i8t58il84vkc"

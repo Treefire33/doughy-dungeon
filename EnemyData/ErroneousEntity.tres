@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://3yfk5o2rxlqw"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_g5aej"]
+[ext_resource type="Texture2D" uid="uid://d21lr4ypgrkfs" path="res://Sprites/Enemies/Bosses/erroneous_entity.aseprite" id="2_4v77u"]
+
+[resource]
+script = ExtResource("1_g5aej")
+name = "???"
+flavour_text = "You're in the wrong place, at the right time!"
+base_health = 9999
+base_stamina = 999
+base_attack = 10
+base_defense_duration = 5
+base_defense_durability = 999
+sprite = ExtResource("2_4v77u")
+base_ai = "Smart"
+base_ai_five = "Smart"
+speed = 5
+difficulty_range = Array[int]([20, 20])
+coins_range = Array[int]([999, 999])

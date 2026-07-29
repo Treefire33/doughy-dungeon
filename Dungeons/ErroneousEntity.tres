@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="DungeonData" format=3 uid="uid://slvfv5wh41t4"]
+
+[ext_resource type="Resource" uid="uid://3yfk5o2rxlqw" path="res://EnemyData/ErroneousEntity.tres" id="1_5dk6o"]
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_amn0f"]
+[ext_resource type="AudioStream" uid="uid://bt1k0v2paupuu" path="res://Dungeons/Music/error_music.tres" id="2_nu0ja"]
+[ext_resource type="Texture2D" uid="uid://cuaq11ljqcmqg" path="res://Sprites/Tiles/DungeonTiles/AbyssalFloor.tres" id="4_nu0ja"]
+[ext_resource type="Resource" uid="uid://w4ylga5bus8p" path="res://Dungeons/Rooms/ErroneousEntityRoomOne.tres" id="5_jq0rq"]
+[ext_resource type="Texture2D" uid="uid://dp672erbb2bok" path="res://Sprites/Tiles/DungeonTiles/AbyssalWall.tres" id="8_vpqan"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="24_lgk53"]
+[ext_resource type="Script" uid="uid://bpf21k2dfy5fp" path="res://Scripts/Dungeon/dungeon_data.gd" id="25_bjeno"]
+
+[resource]
+script = ExtResource("25_bjeno")
+id = -1
+name = "ERROR"
+boss_enemy = ExtResource("1_5dk6o")
+rooms = Array[ExtResource("24_lgk53")]([ExtResource("5_jq0rq")])
+wall_texture = ExtResource("8_vpqan")
+floor_texture = ExtResource("4_nu0ja")
+dungeon_music = ExtResource("2_nu0ja")
+room_count = 1
+minimum_difficulty = 5
+maximum_difficulty = 999
+description = "ERROR_MISSINGDUNGEON
+ERROR_ERRONEOUSENTITY
+
+%d Rooms,
+Difficulty: %d-%d"
+metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

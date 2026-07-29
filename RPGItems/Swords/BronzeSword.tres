@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://bsc7wrdesekn6"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_tioua"]
+
+[resource]
+script = ExtResource("1_tioua")
+item_type = 1
+name = "Bronze Sword"
+description = "A bronzen sword. Its edge is quite sharp, thankfully you can't be cut."
+attack = 3
+metadata/_custom_type_script = "uid://i8t58il84vkc"

@@ -5,13 +5,13 @@
 
 [sub_resource type="Resource" id="Resource_bwdcm"]
 script = ExtResource("1_bwdcm")
-character = 1
+character = 2
 emotion = 3
 speech = "Thanks for playing the dungeon demo for Midnight Dungeons!"
 
 [sub_resource type="Resource" id="Resource_yqd6u"]
 script = ExtResource("1_bwdcm")
-character = 1
+character = 2
 speech = "This is only a small snippet of the entire game (3 out of 9 (planned) dungeons), plus it doesn't include any of the RPG/story segments."
 
 [resource]

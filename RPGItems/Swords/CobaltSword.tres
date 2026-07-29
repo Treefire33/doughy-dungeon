@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://cqbrfn1m4ipam"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_prbw6"]
+
+[resource]
+script = ExtResource("1_prbw6")
+item_type = 1
+name = "Bronze Sword"
+description = "It's blue, very blue. Despite being constructed of pure magic, it's also very sharp."
+attack = 11
+metadata/_custom_type_script = "uid://i8t58il84vkc"

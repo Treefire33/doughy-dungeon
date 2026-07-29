@@ -67,18 +67,17 @@ func toggle(new_text: String):
 
 func _ready() -> void:
     self.z_index = 999;
+    self.top_level = true;
     self.visible = false;
 
 func _draw() -> void:
     self.size = Vector2(0, 0);
     _regenerate_tooltip();
-    self.size = Vector2(max(max_size.x, self.text_container.size.x), min(max_size.y, self.text_container.size.y + default_line_size));
+    self.size = Vector2(max(max_size.x, self.text_container.get_global_rect().size.x), min(max_size.y, self.text_container.get_global_rect().size.y + default_line_size));
     
 func _process(delta: float) -> void:
     queue_redraw();
     if (!self.visible): return;
     var position = get_viewport().get_mouse_position().min(get_viewport().get_visible_rect().size - self.size - self.padding);
-    if (self.locked):
-        position = get_viewport().get_mouse_position().min(self.trigger.get_viewport_rect().size);
     
     self.position = round(position + padding);

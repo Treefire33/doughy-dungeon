@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://d2osjd1n65u8v"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_a8xil"]
+
+[resource]
+script = ExtResource("1_a8xil")
+item_type = 2
+name = "Cobalt Spell I"
+description = "A specialized version of the shield spell that focuses on durability over duration."
+max_defense_duration = 2
+max_defense_durability = 5
+metadata/_custom_type_script = "uid://i8t58il84vkc"

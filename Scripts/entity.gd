@@ -101,6 +101,7 @@ func remove_stat_mod(key: String, remove_all: bool = false) -> void:
     StatModifier.remove_stat_mod(stat_modifiers, key, remove_all);
 
 var status_effects: Array[StatusEffect] = [];
+var status_ui: GridContainer;
 
 var sprite: Sprite2D;
 var animator: AnimationPlayer;
@@ -117,8 +118,12 @@ func hurt():
         passes += 1;
 
 func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
+    if (StatusEffect.has_effect(self, Enum.StatusEffect.Influence)):
+        decision = Enum.Decision.Attack;
+        
     match (decision):
         Enum.Decision.Attack, Enum.Decision.AttackHeavy, Enum.Decision.SpellAttack:
+            if (StatusEffect.has_effect(self, Enum.StatusEffect.Sadness)): return 1;
             if (target == null): return 0;
             if (target.defending_duration >= 1): 
                 target.defense_durability -= 1;
@@ -136,6 +141,8 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
                 stun_chance = 0;
             else:
                 self.stamina -= 1;
+            if (StatusEffect.has_effect(target, Enum.StatusEffect.Bravery)):
+                attack_damage += 1;
             target.health -= attack_damage;
             if (randi_range(0, 100) <= stun_chance):
                 StatusEffect.apply_effect(target, count, Enum.StatusEffect.Stun);
@@ -148,8 +155,37 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
             self.defending_duration = self.max_defending_duration;
             self.defense_durability = self.max_defense_durability;
         Enum.Decision.Rest:
-            self.stamina += count;
+            if (StatusEffect.has_effect(self, Enum.StatusEffect.Sadness)): 
+                self.stamina -= 1;
+            elif (StatusEffect.has_effect(self, Enum.StatusEffect.Tired)):
+                self.stamina += count - 1;
+            else: 
+                self.stamina += count;
     return count;
+
+const status_icon: PackedScene = preload("res://Scenes/Prefabs/status_slot.tscn");
+var icon_controls: Array[Control] = [];
+func update_status_notifs():
+    if (!is_instance_valid(status_ui)): return;
+    for icon_obj in icon_controls:
+        icon_obj.queue_free();
+    icon_controls.clear();
+
+    var effect_stacks: Dictionary[Enum.StatusEffect, int] = {};
+    for effect in status_effects:
+        effect_stacks[effect.effect] = effect_stacks.get(effect.effect, 0) + 1;
+    
+    var slot_index: int = 1;
+    for effect in effect_stacks:
+        var slot_node: Control = status_ui.get_node("Slot%d" % slot_index);
+        var new_icon: Control = status_icon.instantiate() as Control;
+        var icon_texture: TextureRect = new_icon.get_node("Icon") as TextureRect;
+        var effect_stack: RichTextLabel = new_icon.get_node("Count") as RichTextLabel;
+        slot_node.add_child(new_icon);
+        icon_texture.texture = StatusEffect.get_effect_icon(effect);
+        effect_stack.text = str(effect_stacks[effect]);
+        slot_index += 1;
+        icon_controls.append(new_icon);
 
 @warning_ignore("shadowed_variable")
 func load_entity(
@@ -157,7 +193,8 @@ func load_entity(
     _max_stamina: int, 
     _attack: int, 
     _sprite: Sprite2D,
-    _animator: AnimationPlayer
+    _animator: AnimationPlayer,
+    _status_ui: GridContainer
 ):
     self._max_health = _max_health;
     self._max_stamina = _max_stamina;
@@ -165,3 +202,4 @@ func load_entity(
     
     self.sprite = _sprite;
     self.animator = _animator;
+    self.status_ui = _status_ui;

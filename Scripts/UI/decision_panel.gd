@@ -1,29 +1,25 @@
 extends Control
 class_name DecisionPanel
 
-@onready var options: Control = $Options;
-@onready var attack_button: Button = $Options/Container/Attack;
-@onready var spell_button: Button = $Options/Container/Spell;
-@onready var rest_button: Button = $Options/Container/Rest;
-
-@onready var spell_options: Control = $SpellOptions;
-@onready var spell_attack: Button = $SpellOptions/Container/SpellAttack;
-@onready var spell_defend: Button = $SpellOptions/Container/SpellDefend;
-@onready var spell_retype: Button = $SpellOptions/Container/SpellRetype;
-
-@onready var attack_options: Control = $AttackOptions;
-@onready var attack_light: Button = $AttackOptions/Container/AttackLight;
-@onready var attack_heavy: Button = $AttackOptions/Container/AttackHeavy;
-
-@onready var depth_options: Control = $CountOptions;
-@onready var depth_one: Button = $CountOptions/Container/DepthOne;
-@onready var depth_two: Button = $CountOptions/Container/DepthTwo;
-@onready var depth_three: Button = $CountOptions/Container/DepthThree;
-@onready var depth_four: Button = $CountOptions/Container/DepthFour;
-
-@onready var cancel_button: Button = $Cancel;
-@onready var selection_prompt: Control = $SelectionPrompt;
-@onready var selection_prompt_label: RichTextLabel = $SelectionPrompt/Label;
+@export var options: Panel;
+@export var attack_button: Button;
+@export var spell_button: Button;
+@export var rest_button: Button;
+@export var spell_options: Control;
+@export var spell_attack: Button;
+@export var spell_defend: Button;
+@export var spell_retype: Button;
+@export var attack_options: Control;
+@export var attack_light: Button;
+@export var attack_heavy: Button;
+@export var depth_options: Control;
+@export var depth_one: Button;
+@export var depth_two: Button;
+@export var depth_three: Button;
+@export var depth_four: Button;
+@export var cancel_button: Button;
+@export var selection_prompt: Control;
+@export var selection_prompt_label: RichTextLabel;
 
 # horrible
 enum DecisionPage {
@@ -191,6 +187,21 @@ var action_to_index: Array[String] = [
     "Tertiary", "Quaternary",
     "Quinary"
 ];
+var panel_dimensions: Dictionary = {
+    false: {
+        "position": Vector2(340, 230),
+        "size": Vector2(120, 120)
+    },
+    true: {
+        "position": Vector2(0, 310),
+        "size": Vector2(800, 40)
+    },
+};
+func horizify_panel():
+    options.get_node("Container").vertical = !Settings.horiz_decision_panel;
+    for prop in panel_dimensions[Settings.horiz_decision_panel]:
+        options.set(prop, panel_dimensions[Settings.horiz_decision_panel][prop]);
+
 func _ready() -> void:
     for page_index in action_pages:
         var page = action_pages[page_index];
@@ -198,6 +209,9 @@ func _ready() -> void:
             if (action == "Page"): continue;
             var action_object: Button = page[action] as Button;
             AccessibilityHelper.make_keybind_helper(action_object, action);
+
+    horizify_panel();
+
 func _process(delta: float) -> void:
     if (!self.visible): return;
     

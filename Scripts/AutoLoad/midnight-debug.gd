@@ -50,6 +50,20 @@ func set_player_stat(stat_name: String, value: Variant):
             player.coins = value;
     room_manager.player_ui.update_ui();
 
+var global_player_flags: Array[StringName] = (func():
+    var final: Array[StringName] = [];
+    for prop in GlobalPlayer.get_property_list():
+        final.append(prop["name"]);
+    return final;
+).call();
+func set_player_flag(flag_name: StringName, value: Variant):
+    GlobalPlayer.set(flag_name, value);
+
+func add_status_effect(effect: String, turn_count: int):
+    if (room_manager == null):
+        return;
+    StatusEffect.apply_effect(room_manager.player, turn_count, Enum.StatusEffect.get(effect));
+
 func _ready() -> void:
     DebugConsole.add_command("set_room_count", set_room, self, [
         DebugCommand.Parameter.new("room", DebugCommand.ParameterType.Int)
@@ -69,5 +83,13 @@ func _ready() -> void:
 			"coins"
         ]),
         DebugCommand.Parameter.new("value", DebugCommand.ParameterType.Float)
+    ]);
+    DebugConsole.add_command("set_player_flag", set_player_flag, self, [
+        DebugCommand.Parameter.new("stat_name", DebugCommand.ParameterType.Options, global_player_flags),
+        DebugCommand.Parameter.new("value", DebugCommand.ParameterType.Bool)
+    ]);
+    DebugConsole.add_command("add_status_effect", add_status_effect, self, [
+        DebugCommand.Parameter.new("effect", DebugCommand.ParameterType.Options, Enum.StatusEffect.keys()),
+        DebugCommand.Parameter.new("duration", DebugCommand.ParameterType.Int)
     ]);
     DebugConsole.set_pause_on_open(true);

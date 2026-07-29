@@ -33,6 +33,17 @@ func _ready() -> void:
     self._tile_speed = self.speed;
     animator.play("PlayerRPG/ForwardIdle");
 
+    RPGEventBus.connect_to_id(RPGEventBus.RPGEventId.RPG_RoomEntered, func(args: RPGEventBus.RPGRoomEventArgs):
+        if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Alcove]):
+            GlobalPlayer.add_rpg_item("GuildApp");
+            GlobalPlayer.add_rpg_item("BronzeSword");
+            GlobalPlayer.add_rpg_item("StandardSpellTwo");
+        if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Oceanic]):
+            GlobalPlayer.unlocked_items.append("GuildMember");
+        if (GlobalPlayer.completed_dungeons[Enum.Dungeon.ErrorEntity]):
+            GlobalPlayer.unlocked_items.append("ErroneousCloak");
+    );
+
 func _process(delta: float) -> void:
     if (rpg_ui._in_menu): return;
 
@@ -41,7 +52,7 @@ func _process(delta: float) -> void:
     animate_player(movement_direction);
 
     if (movement_direction != Vector2.ZERO):
-        interaction_ray.target_position = movement_direction * tile_size;
+        interaction_ray.target_position = movement_direction * (tile_size * 1.15);
     rpg_ui._current_interactable = get_interactable(interaction_ray);
     
     if (Input.is_action_pressed("Quaternary")):

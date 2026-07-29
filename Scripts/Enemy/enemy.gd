@@ -24,7 +24,8 @@ func load_enemy(enemy_data: EnemyData):
         enemy_data.base_stamina,
         enemy_data.base_attack,
         $Sprite,
-        $Animator
+        $Animator,
+        $StatusIcons
     );
     self.sprite.texture = enemy_data.sprite;
     self.animator.play("Enemy/Idle");

@@ -15,20 +15,23 @@ func _database_where(database: Dictionary, conditions: Dictionary[StringName, Va
     for condition in conditions.keys():
         var eval: Variant = conditions[condition];
 
+        var to_remove: Array[StringName] = [];
         for item_name in final:
             var prop = database[item_name].get(condition);
             if (prop == null): continue;
 
             if (typeof(eval) == typeof(prop)):
-                if (eval != prop): final.erase(item_name); continue;
+                if (eval != prop): to_remove.append(item_name); continue;
             elif(typeof(eval) == TYPE_CALLABLE):
-                if (!eval.call(prop)): final.erase(item_name); continue;
+                if (!eval.call(prop)): to_remove.append(item_name); continue;
             else:
                 push_error("Eval case for property: %s either does not match the property's type or is not a method." % condition);
                 continue;
+        
+        for entry in to_remove:
+            final.erase(entry);
     
     return final;
-
 
 func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String:
     var rng = RandomNumberGenerator.new();

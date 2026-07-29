@@ -11,14 +11,14 @@ metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_tq7uu"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 emotion = 3
 speech = "Hey!"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_xdp8d"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 speech = "Sorry for the scare, but it's just that you seem familiar..."
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
@@ -30,14 +30,14 @@ metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_2qlhb"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 emotion = 1
 speech = "Oh! Got it!"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_j8m5q"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 emotion = 3
 speech = "You're that shapeshifter from the guild! Midnight, was it?"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
@@ -50,26 +50,26 @@ metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_mv37d"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 emotion = 4
 speech = "I'll assume that was a yes..."
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_glxmw"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 speech = "Anyways, call me the Vendor, name's not important. Since we're both shapeshifters, thought I'd introduce myself! It's not often we see one another."
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_vyvsa"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 speech = "Anyhow, I'll be here 'til you're out of the dungeon. After that, maybe stop by my cabin? After all,"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_uj213"]
 script = ExtResource("1_vyvsa")
-character = 1
+character = 2
 speech = "I'm probably the one of the only shapeshifters still kicking."
 
 [resource]

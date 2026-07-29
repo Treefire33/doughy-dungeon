@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://w4ylga5bus8p"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_swe7j"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="2_102u0"]
+[ext_resource type="Resource" uid="uid://baw4p1ofsps4f" path="res://EnemyData/Doughy/Loafer.tres" id="2_kgnv4"]
+
+[resource]
+script = ExtResource("2_102u0")
+room_name = "ERROR"
+room_description = "ERR_ROOMMISSING_EVLGRNDS"
+room_character = "E"
+room_length = -1
+minimum_difficulty = 0
+maximum_difficulty = 999
+enemies = Array[ExtResource("1_swe7j")]([ExtResource("2_kgnv4")])
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

@@ -46,6 +46,10 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7f7if"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oo64u"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpqx1"]
 content_margin_left = 4.0
 content_margin_top = 4.0
@@ -114,6 +118,11 @@ border_color = Color(0.6255969, 0.6255972, 0.6255971, 1)
 corner_detail = 1
 anti_aliasing = false
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_uvobq"]
+color = Color(1, 1, 1, 1)
+thickness = 2
+vertical = true
+
 [resource]
 default_font = ExtResource("7_hevoe")
 default_font_size = 16
@@ -136,6 +145,8 @@ MidnightCheckbox/styles/pressed = ExtResource("4_avwua")
 Popup/colors/font_color = Color(1, 1, 1, 1)
 Popup/styles/panel = ExtResource("4_avwua")
 Popup/styles/separator = SubResource("StyleBoxLine_5m74x")
+RPGItemSlot/base_type = &"Button"
+RPGItemSlot/font_sizes/font_size = 8
 Range/constants/center_grabber = 1
 Range/icons/grabber = ExtResource("1_ko64t")
 Range/icons/grabber_disabled = ExtResource("1_ko64t")
@@ -147,6 +158,8 @@ Range/styles/grabber_area_highlight = SubResource("StyleBoxFlat_npwe1")
 Range/styles/slider = SubResource("StyleBoxFlat_owgkv")
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_svneb")
 ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_7f7if")
+Separator/constants/separation = 2
+Separator/styles/separator = SubResource("StyleBoxLine_oo64u")
 TabContainer/colors/font_disabled_color = Color(0.7877587, 0.7877594, 0.7877589, 0.74509805)
 TabContainer/colors/font_hovered_color = Color(1, 1, 1, 1)
 TabContainer/colors/font_selected_color = Color(1, 1, 1, 1)
@@ -160,3 +173,5 @@ TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_5m74x")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_3omxd")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_6t5wd")
 Tree/styles/panel = ExtResource("4_avwua")
+VSeparator/constants/separation = 2
+VSeparator/styles/separator = SubResource("StyleBoxLine_uvobq")

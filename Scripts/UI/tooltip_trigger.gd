@@ -11,10 +11,11 @@ func _mouse_entered() -> void:
     global_tooltip.toggle(self.text);
 
 func _mouse_exited() -> void:
+    if (!is_instance_valid(global_tooltip)): return;
     global_tooltip.visible = false;
 
 func _ready() -> void:
-    var node = get_node("..");
+    var node = get_parent();
     if (node is Control || node is CollisionObject2D):
         if (node is Control):
             node.focus_entered.connect(_mouse_entered);

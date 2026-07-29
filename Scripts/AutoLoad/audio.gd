@@ -6,20 +6,15 @@ var hit_sfx: AudioStream = preload("res://Audio/Hit.wav");
 var purchase_sfx: AudioStream = preload("res://Audio/Purchase.wav");
 var item_activated: AudioStream = preload("res://Audio/ItemUsed.wav");
 
-# var melancholic_field: AudioStream = preload("res://Audio/Music/MelancholicField.wav");
-# var idle_battle: AudioStream = preload("res://Audio/Music/IdleBattle.wav");
-# var quickening_pace: AudioStream = preload("res://Audio/Music/QuickeningPace.wav");
-
 var overworld_music: AudioStreamInteractive = preload("res://Audio/Music/overworld_music.tres");
-var dungeon_music: AudioStreamInteractive = preload("res://Audio/Music/dungeon_music.tres");
 var evilgrounds_music: AudioStreamInteractive = preload("res://Audio/Music/evilgrounds_music.tres");
 var music_player: AudioStreamPlayer;
 var current_interactive_stream: AudioStreamPlaybackInteractive;
 
 enum DungeonMusic {
-	IdleBattle,
-	QuickeningPace,
-	BossFightA
+	Idle,
+	Quickening,
+	BossFight
 }
 
 enum OverworldMusic {
@@ -39,14 +34,15 @@ func play_audio(clip: AudioStream, position: float = 0):
 
 func play_music(clip: AudioStreamInteractive, position: float = 0):
 	if (!music_player.is_node_ready()): await music_player.ready;
+	if (music_player.stream == clip): return;
 	music_player.volume_linear = Settings.music_volume;
 	music_player.stream = clip;
 	music_player.play(position);
 	current_interactive_stream = music_player.get_stream_playback() as AudioStreamPlaybackInteractive;
 
 func change_music(clip: int):
-	if (current_interactive_stream == null):
-		return
+	if (current_interactive_stream == null): return;
+	if (current_interactive_stream.get_current_clip_index() == clip): return;
 	current_interactive_stream.switch_to_clip(clip);
 
 func stop_music():

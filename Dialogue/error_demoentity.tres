@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3 uid="uid://bh7bgiiutfjvu"]
+
+[ext_resource type="Script" uid="uid://c1wkyurcxei88" path="res://Scripts/Dialogue/dialogue_speech.gd" id="1_0cqbp"]
+[ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="2_l23ql"]
+
+[sub_resource type="Resource" id="Resource_bwdcm"]
+script = ExtResource("1_0cqbp")
+character = 0
+speech = "*Something opened in the barriers of this world*"
+
+[resource]
+script = ExtResource("2_l23ql")
+dialogue = Array[ExtResource("1_0cqbp")]([SubResource("Resource_bwdcm")])
+metadata/_custom_type_script = "uid://18dcduftlk12"

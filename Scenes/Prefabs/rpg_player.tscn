@@ -264,8 +264,10 @@ drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
 [node name="UI" parent="Camera" unique_id=2075885847 instance=ExtResource("2_dgm50")]
-offset_transform_enabled = true
-offset_transform_position = Vector2(-400, -225)
+offset_left = -400.0
+offset_top = -225.0
+offset_right = 400.0
+offset_bottom = 225.0
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=269109444]
 position = Vector2(0, 32.5)
@@ -306,6 +308,6 @@ libraries/ = SubResource("AnimationLibrary_eeauh")
 libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
 
 [node name="InteractionRay" type="RayCast2D" parent="." unique_id=1453006759]
-target_position = Vector2(0, 64)
+target_position = Vector2(0, 72)
 collision_mask = 2
 hit_from_inside = true

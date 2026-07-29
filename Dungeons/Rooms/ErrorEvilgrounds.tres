@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://busoplxe80qg2"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_f01hq"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="2_l6t71"]
+
+[resource]
+script = ExtResource("2_l6t71")
+room_name = "ERROR"
+room_description = "ERR_ROOMMISSING_EVLGRNDS"
+room_character = "E"
+room_length = -1
+room_weight = 0.01
+maximum_difficulty = 9999
+metadata/_custom_type_script = "uid://bop2umllk0kqy"
