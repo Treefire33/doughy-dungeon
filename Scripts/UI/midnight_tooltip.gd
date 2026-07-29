@@ -73,7 +73,7 @@ func _ready() -> void:
 func _draw() -> void:
     self.size = Vector2(0, 0);
     _regenerate_tooltip();
-    self.size = Vector2(max(max_size.x, self.text_container.get_global_rect().size.x), min(max_size.y, self.text_container.get_global_rect().size.y + default_line_size));
+    self.size = Vector2(max(max_size.x, self.text_container.size.x), min(max_size.y, self.text_container.size.y + default_line_size));
     
 func _process(delta: float) -> void:
     queue_redraw();

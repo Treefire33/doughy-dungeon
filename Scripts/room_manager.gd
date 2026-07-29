@@ -95,16 +95,16 @@ func load_enemy(enemy_data: EnemyData, difficulty: int = 1) -> Enemy:
 
 func get_random_enemy(difficulty: int) -> Enemy:
     var selected_enemy: EnemyData = null;
+    # an override pool ignores difficulty requirements
     if (player_ui.room_select.current_room.room_data.enemies.size() > 0):
         selected_enemy = player_ui.room_select.current_room.room_data.enemies.pick_random();
     else:
         selected_enemy = current_dungeon.enemies.pick_random();
-    
-    if (
-        difficulty < selected_enemy.difficulty_range[0] 
-        or difficulty > selected_enemy.difficulty_range[1]
-    ):
-        return get_random_enemy(difficulty);
+        if (
+            difficulty < selected_enemy.difficulty_range[0] 
+            or difficulty > selected_enemy.difficulty_range[1]
+        ):
+            return get_random_enemy(difficulty);
     
     return load_enemy(selected_enemy, difficulty);
 
@@ -325,4 +325,4 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
     if (Input.is_action_just_pressed("Reset")):
-        get_tree().change_scene_to_file("res://Scenes/game.tscn");
+        SuperLoader.super_loader.switch_scene("res://Scenes/game.tscn");

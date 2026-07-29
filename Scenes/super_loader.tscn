@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dw6auv6ikfe3f"]
+
+[ext_resource type="Script" uid="uid://dygaiss3reekw" path="res://Scripts/UI/super_loader.gd" id="1_r3glb"]
+[ext_resource type="Theme" uid="uid://bipp2u77tfnw5" path="res://Themes/DefaultTheme.tres" id="2_beoj2"]
+[ext_resource type="Texture2D" uid="uid://dyxlrxocr54hb" path="res://Sprites/GameBorders/default_borders.aseprite" id="2_tec72"]
+
+[node name="SuperLoader" type="Node2D" unique_id=833967643 node_paths=PackedStringArray("game_control", "game_viewport_container", "game_container", "game_borders")]
+process_mode = 3
+script = ExtResource("1_r3glb")
+game_control = NodePath("Game")
+game_viewport_container = NodePath("Game/GameViewportContainer")
+game_container = NodePath("Game/GameViewportContainer/GameViewport")
+game_borders = NodePath("Game/GameBorders")
+
+[node name="Game" type="Control" parent="." unique_id=1247626562]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 450.0
+theme = ExtResource("2_beoj2")
+
+[node name="GameBorders" type="TextureRect" parent="Game" unique_id=1122855689]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tec72")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="GameViewportContainer" type="SubViewportContainer" parent="Game" unique_id=792384094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="GameViewport" type="SubViewport" parent="Game/GameViewportContainer" unique_id=1012181752]
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
+physics_object_picking = true
+gui_embed_subwindows = true
+sdf_oversize = 0
+oversampling = false
+size = Vector2i(800, 450)
+size_2d_override = Vector2i(800, 450)
+size_2d_override_stretch = true
+render_target_update_mode = 4

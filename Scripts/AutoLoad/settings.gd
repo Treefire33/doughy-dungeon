@@ -39,6 +39,20 @@ var horiz_decision_panel: bool = false:
         if (RoomManager.instance):
             RoomManager.instance.player_ui.decision_panel.horizify_panel();
 
+var game_borders: bool = true;
+
+var font_dict = {
+    0: preload("res://PressStart.ttf"),
+    1: preload("res://m6x11.ttf"),
+    2: preload("res://Iansui-Regular.ttf")
+};
+var game_font: int = 0:
+    get: return game_font;
+    set (value):
+        game_font = value;
+        if (!is_instance_valid(SuperLoader.super_loader)): return;
+        SuperLoader.super_loader.change_font(font_dict[game_font]);
+
 var _settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
 func load_settings_menu(node: Node):
     if (!is_instance_valid(_settings_menu)): _settings_menu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
@@ -78,6 +92,8 @@ func load_settings():
             language = settings.get_value(section, "language", "automatic");
             fullscreen = settings.get_value(section, "fullscreen", false);
             horiz_decision_panel = settings.get_value(section, "horiz_decision_panel", false);
+            game_borders = settings.get_value(section, "game_borders", false);
+            game_font = settings.get_value(section, "game_font", 0);
         elif (section == "keybinds"):
             for action in Keybinds.bindable_actions:
                 var event = settings.get_value("keybinds", action, InputEventAction.new());
@@ -94,6 +110,8 @@ func save_settings():
     settings.set_value("game_settings", "language", language);
     settings.set_value("game_settings", "fullscreen", fullscreen);
     settings.set_value("game_settings", "horiz_decision_panel", horiz_decision_panel);
+    settings.set_value("game_settings", "game_borders", game_borders);
+    settings.set_value("game_settings", "game_font", game_font);
     
     for action in Keybinds.bindable_actions:
         settings.set_value("keybinds", action, Keybinds.get_action_bind(action));

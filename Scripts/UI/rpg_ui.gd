@@ -24,7 +24,7 @@ func enter_dungeon():
     tween.tween_property(self, "color", Color(0, 0, 0, 1), 0.8);
     tween.tween_property(self, "modulate", Color(0, 0, 0, 1), 0.8);
     await tween.finished;
-    get_tree().change_scene_to_file("res://Scenes/game.tscn");
+    SuperLoader.super_loader.switch_scene("res://Scenes/game.tscn");
     return true;
 
 func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):

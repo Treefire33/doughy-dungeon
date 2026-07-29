@@ -13,7 +13,7 @@ config_version=5
 config/name="Midnight Dungeons"
 config/description="Roguelite RPG dungeon crawler"
 config/version="0.0.2"
-run/main_scene="uid://b8euto25wvt14"
+run/main_scene="uid://dw6auv6ikfe3f"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="MidnightDungeons"
 config/quit_on_go_back=false
@@ -54,7 +54,7 @@ gdscript/warnings/shadowed_variable_base_class=0
 
 window/size/viewport_width=800
 window/size/viewport_height=450
-window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 window/stretch/scale_mode="integer"
 mouse_cursor/custom_image="uid://ler003tb368l"
 
@@ -171,3 +171,4 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 2d/snap/snap_2d_transforms_to_pixel=true
+2d/sdf/oversize=0

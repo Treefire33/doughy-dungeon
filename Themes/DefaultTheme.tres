@@ -43,6 +43,7 @@ anti_aliasing = false
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svneb"]
+content_margin_top = 4.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7f7if"]
 

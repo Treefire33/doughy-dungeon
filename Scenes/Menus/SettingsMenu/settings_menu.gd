@@ -13,6 +13,9 @@ class_name SettingsMenu
 @export var keybinds_button: Button;
 @export var settings_done: Button;
 
+@export var game_borders: MidnightCheckbox;
+@export var game_font: OptionButton;
+
 var language_list: Array[StringName] = [];
 func _ready():
     game_speed.value = Settings.game_speed;
@@ -41,6 +44,7 @@ func _ready():
         AccessibilityHelper.update_binds();
     );
 
+    helper_aligment.select(Settings.helper_alignment);
     helper_aligment.item_selected.connect(func(idx):
         Settings.helper_alignment = idx;
     );
@@ -67,6 +71,16 @@ func _ready():
     horiz_panel.set_pressed_no_signal(Settings.horiz_decision_panel);
     horiz_panel.toggled.connect(func(toggled: bool):
         Settings.horiz_decision_panel = toggled;
+    );
+
+    game_borders.set_pressed_no_signal(Settings.game_borders);
+    game_borders.toggled.connect(func(toggled: bool):
+        Settings.game_borders = toggled;
+    );
+
+    game_font.select(Settings.game_font);
+    game_font.item_selected.connect(func(idx):
+        Settings.game_font = idx;
     );
     
     settings_done.grab_focus();

@@ -19,7 +19,7 @@ var max_health: int:
 var health: int:
     get: return health
     set (value):
-        if (health > value):
+        if (value < health && health < _max_health):
             self.call_deferred("hurt");
         health = clampi(value, 0, max_health);
 

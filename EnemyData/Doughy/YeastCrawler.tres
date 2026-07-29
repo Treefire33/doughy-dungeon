@@ -11,5 +11,5 @@ world of bread making."
 base_health = 5
 base_stamina = 2
 sprite = ExtResource("2_1lymm")
-difficulty_range = Array[int]([1, 2])
+difficulty_range = Array[int]([1, 5])
 coins_range = Array[int]([5, 10])
