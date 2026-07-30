@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://nhlg714puup5"]
 
+[ext_resource type="Texture2D" uid="uid://d0kymxcdppb2u" path="res://Sprites/Icons/MenuIcons/ErrorCloak.tres" id="1_pja4q"]
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_ycvy0"]
 
 [resource]
 script = ExtResource("1_ycvy0")
 name = "Erroneous Mantle"
-description = "I'll always be with you, Midnight! Through evil and good, I'll stick by."
+description = "I'll always be with you, Midnight! Through evil and good, I'll stick by!"
+icon_override = ExtResource("1_pja4q")
 max_health = 33
 max_stamina = 33
 attack = 2

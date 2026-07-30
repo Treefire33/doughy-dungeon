@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://dqp3w8umbln2n"]
+
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_oncux"]
+
+[resource]
+script = ExtResource("1_oncux")
+item_type = 1
+name = "Erroneous Glaive"
+description = "Despite your apprehension, you can't help but feel sorry for it."
+max_health = 1
+max_stamina = 1
+attack = 20
+max_defense_duration = 1
+max_defense_durability = 1
+metadata/_custom_type_script = "uid://i8t58il84vkc"

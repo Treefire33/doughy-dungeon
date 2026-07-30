@@ -4,12 +4,6 @@ var current_dungeon: DungeonData;
 var current_scene: StringName = "";
 
 # Save Stuff
-var met_vendor: bool = false;
-# var completed_dungeons: Array[bool] = [ 
-#     false, false, false, false, false, # Main Dungeons (Alcove, Oceanic, Doughy, Magmatic, Abyssal)
-#     false, false, # Side Dungeons (Cliff-Side, True Abyss)
-
-# ];
 var completed_dungeons: Dictionary[Enum.Dungeon, bool] = {
     Enum.Dungeon.All: false,
     Enum.Dungeon.Alcove: false,
@@ -25,23 +19,39 @@ var completed_dungeons: Dictionary[Enum.Dungeon, bool] = {
     Enum.Dungeon.TrueAlcove: false,
     Enum.Dungeon.ErrorEntity: false
 }
-var abyss_fragment_count: int = 0;
-var has_abyss_heart: bool = false;
-var grounds_for_evil: int = 0; # Counts how many times you've visited Evilgrounds
-var error_unlocked: bool = false; # Permaflag for if the player has seen the error unlock dialogue
+
+var player_flags: Dictionary[StringName, int] = {
+    # Story Flags
+    # Vendor Flags
+    &"bVendorMet": 0,
+
+    # True Ending Flags
+    &"iAbyssFragmentCount": 0,
+    &"bAbyssHeartObtained": 0,
+
+    # Erroneous Entity Flags
+    &"iEvilScore": 0, # Counts how many times you've visited Evilgrounds
+    &"bErrorUnlocked": 0, # Flag for if the player has seen the error unlock dialogue
+    &"bErrorWorld": 0 # Flag for if the player has been to the error world
+};
+
+func set_flag(flag_name: StringName, value: int):
+    player_flags[flag_name] = value;
+
+func set_bool_flag(flag_name: StringName, value: bool):
+    set_flag(flag_name, int(value));
+
+func get_flag(flag_name: StringName) -> int:
+    return player_flags[flag_name];
+
+func get_bool_flag(flag_name: StringName) -> bool:
+    return get_flag(flag_name) > 0;
+
+func increment_flag(flag_name: StringName, amount: int = 1):
+    set_flag(flag_name, get_flag(flag_name) + amount);
 
 # RPG Items
-func _get_loaded_items_directory(path: String) -> Dictionary[StringName, RPGItemData]:
-    var items_directory = ResourceLoader.list_directory(path);
-    var final: Dictionary[StringName, RPGItemData] = {};
-    for file in items_directory:
-        if (file.ends_with("/")): 
-            final.merge(_get_loaded_items_directory(path+file)); 
-            continue;
-        final[file.trim_suffix(".tres")] = ResourceLoader.load(path + file);
-    return final;
-
-var rpg_item_database: Dictionary[StringName, RPGItemData] = self._get_loaded_items_directory("res://RPGItems/");
+var rpg_item_database: Dictionary[StringName, RPGItemData] = ItemUtils._get_loaded_rpgitems_directory("res://RPGItems/");
 var unlocked_items: Array[StringName] = [
     "TatteredCloak", "WoodSword", "StandardSpell"
 ];
@@ -79,12 +89,7 @@ var encryption_pass: String = "cc43f15359acc9ae246eab99fae2f0a1c020a6c2a6e832610
 # Save Data:
 func save_player():
     var save_data = ConfigFile.new();
-    save_data.set_value("flags", "met_vendor", met_vendor);
-    save_data.set_value("flags", "completed_dungeons", completed_dungeons);
-    save_data.set_value("flags", "abyss_fragment_count", abyss_fragment_count);
-    save_data.set_value("flags", "has_abyss_heart", has_abyss_heart);
-    save_data.set_value("flags", "grounds_for_evil", grounds_for_evil);
-    save_data.set_value("flags", "error_unlocked", error_unlocked);
+    save_data.set_value("flags", "player_flags", player_flags);
 
     save_data.set_value("rpg_items", "unlocked_items", unlocked_items);
     save_data.set_value("rpg_items", "cloak", cloak.resource_path);
@@ -92,24 +97,20 @@ func save_player():
     save_data.set_value("rpg_items", "shield_spell", shield_spell.resource_path);
 
     if (OS.is_debug_build()):
-        save_data.save("user://player_save.sav");
+        save_data.save("user://player_save_debug.sav");
     else:
         save_data.save_encrypted_pass("user://player_save.sav", encryption_pass);
 
 func load_player():
     var save_data = ConfigFile.new();
-    var result = save_data.load("user://player_save.sav") if OS.is_debug_build() else save_data.load_encrypted_pass("user://player_save.sav", encryption_pass);
+    var result = save_data.load("user://player_save_debug.sav") if OS.is_debug_build() else save_data.load_encrypted_pass("user://player_save.sav", encryption_pass);
     if (result != OK):
         return;
     
     for section in save_data.get_sections():
         if (section == "flags"):
-            met_vendor = save_data.get_value(section, "met_vendor", false);
             completed_dungeons = save_data.get_value(section, "completed_dungeons", completed_dungeons);
-            abyss_fragment_count = save_data.get_value(section, "abyss_fragment_count", 0);
-            has_abyss_heart = save_data.get_value(section, "has_abyss_heart", false);
-            grounds_for_evil = save_data.get_value(section, "grounds_for_evil", 0);
-            error_unlocked = save_data.get_value(section, "error_unlocked", false);
+            player_flags = save_data.get_value(section, "player_flags", player_flags);
         if (section == "rpg_items"):
             unlocked_items = save_data.get_value(section, "unlocked_items", unlocked_items);
             cloak = load(save_data.get_value(section, "cloak", "TatteredCloak")) as RPGItemData;

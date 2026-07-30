@@ -16,18 +16,18 @@ func load_pause_menu(parent: Control):
     );
     restart_button.pressed.connect(func():
         Settings.game_paused = false;
-        SuperLoader.super_loader.switch_scene("res://Scenes/game.tscn");
+        SuperLoader.switch_scene("res://Scenes/game.tscn");
     );
     options_button.pressed.connect(func():
         Settings.load_settings_menu(parent);
     );
     return_button.pressed.connect(func():
         Settings.game_paused = false;
-        SuperLoader.super_loader.switch_scene("res://Scenes/rpg_test.tscn");
+        SuperLoader.switch_scene("res://Scenes/rpg_test.tscn");
     );
     exit_button.pressed.connect(func():
         Settings.game_paused = false;
-        SuperLoader.super_loader.switch_scene("res://Scenes/title_screen.tscn");
+        SuperLoader.switch_scene("res://Scenes/title_screen.tscn");
     );
 
 func _process(delta: float) -> void:

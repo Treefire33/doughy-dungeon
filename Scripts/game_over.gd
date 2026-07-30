@@ -16,10 +16,10 @@ class_name GameOver
 
 func _ready() -> void:
     try_again_button.pressed.connect(func():
-        SuperLoader.super_loader.switch_scene("res://Scenes/game.tscn");    
+        SuperLoader.switch_scene("res://Scenes/game.tscn");    
     );
     continue_button.pressed.connect(func():
-        SuperLoader.super_loader.switch_scene("res://Scenes/rpg_test.tscn");
+        SuperLoader.switch_scene("res://Scenes/rpg_test.tscn");
     );
 
 func load_info(player: Player, room_manager: RoomManager, status: String):

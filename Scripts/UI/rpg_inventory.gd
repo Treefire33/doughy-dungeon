@@ -35,6 +35,17 @@ func _update_stats_display():
     stats_display_speed.text = "SPEED: %d" % max(2, GlobalPlayer.get_upgrade_stat("speed"));
 
 var current_display_type: Enum.RPGItemType = Enum.RPGItemType.Cloak;
+func _update_equippable_display_container():
+    for item_name in GlobalPlayer.get_unlocked_items_of_type(current_display_type):
+        var item_data = GlobalPlayer.rpg_item_database[item_name];
+        var new_slot: Button = item_slot_prototype.duplicate();
+        new_slot.icon = item_data.icon_override if is_instance_valid(item_data.icon_override) else item_type_icon_dict[current_display_type];
+        new_slot.text = item_data.name;
+        new_slot.disabled = false;
+        new_slot.visible = true;
+        new_slot.pressed.connect(_equip_item.bind(item_name));
+        item_slot_container.add_child(new_slot);
+
 func _update_equippable_display(item_type: Enum.RPGItemType):
     if (item_type == -2): item_type = current_display_type;
     for child in item_slot_container.get_children():
@@ -48,15 +59,7 @@ func _update_equippable_display(item_type: Enum.RPGItemType):
     if (current_display_type == item_type): return;
 
     current_display_type = item_type;
-    for item_name in GlobalPlayer.get_unlocked_items_of_type(item_type):
-        var item_data = GlobalPlayer.rpg_item_database[item_name];
-        var new_slot: Button = item_slot_prototype.duplicate();
-        new_slot.icon = item_type_icon_dict[item_type];
-        new_slot.text = item_data.name;
-        new_slot.disabled = false;
-        new_slot.visible = true;
-        new_slot.pressed.connect(_equip_item.bind(item_name));
-        item_slot_container.add_child(new_slot);
+    _update_equippable_display_container();
 
 func _equip_item(item_name: StringName):
     GlobalPlayer.equip_item(current_display_type, item_name);
@@ -76,5 +79,6 @@ func _ready() -> void:
     item_slot_container.mouse_entered.connect(_update_equippable_display.bind(-2));
     item_slot_container.mouse_exited.connect(_update_equippable_display.bind(-1));
 
+    _update_equippable_display_container();
     _update_equipped_display();
     _update_stats_display();

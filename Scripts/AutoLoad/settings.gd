@@ -1,5 +1,7 @@
 extends Node
 
+signal settings_changed();
+
 var game_speed: int = 1;
 var audio_volume: float = 1;
 var music_volume: float = 1:
@@ -33,11 +35,17 @@ var fullscreen: bool = false:
             DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
 
 var horiz_decision_panel: bool = false:
-    get: return horiz_decision_panel
+    get: return horiz_decision_panel;
     set (value):
         horiz_decision_panel = value;
         if (RoomManager.instance):
             RoomManager.instance.player_ui.decision_panel.horizify_panel();
+
+var mobile_control_override: bool = false:
+    get: return mobile_control_override;
+    set (value):
+        mobile_control_override = value;
+        self.settings_changed.emit();
 
 var game_borders: bool = true;
 
@@ -94,6 +102,7 @@ func load_settings():
             horiz_decision_panel = settings.get_value(section, "horiz_decision_panel", false);
             game_borders = settings.get_value(section, "game_borders", false);
             game_font = settings.get_value(section, "game_font", 0);
+            mobile_control_override = settings.get_value(section, "mobile_control_override", false);
         elif (section == "keybinds"):
             for action in Keybinds.bindable_actions:
                 var event = settings.get_value("keybinds", action, InputEventAction.new());
@@ -112,6 +121,7 @@ func save_settings():
     settings.set_value("game_settings", "horiz_decision_panel", horiz_decision_panel);
     settings.set_value("game_settings", "game_borders", game_borders);
     settings.set_value("game_settings", "game_font", game_font);
+    settings.set_value("game_settings", "mobile_control_override", mobile_control_override);
     
     for action in Keybinds.bindable_actions:
         settings.set_value("keybinds", action, Keybinds.get_action_bind(action));

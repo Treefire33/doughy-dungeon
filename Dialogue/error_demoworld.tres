@@ -1,0 +1,82 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3 uid="uid://4l8sxsq48ml2"]
+
+[ext_resource type="Script" uid="uid://c1wkyurcxei88" path="res://Scripts/Dialogue/dialogue_speech.gd" id="1_my0g3"]
+[ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="2_rtr8j"]
+
+[sub_resource type="Resource" id="Resource_bwdcm"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "You found something out of place"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_my0g3"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "It stares at you for a long time, before opening its mouth to speak"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_6c8py"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "It asks you if you've seen its mother"
+duration = 0.8
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
+[sub_resource type="Resource" id="Resource_rtr8j"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "... Only it didn't speak"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_ap0ad"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "Instead it stared at you, pleadingly, with tears welling in its eyes"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_rue1i"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "As if waiting for you to understand its peril through body alone"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_w6tco"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "... But you couldn't, and you shook your head"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_khsw4"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "Its head lowered towards the floor, wandering away"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_uk4vm"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "Well, not before looking back to you, as if coming to ask you something else"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_kcyun"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "You couldn't bear another question, so instead you held out your hand, a gift contained within"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_4gmjg"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "*Obtained the Erroneous Glaive*"
+duration = 0.8
+
+[sub_resource type="Resource" id="Resource_6vhyo"]
+script = ExtResource("1_my0g3")
+character = 0
+speech = "And then you parted ways"
+duration = 0.8
+
+[resource]
+script = ExtResource("2_rtr8j")
+dialogue = Array[ExtResource("1_my0g3")]([SubResource("Resource_bwdcm"), SubResource("Resource_my0g3"), SubResource("Resource_6c8py"), SubResource("Resource_rtr8j"), SubResource("Resource_ap0ad"), SubResource("Resource_rue1i"), SubResource("Resource_w6tco"), SubResource("Resource_khsw4"), SubResource("Resource_uk4vm"), SubResource("Resource_kcyun"), SubResource("Resource_4gmjg"), SubResource("Resource_6vhyo")])
+metadata/_custom_type_script = "uid://18dcduftlk12"

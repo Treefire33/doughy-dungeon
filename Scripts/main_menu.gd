@@ -8,7 +8,7 @@ func _ready():
     start_button.grab_focus();
     start_button.pressed.connect(func():
         Audio.play_audio(Audio.purchase_sfx, 0.07);
-        SuperLoader.super_loader.switch_scene("res://Scenes/rpg_test.tscn");
+        SuperLoader.switch_scene("res://Scenes/rpg_test.tscn");
     );
     settings_button.pressed.connect(func():
         Settings.load_settings_menu(self);

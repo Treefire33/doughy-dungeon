@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cer6cdqaw15p1"]
 
 [ext_resource type="Script" uid="uid://4n7wj5yvmv5j" path="res://Scripts/UI/dialogue_box.gd" id="1_wbuxg"]
+[ext_resource type="StyleBox" uid="uid://ckksmkjju77us" path="res://Themes/Styleboxes/normal.tres" id="2_lg7tv"]
 [ext_resource type="Texture2D" uid="uid://bp55cjataifem" path="res://Sprites/Dialogue/midnight_dialogue.tres" id="2_wbuxg"]
 
 [node name="DialogueBox" type="Control" unique_id=1426754256]
@@ -14,13 +15,17 @@ offset_right = -0.2000122
 offset_bottom = 0.049957275
 script = ExtResource("1_wbuxg")
 
-[node name="Background" type="Panel" parent="." unique_id=1646407637]
+[node name="Background" type="Button" parent="." unique_id=1942341038]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/pressed = ExtResource("2_lg7tv")
+theme_override_styles/hover = ExtResource("2_lg7tv")
+theme_override_styles/disabled = ExtResource("2_lg7tv")
+theme_override_styles/focus = ExtResource("2_lg7tv")
 
 [node name="IconRect" type="TextureRect" parent="." unique_id=42292169]
 layout_mode = 1
@@ -33,6 +38,7 @@ offset_left = -0.25
 offset_top = 0.059999466
 offset_right = 0.24999237
 offset_bottom = -0.060005188
+mouse_filter = 2
 texture = ExtResource("2_wbuxg")
 expand_mode = 1
 stretch_mode = 6
@@ -48,5 +54,7 @@ offset_left = -0.25001526
 offset_top = -0.040000916
 offset_right = -0.25006104
 offset_bottom = 0.019989014
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
 
 [connection signal="start_dialogue" from="." to="." method="_on_start_dialogue"]

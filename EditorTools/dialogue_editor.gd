@@ -55,7 +55,9 @@ func _run() -> void:
 	)
 	speech_text = dialogue_editor.get_node("FlowContainer/Editor/Basic Info/VBoxContainer/LineText/Text");
 	speech_text.text_changed.connect(func():
-		current_speech.speech = speech_text.text;
+		# if (speech_text.text.length() > 384):
+		# 	speech_text.text = 
+		current_speech.speech = speech_text.text.substr(0, 383);
 	);
 	duration_edit = dialogue_editor.get_node("FlowContainer/Editor/Basic Info/VBoxContainer/Duration/Text");
 	duration_edit.value_changed.connect(func(value: float):

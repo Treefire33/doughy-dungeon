@@ -18,6 +18,9 @@ func _parse_file(path: String) -> Array[PackedStringArray]:
     elif (resource is DungeonData):
         strings.append(pack_string(resource.name));
         strings.append(pack_string(resource.description));
+    elif (resource is DialogueData):
+        for dialogue in resource.dialogue:
+            strings.append(pack_string(dialogue.speech));
 
     return strings;
 

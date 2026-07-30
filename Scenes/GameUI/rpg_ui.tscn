@@ -16,7 +16,7 @@ content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 
-[node name="UI" type="ColorRect" unique_id=383094572 node_paths=PackedStringArray("menu", "menu_resume", "menu_inventory", "menu_exit", "inventory")]
+[node name="UI" type="ColorRect" unique_id=383094572 node_paths=PackedStringArray("menu", "menu_resume", "menu_inventory", "menu_exit", "inventory", "mobile_ui", "mobile_joystick", "mobile_primary", "mobile_secondary", "mobile_tertiary", "mobile_quaternary")]
 z_index = 100
 offset_right = 800.0
 offset_bottom = 450.0
@@ -27,6 +27,12 @@ menu_resume = NodePath("RPGMenu/Menu/VBoxContainer/Resume")
 menu_inventory = NodePath("RPGMenu/Menu/VBoxContainer/Inventory")
 menu_exit = NodePath("RPGMenu/Menu/VBoxContainer/ExitMenu")
 inventory = NodePath("RPGMenu/MenuSpace/Inventory")
+mobile_ui = NodePath("MobileUI")
+mobile_joystick = NodePath("MobileUI/Joystick")
+mobile_primary = NodePath("MobileUI/Primary")
+mobile_secondary = NodePath("MobileUI/Secondary")
+mobile_tertiary = NodePath("MobileUI/Tertiary")
+mobile_quaternary = NodePath("MobileUI/Quaternary")
 
 [node name="Inspect" type="Panel" parent="." unique_id=536073389]
 visible = false
@@ -88,6 +94,69 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
+
+[node name="MobileUI" type="Control" parent="." unique_id=916202682]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Joystick" type="VirtualJoystick" parent="MobileUI" unique_id=1053537428]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.462
+anchor_right = 0.31500003
+anchor_bottom = 1.0
+offset_top = 0.099990845
+offset_right = -1.5258789e-05
+grow_vertical = 0
+joystick_mode = 1
+joystick_size = 64.0
+tip_size = 32.0
+action_left = &"Left"
+action_right = &"Right"
+action_up = &"Up"
+action_down = &"Down"
+
+[node name="Primary" type="Button" parent="MobileUI" unique_id=961337087]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 297.0
+offset_right = 536.0
+offset_bottom = 361.0
+text = "[[Primary]]"
+text_overrun_behavior = 1
+
+[node name="Secondary" type="Button" parent="MobileUI" unique_id=1258973451]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 296.0
+offset_right = 622.0
+offset_bottom = 360.0
+text = "[[Secondary]]"
+text_overrun_behavior = 1
+
+[node name="Tertiary" type="Button" parent="MobileUI" unique_id=1876433370]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 296.0
+offset_right = 706.0
+offset_bottom = 360.0
+text = "[[Tertiary]]"
+text_overrun_behavior = 1
+
+[node name="Quaternary" type="Button" parent="MobileUI" unique_id=828102212]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 225.0
+offset_right = 706.0
+offset_bottom = 289.0
+text = "[[Quaternary]]"
+text_overrun_behavior = 1
 
 [node name="DialogueBox" parent="." unique_id=1426754256 instance=ExtResource("3_aj82v")]
 visible = false

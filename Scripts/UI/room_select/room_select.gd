@@ -174,7 +174,7 @@ func select_room():
     current_room = selected_room;
     selected_room = null;
     if (current_room.room_data.room_length < 0): # All "Error" rooms have a room length of -1.
-        SuperLoader.super_loader.switch_scene.call_deferred("res://Scenes/grounds_for_evil.tscn");
+        SuperLoader.switch_scene.call_deferred("res://Scenes/grounds_for_evil.tscn");
         return;
     room_decision.emit(current_room.room_type);
     self.visible = false;

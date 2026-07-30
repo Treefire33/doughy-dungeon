@@ -157,6 +157,7 @@ Range/styles/fill = SubResource("StyleBoxFlat_o0qv1")
 Range/styles/grabber_area = SubResource("StyleBoxFlat_liu6x")
 Range/styles/grabber_area_highlight = SubResource("StyleBoxFlat_npwe1")
 Range/styles/slider = SubResource("StyleBoxFlat_owgkv")
+RichTextLabel/constants/line_separation = 2
 RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_svneb")
 ScrollContainer/styles/panel = SubResource("StyleBoxEmpty_7f7if")
 Separator/constants/separation = 2

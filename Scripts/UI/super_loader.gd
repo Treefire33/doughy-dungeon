@@ -9,13 +9,13 @@ class_name SuperLoader
 var current_scene: Node = null;
 
 static var super_loader: SuperLoader;
-
-func switch_scene(scene_path: String):
-    if (is_instance_valid(current_scene)): current_scene.queue_free.call_deferred();
+static func switch_scene(scene_path: String):
+    if (!is_instance_valid(super_loader)): Settings.get_tree().change_scene_to_file.call_deferred(scene_path); return;
+    if (is_instance_valid(super_loader.current_scene)): super_loader.current_scene.queue_free.call_deferred();
     var new_scene = ResourceLoader.load(scene_path).instantiate();
     new_scene.process_mode = Node.PROCESS_MODE_PAUSABLE;
-    game_container.add_child(new_scene);
-    current_scene = new_scene;
+    super_loader.game_container.add_child(new_scene);
+    super_loader.current_scene = new_scene;
 
 func change_font(font_file: Font):
     game_control.theme.default_font = font_file;

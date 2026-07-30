@@ -12,6 +12,7 @@ class_name SettingsMenu
 @export var helper_aligment: OptionButton;
 @export var keybinds_button: Button;
 @export var settings_done: Button;
+@export var mobile_override: MidnightCheckbox;
 
 @export var game_borders: MidnightCheckbox;
 @export var game_font: OptionButton;
@@ -82,6 +83,11 @@ func _ready():
     game_font.item_selected.connect(func(idx):
         Settings.game_font = idx;
     );
+
+    mobile_override.set_pressed_no_signal(Settings.mobile_control_override);
+    mobile_override.toggled.connect(func(toggled: bool):
+        Settings.mobile_control_override = toggled;
+    );
     
     settings_done.grab_focus();
     settings_done.pressed.connect(func():
@@ -90,4 +96,4 @@ func _ready():
 
     var platform = OS.get_name();
     if (platform == "Web" || platform == "iOS" || platform == "Android"):
-        fullscreen_button.visible = false;
+        fullscreen_button.disabled = true;

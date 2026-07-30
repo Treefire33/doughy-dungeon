@@ -251,6 +251,7 @@ _data = {
 }
 
 [node name="RPGPlayer" type="CharacterBody2D" unique_id=1364925579 node_paths=PackedStringArray("rpg_ui")]
+collision_layer = 5
 script = ExtResource("1_wv30c")
 rpg_ui = NodePath("Camera/UI")
 
@@ -270,7 +271,7 @@ offset_right = 400.0
 offset_bottom = 225.0
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=269109444]
-position = Vector2(0, 32.5)
+position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_oo64u")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1771876752]

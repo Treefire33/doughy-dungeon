@@ -147,7 +147,7 @@ func _process(delta: float) -> void:
         inventory_button.pressed.emit();
     
     if (Input.is_key_pressed(KEY_END)):
-        SuperLoader.super_loader.switch_scene.call_deferred("res://Scenes/grounds_for_evil.tscn");
+        SuperLoader.switch_scene.call_deferred("res://Scenes/grounds_for_evil.tscn");
         return;
 
     if (room_select.visible && !previewing_room_select):

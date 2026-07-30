@@ -1,14 +1,29 @@
 extends Node
 
-var item_database: Dictionary[StringName, ItemData] = (
-    func():
-        var items_directory = ResourceLoader.list_directory("res://Items/");
-        var final: Dictionary[StringName, ItemData] = {};
-        for file in items_directory:
-            if (!file.ends_with(".tres")): continue;
-            final[file.trim_suffix(".tres")] = ResourceLoader.load("res://Items/%s" % file);
-        return final;
-).call();
+func _get_loaded_items_directory(path: String) -> Dictionary[StringName, ItemData]:
+    var items_directory = ResourceLoader.list_directory(path);
+    var final: Dictionary[StringName, ItemData] = {};
+    for file in items_directory:
+        if (file.ends_with("/")): 
+            final.merge(_get_loaded_items_directory(path+file)); 
+            continue;
+        if (!file.ends_with(".tres")): continue;
+        final[file.trim_suffix(".tres")] = ResourceLoader.load(path + file);
+    return final;
+
+# wow I love Godot's type system so so so sos so much!
+func _get_loaded_rpgitems_directory(path: String) -> Dictionary[StringName, RPGItemData]:
+    var items_directory = ResourceLoader.list_directory(path);
+    var final: Dictionary[StringName, RPGItemData] = {};
+    for file in items_directory:
+        if (file.ends_with("/")): 
+            final.merge(_get_loaded_rpgitems_directory(path+file)); 
+            continue;
+        if (!file.ends_with(".tres")): continue;
+        final[file.trim_suffix(".tres")] = ResourceLoader.load(path + file);
+    return final;
+
+var item_database: Dictionary[StringName, ItemData] = self._get_loaded_items_directory("res://Items/");
 
 func _database_where(database: Dictionary, conditions: Dictionary[StringName, Variant]) -> Array[StringName]:
     var final: Array[StringName] = database.keys();

@@ -65,6 +65,14 @@
 # res://Scenes/game_over.tscn
 # res://Scenes/grounds_for_evil.tscn
 # res://Scenes/Menus/SettingsMenu/settings_menu.tscn
+# res://Dialogue/error_demoentity.tres
+# res://Dialogue/error_demoworld.tres
+# res://Dialogue/tripdawg.tres
+# res://Dialogue/tutorial_sign.tres
+# res://Dialogue/vendor_beta.tres
+# res://Dialogue/vendor_intro.tres
+# res://Dungeons/DebugDungeon.tres
+# res://Dungeons/ErroneousEntity.tres
 #
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -109,7 +117,7 @@ msgid "Blue Potion"
 msgstr ""
 
 #: Items/BluePotion.tres
-msgid "Inspiring!"
+msgid "Magical!"
 msgstr ""
 
 #: Items/BluePotion.tres
@@ -197,7 +205,7 @@ msgid "Faded Negative"
 msgstr ""
 
 #: Items/FadedNegative.tres
-msgid "I... can't remember..."
+msgid "...mom?"
 msgstr ""
 
 #: Items/FadedNegative.tres
@@ -271,7 +279,7 @@ msgid "Loose Fang"
 msgstr ""
 
 #: Items/LooseFang.tres
-msgid "A tooth from an unknown creature, it feels oddly familiar."
+msgid "A sharp fang from an unknown beast."
 msgstr ""
 
 #: Items/LooseFang.tres
@@ -295,7 +303,7 @@ msgid "Matchstick"
 msgstr ""
 
 #: Items/Matchstick.tres
-msgid "I don't want to light this..."
+msgid "Strike a match, light a fire!"
 msgstr ""
 
 #: Items/Matchstick.tres
@@ -383,7 +391,7 @@ msgid "I won't make the same mistake thri- ow..."
 msgstr ""
 
 #: Items/SeaUrchinPainful.tres
-msgid "I'm not actually sure what this does, but it can't be good."
+msgid "I'm not really sure what this does?"
 msgstr ""
 
 #: Items/SharpeningStone.tres
@@ -403,7 +411,7 @@ msgid "Splinter"
 msgstr ""
 
 #: Items/Splinter.tres
-msgid "ow"
+msgid "ouch"
 msgstr ""
 
 #: Items/Splinter.tres
@@ -429,7 +437,7 @@ msgid "Yeast Spore"
 msgstr ""
 
 #: Items/YeastSpore.tres
-msgid "Yeast Crawler egg... ugh"
+msgid "The egg of a Yeast Crawler... ugh..."
 msgstr ""
 
 #: Items/YeastSpore.tres
@@ -470,7 +478,7 @@ msgid ""
 "A ocean-facing segment of the Doughy Dungeon, covered in sand and small, parasitic insects.\n"
 "\n"
 "30 Rooms\n"
-"Difficulty 1-1"
+"Difficulty 1-3"
 msgstr ""
 
 #: Dungeons/DoughyDungeon.tres
@@ -482,7 +490,7 @@ msgid ""
 "A dungeon comprised almost entirely out of doughy beasts and baking tools. I'd suggest eating before entering.\n"
 "\n"
 "100 Rooms\n"
-"Difficulty 1-10"
+"Difficulty 3-10"
 msgstr ""
 
 #: Dungeons/MagmaticDungeon.tres
@@ -754,6 +762,18 @@ msgid ""
 msgstr ""
 
 #: Scenes/game.tscn
+msgid "Reroll"
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "Reroll the current item selection, once."
+msgstr ""
+
+#: Scenes/game.tscn
+msgid "Proceed"
+msgstr ""
+
+#: Scenes/game.tscn
 msgid "DUNGEON FAILED"
 msgstr ""
 
@@ -793,10 +813,6 @@ msgstr ""
 msgid "1"
 msgstr ""
 
-#: Scenes/game.tscn
-msgid "Proceed"
-msgstr ""
-
 #: Scenes/game_over.tscn
 msgid "[font size=\"50\"]GAME OVER[/font]"
 msgstr ""
@@ -830,35 +846,35 @@ msgid "GAME SPEED:"
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "NOTIF SIZE:"
+msgid "Sets the speed of dungeon gameplay, this does not affect RPG segements."
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "Audio"
+msgid "FULLSCREEN:"
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "SFX VOLUME:"
+msgid "Toggles fullscreen."
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "MUSIC VOLUME:"
+msgid "GAME BORDERS:"
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "Language"
+msgid "If the game's window size is uneven, then a custom texture is drawn in the resulting space."
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "Language:"
-msgstr ""
-
-#: Scenes/Menus/SettingsMenu/settings_menu.tscn
-msgid "Accessibility"
+msgid "Visual"
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
 msgid "KEYBINDS:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "View the keybinds menu."
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
@@ -870,7 +886,274 @@ msgid "KEYBIND HELPERS:"
 msgstr ""
 
 #: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Toggles the display of various keybind reminders."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "HELPER TEXT ALIGN:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Sets the alignment of said keybind reminders."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Left"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Center"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Right"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "NOTIF SIZE:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Sets the text size of combat notifications."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "HORIZONTAL DECISION PANEL:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "The base decisions panel in the dungeon segments lays its choices out along the length of the player stats bar."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "FONT:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid ""
+"Sets the font of all UI.\n"
+"\n"
+"[s=8]Press Start is the default\n"
+"[s=8]m6x11 is an alternate pixel font\n"
+"[s=8]Iansui supports non-latin characters"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Press Start"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "m6x11"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Iansui"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Audio"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "SFX VOLUME:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Volume of SFX and other related audio."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "MUSIC VOLUME:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Volume of music and other related audio."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Language"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid "Language:"
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
+msgid ""
+"Sets the language and locale for the game.\n"
+"[s=8]Note: there are many untranslated strings still present in the game."
+msgstr ""
+
+#: Scenes/Menus/SettingsMenu/settings_menu.tscn
 msgid "DONE"
+msgstr ""
+
+#: Dialogue/error_demoentity.tres
+msgid "*Something opened in the barriers of this world*"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "You found something out of place"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "It stares at you for a long time, before opening its mouth to speak"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "It asks you if you've seen its mother"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "... Only it didn't speak"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "Instead it stared at you, pleadingly, with tears welling in its eyes"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "As if waiting for you to understand its peril through body alone"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "... But you couldn't, and you shook your head"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "Its head lowered towards the floor, wandering away"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "Well, not before looking back to you, as if coming to ask you something else"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "You couldn't bear another question, so instead you held out your hand, a gift contained within"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "*Obtained the Erroneous Glaive*"
+msgstr ""
+
+#: Dialogue/error_demoworld.tres
+msgid "And then you parted ways"
+msgstr ""
+
+#: Dialogue/tripdawg.tres
+msgid "Don't Even Trip Dawg!"
+msgstr ""
+
+#: Dialogue/tutorial_sign.tres
+msgid ""
+"Welcome to Midnight Dungeons! This is the dungeon demo, so you'll only get to play the dungeons (two of them). This game is primarily played using both the keyboard and mouse, however there are certain keybinds and features meant to allow for use of one or the other.\n"
+"\n"
+"Press [[Primary]] to advance dialogue."
+msgstr ""
+
+#: Dialogue/tutorial_sign.tres
+msgid "You can also press [[Secondary]] to instantly complete any dialogue! This acts as a sort of \"skip\". Holding [[Tertiary]] will skip through all dialogue.\n"
+msgstr ""
+
+#: Dialogue/tutorial_sign.tres
+msgid "Pressing [[Pause]] will pause the game. Pressing [[Tertiary]] will bring up the RPG menu (this is where your global inventory is). Lastly holding [[Quaternary]] while moving will allow you to sprint."
+msgstr ""
+
+#: Dialogue/tutorial_sign.tres
+msgid "That's all! Have fun playing the game!"
+msgstr ""
+
+#: Dialogue/vendor_beta.tres
+msgid "Thanks for playing the dungeon demo for Midnight Dungeons!"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "!!!"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Hey there!"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Apologies for the frightening entrance, it's just I feel I've seen you before?"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "...?"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Wait, I've got it!"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "You're that new kid from the guild! Midnight, I believe?"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid ":)"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "I'll take that as a yes..."
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Anyways, name's Stell, but you can just refer to me as the Vendor. I'm usually lurking about these dungeons, selling useful items to any dungeon crawler making their way through."
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Normally I'd try my best not to interact with them, but..."
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "?"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "we're both shapeshifters, ain't we?"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "It's not all too often I see another one around!"
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "... unless it's the ones who've unfortunately lost their autonomy to The Force."
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Either way, you've got a lot to learn about this world kid. I'll be here 'til you're out of here."
+msgstr ""
+
+#: Dialogue/vendor_intro.tres
+msgid "Farewell!"
+msgstr ""
+
+#: Dungeons/DebugDungeon.tres
+msgid "Debug Dungeon"
+msgstr ""
+
+#: Dungeons/DebugDungeon.tres
+msgid ""
+"Everything, everywhere, all at once.\n"
+"\n"
+"500 rooms\n"
+"Difficulty 1-999"
+msgstr ""
+
+#: Dungeons/ErroneousEntity.tres
+msgid "ERROR"
+msgstr ""
+
+#: Dungeons/ErroneousEntity.tres
+msgid ""
+"ERROR_MISSINGDUNGEON\n"
+"ERROR_ERRONEOUSENTITY\n"
+"\n"
+"%d Rooms,\n"
+"Difficulty: %d-%d"
 msgstr ""
 
 msgid "Midnight Dungeons"

@@ -216,7 +216,7 @@ func gen_safe_room():
     purchased_indicies.clear();
     gen_safe_room_items();
 
-    if (current_dungeon.id == Enum.Dungeon.Oceanic && floor_count == 2 && !GlobalPlayer.met_vendor):
+    if (current_dungeon.id == Enum.Dungeon.Oceanic && floor_count == 2 && !GlobalPlayer.get_flag(&"bVendorMet")):
         safe_room_anims.play("VendorIntro");
         await safe_room_anims.animation_finished;
         player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.tres"));
@@ -227,7 +227,7 @@ func gen_safe_room():
         player_ui.stats_display.show();
         safe_room_anims.play("VendorExit");
         await safe_room_anims.animation_finished;
-        GlobalPlayer.met_vendor = true;
+        GlobalPlayer.set_bool_flag(&"bVendorMet", true);
 
     player_ui.safe_room_proceed.show();
     player_ui.safe_room_reroll.show();
@@ -325,4 +325,4 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
     if (Input.is_action_just_pressed("Reset")):
-        SuperLoader.super_loader.switch_scene("res://Scenes/game.tscn");
+        SuperLoader.switch_scene("res://Scenes/game.tscn");

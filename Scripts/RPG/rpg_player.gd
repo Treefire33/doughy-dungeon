@@ -44,13 +44,12 @@ func _ready() -> void:
             GlobalPlayer.unlocked_items.append("ErroneousCloak");
     );
 
-func _process(delta: float) -> void:
-    if (rpg_ui._in_menu): return;
-
+func _physics_process(delta: float) -> void:
     var movement_direction: Vector2 = Vector2.ZERO;
-    movement_direction = Input.get_vector("Left", "Right", "Up", "Down");
+    movement_direction = Input.get_vector("Left", "Right", "Up", "Down").normalized();
     animate_player(movement_direction);
 
+    if (rpg_ui._in_menu): return;
     if (movement_direction != Vector2.ZERO):
         interaction_ray.target_position = movement_direction * (tile_size * 1.15);
     rpg_ui._current_interactable = get_interactable(interaction_ray);
@@ -60,3 +59,5 @@ func _process(delta: float) -> void:
     else:
         self._tile_speed = self.speed;
     self._tile_velocity = movement_direction;
+
+    super(delta);

@@ -27,4 +27,10 @@ func _ready() -> void:
     
 func _process(delta: float) -> void:
     if (!is_instance_valid(global_tooltip)): global_tooltip = Tooltip.tooltip_template.instantiate() as Tooltip;
-    if (global_tooltip.get_parent() == null): SuperLoader.super_loader.current_scene.add_child(global_tooltip);
+    if (global_tooltip.get_parent() == null):
+        var parent;
+        if (!is_instance_valid(SuperLoader.super_loader)):
+            parent = get_tree().current_scene;
+        else:
+            parent = SuperLoader.super_loader.current_scene;
+        parent.add_child(global_tooltip);

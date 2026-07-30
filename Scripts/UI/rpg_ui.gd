@@ -14,9 +14,15 @@ class_name RPGUI
 
 @export var inventory: RPGInventory;
 
+@export var mobile_ui: Control;
+@export var mobile_joystick: VirtualJoystick;
+@export var mobile_primary: Button;
+@export var mobile_secondary: Button;
+@export var mobile_tertiary: Button;
+@export var mobile_quaternary: Button;
+
 var _current_interactable: RPGInteractable = null;
 var _in_menu: bool = false;
-var _in_dialogue: bool = false;
 
 func enter_dungeon():
     var tween = get_tree().create_tween();
@@ -24,7 +30,7 @@ func enter_dungeon():
     tween.tween_property(self, "color", Color(0, 0, 0, 1), 0.8);
     tween.tween_property(self, "modulate", Color(0, 0, 0, 1), 0.8);
     await tween.finished;
-    SuperLoader.super_loader.switch_scene("res://Scenes/game.tscn");
+    SuperLoader.switch_scene("res://Scenes/game.tscn");
     return true;
 
 func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):
@@ -40,10 +46,8 @@ func start_dialogue(interaction_args: RPGEventBus.RPGInteractionArgs):
     
     var dialogue = interaction_args.interaction_object.dialogue_dict[GlobalPlayer.current_scene];
     _in_menu = true;
-    _in_dialogue = true;
     dialogue_box.start_dialogue.emit(dialogue);
     await dialogue_box.dialogue_finished;
-    _in_dialogue = false;
     _in_menu = false;
 
 func attempt_interaction():
@@ -65,28 +69,49 @@ func _ready() -> void:
 
     menu_exit.pressed.connect(func():
         Settings.game_paused = false;
-        get_tree().change_scene_to_file("res://Scenes/title_screen.tscn");
+        SuperLoader.switch_scene("res://Scenes/title_screen.tscn");
     );
+
+    var platform = OS.get_name();
+    var controls_enabled = platform == "iOS" || platform == "Android" || Settings.mobile_control_override;
+    mobile_ui.visible = controls_enabled;
+
+    Settings.settings_changed.connect(func():
+        mobile_ui.visible = platform == "iOS" || platform == "Android" || Settings.mobile_control_override;  
+    );
+
+    mobile_primary.text = Keybinds.format_action_string(mobile_primary.text);
+    mobile_secondary.text = Keybinds.format_action_string(mobile_secondary.text);
+    mobile_tertiary.text = Keybinds.format_action_string(mobile_tertiary.text);
+    mobile_quaternary.text = Keybinds.format_action_string(mobile_quaternary.text);
+
+    mobile_primary.button_down.connect(Input.action_press.bind("Primary"));
+    mobile_secondary.button_down.connect(Input.action_press.bind("Secondary"));
+    mobile_tertiary.button_down.connect(Input.action_press.bind("Tertiary"));
+    mobile_quaternary.button_down.connect(Input.action_press.bind("Quaternary"));
+
+    mobile_primary.button_up.connect(Input.action_release.bind("Primary"));
+    mobile_secondary.button_up.connect(Input.action_release.bind("Secondary"));
+    mobile_tertiary.button_up.connect(Input.action_release.bind("Tertiary"));
+    mobile_quaternary.button_up.connect(Input.action_release.bind("Quaternary"));
 
     RPGEventBus.connect_to_id(RPGEventBus.RPGEventId.RPG_InpsectDungeon, inspect_dungeon);
     RPGEventBus.connect_to_id(RPGEventBus.RPGEventId.RPG_Dialogue, start_dialogue);
 
 func _process(delta: float) -> void:
+    if (Input.is_action_just_pressed("Pause")):
+        Settings.pause_game(self);
+    if (dialogue_box.visible): return;
+
     if (Input.is_action_just_pressed("Primary")):
         if (!_in_menu): attempt_interaction(); return;
-        if (_in_dialogue): 
-            dialogue_box.advance_dialogue();
-        else:
-            RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_EnterDungeon, _current_interactable));
-            enter_dungeon();
+        RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_EnterDungeon, _current_interactable));
+        enter_dungeon();
     elif (Input.is_action_just_pressed("Secondary")):
         if (!_in_menu): return;
-        if (_in_dialogue):
-            dialogue_box.skip_dialogue();
-        else:
-            _in_menu = false;
-            dungeon_inspect.visible = false;
-    elif (Input.is_action_just_pressed("Quaternary")):
+        _in_menu = false;
+        dungeon_inspect.visible = false;
+    elif (Input.is_action_just_pressed("Tertiary")):
         if (_in_menu): 
             if (menu.visible):
                 _in_menu = false;
@@ -94,5 +119,3 @@ func _process(delta: float) -> void:
             return;
         _in_menu = true;
         menu.visible = true;
-    elif (Input.is_action_just_pressed("Pause")):
-        Settings.pause_game(self);

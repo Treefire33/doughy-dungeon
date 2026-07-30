@@ -16,7 +16,7 @@ border_color = Color(1, 1, 1, 1)
 expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
-[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "horiz_panel", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "helper_aligment", "keybinds_button", "settings_done", "game_borders", "game_font")]
+[node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("game_speed", "notif_size", "fullscreen_button", "horiz_panel", "audio_volume", "music_volume", "language_dropdown", "keybind_helpers", "helper_aligment", "keybinds_button", "settings_done", "mobile_override", "game_borders", "game_font")]
 process_mode = 3
 z_index = 15
 layout_mode = 3
@@ -38,8 +38,9 @@ music_volume = NodePath("SettingsContainer/Audio/Margin/Settings/MusicVolume/Val
 language_dropdown = NodePath("SettingsContainer/Language/Margin/Settings/Language/Value")
 keybind_helpers = NodePath("SettingsContainer/Visual/Margin/Settings/KeybindHelpers/Value")
 helper_aligment = NodePath("SettingsContainer/Visual/Margin/Settings/HelperAlignment/Value")
-keybinds_button = NodePath("SettingsContainer/Visual/Margin/Settings/Keybinds/Value")
+keybinds_button = NodePath("SettingsContainer/General/Margin/Settings/Keybinds/Value")
 settings_done = NodePath("Done")
+mobile_override = NodePath("SettingsContainer/Visual/Margin/Settings/MobileControls/Value")
 game_borders = NodePath("SettingsContainer/General/Margin/Settings/GameBorders/Value")
 game_font = NodePath("SettingsContainer/Visual/Margin/Settings/Font/Value")
 
@@ -194,6 +195,31 @@ script = ExtResource("3_v1a1j")
 check_texture = ExtResource("4_o0qv1")
 metadata/_custom_type_script = "uid://c7c45m1uucjsc"
 
+[node name="Keybinds" type="HBoxContainer" parent="SettingsContainer/General/Margin/Settings" unique_id=26668412]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/General/Margin/Settings/Keybinds" unique_id=809363023]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "KEYBINDS:"
+vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/General/Margin/Settings/Keybinds/Name" unique_id=1120385986]
+script = ExtResource("3_7f7if")
+text = "View the keybinds menu."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Value" type="Button" parent="SettingsContainer/General/Margin/Settings/Keybinds" unique_id=2043108459]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_un4yt")
+text = "KEYBINDS"
+
 [node name="Visual" type="Control" parent="SettingsContainer" unique_id=2076578314]
 visible = false
 layout_mode = 2
@@ -210,31 +236,6 @@ theme_override_constants/margin_bottom = 4
 
 [node name="Settings" type="VBoxContainer" parent="SettingsContainer/Visual/Margin" unique_id=58075526]
 layout_mode = 2
-
-[node name="Keybinds" type="HBoxContainer" parent="SettingsContainer/Visual/Margin/Settings" unique_id=26668412]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="Name" type="RichTextLabel" parent="SettingsContainer/Visual/Margin/Settings/Keybinds" unique_id=809363023]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.75
-theme = ExtResource("1_un4yt")
-theme_override_font_sizes/normal_font_size = 12
-text = "KEYBINDS:"
-vertical_alignment = 1
-
-[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Visual/Margin/Settings/Keybinds/Name" unique_id=1120385986]
-script = ExtResource("3_7f7if")
-text = "View the keybinds menu."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
-
-[node name="Value" type="Button" parent="SettingsContainer/Visual/Margin/Settings/Keybinds" unique_id=2043108459]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("1_un4yt")
-text = "KEYBINDS"
 
 [node name="KeybindHelpers" type="HBoxContainer" parent="SettingsContainer/Visual/Margin/Settings" unique_id=25539526]
 custom_maximum_size = Vector2(-1, 16)
@@ -300,6 +301,37 @@ popup/item_1/text = "Center"
 popup/item_1/id = 1
 popup/item_2/text = "Right"
 popup/item_2/id = 2
+
+[node name="MobileControls" type="HBoxContainer" parent="SettingsContainer/Visual/Margin/Settings" unique_id=1643547845]
+custom_maximum_size = Vector2(-1, 16)
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="SettingsContainer/Visual/Margin/Settings/MobileControls" unique_id=1483767242]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = ExtResource("1_un4yt")
+theme_override_font_sizes/normal_font_size = 12
+text = "MOBILE CONTROL OVERRIDE:"
+vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Node" parent="SettingsContainer/Visual/Margin/Settings/MobileControls/Name" unique_id=241311084]
+script = ExtResource("3_7f7if")
+text = "Forces the mobile UI to appear during RPG segments.
+[s=8]Will not update during gameplay."
+metadata/_custom_type_script = "uid://drc261xy1tgvc"
+
+[node name="Value" type="Button" parent="SettingsContainer/Visual/Margin/Settings/MobileControls" unique_id=979194260]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("1_un4yt")
+toggle_mode = true
+script = ExtResource("3_v1a1j")
+check_texture = ExtResource("4_o0qv1")
+metadata/_custom_type_script = "uid://c7c45m1uucjsc"
 
 [node name="HSeparator" type="HSeparator" parent="SettingsContainer/Visual/Margin/Settings" unique_id=1485524448]
 layout_mode = 2
