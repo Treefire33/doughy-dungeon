@@ -6,9 +6,15 @@
 [sub_resource type="Resource" id="Resource_bwdcm"]
 script = ExtResource("1_0jg1x")
 character = 0
-speech = "Welcome to Midnight Dungeons! This is the dungeon demo, so you'll only get to play the dungeons (two of them). This game is primarily played using both the keyboard and mouse, however there are certain keybinds and features meant to allow for use of one or the other.
+speech = "Welcome to Midnight Dungeons! This is the dungeon demo, so you'll only get to play the dungeons (two of them).
 
 Press [[Primary]] to advance dialogue."
+
+[sub_resource type="Resource" id="Resource_5a4q2"]
+script = ExtResource("1_0jg1x")
+character = 0
+speech = "This game is primarily played using both the keyboard and mouse, however there are certain keybinds and toggles meant to allow for use of one or the other."
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
 [sub_resource type="Resource" id="Resource_0jg1x"]
 script = ExtResource("1_0jg1x")
@@ -28,5 +34,5 @@ speech = "That's all! Have fun playing the game!"
 
 [resource]
 script = ExtResource("2_4yfxp")
-dialogue = Array[ExtResource("1_0jg1x")]([SubResource("Resource_bwdcm"), SubResource("Resource_0jg1x"), SubResource("Resource_kfy6o"), SubResource("Resource_wd4li")])
+dialogue = Array[ExtResource("1_0jg1x")]([SubResource("Resource_bwdcm"), SubResource("Resource_5a4q2"), SubResource("Resource_0jg1x"), SubResource("Resource_kfy6o"), SubResource("Resource_wd4li")])
 metadata/_custom_type_script = "uid://18dcduftlk12"

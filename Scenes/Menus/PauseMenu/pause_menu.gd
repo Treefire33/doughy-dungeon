@@ -23,7 +23,7 @@ func load_pause_menu(parent: Control):
     );
     return_button.pressed.connect(func():
         Settings.game_paused = false;
-        SuperLoader.switch_scene("res://Scenes/rpg_test.tscn");
+        RPGManager.move_rooms(&"TEST_SCENE");
     );
     exit_button.pressed.connect(func():
         Settings.game_paused = false;

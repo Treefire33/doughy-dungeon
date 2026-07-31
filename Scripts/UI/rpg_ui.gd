@@ -41,10 +41,8 @@ func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):
     dungeon_name.text = interaction_args.interaction_object.dungeon.name;
     dungeon_description.text = interaction_args.interaction_object.dungeon.description;
 
-func start_dialogue(interaction_args: RPGEventBus.RPGInteractionArgs):
-    assert(interaction_args.interaction_object.get("dialogue_dict"));
-    
-    var dialogue = interaction_args.interaction_object.dialogue_dict[GlobalPlayer.current_scene];
+func start_dialogue(dialogue_args: RPGEventBus.RPGDialogueArgs):
+    var dialogue = dialogue_args.dialogue;
     _in_menu = true;
     dialogue_box.start_dialogue.emit(dialogue);
     await dialogue_box.dialogue_finished;

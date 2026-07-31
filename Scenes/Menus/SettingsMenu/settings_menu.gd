@@ -35,7 +35,7 @@ func _ready():
     );
     
     notif_size.value = Settings.toast_size;
-    notif_size.value_changed.connect(func(value: float):
+    notif_size.value_changed.connect(func(value: int):
         Settings.toast_size = value;
     );
 

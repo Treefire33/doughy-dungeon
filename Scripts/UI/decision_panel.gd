@@ -1,6 +1,8 @@
 extends Control
 class_name DecisionPanel
 
+signal decision(decision: Enum.Decision, enemy: Enemy);
+
 @export var options: Panel;
 @export var attack_button: Button;
 @export var spell_button: Button;
@@ -179,7 +181,7 @@ func enemy_select():
 
 func submit_decision():
     player_ui.making_decision = false;
-    player_ui.player_decision.emit(_selected_decision, _selected_enemy, _selected_depth);
+    decision.emit(_selected_decision, _selected_enemy, _selected_depth);
     self.visible = false;
 
 var action_to_index: Array[String] = [
@@ -200,7 +202,7 @@ var panel_dimensions: Dictionary = {
 func horizify_panel():
     options.get_node("Container").vertical = !Settings.horiz_decision_panel;
     for prop in panel_dimensions[Settings.horiz_decision_panel]:
-        options.set(prop, panel_dimensions[Settings.horiz_decision_panel][prop]);
+        options.set_deferred(prop, panel_dimensions[Settings.horiz_decision_panel][prop]);
 
 func _ready() -> void:
     for page_index in action_pages:

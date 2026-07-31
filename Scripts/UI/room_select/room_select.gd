@@ -23,6 +23,12 @@ var current_room: RoomSelectButton = null;
 var selected_room: RoomSelectButton = null;
 var rooms: Array[RoomSelectButton] = [];
 
+const default_rooms: Array[RoomData] = [
+    preload("res://Dungeons/Rooms/StandardProceed.tres"),
+    preload("res://Dungeons/Rooms/StandardRiskIt.tres"),
+    preload("res://Dungeons/Rooms/StandardStayClear.tres"),
+];
+
 func colour_buttons():
     for button in rooms:
         button.disabled = !(current_room.next_rooms.has(button) || current_room == button);
@@ -52,7 +58,7 @@ func get_random_room(room_pool: Array[RoomData], difficulty: int) -> RoomData:
         weights.append(room.room_weight);
     
     if (possible_rooms.size() <= 0):
-        return RoomData.default_rooms[0];
+        return self.default_rooms[0];
 
     return possible_rooms[rng.rand_weighted(weights)];
 
@@ -187,7 +193,7 @@ func _ready() -> void:
 
     current_room = room_button;
     current_room.room_data = get_random_room(
-        GlobalPlayer.current_dungeon.rooms if (GlobalPlayer.current_dungeon != null) else RoomData.default_rooms, 
+        GlobalPlayer.current_dungeon.rooms if (GlobalPlayer.current_dungeon != null) else self.default_rooms, 
         GlobalPlayer.current_dungeon.minimum_difficulty if (GlobalPlayer.current_dungeon != null) else 1
     );
     current_room.pressed.connect(inspect_room.bind(current_room));

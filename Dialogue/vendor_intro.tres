@@ -3,12 +3,6 @@
 [ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="1_cmyia"]
 [ext_resource type="Script" uid="uid://c1wkyurcxei88" path="res://Scripts/Dialogue/dialogue_speech.gd" id="1_vyvsa"]
 
-[sub_resource type="Resource" id="Resource_cxjmr"]
-script = ExtResource("1_vyvsa")
-emotion = 1
-speech = "!!!"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
 [sub_resource type="Resource" id="Resource_tq7uu"]
 script = ExtResource("1_vyvsa")
 character = 2
@@ -16,92 +10,38 @@ emotion = 3
 speech = "Hey there!"
 metadata/_custom_type_script = "uid://c1wkyurcxei88"
 
-[sub_resource type="Resource" id="Resource_xdp8d"]
+[sub_resource type="Resource" id="Resource_vyvsa"]
+script = ExtResource("1_vyvsa")
+emotion = 1
+speech = "!!!"
+
+[sub_resource type="Resource" id="Resource_cxjmr"]
 script = ExtResource("1_vyvsa")
 character = 2
-speech = "Apologies for the frightening entrance, it's just I feel I've seen you before?"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
+emotion = 3
+speech = "No need to panic! I ain't gonna attack you or anything!"
+
+[sub_resource type="Resource" id="Resource_xdp8d"]
+script = ExtResource("1_vyvsa")
+emotion = 4
+speech = "..."
 
 [sub_resource type="Resource" id="Resource_64q3m"]
 script = ExtResource("1_vyvsa")
-emotion = 2
-speech = "...?"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
+character = 2
+speech = "I'm Stell, and I run this little... uh... dungeon shop."
 
 [sub_resource type="Resource" id="Resource_2qlhb"]
 script = ExtResource("1_vyvsa")
 character = 2
-emotion = 1
-speech = "Wait, I've got it!"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
+speech = "If you need anything, I'll be here 'til you're out of here!"
 
 [sub_resource type="Resource" id="Resource_j8m5q"]
 script = ExtResource("1_vyvsa")
 character = 2
-emotion = 3
-speech = "You're that new kid from the guild! Midnight, I believe?"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_2po8i"]
-script = ExtResource("1_vyvsa")
-emotion = 3
-speech = ":)"
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_mv37d"]
-script = ExtResource("1_vyvsa")
-character = 2
-emotion = 4
-speech = "I'll take that as a yes..."
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_glxmw"]
-script = ExtResource("1_vyvsa")
-character = 2
-speech = "Anyways, name's Stell, but you can just refer to me as the Vendor. I'm usually lurking about these dungeons, selling useful items to any dungeon crawler making their way through."
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_vyvsa"]
-script = ExtResource("1_vyvsa")
-character = 2
-speech = "Normally I'd try my best not to interact with them, but..."
-metadata/_custom_type_script = "uid://c1wkyurcxei88"
-
-[sub_resource type="Resource" id="Resource_uj213"]
-script = ExtResource("1_vyvsa")
-emotion = 2
-speech = "?"
-
-[sub_resource type="Resource" id="Resource_ivxvh"]
-script = ExtResource("1_vyvsa")
-character = 2
-emotion = 3
-speech = "we're both shapeshifters, ain't we?"
-
-[sub_resource type="Resource" id="Resource_aqojs"]
-script = ExtResource("1_vyvsa")
-character = 2
-emotion = 3
-speech = "It's not all too often I see another one around!"
-
-[sub_resource type="Resource" id="Resource_jgej6"]
-script = ExtResource("1_vyvsa")
-character = 2
-emotion = 5
-speech = "... unless it's the ones who've unfortunately lost their autonomy to The Force."
-
-[sub_resource type="Resource" id="Resource_mqya6"]
-script = ExtResource("1_vyvsa")
-character = 2
-speech = "Either way, you've got a lot to learn about this world kid. I'll be here 'til you're out of here."
-
-[sub_resource type="Resource" id="Resource_pm0qp"]
-script = ExtResource("1_vyvsa")
-character = 2
-emotion = 3
-speech = "Farewell!"
+speech = "See ya!"
 
 [resource]
 script = ExtResource("1_cmyia")
-dialogue = Array[ExtResource("1_vyvsa")]([SubResource("Resource_cxjmr"), SubResource("Resource_tq7uu"), SubResource("Resource_xdp8d"), SubResource("Resource_64q3m"), SubResource("Resource_2qlhb"), SubResource("Resource_j8m5q"), SubResource("Resource_2po8i"), SubResource("Resource_mv37d"), SubResource("Resource_glxmw"), SubResource("Resource_vyvsa"), SubResource("Resource_uj213"), SubResource("Resource_ivxvh"), SubResource("Resource_aqojs"), SubResource("Resource_jgej6"), SubResource("Resource_mqya6"), SubResource("Resource_pm0qp")])
+dialogue = Array[ExtResource("1_vyvsa")]([SubResource("Resource_tq7uu"), SubResource("Resource_vyvsa"), SubResource("Resource_cxjmr"), SubResource("Resource_xdp8d"), SubResource("Resource_64q3m"), SubResource("Resource_2qlhb"), SubResource("Resource_j8m5q")])
 metadata/_custom_type_script = "uid://18dcduftlk12"

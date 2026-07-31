@@ -1,5 +1,4 @@
 extends Node2D
-class_name SuperLoader
 
 # adds borders to the game screen and also properly scales it
 @export var game_control: Control;
@@ -8,27 +7,34 @@ class_name SuperLoader
 @export var game_borders: Control;
 var current_scene: Node = null;
 
-static var super_loader: SuperLoader;
-static func switch_scene(scene_path: String):
-    if (!is_instance_valid(super_loader)): Settings.get_tree().change_scene_to_file.call_deferred(scene_path); return;
-    if (is_instance_valid(super_loader.current_scene)): super_loader.current_scene.queue_free.call_deferred();
-    var new_scene = ResourceLoader.load(scene_path).instantiate();
+func switch_scene(scene_path: Variant):
+    assert(scene_path is String || scene_path is PackedScene);
+    if (is_instance_valid(self.current_scene)): self.current_scene.queue_free.call_deferred();
+    var new_scene = ResourceLoader.load(scene_path).instantiate() if scene_path is String else scene_path.instantiate();
     new_scene.process_mode = Node.PROCESS_MODE_PAUSABLE;
-    super_loader.game_container.add_child(new_scene);
-    super_loader.current_scene = new_scene;
+    self.game_container.add_child.call_deferred(new_scene);
+    self.current_scene = new_scene;
 
 func change_font(font_file: Font):
     game_control.theme.default_font = font_file;
 
+func _bootstrap_loader():
+    var current_scene = get_tree().current_scene;
+    if (current_scene is RPGScene):
+        RPGManager.move_rooms(current_scene.scene_id);
+        current_scene.queue_free();
+    elif (current_scene != self):
+        await current_scene.get_parent().ready;
+        current_scene.reparent(self.game_container);
+        self.current_scene = current_scene;
+    else: switch_scene("res://Scenes/title_screen.tscn");
+
 func _enter_tree() -> void:
-    if (!is_instance_valid(super_loader)):
-        super_loader = self;
-    
     RenderingServer.set_default_clear_color(Color.BLACK);
 
 func _ready() -> void:
     change_font(Settings.font_dict[Settings.game_font]);
-    switch_scene("res://Scenes/title_screen.tscn");
+    _bootstrap_loader();
 
 var default_game_size: Vector2 = Vector2(800, 450);
 func _draw() -> void:

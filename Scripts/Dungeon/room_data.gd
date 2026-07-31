@@ -11,9 +11,3 @@ class_name RoomData
 @export var minimum_difficulty: int = 1;
 @export var maximum_difficulty: int = 30;
 @export var enemies: Array[EnemyData] = [];
-
-static var default_rooms: Array[RoomData] = [
-    load("res://Dungeons/Rooms/StandardProceed.tres"),
-    load("res://Dungeons/Rooms/StandardRiskIt.tres"),
-    load("res://Dungeons/Rooms/StandardStayClear.tres"),
-];

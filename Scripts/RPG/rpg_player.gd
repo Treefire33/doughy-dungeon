@@ -1,4 +1,5 @@
 extends RPGEntity
+class_name RPGPlayer
 
 @onready var camera: Camera2D = $Camera;
 @onready var animator: AnimationPlayer = $Animator;

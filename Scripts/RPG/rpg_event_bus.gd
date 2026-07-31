@@ -19,7 +19,13 @@ func connect_to_id(event_id: RPGEventId, callable: Callable):
     _id_specific_connections[event_id].append(callable);
 
 func clear_connections():
-    _id_specific_connections.clear();
+    for id in _id_specific_connections:
+        var to_remove: Array = [];
+        for callable in _id_specific_connections[id]:
+            if (callable.is_valid()): continue;
+            to_remove.append(callable);
+        for callable in to_remove:
+            _id_specific_connections[id].erase(callable);
 
 func _ready() -> void:
     self.event_fired.connect(_id_specific_connection);
@@ -54,3 +60,10 @@ class RPGInteractionArgs extends RPGEventArgs:
     func _init(event_id: RPGEventId, interaction_object: RPGInteractable) -> void:
         super(event_id);
         self.interaction_object = interaction_object;
+
+class RPGDialogueArgs extends RPGInteractionArgs:
+    var dialogue: DialogueData;
+
+    func _init(event_id: RPGEventId, interaction_object: RPGInteractable, dialogue: DialogueData) -> void:
+        super(event_id, interaction_object);
+        self.dialogue = dialogue;

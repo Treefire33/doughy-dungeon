@@ -941,5 +941,4 @@ theme = ExtResource("10_vm72l")
 icon = ExtResource("28_tgy6u")
 expand_icon = true
 
-[connection signal="request_decision" from="RoomManager" to="Camera/PlayerUI" method="_on_room_manager_request_decision"]
 [connection signal="ui_done" from="Camera/PlayerUI" to="RoomManager" method="_on_player_ui_ui_done"]

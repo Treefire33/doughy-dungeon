@@ -2,7 +2,6 @@ extends Control
 class_name PlayerUI;
 
 signal ui_done();
-signal player_decision(decision: Enum.Decision, enemy: Enemy);
 signal _enemy_selected();
 
 # Export vars
@@ -96,7 +95,7 @@ func select_enemy(enemy: Enemy):
 
 var previewing_room_select: bool = false;
 func _ready() -> void:
-    room_manager.request_decision.connect(decision_panel.begin_decision);
+    room_manager.battle_manager.request_decision.connect(decision_panel.begin_decision);
     decision_panel.load_decisions(self);
     stats_display.update(room_manager);
     inventory_button.grab_focus();

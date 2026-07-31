@@ -1,7 +1,6 @@
 extends Node
 
 var current_dungeon: DungeonData;
-var current_scene: StringName = "";
 
 # Save Stuff
 var completed_dungeons: Dictionary[Enum.Dungeon, bool] = {

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DialogueData" format=3 uid="uid://ctxrjlxo26flq"]
+
+[ext_resource type="Script" uid="uid://c1wkyurcxei88" path="res://Scripts/Dialogue/dialogue_speech.gd" id="1_1dddp"]
+[ext_resource type="Script" uid="uid://18dcduftlk12" path="res://Scripts/Dialogue/dialogue_data.gd" id="2_u3eyy"]
+
+[sub_resource type="Resource" id="Resource_my0g3"]
+script = ExtResource("1_1dddp")
+character = 0
+speech = "You didn't come back."
+duration = 0.8
+
+[resource]
+script = ExtResource("2_u3eyy")
+dialogue = Array[ExtResource("1_1dddp")]([SubResource("Resource_my0g3")])
+metadata/_custom_type_script = "uid://18dcduftlk12"

@@ -2,7 +2,7 @@ extends Node
 
 signal settings_changed();
 
-var game_speed: int = 1;
+var game_speed: float = 1;
 var audio_volume: float = 1;
 var music_volume: float = 1:
     get: return music_volume;
@@ -58,8 +58,7 @@ var game_font: int = 0:
     get: return game_font;
     set (value):
         game_font = value;
-        if (!is_instance_valid(SuperLoader.super_loader)): return;
-        SuperLoader.super_loader.change_font(font_dict[game_font]);
+        SuperLoader.change_font(font_dict[game_font]);
 
 var _settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
 func load_settings_menu(node: Node):

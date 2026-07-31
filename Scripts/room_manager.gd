@@ -1,7 +1,6 @@
 extends Node
 class_name RoomManager
 
-signal request_decision;
 @export var player_ui: PlayerUI;
 @export var wall_rect: TextureRect;
 @export var floor_rect: TextureRect;
@@ -310,7 +309,7 @@ func _ready() -> void:
     MidnightDebug.player = self.player;
     if (GlobalPlayer.current_dungeon):
         current_dungeon = GlobalPlayer.current_dungeon;
-        if (current_dungeon.rooms.size() == 0): current_dungeon.rooms = RoomData.default_rooms;
+        if (current_dungeon.rooms.size() == 0): current_dungeon.rooms = player_ui.room_select.default_rooms;
     self.wall_rect.texture = self.current_dungeon.wall_texture;
     self.floor_rect.texture = self.current_dungeon.floor_texture;
     if (RoomManager.instance):

@@ -1,6 +1,7 @@
 extends Node
 class_name BattleManager
 
+signal request_decision();
 var current_entities: Array[Entity] = [];
 var player: Player = null;
 
@@ -30,8 +31,8 @@ func do_turn(room_manager: RoomManager):
     var selected_enemy: Enemy = null;
     var decision_count: int = -1;
     if (player.turn_points > 0):
-        room_manager.request_decision.emit();
-        var decision_info = await room_manager.player_ui.player_decision;
+        request_decision.emit();
+        var decision_info = await room_manager.player_ui.decision_panel.decision;
         decision = decision_info[0];
         selected_enemy = decision_info[1];
         decision_count = decision_info[2];
