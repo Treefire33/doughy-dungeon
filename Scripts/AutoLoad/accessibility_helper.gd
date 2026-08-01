@@ -5,6 +5,10 @@ var current_keybind_helpers: Dictionary[String, Array] = {};
 
 func _ready() -> void:
     Keybinds.keybind_changed.connect(update_action_binds);
+    Settings.settings_changed.connect(func(setting_name: StringName):
+        if (setting_name != &"helpers_alignment"): return;
+        update_binds();    
+    );
 
 func update_binds():
     for action in current_keybind_helpers:

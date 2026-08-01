@@ -88,6 +88,7 @@ var encryption_pass: String = "cc43f15359acc9ae246eab99fae2f0a1c020a6c2a6e832610
 # Save Data:
 func save_player():
     var save_data = ConfigFile.new();
+    save_data.set_value("flags", "completed_dungeons", completed_dungeons);
     save_data.set_value("flags", "player_flags", player_flags);
 
     save_data.set_value("rpg_items", "unlocked_items", unlocked_items);

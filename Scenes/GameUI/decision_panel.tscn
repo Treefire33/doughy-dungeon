@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://bdnlmaoase6uu" path="res://Scripts/UI/decision_panel.gd" id="1_8ex84"]
 [ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/ActionIcons/Attack.tres" id="2_drmvv"]
-[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="3_cisa7"]
 [ext_resource type="Texture2D" uid="uid://bmsnqxrde1ksf" path="res://Sprites/Icons/ActionIcons/Rest.tres" id="4_cisa7"]
 [ext_resource type="Texture2D" uid="uid://b5q1rm3110rcw" path="res://Sprites/Icons/ActionIcons/Spell.tres" id="4_drmvv"]
 [ext_resource type="Texture2D" uid="uid://brmihfdnaob2h" path="res://Sprites/Icons/ActionIcons/SpellDefend.tres" id="5_5uw8l"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="5_drmvv"]
 [ext_resource type="Texture2D" uid="uid://dm5p0cj8x7ly7" path="res://Sprites/Icons/ActionIcons/SpellRetype.tres" id="6_hx2q3"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="6_qdcan"]
 [ext_resource type="Texture2D" uid="uid://bnxh2gs4ktkfj" path="res://Sprites/Icons/ActionIcons/SpellAttack.tres" id="7_qdcan"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx2q3"]
@@ -139,11 +139,8 @@ text = "LIGHT"
 icon = ExtResource("2_drmvv")
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="AttackOptions/Container/AttackLight" unique_id=2087360620]
-script = ExtResource("3_cisa7")
-text = "Standard attack, deals 100% of your damage stat."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["Standard attack, deals 100% of your damage stat."])
 
 [node name="AttackHeavy" type="Button" parent="AttackOptions/Container" unique_id=1700554105]
 layout_mode = 2
@@ -154,13 +151,9 @@ text = "HEAVY"
 icon = ExtResource("2_drmvv")
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="AttackOptions/Container/AttackHeavy" unique_id=685601525]
-script = ExtResource("3_cisa7")
-text = "Heavier, more tiring, attack.
-[s=8]Deals 150% - 300% of your damage stat but also requires much more stamina.
-[s=8](Stamina cost = attack depth * 2)"
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["Heavier, more tiring, attack.
+[font_size=8]Deals 150% - 300% of your damage stat but also requires much more stamina. (Stamina cost = attack depth * 2)[/font_size]"])
 
 [node name="Title" type="RichTextLabel" parent="AttackOptions" unique_id=1567133643]
 layout_mode = 1
@@ -205,11 +198,8 @@ text = "DEFEND"
 icon = ExtResource("5_5uw8l")
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="SpellOptions/Container/SpellDefend" unique_id=1113194916]
-script = ExtResource("3_cisa7")
-text = "A shield spell which creates a barrier around you."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["A shield spell which creates a barrier around you."])
 
 [node name="SpellRetype" type="Button" parent="SpellOptions/Container" unique_id=759208024]
 layout_mode = 2
@@ -220,11 +210,8 @@ text = "RETYPE"
 icon = ExtResource("6_hx2q3")
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="SpellOptions/Container/SpellRetype" unique_id=1547911518]
-script = ExtResource("3_cisa7")
-text = "A typing spell which changes your type."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["A typing spell which changes your type."])
 
 [node name="SpellAttack" type="Button" parent="SpellOptions/Container" unique_id=283140128]
 layout_mode = 2
@@ -235,11 +222,8 @@ text = "ATTACK"
 icon = ExtResource("7_qdcan")
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="SpellOptions/Container/SpellAttack" unique_id=1547019597]
-script = ExtResource("3_cisa7")
-text = "An attack spell that deals 50% of your attack stat but doesn't consume stamina."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["An attack spell that deals 50% of your attack stat but doesn't consume stamina."])
 
 [node name="Title" type="RichTextLabel" parent="SpellOptions" unique_id=957797760]
 layout_mode = 1
@@ -283,11 +267,8 @@ theme = ExtResource("5_drmvv")
 text = "1"
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthOne" unique_id=845117001]
-script = ExtResource("3_cisa7")
-text = "Standard action depth, costs one turn."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["Action costs 1 turn at depth 1."])
 
 [node name="DepthTwo" type="Button" parent="CountOptions/Container" unique_id=1623447985]
 layout_mode = 2
@@ -297,11 +278,8 @@ theme = ExtResource("5_drmvv")
 text = "2"
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthTwo" unique_id=1919855253]
-script = ExtResource("3_cisa7")
-text = "Slightly higher depth, costs two turns."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["Action costs 2 turns at depth 2."])
 
 [node name="DepthThree" type="Button" parent="CountOptions/Container" unique_id=1572445747]
 layout_mode = 2
@@ -311,11 +289,8 @@ theme = ExtResource("5_drmvv")
 text = "3"
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthThree" unique_id=527990042]
-script = ExtResource("3_cisa7")
-text = "Even higher depth, costs three turns."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["Action costs 3 turns at depth 3."])
 
 [node name="DepthFour" type="Button" parent="CountOptions/Container" unique_id=1587578170]
 layout_mode = 2
@@ -325,11 +300,8 @@ theme = ExtResource("5_drmvv")
 text = "4"
 icon_alignment = 1
 expand_icon = true
-
-[node name="TooltipTrigger" type="Node" parent="CountOptions/Container/DepthFour" unique_id=1218573934]
-script = ExtResource("3_cisa7")
-text = "Highest action depth, costs 4 turns."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+script = ExtResource("6_qdcan")
+tooltip_strings = Array[String](["Action costs 4 turns at depth 4."])
 
 [node name="Title" type="RichTextLabel" parent="CountOptions" unique_id=1488114691]
 layout_mode = 1

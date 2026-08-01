@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://ceuoj8jts8b1v"]
+
+[ext_resource type="Script" uid="uid://ixs2o0jr6jjg" path="res://addons/tooltips_pro/scripts/tooltip_template.gd" id="1_w7kvt"]
+
+[node name="DefaultTooltip" type="PanelContainer" unique_id=669194 node_paths=PackedStringArray("content_labels")]
+z_index = 99
+custom_minimum_size = Vector2(64, 0)
+custom_maximum_size = Vector2(280, 200)
+offset_right = 64.0
+offset_bottom = 18.0
+mouse_filter = 2
+script = ExtResource("1_w7kvt")
+can_lock = false
+content_labels = [NodePath("MarginContainer/VBoxContainer/ItemName"), NodePath("MarginContainer/VBoxContainer/FlavourText"), NodePath("MarginContainer/VBoxContainer/Price"), NodePath("MarginContainer/VBoxContainer/Description")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=898345184]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=535637793]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ItemName" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1827610226]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+bbcode_enabled = true
+text = "Sharpening Stone"
+fit_content = true
+
+[node name="FlavourText" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=300531095]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+bbcode_enabled = true
+text = "(How do you sharpen a wooden sword?)"
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=428459809]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+bbcode_enabled = true
+text = "Price: 50"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=794531655]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+bbcode_enabled = true
+text = "On attack, 50% chance to do a sick backflip."
+fit_content = true

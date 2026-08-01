@@ -21,9 +21,9 @@ func load_inventory(room_manager: RoomManager):
         var count = room_manager.player.items[item];
         var data = ItemUtils.get_item_data(item);
         var new_item = inventory_item.duplicate();
-        var item_tooltip: TooltipTrigger = new_item.get_node("Button/TooltipTrigger");
+        var item_tooltip: TooltipTrigger = new_item.get_node("Button");
         new_item.visible = true;
-        item_tooltip.text = ItemUtils.get_tooltip_text(data, false);
+        item_tooltip.tooltip_strings.append_array(ItemUtils.get_tooltip_text(data, false));
         new_item.get_node("Count").text = str(count);
         new_item.texture = data.sprite;
         inventory_items.add_child(new_item);

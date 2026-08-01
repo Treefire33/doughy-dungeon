@@ -34,7 +34,7 @@ func play_audio(clip: AudioStream, position: float = 0):
 
 func play_music(clip: AudioStreamInteractive, position: float = 0):
 	if (!music_player.is_node_ready()): await music_player.ready;
-	if (music_player.stream == clip): return;
+	if (music_player.stream == clip && music_player.playing): return;
 	music_player.volume_linear = Settings.music_volume;
 	music_player.stream = clip;
 	music_player.play(position);
@@ -51,4 +51,8 @@ func stop_music():
 func _ready() -> void:
 	music_player = AudioStreamPlayer.new();
 	music_player.process_mode = Node.PROCESS_MODE_ALWAYS;
+	Settings.settings_changed.connect(func(setting_name: StringName):
+		if (setting_name != &"music_volume"): return;
+		music_player.volume_linear = Settings.music_volume;
+	);
 	get_node("/root/").add_child.call_deferred(music_player);

@@ -19,7 +19,7 @@ func _ready() -> void:
         SuperLoader.switch_scene("res://Scenes/game.tscn");    
     );
     continue_button.pressed.connect(func():
-        SuperLoader.switch_scene("res://Scenes/rpg_test.tscn");
+        RPGManager.move_rooms(&"TEST_SCENE");
     );
 
 func load_info(player: Player, room_manager: RoomManager, status: String):
@@ -27,9 +27,9 @@ func load_info(player: Player, room_manager: RoomManager, status: String):
         var count = player.items[item];
         var data = ItemUtils.get_item_data(item);
         var new_item = item_icon.duplicate();
-        var item_tooltip: TooltipTrigger = new_item.get_node("TooltipTrigger");
+        var item_tooltip: TooltipTrigger = new_item as TooltipTrigger;
         new_item.visible = true;
-        item_tooltip.text = ItemUtils.get_tooltip_text(data, false);
+        item_tooltip.tooltip_strings.append_array(ItemUtils.get_tooltip_text(data, false));
         new_item.get_node("Count").text = str(count);
         new_item.texture = data.sprite;
         item_container.add_child(new_item);

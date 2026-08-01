@@ -4,15 +4,20 @@ class_name RPGPlayer
 @onready var camera: Camera2D = $Camera;
 @onready var animator: AnimationPlayer = $Animator;
 @onready var interaction_ray: RayCast2D = $InteractionRay;
+@onready var sprite: Sprite2D = $Sprite;
 
 @export var rpg_ui: RPGUI;
 @export var speed: int = 5;
 @export var sprint_mod: int = 2;
 
-func animate_player(movement_direction: Vector2):
-    if (movement_direction != Vector2.ZERO && movement_direction == _last_direction): return;
+@export var tattered_texture: Texture2D;
+@export var guild_texture: Texture2D;
+
+func animate_player():
+    var move_axis: Vector2 = Vector2(round(self._tile_velocity.x), round(self._tile_velocity.y));
+    if (move_axis != Vector2.ZERO && move_axis == _last_direction): return;
     
-    match (movement_direction):
+    match (move_axis):
         Vector2.ZERO:
             animator.play(animator.current_animation.left(-4)+"Idle");
         Vector2.UP:
@@ -45,10 +50,15 @@ func _ready() -> void:
             GlobalPlayer.unlocked_items.append("ErroneousCloak");
     );
 
+func _draw() -> void:
+    if (GlobalPlayer.cloak.name != "Tattered Cloak"):
+        sprite.texture = guild_texture;
+    else:
+        sprite.texture = tattered_texture;
+
 func _physics_process(delta: float) -> void:
     var movement_direction: Vector2 = Vector2.ZERO;
     movement_direction = Input.get_vector("Left", "Right", "Up", "Down").normalized();
-    animate_player(movement_direction);
 
     if (rpg_ui._in_menu): return;
     if (movement_direction != Vector2.ZERO):
@@ -61,4 +71,5 @@ func _physics_process(delta: float) -> void:
         self._tile_speed = self.speed;
     self._tile_velocity = movement_direction;
 
+    animate_player();
     super(delta);

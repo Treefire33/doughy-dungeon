@@ -40,6 +40,7 @@ grow_vertical = 2
 stretch = true
 
 [node name="GameViewport" type="SubViewport" parent="Game/GameViewportContainer" unique_id=1012181752]
+process_mode = 1
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true

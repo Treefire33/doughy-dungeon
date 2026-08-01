@@ -89,6 +89,7 @@ offset_left = 300.0
 offset_top = 236.0
 offset_right = 500.0
 offset_bottom = 430.0
+alignment = 1
 
 [node name="Start" type="Button" parent="UI/MenuButtons" unique_id=1652083389]
 layout_mode = 2

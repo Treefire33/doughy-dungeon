@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blwm2bbudnk6q"
-path="res://.godot/imported/player_rpg.png-475842bd0ad78afadbcd847f00c3bc1f.ctex"
+uid="uid://nk5oqxxq4y1f"
+path="res://.godot/imported/LockTexture.png-7c36d11cf8dd6e043205933ab5942a5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player/player_rpg.png"
-dest_files=["res://.godot/imported/player_rpg.png-475842bd0ad78afadbcd847f00c3bc1f.ctex"]
+source_file="res://addons/tooltips_pro/examples/resources/styles/LockTexture.png"
+dest_files=["res://.godot/imported/LockTexture.png-7c36d11cf8dd6e043205933ab5942a5b.ctex"]
 
 [params]
 

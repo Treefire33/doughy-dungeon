@@ -9,6 +9,6 @@ room_name = "ERROR"
 room_description = "ERR_ROOMMISSING_EVLGRNDS"
 room_character = "E"
 room_length = -1
-room_weight = 0.01
+room_weight = 0.1
 maximum_difficulty = 9999
 metadata/_custom_type_script = "uid://bop2umllk0kqy"

@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xoamwvqembae" path="res://Scripts/RPG/rpg_player.gd" id="1_wv30c"]
 [ext_resource type="PackedScene" uid="uid://cn2u81ry85eg1" path="res://Scenes/GameUI/rpg_ui.tscn" id="2_dgm50"]
+[ext_resource type="Texture2D" uid="uid://bcxfhanb06ffb" path="res://Sprites/Player/player_rpg_new_tattered.png" id="2_wv30c"]
+[ext_resource type="Texture2D" uid="uid://cu0or7ylge42r" path="res://Sprites/Player/player_rpg_new_guild.png" id="3_ibwra"]
 [ext_resource type="Texture2D" uid="uid://c8dnormfykoew" path="res://Sprites/Player/player_rpg_new.aseprite" id="6_ibwra"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo64u"]
@@ -254,6 +256,8 @@ _data = {
 collision_layer = 5
 script = ExtResource("1_wv30c")
 rpg_ui = NodePath("Camera/RPGUILayer/UI")
+tattered_texture = ExtResource("2_wv30c")
+guild_texture = ExtResource("3_ibwra")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1344781562]
 limit_smoothed = true

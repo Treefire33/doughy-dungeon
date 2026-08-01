@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://drcx2bgrq2urj" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic2.tres" id="3_ytpux"]
 [ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="4_07cr6"]
 [ext_resource type="AnimationLibrary" uid="uid://chm365vo5ctw7" path="res://Sprites/Enemies/Animations/Enemy.res" id="5_07cr6"]
-[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="6_a801k"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="6_a801k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe7bt"]
 bg_color = Color(0, 0, 0, 1)
@@ -18,7 +18,7 @@ size = Vector2(64, 64)
 [node name="Enemy" type="Node2D" unique_id=1155350619 node_paths=PackedStringArray("hover_area", "hover_tooltip", "health_bar", "notif")]
 script = ExtResource("1_hghv2")
 hover_area = NodePath("HoverArea")
-hover_tooltip = NodePath("HoverArea/TooltipTrigger")
+hover_tooltip = NodePath("HoverArea")
 health_bar = NodePath("Health")
 notif = NodePath("Notif")
 
@@ -100,10 +100,7 @@ libraries/Enemy = ExtResource("5_07cr6")
 
 [node name="HoverArea" type="Area2D" parent="." unique_id=384912529]
 disable_mode = 1
+script = ExtResource("6_a801k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HoverArea" unique_id=1956538777]
 shape = SubResource("RectangleShape2D_oo64u")
-
-[node name="TooltipTrigger" type="Node" parent="HoverArea" unique_id=529971340]
-script = ExtResource("6_a801k")
-metadata/_custom_type_script = "uid://drc261xy1tgvc"

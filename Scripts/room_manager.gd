@@ -165,10 +165,10 @@ func gen_room(decision: Enum.RoomDecision):
 var purchased_indicies = []; 
 func purchase_item(item_name: String, item_display, display_index: int):
     var item = ItemUtils.get_item_data(item_name);
-    if (player.coins <= 0 or player.coins < difficulty_adjust(item.price)):
+    if (player.coins <= 0 or player.coins < difficulty_adjust(item.price, 0.06)):
         return;
     
-    player.coins -= difficulty_adjust(item.price);
+    player.coins -= difficulty_adjust(item.price, 0.06);
     ToastParty.show({
         "text": "Puchased %s!" % item.name,
         "text_size": Settings.toast_size,
@@ -187,13 +187,13 @@ func generate_shop_item(display_index: int):
     var item_display: Node2D = safe_room.get_node("Item"+str(display_index));
     item_display.show();
     var item_button: Button = item_display.get_node("Purchase");
-    var tooltip: TooltipTrigger = item_button.get_node("TooltipTrigger");
     for connection in item_button.pressed.get_connections():
         item_button.pressed.disconnect(connection.callable)
     var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
     item_display.get_node("Sprite").texture = item.sprite;
-    tooltip.text = ItemUtils.get_tooltip_text(item, true, true, difficulty_adjust(item.price));
+    item_button.tooltip_strings.clear();
+    item_button.tooltip_strings.append_array(ItemUtils.get_tooltip_text(item, true, true, difficulty_adjust(item.price, 0.06)));
     item_button.pressed.connect(purchase_item.bind(item_name, item_display, display_index));
 
 func gen_safe_room_items():
@@ -303,8 +303,8 @@ func next_room(leaving_safe_room: bool = false):
 
 func _ready() -> void:
     Audio.stop_music();
-    await player.player_ready;
-    await player_ui.ui_done;
+    if (!player.is_node_ready()): await player.ready;
+    if (!player_ui.is_node_ready()): await player_ui.ready;
     MidnightDebug.room_manager = self;
     MidnightDebug.player = self.player;
     if (GlobalPlayer.current_dungeon):

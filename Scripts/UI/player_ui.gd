@@ -1,7 +1,6 @@
 extends Control
 class_name PlayerUI;
 
-signal ui_done();
 signal _enemy_selected();
 
 # Export vars
@@ -55,7 +54,7 @@ func upgrade_stat(stat: int):
         0:
             room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxHealth, 5);
         1: 
-            room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxStamina, 2);
+            room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxStamina, 3);
         2:
             room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.Attack, 2);
     room_manager.player.health = room_manager.player.max_health;
@@ -71,20 +70,31 @@ func upgrade_stat(stat: int):
     stats_display.update(room_manager);
     upgrades_panel.hide();
 
+const enemy_tooltip: String = (
+"""%s
+[font_size=8](%s)
+
+Health: %d/%d
+Stamina: %d/%d
+Defense Duration: %d/%d
+Defense Durability: %d/%d
+Attack: %d[/font_size]"""
+);
 func update_enemy_buttons():
     for enemy in room_manager.battle_manager.get_enemies():
-        var tooltip: TooltipTrigger = enemy.hover_tooltip as TooltipTrigger;
+        var tooltip: TooltipTrigger = enemy.hover_tooltip;
         if (enemy == null || enemy.health <= 0):
-            tooltip.text = "";
+            tooltip.tooltip_strings.clear();
             continue;
         
-        tooltip.text = enemy.name + \
-        "\n[s=8](" + enemy.flavour_text.strip_escapes() + ")\n" + \
-        "\n[s=8]Health: " + str(enemy.health) + "/" + str(enemy.max_health) + \
-        "\n[s=8]Stamina: " + str(enemy.stamina) + "/" + str(enemy.max_stamina) + \
-        "\n[s=8]Defending Turns Remaining: " + str(enemy.defending_duration) + \
-        "\n[s=8]Defense Durability: " + str(enemy.defense_durability) + \
-        "\n[s=8]Attack: " + str(enemy.attack)
+        tooltip.tooltip_strings.append(enemy_tooltip % [
+            enemy.name, enemy.flavour_text,
+            enemy.health, enemy.max_health,
+            enemy.stamina, enemy.max_stamina,
+            enemy.defending_duration, enemy.max_defending_duration,
+            enemy.defense_durability, enemy.max_defense_durability,
+            enemy.attack
+        ]);
     
 func select_enemy(enemy: Enemy):
     if (!selecting_enemy):
@@ -108,7 +118,7 @@ func _ready() -> void:
     
     safe_room_proceed.pressed.connect(func():
         if (!in_safe_room):
-            return
+            return;
         room_select.room_decision.emit();
     );
     safe_room_reroll.pressed.connect(func():
@@ -127,7 +137,6 @@ func _ready() -> void:
         fade_panel.visible = previewing_room_select;
         room_select.visible = previewing_room_select;
     );
-    emit_signal("ui_done");
     
 func update_ui():
     stats_display.update(room_manager);

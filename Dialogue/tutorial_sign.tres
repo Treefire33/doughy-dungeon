@@ -27,6 +27,12 @@ script = ExtResource("1_0jg1x")
 character = 0
 speech = "Pressing [[Pause]] will pause the game. Pressing [[Tertiary]] will bring up the RPG menu (this is where your global inventory is). Lastly holding [[Quaternary]] while moving will allow you to sprint."
 
+[sub_resource type="Resource" id="Resource_ese38"]
+script = ExtResource("1_0jg1x")
+character = 0
+speech = "Also, make sure to check your inventory ([[Tertiary]]) after completing a dungeon!"
+metadata/_custom_type_script = "uid://c1wkyurcxei88"
+
 [sub_resource type="Resource" id="Resource_wd4li"]
 script = ExtResource("1_0jg1x")
 character = 0
@@ -34,5 +40,5 @@ speech = "That's all! Have fun playing the game!"
 
 [resource]
 script = ExtResource("2_4yfxp")
-dialogue = Array[ExtResource("1_0jg1x")]([SubResource("Resource_bwdcm"), SubResource("Resource_5a4q2"), SubResource("Resource_0jg1x"), SubResource("Resource_kfy6o"), SubResource("Resource_wd4li")])
+dialogue = Array[ExtResource("1_0jg1x")]([SubResource("Resource_bwdcm"), SubResource("Resource_5a4q2"), SubResource("Resource_0jg1x"), SubResource("Resource_kfy6o"), SubResource("Resource_ese38"), SubResource("Resource_wd4li")])
 metadata/_custom_type_script = "uid://18dcduftlk12"

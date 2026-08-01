@@ -1,9 +1,10 @@
 extends Entity
 class_name Player
 
-signal player_ready;
-
 @onready var shield: Sprite2D = $Shield;
+
+@export var tattered_texture: Texture2D;
+@export var guild_texture: Texture2D;
 
 var coins: int = 15:
     get: return coins;
@@ -21,7 +22,6 @@ func add_item(item_name: String):
     for item in items:
         var count: int = items[item];
         var data: ItemData = ItemUtils.get_item_data(item);
-        print(data.name);
         if (data.function == null): continue;
         ItemUtils._execute_item_func(data.function, "purchased", [self, item_name == item, RoomManager.instance, count]);
 
@@ -51,6 +51,10 @@ func update_shield():
             
 func _ready():
     load_entity(15, 12, 2, $Sprite, $Animator, $StatusIcons);
+    if (GlobalPlayer.cloak.name != "Tattered Cloak"):
+        $Sprite.texture = guild_texture;
+    else:
+        $Sprite.texture = tattered_texture;
     play_anim(Enum.PlayerAnimation.Idle);
     durability_changed.connect(func():
         shield.frame = 0;
@@ -64,5 +68,3 @@ func _ready():
     _max_defending_duration = GlobalPlayer.get_upgrade_stat("max_defense_duration");
     _max_defense_durability = GlobalPlayer.get_upgrade_stat("max_defense_durability");
     _speed = max(2, GlobalPlayer.get_upgrade_stat("speed"));
-
-    player_ready.emit();

@@ -16,7 +16,7 @@ content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 
-[node name="UI" type="ColorRect" unique_id=383094572 node_paths=PackedStringArray("menu", "menu_resume", "menu_inventory", "menu_exit", "inventory", "mobile_ui", "mobile_joystick", "mobile_primary", "mobile_secondary", "mobile_tertiary", "mobile_quaternary")]
+[node name="UI" type="ColorRect" unique_id=383094572 node_paths=PackedStringArray("menu", "menu_resume", "menu_inventory", "menu_exit", "menu_settings", "inventory", "mobile_ui", "mobile_joystick", "mobile_primary", "mobile_secondary", "mobile_tertiary", "mobile_quaternary")]
 z_index = 100
 offset_right = 800.0
 offset_bottom = 450.0
@@ -26,6 +26,7 @@ menu = NodePath("RPGMenu")
 menu_resume = NodePath("RPGMenu/Menu/VBoxContainer/Resume")
 menu_inventory = NodePath("RPGMenu/Menu/VBoxContainer/Inventory")
 menu_exit = NodePath("RPGMenu/Menu/VBoxContainer/ExitMenu")
+menu_settings = NodePath("RPGMenu/Menu/VBoxContainer/Settings")
 inventory = NodePath("RPGMenu/MenuSpace/Inventory")
 mobile_ui = NodePath("MobileUI")
 mobile_joystick = NodePath("MobileUI/Joystick")
@@ -124,37 +125,37 @@ action_down = &"Down"
 
 [node name="Primary" type="Button" parent="MobileUI" unique_id=961337087]
 layout_mode = 0
-offset_left = 472.0
-offset_top = 297.0
-offset_right = 536.0
-offset_bottom = 361.0
+offset_left = 667.0
+offset_top = 294.0
+offset_right = 731.0
+offset_bottom = 358.0
 text = "[[Primary]]"
 text_overrun_behavior = 1
 
 [node name="Secondary" type="Button" parent="MobileUI" unique_id=1258973451]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 296.0
-offset_right = 622.0
-offset_bottom = 360.0
+offset_left = 603.0
+offset_top = 358.0
+offset_right = 667.0
+offset_bottom = 422.0
 text = "[[Secondary]]"
 text_overrun_behavior = 1
 
 [node name="Tertiary" type="Button" parent="MobileUI" unique_id=1876433370]
 layout_mode = 0
-offset_left = 642.0
-offset_top = 296.0
-offset_right = 706.0
-offset_bottom = 360.0
+offset_left = 539.0
+offset_top = 294.0
+offset_right = 603.0
+offset_bottom = 358.0
 text = "[[Tertiary]]"
 text_overrun_behavior = 1
 
 [node name="Quaternary" type="Button" parent="MobileUI" unique_id=828102212]
 layout_mode = 0
-offset_left = 642.0
-offset_top = 225.0
-offset_right = 706.0
-offset_bottom = 289.0
+offset_left = 603.0
+offset_top = 230.0
+offset_right = 667.0
+offset_bottom = 294.0
 text = "[[Quaternary]]"
 text_overrun_behavior = 1
 
@@ -210,12 +211,20 @@ theme_override_font_sizes/font_size = 12
 text = "INVENTORY"
 flat = true
 
+[node name="Settings" type="Button" parent="RPGMenu/Menu/VBoxContainer" unique_id=884389518]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 12
+text = "SETTINGS"
+flat = true
+
 [node name="ExitMenu" type="Button" parent="RPGMenu/Menu/VBoxContainer" unique_id=1830608182]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
-text = "EXIT"
+text = "EXIT TO MENU"
 flat = true
+autowrap_mode = 3
 
 [node name="MenuSpace" type="Control" parent="RPGMenu" unique_id=674386150]
 anchors_preset = 0

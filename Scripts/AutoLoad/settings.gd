@@ -1,64 +1,224 @@
 extends Node
 
-signal settings_changed();
+signal settings_changed(setting_name: StringName);
 
-var game_speed: float = 1;
-var audio_volume: float = 1;
+var game_speed: float:
+    get: return get_setting_value(&"game_speed");
+var audio_volume: float:
+    get: return get_setting_value(&"audio_volume");
 var music_volume: float = 1:
-    get: return music_volume;
-    set (value):
-        music_volume = value;
-        if (Audio.music_player != null):
-            Audio.music_player.volume_linear = value;
-var toast_size: int = 12;
-var helpers_enabled: bool = true;
-var helper_alignment: int = 0:
-    set (value):
-        helper_alignment = value;
-        AccessibilityHelper.update_binds();
-var language: String = "automatic":
-    get: return language;
-    set (value):
-        if (value.to_lower().contains("automatic")):
-            language = OS.get_locale();
-        else:
-            language = value;
-        TranslationServer.set_locale(language);
+    get: return get_setting_value(&"music_volume");
+var toast_size: int:
+    get: return get_setting_value(&"notif_size");
+var helpers_enabled: bool:
+    get: return get_setting_value(&"helpers_enabled");
+var helper_alignment: int:
+    get: return get_setting_value(&"helpers_alignment");
+var language: String:
+    get: return get_setting_value(&"language");
+var fullscreen: bool:
+    get: return get_setting_value(&"fullscreen");
+var horiz_decision_panel: bool:
+    get: return get_setting_value(&"horiz_decision_panel");
+var mobile_control_override: bool:
+    get: return get_setting_value(&"mobile_control_override");
+var game_borders: bool:
+    get: return get_setting_value(&"game_borders");
+var game_font: int:
+    get: return get_setting_value(&"game_font");
 
-var fullscreen: bool = false:
-    get: return fullscreen;
-    set (value):
-        fullscreen = value;
-        if (fullscreen):
-            DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN);
-        else:
-            DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
-
-var horiz_decision_panel: bool = false:
-    get: return horiz_decision_panel;
-    set (value):
-        horiz_decision_panel = value;
-        if (RoomManager.instance):
-            RoomManager.instance.player_ui.decision_panel.horizify_panel();
-
-var mobile_control_override: bool = false:
-    get: return mobile_control_override;
-    set (value):
-        mobile_control_override = value;
-        self.settings_changed.emit();
-
-var game_borders: bool = true;
-
-var font_dict = {
+const font_dict = {
     0: preload("res://PressStart.ttf"),
     1: preload("res://m6x11.ttf"),
     2: preload("res://Iansui-Regular.ttf")
 };
-var game_font: int = 0:
-    get: return game_font;
-    set (value):
-        game_font = value;
-        SuperLoader.change_font(font_dict[game_font]);
+
+var settings_dict: Dictionary[StringName, Dictionary] = {
+    # General
+    &"game_speed": {
+        &"name": &"Game Speed",
+        &"category": &"General",
+        &"type": TYPE_FLOAT,
+        &"type_variant": &"range_spin",
+        &"value": 1.0,
+        &"min_value": 0.5,
+        &"max_value": 10.0,
+        &"step": 0.5,
+
+        &"tooltip": (
+"""Sets the speed of dungeon gameplay and effects
+[font_size=8]Note: this does not affect RPG segements.[/font_size]"""
+        )
+    },
+    &"fullscreen": {
+        &"name": &"Fullscreen",
+        &"category": &"General",
+        &"type": TYPE_BOOL,
+        &"value": false,
+
+        &"tooltip": "Toggles fullscreen."
+    },
+    &"game_borders": {
+        &"name": &"Game Borders",
+        &"category": &"General",
+        &"type": TYPE_BOOL,
+        &"value": false,
+
+        &"tooltip": "Toggles the display of a texture in the black borders of the game window when the window is not of a multiple of 800x450px."
+    },
+    &"keybinds": {
+        &"name": &"Keybinds",
+        &"category": &"General",
+        &"type": TYPE_CALLABLE,
+        &"value": Keybinds.load_keybinds_menu,
+        &"callable_name": "KEYBINDS",
+
+        &"tooltip": "Opens the keybinds menu."
+    },
+
+    # Audio
+    &"audio_volume": {
+        &"name": &"SFX Volume",
+        &"category": &"Audio",
+        &"type": TYPE_FLOAT,
+        &"type_variant": &"range",
+        &"value": 1.0,
+        &"min_value": 0,
+        &"max_value": 1,
+        &"step": 0.01,
+
+        &"tooltip": "Sets the volume of various sound effects."
+    },
+    &"music_volume": {
+        &"name": &"Music Volume",
+        &"category": &"Audio",
+        &"type": TYPE_FLOAT,
+        &"type_variant": &"range",
+        &"value": 1.0,
+        &"min_value": 0,
+        &"max_value": 1.0,
+        &"step": 0.01,
+
+        &"tooltip": "Sets the volume of the music."
+    },
+
+    # Visual
+    &"helpers_enabled": {
+        &"name": &"Keybind Helpers Enabled",
+        &"category": &"Visual",
+        &"type": TYPE_BOOL,
+        &"value": true,
+
+        &"tooltip": "Enables the display of notifiers that shows which keybinds correspond to what buttons."
+    },
+    &"helpers_alignment": {
+        &"name": &"Keybind Helper Alignment",
+        &"category": &"Visual",
+        &"type": TYPE_INT,
+        &"type_variant": &"options",
+        &"value": 0,
+        &"options": [
+            [0, "Left"],
+            [1, "Center"],
+            [2, "Right"]
+        ],
+
+        &"tooltip": "Changes the text alignment of the keybind helpers notifiers."
+    },
+    &"mobile_control_override": {
+        &"name": &"Mobile Controls Override",
+        &"category": &"Visual",
+        &"type": TYPE_BOOL,
+        &"value": false,
+
+        &"tooltip": "Forces the display of RPG mobile controls."
+    },
+    &"notif_size": {
+        &"name": &"Notificaton Size",
+        &"category": &"Visual",
+        &"type": TYPE_INT,
+        &"type_variant": &"range_spin",
+        &"value": 12,
+        &"min_value": 8,
+        &"max_value": 32,
+        &"step": 1,
+
+        &"tooltip": "Changes the text size of the dungeon notifications."
+    },
+    &"horiz_decision_panel": {
+        &"name": &"Horizontal Decision Panel",
+        &"category": &"Visual",
+        &"type": TYPE_BOOL,
+        &"value": false,
+
+        &"tooltip": "Lays out the dungeon decision options horizontally across the screen. Recommended for mobile users."
+    },
+    &"game_font": {
+        &"name": &"Game Font",
+        &"category": &"Visual",
+        &"type": TYPE_INT,
+        &"type_variant": &"options",
+        &"value": 0,
+        &"options": [
+            [0, "Press Start"],
+            [1, "m6x11"],
+            [2, "Iansui"]
+        ],
+
+        &"tooltip": (
+"""Sets the font that the game uses.
+[font_size=8]Press Start: The default font the game uses.
+
+m6x11: A smaller pixel font.
+
+Iansui: A more readable, non-pixel font.[/font_size]"""
+        )
+    },
+
+    # Language
+    &"language": {
+        &"name": &"Language",
+        &"category": &"Language",
+        &"type": TYPE_STRING,
+        &"type_variant": &"language",
+        &"value": OS.get_locale(),
+
+        &"tooltip": "Sets the game's language.\n[font_size=8]Note: Currently only English is available[/font_size]"
+    },
+};
+
+# Returns the value dict for a setting
+func get_setting_dict(setting_name: StringName):
+    return settings_dict[setting_name];
+
+func get_setting_value(setting_name: StringName) -> Variant:
+    return settings_dict[setting_name].get(&"value");
+
+func set_setting_value(setting_name: StringName, value: Variant):
+    var setting: Dictionary = settings_dict.get(setting_name);
+    if (!setting): return;
+    if (setting.get(&"value") == null || typeof(setting[&"value"]) != typeof(value)):
+        print("Failure to change setting: ", setting_name, ", to value: ", value);
+        print("\tMissing setting value entry: ", setting.get(&"value") == null);
+        print("\tExpected type: ", typeof(setting[&"value"]), ", provided type: ", typeof(value));
+        print(setting);
+        return;
+    setting.set(&"value", value);
+    self.settings_changed.emit(setting_name);
+
+func get_settings_save_dict() -> Dictionary:
+    var final: Dictionary = {};
+    for setting in settings_dict:
+        if (get_setting_dict(setting).get("type", TYPE_NIL) == TYPE_CALLABLE):
+            continue;
+        final.set(setting, get_setting_value(setting));
+    return final;
+
+func load_settings_save_dict(save_dict: Dictionary):
+    for setting in save_dict:
+        if (get_setting_dict(setting).get("type", TYPE_NIL) == TYPE_CALLABLE):
+            continue;
+        set_setting_value(setting, save_dict[setting]);
 
 var _settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
 func load_settings_menu(node: Node):
@@ -90,18 +250,7 @@ func load_settings():
     
     for section in settings.get_sections():
         if (section == "game_settings"):
-            game_speed = settings.get_value(section, "game_speed", 1);
-            audio_volume = settings.get_value(section, "audio_volume", 1);
-            music_volume = settings.get_value(section, "music_volume", 1);
-            toast_size = settings.get_value(section, "toast_size", 12);
-            helpers_enabled = settings.get_value(section, "helpers_enabled", false);
-            helper_alignment = settings.get_value(section, "helper_alignment", 0);
-            language = settings.get_value(section, "language", "automatic");
-            fullscreen = settings.get_value(section, "fullscreen", false);
-            horiz_decision_panel = settings.get_value(section, "horiz_decision_panel", false);
-            game_borders = settings.get_value(section, "game_borders", false);
-            game_font = settings.get_value(section, "game_font", 0);
-            mobile_control_override = settings.get_value(section, "mobile_control_override", false);
+            load_settings_save_dict(settings.get_value(section, "settings", {}));
         elif (section == "keybinds"):
             for action in Keybinds.bindable_actions:
                 var event = settings.get_value("keybinds", action, InputEventAction.new());
@@ -109,18 +258,7 @@ func load_settings():
     
 func save_settings():
     var settings = ConfigFile.new()
-    settings.set_value("game_settings", "game_speed", game_speed);
-    settings.set_value("game_settings", "audio_volume", audio_volume);
-    settings.set_value("game_settings", "music_volume", music_volume);
-    settings.set_value("game_settings", "toast_size", toast_size);
-    settings.set_value("game_settings", "helpers_enabled", helpers_enabled);
-    settings.set_value("game_settings", "helper_alignment", helper_alignment);
-    settings.set_value("game_settings", "language", language);
-    settings.set_value("game_settings", "fullscreen", fullscreen);
-    settings.set_value("game_settings", "horiz_decision_panel", horiz_decision_panel);
-    settings.set_value("game_settings", "game_borders", game_borders);
-    settings.set_value("game_settings", "game_font", game_font);
-    settings.set_value("game_settings", "mobile_control_override", mobile_control_override);
+    settings.set_value("game_settings", "settings", get_settings_save_dict());
     
     for action in Keybinds.bindable_actions:
         settings.set_value("keybinds", action, Keybinds.get_action_bind(action));
@@ -128,6 +266,17 @@ func save_settings():
     settings.save("user://settings.cfg");
     
 func _ready() -> void:
+    Settings.settings_changed.connect(func(setting_name: StringName):
+        if (setting_name == &"language"):
+            TranslationServer.set_locale(language);
+        elif (setting_name == &"fullscreen"):
+            DisplayServer.window_set_mode(
+                DisplayServer.WINDOW_MODE_FULLSCREEN
+                if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
+            );
+        elif (setting_name == &"game_font"):
+            SuperLoader.change_font(font_dict[game_font]);
+    );
     load_settings();
     
 func _exit_tree() -> void:

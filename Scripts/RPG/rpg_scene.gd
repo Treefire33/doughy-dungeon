@@ -18,6 +18,7 @@ func _ready() -> void:
     var limits_rect = camera_limits.get_used_rect();
     var limit_topleft = limits_rect.position * camera_limits.tile_set.tile_size;
     var limit_bottomright = limits_rect.end * camera_limits.tile_set.tile_size;
+    if (!is_instance_valid(RPGManager.player)): await RPGManager.rpgplayer_valid;
     if (!RPGManager.player.is_node_ready()): await RPGManager.player.ready;
     RPGManager.player.camera.limit_top = limit_topleft.y;
     RPGManager.player.camera.limit_left = limit_topleft.x;

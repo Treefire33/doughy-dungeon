@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cvo1lhvl1nn16"]
+
+[ext_resource type="Script" uid="uid://ixs2o0jr6jjg" path="res://addons/tooltips_pro/scripts/tooltip_template.gd" id="1_nghpo"]
+
+[node name="DefaultTooltip" type="PanelContainer" unique_id=669194 node_paths=PackedStringArray("content_labels")]
+z_index = 99
+custom_minimum_size = Vector2(64, 0)
+custom_maximum_size = Vector2(280, 200)
+offset_right = 64.0
+offset_bottom = 18.0
+mouse_filter = 2
+script = ExtResource("1_nghpo")
+can_lock = false
+content_labels = [NodePath("MarginContainer/TooltipText")]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=898345184]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="TooltipText" type="RichTextLabel" parent="MarginContainer" unique_id=1827610226]
+layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/bold_font_size = 12
+theme_override_font_sizes/bold_italics_font_size = 12
+theme_override_font_sizes/italics_font_size = 12
+theme_override_font_sizes/mono_font_size = 12
+bbcode_enabled = true
+fit_content = true

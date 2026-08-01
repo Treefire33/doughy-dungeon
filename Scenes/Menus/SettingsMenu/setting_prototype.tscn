@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://bbrp5jnlths23"]
+
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="1_lccfa"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="2_s6wwg"]
+[ext_resource type="Script" uid="uid://c7c45m1uucjsc" path="res://Scripts/UI/midnight_checkbox.gd" id="3_v47as"]
+[ext_resource type="Texture2D" uid="uid://yuhn3pqi5gav" path="res://Sprites/Other/checkmark.aseprite" id="4_u7dcw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v47as"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[node name="SettingPrototype" type="HBoxContainer" unique_id=1532672171]
+offset_right = 800.0
+offset_bottom = 24.0
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="Name" type="RichTextLabel" parent="." unique_id=793375757]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+mouse_filter = 2
+theme = ExtResource("1_lccfa")
+theme_override_font_sizes/normal_font_size = 12
+text = "SETTING_NAME:"
+vertical_alignment = 1
+
+[node name="TooltipTrigger" type="Button" parent="Name" unique_id=1386045085]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("2_s6wwg")
+
+[node name="NumberValue" type="SpinBox" parent="." unique_id=916919662]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lccfa")
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 1.0
+alignment = 1
+update_on_text_changed = true
+
+[node name="BoolValue" type="Button" parent="." unique_id=1820492739]
+visible = false
+custom_minimum_size = Vector2(20, 20)
+custom_maximum_size = Vector2(20, 20)
+layout_mode = 2
+theme = ExtResource("1_lccfa")
+toggle_mode = true
+script = ExtResource("3_v47as")
+check_texture = ExtResource("4_u7dcw")
+metadata/_custom_type_script = "uid://c7c45m1uucjsc"
+
+[node name="CallableValue" type="Button" parent="." unique_id=1385982939]
+visible = false
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lccfa")
+text = "CALLABLE_NAME"
+
+[node name="OptionValue" type="OptionButton" parent="." unique_id=1205759220]
+visible = false
+custom_maximum_size = Vector2(290, -1)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_lccfa")
+allow_reselect = true
+
+[node name="SliderValue" type="HSlider" parent="." unique_id=645206628]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_v47as")
+max_value = 1.0
+step = 0.01
+value = 1.0

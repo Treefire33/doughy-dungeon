@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://7n1jkadyaweh" path="res://Scripts/UI/inventory_display.gd" id="1_viq6x"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_gvvfn"]
 [ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="3_tmpmi"]
-[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="4_gvvfn"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="4_gvvfn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvvfn"]
 bg_color = Color(0, 0, 0, 1)
@@ -150,7 +150,5 @@ grow_vertical = 2
 theme = ExtResource("2_gvvfn")
 button_mask = 0
 flat = true
-
-[node name="TooltipTrigger" type="Node" parent="Panel/Item/Button" unique_id=531687176]
 script = ExtResource("4_gvvfn")
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"

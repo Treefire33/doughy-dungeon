@@ -93,17 +93,18 @@ func show_custom_toast(message: String):
     });
     Audio.play_audio(Audio.item_activated);
 
-const tt_item_name_template = "%s\n[s=8](%s)"; 
-func get_tooltip_text(item_data: ItemData, shop_item: bool, override = false, override_price: int = 0) -> String:
-    var res: String = "";
-    res = tt_item_name_template % [item_data.name, item_data.flavour_text];
+func get_tooltip_text(item_data: ItemData, shop_item: bool, override = false, override_price: int = 0) -> Array[String]:
+    var res: Array[String] = [
+        item_data.name, "(%s)" % item_data.flavour_text
+    ];
     if (shop_item):
         if (!item_data.painful):
-            res += "\n\n" + "Price: %d coins" % (override_price if override else item_data.price);
+            res.append("Price: %d coins" % (override_price if override else item_data.price));
         else:
-            res += "\n\n" + "Reward: %d coins" % -(override_price if override else item_data.price);
-    for line in item_data.description.split('\n'):
-        res += "\n[s=8]" + line;
+            res.append("Reward: %d coins" % -(override_price if override else item_data.price));
+    else:
+        res.append("");
+    res.append(item_data.description);
     return res;
 
 func decision_is_attack(decision: Enum.Decision) -> bool:

@@ -213,6 +213,10 @@ func _ready() -> void:
             AccessibilityHelper.make_keybind_helper(action_object, action);
 
     horizify_panel();
+    Settings.settings_changed.connect(func(setting_name: StringName):
+        if (setting_name != &"horiz_decision_panel"): return;
+        horizify_panel();
+    );
 
 func _process(delta: float) -> void:
     if (!self.visible): return;

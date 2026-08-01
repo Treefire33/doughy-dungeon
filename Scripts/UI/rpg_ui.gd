@@ -11,6 +11,7 @@ class_name RPGUI
 @export var menu_resume: Button;
 @export var menu_inventory: Button;
 @export var menu_exit: Button;
+@export var menu_settings: Button;
 
 @export var inventory: RPGInventory;
 
@@ -44,13 +45,22 @@ func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):
 func start_dialogue(dialogue_args: RPGEventBus.RPGDialogueArgs):
     var dialogue = dialogue_args.dialogue;
     _in_menu = true;
+    _toggle_mobile_controls(true);
     dialogue_box.start_dialogue.emit(dialogue);
     await dialogue_box.dialogue_finished;
+    _toggle_mobile_controls(false);
     _in_menu = false;
 
 func attempt_interaction():
     if (!_current_interactable || _in_menu): return;
     RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_Interaction, _current_interactable));
+
+func _toggle_mobile_controls(force_off: bool):
+    if (force_off): mobile_ui.visible = false; return;
+
+    var platform = OS.get_name();
+    var controls_enabled = platform == "iOS" || platform == "Android" || Settings.mobile_control_override;
+    mobile_ui.visible = controls_enabled;
 
 func _ready() -> void:
     static_prompt_dungeon.text = Keybinds.format_action_string(static_prompt_dungeon.text);
@@ -70,12 +80,14 @@ func _ready() -> void:
         SuperLoader.switch_scene("res://Scenes/title_screen.tscn");
     );
 
-    var platform = OS.get_name();
-    var controls_enabled = platform == "iOS" || platform == "Android" || Settings.mobile_control_override;
-    mobile_ui.visible = controls_enabled;
+    menu_settings.pressed.connect(func():
+        Settings.load_settings_menu(self);
+    );
 
-    Settings.settings_changed.connect(func():
-        mobile_ui.visible = platform == "iOS" || platform == "Android" || Settings.mobile_control_override;  
+    _toggle_mobile_controls(false);
+    Settings.settings_changed.connect(func(setting_name: StringName):
+        if (setting_name != &"mobile_control_override"): return;
+        _toggle_mobile_controls(false);
     );
 
     mobile_primary.text = Keybinds.format_action_string(mobile_primary.text);

@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="3_qboys"]
 [ext_resource type="Texture2D" uid="uid://bpyvyaeyhvtc7" path="res://Sprites/Icons/ActionIcons/Stamina.tres" id="4_1m4ne"]
 [ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="5_dsad8"]
-[ext_resource type="Script" uid="uid://drc261xy1tgvc" path="res://Scripts/UI/tooltip_trigger.gd" id="6_j6apt"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="5_j6apt"]
 [ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/ActionIcons/Attack.tres" id="6_qboys"]
 [ext_resource type="Texture2D" uid="uid://epc8mjeqvxi5" path="res://Sprites/Icons/MenuIcons/Inventory.tres" id="7_1m4ne"]
 
@@ -185,6 +185,19 @@ offset_left = 0.39996338
 offset_top = 2.5749207e-05
 offset_right = 0.39996338
 
+[node name="Button" type="Button" parent="Defense" unique_id=927845983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("5_j6apt")
+tooltip_strings = Array[String](["Defense Meter:
+[font_size=8]Meter measures duration.
+Number measures durability.[/font_size]"])
+
 [node name="Bar" type="ProgressBar" parent="Defense" unique_id=1448327155]
 layout_mode = 1
 anchors_preset = 15
@@ -192,6 +205,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qboys")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3uyyj")
 max_value = 1.0
@@ -208,6 +222,7 @@ anchor_bottom = 1.0
 offset_top = -0.03200531
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qboys")
 theme_override_font_sizes/normal_font_size = 8
 text = "0"
@@ -225,16 +240,10 @@ offset_right = -3.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_dsad8")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="TooltipTrigger" type="Node" parent="Defense" unique_id=878944600]
-script = ExtResource("6_j6apt")
-text = "Defense Meter:
-[s=8] Meter measures duration.
-[s=8] Number measures durability."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Attack" type="Control" parent="." unique_id=2030614491]
 layout_mode = 1
@@ -246,6 +255,18 @@ offset_left = 0.39996338
 offset_top = 2.5749207e-05
 offset_right = 0.39996338
 
+[node name="Button" type="Button" parent="Attack" unique_id=1930721516]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+script = ExtResource("5_j6apt")
+tooltip_strings = Array[String](["Attack Meter:
+[font_size=8] Measures attack stat.[/font_size]"])
+
 [node name="Bar" type="ProgressBar" parent="Attack" unique_id=169059341]
 layout_mode = 1
 anchors_preset = 15
@@ -253,6 +274,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qboys")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jmwf8")
 max_value = 1.0
@@ -268,6 +290,7 @@ anchor_bottom = 1.0
 offset_top = -0.03200531
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_qboys")
 theme_override_font_sizes/normal_font_size = 8
 text = "0"
@@ -285,15 +308,10 @@ offset_right = -3.0
 offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("6_qboys")
 expand_mode = 1
 stretch_mode = 5
-
-[node name="TooltipTrigger" type="Node" parent="Attack" unique_id=2021163742]
-script = ExtResource("6_j6apt")
-text = "Attack Meter:
-[s=8] Measures attack stat."
-metadata/_custom_type_script = "uid://drc261xy1tgvc"
 
 [node name="Inventory" type="Button" parent="." unique_id=540371181]
 layout_mode = 1
