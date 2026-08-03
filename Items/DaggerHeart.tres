@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://lwxq1oqiiacs" path="res://Items/Functions/DaggerHeartFunction.gd" id="1_ma8ng"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_tkuus"]
-[ext_resource type="Texture2D" uid="uid://bbs0gpnx37364" path="res://Sprites/Items/DaggerHeart.tres" id="3_ma8ng"]
 
 [resource]
 script = ExtResource("1_tkuus")
@@ -11,7 +10,6 @@ flavour_text = "If you're willing to bear the pain..."
 description = "Halve your health and double your damage 
 (Applied once on purchase)."
 price = 345
-sprite = ExtResource("3_ma8ng")
 weight = 1.0
 function = ExtResource("1_ma8ng")
 dungeon_exclude_pool = Array[int]([0])

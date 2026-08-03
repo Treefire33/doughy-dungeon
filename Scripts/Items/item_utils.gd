@@ -24,6 +24,7 @@ func _get_loaded_rpgitems_directory(path: String) -> Dictionary[StringName, RPGI
     return final;
 
 var item_database: Dictionary[StringName, ItemData] = self._get_loaded_items_directory("res://Items/");
+var _loaded_item_functions: Dictionary[StringName, Variant] = {};
 
 func _database_where(database: Dictionary, conditions: Dictionary[StringName, Variant]) -> Array[StringName]:
     var final: Array[StringName] = database.keys();
@@ -107,15 +108,24 @@ func get_tooltip_text(item_data: ItemData, shop_item: bool, override = false, ov
     res.append(item_data.description);
     return res;
 
+func get_item_animation_name(item_data: ItemData) -> StringName:
+    return item_data.sprite if !item_data.sprite.is_empty() else StringName(item_data.resource_path.get_file().trim_suffix(".tres"));
+
 func decision_is_attack(decision: Enum.Decision) -> bool:
     return decision == Enum.Decision.Attack || decision == Enum.Decision.AttackHeavy || decision == Enum.Decision.SpellAttack;
 
 func decision_is_spell(decision: Enum.Decision) -> bool:
     return decision == Enum.Decision.SpellDefend || decision == Enum.Decision.SpellRetype || decision == Enum.Decision.SpellAttack;
 
-func _execute_item_func(function: Script, func_name: String, args: Array) -> void:
-    var inst: Resource = function.new();
+func _execute_item_func(item_data: ItemData, func_name: String, args: Array) -> void:
+    var inst: Resource = item_data.function.new();
     var _inst_res = inst.callv(func_name, args);
+
+# Unique items can have persistance, other cannot.
+func _execute_unique_item_func(item_data: ItemData, function_name: StringName, args: Array) -> void:
+    var script_instance: ItemFunction = _loaded_item_functions.get(item_data.name, item_data.function.new());
+    if (!_loaded_item_functions.has(item_data.name)): _loaded_item_functions[item_data.name] = script_instance;
+    var _instance_resolution: Variant = script_instance.callv(function_name, args);
 
 func activate_items(player: Player, function: String, ...args: Array) -> void:
     for item in player.items:
@@ -126,7 +136,7 @@ func activate_items(player: Player, function: String, ...args: Array) -> void:
             continue;
         if (data.function == null): continue;
         if (data.unique_stacking):
-            _execute_item_func(data.function, function, args + [RoomManager.instance, count]);
+            _execute_unique_item_func(data, function, args + [RoomManager.instance, count]);
         else:
             for i in range(count):
-                _execute_item_func(data.function, function, args + [RoomManager.instance, count]);
+                _execute_item_func(data, function, args + [RoomManager.instance, count]);

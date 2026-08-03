@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdin10vjcr31a" path="res://addons/AsepriteWizard/interface/shared/source_drop_button.gd" id="1_smfgi"]
 
-[node name="source_drop_button" type="Button" unique_id=419471057]
+[node name="source_drop_button" type="Button" unique_id=688520636]
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "[empty]"

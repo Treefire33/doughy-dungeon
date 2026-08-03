@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://nhs4ocpam7ku"]
 
-[node name="output_path" type="LineEdit" unique_id=1506175781]
+[node name="output_path" type="LineEdit" unique_id=1020252800]
 offset_left = 450.0
 offset_top = 34.0
 offset_right = 650.0

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_e0rat"]
 [ext_resource type="Script" uid="uid://lucac5n7vg2j" path="res://Items/Functions/OvenMittFunction.gd" id="1_sc41j"]
-[ext_resource type="Texture2D" uid="uid://dy3cbyu5o5qhk" path="res://Sprites/Items/OvenMitt.tres" id="2_e0rat"]
 
 [resource]
 script = ExtResource("1_e0rat")
@@ -12,7 +11,6 @@ description = "Each room completed adds +1 to difficulty
 and +0.1x to multiplier.
 Resets when staying clear."
 price = 250
-sprite = ExtResource("2_e0rat")
 weight = 1.0
 function = ExtResource("1_sc41j")
 unique_stacking = true

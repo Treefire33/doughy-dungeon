@@ -3,91 +3,91 @@
 [ext_resource type="Script" uid="uid://baoyq2h6bor2o" path="res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_single_item.gd" id="1_h1q4t"]
 [ext_resource type="PackedScene" uid="uid://c1l0bk12iwln3" path="res://addons/AsepriteWizard/interface/shared/tree/inline_warning_panel.tscn" id="2_hmv61"]
 
-[node name="single_item" type="VBoxContainer" unique_id=1329564691]
+[node name="single_item" type="VBoxContainer" unique_id=48604935]
 script = ExtResource("1_h1q4t")
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=616488276]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=514945920]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="type_label" type="Label" parent="GridContainer" unique_id=261972659]
+[node name="type_label" type="Label" parent="GridContainer" unique_id=356474204]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Type"
 
-[node name="type_value" type="Label" parent="GridContainer" unique_id=1976155409]
+[node name="type_value" type="Label" parent="GridContainer" unique_id=1555698478]
 layout_mode = 2
 text = "-"
 
-[node name="file_name_label" type="Label" parent="GridContainer" unique_id=221919690]
+[node name="file_name_label" type="Label" parent="GridContainer" unique_id=1455637673]
 layout_mode = 2
 size_flags_vertical = 0
 text = "File"
 
-[node name="file_name_value" type="Label" parent="GridContainer" unique_id=1090046883]
+[node name="file_name_value" type="Label" parent="GridContainer" unique_id=1429772035]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "-"
 autowrap_mode = 1
 
-[node name="path_label" type="Label" parent="GridContainer" unique_id=1906251925]
+[node name="path_label" type="Label" parent="GridContainer" unique_id=1625804655]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Path"
 
-[node name="path_value" type="Label" parent="GridContainer" unique_id=440201166]
+[node name="path_value" type="Label" parent="GridContainer" unique_id=2107468913]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
 autowrap_mode = 1
 
-[node name="HSeparator" type="HSeparator" parent="GridContainer" unique_id=1557878345]
+[node name="HSeparator" type="HSeparator" parent="GridContainer" unique_id=1209711713]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="GridContainer" unique_id=1633191575]
+[node name="HSeparator2" type="HSeparator" parent="GridContainer" unique_id=1279563132]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="source_file_label" type="Label" parent="GridContainer" unique_id=319819723]
+[node name="source_file_label" type="Label" parent="GridContainer" unique_id=1112841970]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Aseprite File"
 
-[node name="source_file_value" type="Label" parent="GridContainer" unique_id=119441254]
+[node name="source_file_value" type="Label" parent="GridContainer" unique_id=1199916698]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "-"
 autowrap_mode = 1
 
-[node name="only_visible_layers_label" type="Label" parent="GridContainer" unique_id=227577877]
+[node name="only_visible_layers_label" type="Label" parent="GridContainer" unique_id=2040741537]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Only Visible Layers"
 
-[node name="only_visible_layers_value" type="Label" parent="GridContainer" unique_id=741064552]
+[node name="only_visible_layers_value" type="Label" parent="GridContainer" unique_id=1413418839]
 layout_mode = 2
 text = "-"
 
-[node name="layer_ex_patt_label" type="Label" parent="GridContainer" unique_id=812398457]
+[node name="layer_ex_patt_label" type="Label" parent="GridContainer" unique_id=474991560]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Slice"
 
-[node name="layer_ex_patt_value" type="Label" parent="GridContainer" unique_id=23148414]
+[node name="layer_ex_patt_value" type="Label" parent="GridContainer" unique_id=1889193415]
 layout_mode = 2
 text = "-"
 
-[node name="o_folder_label" type="Label" parent="GridContainer" unique_id=1148389405]
+[node name="o_folder_label" type="Label" parent="GridContainer" unique_id=458892446]
 visible = false
 layout_mode = 2
 size_flags_vertical = 0
 text = "Output Folder"
 
-[node name="o_folder_value" type="Label" parent="GridContainer" unique_id=1330551454]
+[node name="o_folder_value" type="Label" parent="GridContainer" unique_id=1448979472]
 visible = false
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -95,71 +95,71 @@ size_flags_horizontal = 3
 text = "-"
 autowrap_mode = 2
 
-[node name="o_name_label" type="Label" parent="GridContainer" unique_id=287878802]
+[node name="o_name_label" type="Label" parent="GridContainer" unique_id=96943218]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Output Name"
 
-[node name="o_name_value" type="Label" parent="GridContainer" unique_id=1256738658]
+[node name="o_name_value" type="Label" parent="GridContainer" unique_id=418299484]
 layout_mode = 2
 text = "-"
 
-[node name="HSeparator3" type="HSeparator" parent="GridContainer" unique_id=845653810]
+[node name="HSeparator3" type="HSeparator" parent="GridContainer" unique_id=1688575256]
 layout_mode = 2
 
-[node name="HSeparator4" type="HSeparator" parent="GridContainer" unique_id=675130528]
+[node name="HSeparator4" type="HSeparator" parent="GridContainer" unique_id=1785688322]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="resource_list_label" type="Label" parent="GridContainer" unique_id=767411486]
+[node name="resource_list_label" type="Label" parent="GridContainer" unique_id=1729542333]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Resources"
 
-[node name="resource_list" type="VBoxContainer" parent="GridContainer" unique_id=1860025170]
+[node name="resource_list" type="VBoxContainer" parent="GridContainer" unique_id=974803420]
 layout_mode = 2
 
-[node name="source_changed_warning" parent="." unique_id=2029424205 instance=ExtResource("2_hmv61")]
+[node name="source_changed_warning" parent="." unique_id=438976148 instance=ExtResource("2_hmv61")]
 layout_mode = 2
 
-[node name="resource_buttons" type="HFlowContainer" parent="." unique_id=1831234931]
+[node name="resource_buttons" type="HFlowContainer" parent="." unique_id=182340479]
 visible = false
 layout_mode = 2
 
-[node name="import" type="Button" parent="resource_buttons" unique_id=259574727]
+[node name="import" type="Button" parent="resource_buttons" unique_id=1672804638]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Re-Import"
 
-[node name="show_in_fs" type="Button" parent="resource_buttons" unique_id=1202836394]
+[node name="show_in_fs" type="Button" parent="resource_buttons" unique_id=1589641184]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Show In FileSystem"
 
-[node name="group_buttons" type="HFlowContainer" parent="." unique_id=1900596146]
+[node name="group_buttons" type="HFlowContainer" parent="." unique_id=348928803]
 visible = false
 layout_mode = 2
 
-[node name="import_all" type="Button" parent="group_buttons" unique_id=1757212306]
+[node name="import_all" type="Button" parent="group_buttons" unique_id=1637292878]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Re-Import all"
 
-[node name="show_in_fs" type="Button" parent="group_buttons" unique_id=16886160]
+[node name="show_in_fs" type="Button" parent="group_buttons" unique_id=264207442]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Show In FileSystem"
 
-[node name="dir_buttons" type="HFlowContainer" parent="." unique_id=596091150]
+[node name="dir_buttons" type="HFlowContainer" parent="." unique_id=7298674]
 visible = false
 layout_mode = 2
 
-[node name="import_all" type="Button" parent="dir_buttons" unique_id=2094173917]
+[node name="import_all" type="Button" parent="dir_buttons" unique_id=951769813]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Re-Import all"
 
-[node name="show_dir_in_fs" type="Button" parent="dir_buttons" unique_id=2134586410]
+[node name="show_dir_in_fs" type="Button" parent="dir_buttons" unique_id=202768327]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Show In FileSystem"

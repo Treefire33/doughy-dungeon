@@ -1,16 +1,16 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cqvvwi2s8ytuw"]
 
+[ext_resource type="Script" uid="uid://bip208w7h25qy" path="res://Items/Functions/SpellGemFunction.gd" id="1_ibtiv"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_jphwl"]
-[ext_resource type="Texture2D" uid="uid://c6mat7f3bpgty" path="res://Sprites/Items/SpellGem.tres" id="3_inr5r"]
 
 [resource]
 script = ExtResource("2_jphwl")
 name = "Spell Gem"
 flavour_text = "A peculiar gem comprised almost entirely of magic."
-description = "All spells now require one less stamina and turn point."
+description = "All spells now require one less stamina."
 price = 60
-sprite = ExtResource("3_inr5r")
 weight = 3.75
+function = ExtResource("1_ibtiv")
 unique_stacking = true
 dungeon_exclude_pool = Array[int]([-1])
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

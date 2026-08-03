@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://6fd7ov33poa8"]
+
+[ext_resource type="Script" uid="uid://bucau70ty8rst" path="res://Items/Functions/ClockHandFunction.gd" id="1_5koxg"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_v7ew7"]
+
+[resource]
+script = ExtResource("2_v7ew7")
+name = "Clock Hand"
+flavour_text = "It's real handy!"
+description = "Casting Retype rewinds your health, stamina, and defense stats back two turns."
+price = 185
+weight = 0.35
+function = ExtResource("1_5koxg")
+unique_stacking = true
+dungeon_exclude_pool = Array[int]([0])
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

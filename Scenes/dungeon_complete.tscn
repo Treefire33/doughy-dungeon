@@ -1,0 +1,190 @@
+[gd_scene format=3 uid="uid://8cmpy3acntlo"]
+
+[ext_resource type="Script" uid="uid://xffga17t265" path="res://Scripts/game_over.gd" id="1_rcc1d"]
+[ext_resource type="Texture2D" uid="uid://bukeyqj7moayo" path="res://Sprites/Player/happy_midnight.tres" id="2_on8gr"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="3_e4baj"]
+[ext_resource type="Script" uid="uid://i82hqdguo0go" path="res://Scripts/UI/animated_texture_rect.gd" id="5_e4baj"]
+[ext_resource type="SpriteFrames" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="5_on8gr"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="5_vxn7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oo64u"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+
+[node name="GameComplete" type="ColorRect" unique_id=313561997 node_paths=PackedStringArray("completion_status", "item_icon", "item_container", "room_reached", "max_health", "max_stamina", "attack", "damage_taken")]
+z_index = 5
+offset_right = 800.0
+offset_bottom = 450.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_rcc1d")
+completion_status = NodePath("CompletionStatus")
+item_icon = NodePath("Summaries/VBoxContainer/ScrollContainer/ItemsContainer/Item")
+item_container = NodePath("Summaries/VBoxContainer/ScrollContainer/ItemsContainer")
+room_reached = NodePath("Summaries/VBoxContainer/RoomReached")
+max_health = NodePath("Summaries/VBoxContainer/MaxHealth")
+max_stamina = NodePath("Summaries/VBoxContainer/MaxStamina")
+attack = NodePath("Summaries/VBoxContainer/Attack")
+damage_taken = NodePath("Summaries/VBoxContainer/DamageTaken")
+
+[node name="CompletionStatus" type="RichTextLabel" parent="." unique_id=2145486174]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.080000006
+anchor_top = 0.124000005
+anchor_right = 0.33
+anchor_bottom = 0.23600002
+offset_left = 22.999992
+offset_top = -2.800003
+offset_right = 23.0
+offset_bottom = -3.2000046
+bbcode_enabled = true
+text = "DUNGEON FAILED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Midnight" type="TextureRect" parent="." unique_id=1923713613]
+visible = false
+layout_mode = 0
+offset_left = 358.0
+offset_top = 102.0
+offset_right = 614.0
+offset_bottom = 358.0
+texture = ExtResource("2_on8gr")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="Buttons" type="HBoxContainer" parent="." unique_id=1574387723]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.34500003
+anchor_top = 0.79300004
+anchor_right = 0.87700003
+anchor_bottom = 0.90400004
+offset_left = 22.99997
+offset_top = -2.850006
+offset_right = 23.399963
+offset_bottom = -2.8000183
+
+[node name="Continue" type="Button" parent="Buttons" unique_id=1551343582]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_e4baj")
+text = "CONTINUE"
+
+[node name="TryAgain" type="Button" parent="Buttons" unique_id=727732947]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_e4baj")
+text = "TRY AGAIN"
+
+[node name="Summaries" type="PanelContainer" parent="." unique_id=179009850]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 103.0
+offset_right = 287.0
+offset_bottom = 403.0
+mouse_filter = 2
+theme = ExtResource("3_e4baj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Summaries" unique_id=158345077]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="RoomReached" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=1929343886]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "ROOM REACHED: 50"
+vertical_alignment = 1
+
+[node name="MaxHealth" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=1754428846]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "MAX HEALTH: 10"
+vertical_alignment = 1
+
+[node name="MaxStamina" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=139937720]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "MAX STAMINA: 10"
+vertical_alignment = 1
+
+[node name="Attack" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=580495138]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "ATTACK: 10"
+vertical_alignment = 1
+
+[node name="DamageTaken" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=983552912]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "DAMAGE TAKEN: 10"
+vertical_alignment = 1
+
+[node name="Items" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=2142094389]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "ITEMS:"
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Summaries/VBoxContainer" unique_id=1412905560]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="ItemsContainer" type="GridContainer" parent="Summaries/VBoxContainer/ScrollContainer" unique_id=812184001]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+columns = 5
+
+[node name="Item" type="TextureRect" parent="Summaries/VBoxContainer/ScrollContainer/ItemsContainer" unique_id=180279527]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 0
+theme = ExtResource("3_e4baj")
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("5_e4baj")
+frames = ExtResource("5_on8gr")
+animation = &""
+metadata/_custom_type_script = "uid://i82hqdguo0go"
+
+[node name="Count" type="RichTextLabel" parent="Summaries/VBoxContainer/ScrollContainer/ItemsContainer/Item" unique_id=788880901]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TooltipTrigger" type="Button" parent="Summaries/VBoxContainer/ScrollContainer/ItemsContainer/Item" unique_id=980898611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+icon_alignment = 1
+script = ExtResource("5_vxn7o")

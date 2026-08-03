@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmsqett4rjuty"]
+[gd_scene format=3 uid="uid://bmsqett4rjuty"]
 
 [ext_resource type="Script" uid="uid://ixs2o0jr6jjg" path="res://addons/tooltips_pro/scripts/tooltip_template.gd" id="1_bnkh0"]
 [ext_resource type="StyleBox" uid="uid://3lxjgekqranv" path="res://addons/tooltips_pro/examples/resources/styles/TooltipStyleBoxFlat.tres" id="1_s5850"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bsdao5logxp22" path="res://addons/tooltips_pro/examples/resources/styles/LockOpenTexture.png" id="4_j55aj"]
 [ext_resource type="StyleBox" uid="uid://c2a0e1tu4ajov" path="res://addons/tooltips_pro/examples/resources/styles/LockBorderStyleBoxFlat.tres" id="5_21goc"]
 
-[node name="TooltipTemplateInfiniteNestingExample" type="PanelContainer" node_paths=PackedStringArray("content_labels", "locked_elements", "locking_elements", "unlocked_elements", "pinned_elements", "timer_lock_progress_bar") groups=["tooltips"]]
+[node name="TooltipTemplateInfiniteNestingExample" type="PanelContainer" unique_id=1503630760 node_paths=PackedStringArray("content_labels", "locked_elements", "locking_elements", "unlocked_elements", "pinned_elements", "timer_lock_progress_bar") groups=["tooltips"]]
 z_index = 1
 offset_right = 130.0
 offset_bottom = 45.0
@@ -25,7 +25,7 @@ pinned_elements = [NodePath("MarginContainer/VBoxContainer/HBoxContainer/VBoxCon
 timer_lock_progress_bar = NodePath("MarginContainer/Control/TimerLockTextureProgressBar")
 link_color = Color(0.61960787, 0.76862746, 0.9019608, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=642628293]
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
@@ -34,11 +34,11 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Control" type="Control" parent="MarginContainer"]
+[node name="Control" type="Control" parent="MarginContainer" unique_id=218547581]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TimerLockTextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control"]
+[node name="TimerLockTextureProgressBar" type="TextureProgressBar" parent="MarginContainer/Control" unique_id=787403824]
 custom_minimum_size = Vector2(28, 28)
 layout_mode = 0
 offset_left = -5.0
@@ -54,26 +54,26 @@ fill_mode = 4
 nine_patch_stretch = true
 texture_progress = ExtResource("3_s5850")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=663286155]
 layout_mode = 2
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=8932678]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=2045559546]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1316009223]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="PinnedTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="PinnedTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1673518792]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -82,7 +82,7 @@ mouse_filter = 2
 texture = ExtResource("3_j55aj")
 expand_mode = 1
 
-[node name="LockedTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="LockedTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1650508624]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -91,7 +91,7 @@ mouse_filter = 2
 texture = ExtResource("3_kuuts")
 expand_mode = 1
 
-[node name="LockingTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="LockingTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1117387595]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -100,7 +100,7 @@ mouse_filter = 2
 texture = ExtResource("4_j55aj")
 expand_mode = 1
 
-[node name="UnlockedTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="UnlockedTextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1791259765]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -109,15 +109,15 @@ mouse_filter = 2
 texture = ExtResource("4_j55aj")
 expand_mode = 1
 
-[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1706758031]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1073814605]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1446026972]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -132,9 +132,8 @@ script = ExtResource("2_07d6w")
 tooltip_template_path = "res://addons/tooltips_pro/examples/tooltip_templates/tooltip_template_nesting_example.tscn"
 trigger_mode = 1
 tooltip_alignment = 2
-origin = 3
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=384836420]
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -148,9 +147,8 @@ script = ExtResource("2_07d6w")
 tooltip_template_path = "res://addons/tooltips_pro/examples/tooltip_templates/tooltip_template_nesting_example.tscn"
 trigger_mode = 1
 tooltip_alignment = 2
-origin = 3
 
-[node name="LockBorderPanel" type="Panel" parent="."]
+[node name="LockBorderPanel" type="Panel" parent="." unique_id=1167204065]
 layout_mode = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("5_21goc")

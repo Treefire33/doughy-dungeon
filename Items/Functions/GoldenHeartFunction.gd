@@ -7,7 +7,7 @@ func purchased(player: Player, purchased: bool, _room_manager: RoomManager, _sta
         player.remove_stat_mod("daggerHeartHealth", true);
         player.remove_stat_mod("daggerHeartAttack", true);
         player.items.erase("DaggerHeart");
-    else:
+    elif (player.items.has("LovelyHeart")):
         ItemUtils.show_custom_toast("The Lovely Heart transmutes the dagger!");
     
     @warning_ignore("integer_division")

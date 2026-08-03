@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmaetujyo1ov5" path="res://addons/AsepriteWizard/interface/imports_manager/aseprite_imports_manager.gd" id="1_wrm15"]
 
-[node name="AsepriteDockImportsWindow" type="Window" unique_id=643803751]
+[node name="AsepriteDockImportsWindow" type="Window" unique_id=129377897]
 oversampling_override = 1.0
 title = "Aseprite Imports Manager"
 initial_position = 1

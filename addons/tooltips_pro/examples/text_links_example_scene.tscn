@@ -94,8 +94,6 @@ script = ExtResource("3_w1frh")
 tooltip_template_path = "res://addons/tooltips_pro/examples/tooltip_templates/tooltip_template_nesting_example.tscn"
 trigger_mode = 1
 tooltip_alignment = 2
-origin = 3
-overflow_mode = 1
 tooltip_strings = Array[String](["The text link in this tooltip is styled from [tooltip=example_settings]Text Link
 settings[/tooltip] on the [b]TooltipTemplate[/b]. "])
 
@@ -106,8 +104,6 @@ script = ExtResource("3_w1frh")
 tooltip_template_path = "res://addons/tooltips_pro/examples/tooltip_templates/tooltip_template_nesting_example.tscn"
 trigger_mode = 1
 tooltip_alignment = 2
-origin = 3
-overflow_mode = 1
 tooltip_strings = Array[String](["Only one [b]TooltipTrigger[/b] on the [tooltip=example_rtl]RichTextLabel[/tooltip] is 
 needed for multiple text links, since they are 
 created through [tooltip=example_url][lb]tooltip[rb][/tooltip] tags."])
@@ -119,8 +115,6 @@ script = ExtResource("3_w1frh")
 tooltip_template_path = "res://addons/tooltips_pro/examples/tooltip_templates/tooltip_template_nesting_example.tscn"
 trigger_mode = 1
 tooltip_alignment = 2
-origin = 3
-overflow_mode = 1
 tooltip_strings = Array[String](["[b]Multiple Strings[/b]", "You can pass a [tooltip=example_strings]string of content[/tooltip] to a text link's tooltip
 for each [b]RichTextLabel[/b] that the [b]TooltipTemplate[/b] has
 set up."])
@@ -132,8 +126,6 @@ script = ExtResource("3_w1frh")
 tooltip_template_path = "res://addons/tooltips_pro/examples/tooltip_templates/tooltip_template_nesting_example.tscn"
 trigger_mode = 1
 tooltip_alignment = 2
-origin = 3
-overflow_mode = 1
 tooltip_strings = Array[String](["Hover over this pin icon [tooltip=example_nested][img=24x24]res://addons/tooltips_pro/examples/resources/styles/PinTexture.png[/img][/tooltip] to see a tooltip."])
 
 [node name="Spacer2" type="Control" parent="UICanvasLayer/HBoxContainer/VBoxContainerLeft/PinningExample/HBoxContainer/Panel/MarginContainer/HBoxContainer" unique_id=1049018032]
@@ -307,7 +299,6 @@ trigger_mode = 2
 tooltip_alignment = 4
 origin = 1
 remote_element_node = NodePath("../../../../../../TooltipPanel")
-overflow_mode = 1
 tooltip_strings = Array[String](["[b]Open Delay[/b]: The time in seconds before a tooltip opens on [color=c6e3fd][code]mouse_entered[/code][/color] or [color=c6e3fd][code]focus_entered[/code][/color] signals."])
 
 [node name="ValueLabel" type="Label" parent="UICanvasLayer/HBoxContainer/VBoxContainerRight/MarginContainerSettings/MarginContainer/VBoxContainer/HBoxContainer/TooltipPanel2/MarginContainer/VBoxContainer/SettingsContainer/OpenDelayContainer" unique_id=1176552257]
@@ -344,7 +335,6 @@ trigger_mode = 2
 tooltip_alignment = 4
 origin = 1
 remote_element_node = NodePath("../../../../../../TooltipPanel")
-overflow_mode = 1
 tooltip_strings = Array[String](["[b]Timer Lock Delay[/b]: The time in seconds before a tooltip locks when the [b]Lock Mode[/b] is set to [bgcolor=21262e][color=e8a3a5][code]Timer Lock[/code][/color][/bgcolor]."])
 
 [node name="ValueLabel" type="Label" parent="UICanvasLayer/HBoxContainer/VBoxContainerRight/MarginContainerSettings/MarginContainer/VBoxContainer/HBoxContainer/TooltipPanel2/MarginContainer/VBoxContainer/SettingsContainer/TimerLockDelayContainer" unique_id=295903305]
@@ -381,7 +371,6 @@ trigger_mode = 2
 tooltip_alignment = 4
 origin = 1
 remote_element_node = NodePath("../../../../../../TooltipPanel")
-overflow_mode = 1
 tooltip_strings = Array[String](["[b]Unlock Delay[/b]: The time in seconds before a locked tooltip closes on [color=c6e3fd][code]mouse_exited[/code][/color]."])
 
 [node name="ValueLabel" type="Label" parent="UICanvasLayer/HBoxContainer/VBoxContainerRight/MarginContainerSettings/MarginContainer/VBoxContainer/HBoxContainer/TooltipPanel2/MarginContainer/VBoxContainer/SettingsContainer/UnlockDelayContainer" unique_id=1385891539]

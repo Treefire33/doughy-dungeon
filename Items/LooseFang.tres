@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://b4mwhluiuvw3s"]
 
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_gv7lh"]
-[ext_resource type="Texture2D" uid="uid://clh8tlwv0xn8f" path="res://Sprites/Items/LooseFang.tres" id="2_gv7lh"]
 [ext_resource type="Script" uid="uid://d3qfu8uswwgu" path="res://Items/Functions/LooseFangFunction.gd" id="2_n156d"]
 
 [resource]
@@ -10,7 +9,6 @@ name = "Loose Fang"
 flavour_text = "A sharp fang from an unknown beast."
 description = "On attack, 10% chance to siphon health."
 price = 135
-sprite = ExtResource("2_gv7lh")
 weight = 5.0
 function = ExtResource("2_n156d")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bi3t80g4buirw" path="res://Items/Functions/SeaUrchinFunction.gd" id="1_u85do"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_2a78a"]
-[ext_resource type="Texture2D" uid="uid://bjk71eginobqg" path="res://Sprites/Items/SeaUrchin.tres" id="3_u85do"]
 
 [resource]
 script = ExtResource("2_2a78a")
@@ -10,7 +9,6 @@ name = "Urchin"
 flavour_text = "I won't make the same mistake twic- OUCH!"
 description = "I'm not actually sure what this does."
 price = 25
-sprite = ExtResource("3_u85do")
 weight = 7.0
 function = ExtResource("1_u85do")
 unique_stacking = true

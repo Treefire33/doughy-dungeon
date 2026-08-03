@@ -14,8 +14,8 @@ class_name ItemData
 ## The price of the item.
 @export var price: int;
 
-## The sprite of the item.
-@export var sprite: Texture;
+## The path to the sprite of the item.
+@export var sprite: StringName;
 
 ## How likely the item is to appear in shop (higher is more common).
 @export var weight: float;

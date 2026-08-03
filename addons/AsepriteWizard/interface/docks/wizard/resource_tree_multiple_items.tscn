@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" uid="uid://dkb6s868hna1i" path="res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_multiple_items.gd" id="1_lg81l"]
 
-[node name="multiple_items" type="VBoxContainer" unique_id=97795487]
+[node name="multiple_items" type="VBoxContainer" unique_id=954309150]
 size_flags_vertical = 3
 script = ExtResource("1_lg81l")
 
-[node name="message" type="Label" parent="." unique_id=1528758668]
+[node name="message" type="Label" parent="." unique_id=527968020]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Multiple items selected
 "
 horizontal_alignment = 1
 
-[node name="buttons" type="HFlowContainer" parent="." unique_id=850014580]
+[node name="buttons" type="HFlowContainer" parent="." unique_id=2144189314]
 layout_mode = 2
 
-[node name="import_selected" type="Button" parent="buttons" unique_id=1693743500]
+[node name="import_selected" type="Button" parent="buttons" unique_id=1803832274]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Re-Import all"

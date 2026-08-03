@@ -191,7 +191,7 @@ func generate_shop_item(display_index: int):
         item_button.pressed.disconnect(connection.callable)
     var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
-    item_display.get_node("Sprite").texture = item.sprite;
+    item_display.get_node("Sprite").animation = ItemUtils.get_item_animation_name(item);
     item_button.tooltip_strings.clear();
     item_button.tooltip_strings.append_array(ItemUtils.get_tooltip_text(item, true, true, difficulty_adjust(item.price, 0.06)));
     item_button.pressed.connect(purchase_item.bind(item_name, item_display, display_index));

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://fscemkx5w1dw" path="res://addons/AsepriteWizard/interface/docks/wizard/resource_tree_multiple_items.tscn" id="4_vteew"]
 [ext_resource type="PackedScene" uid="uid://qgmln507kjnm" path="res://addons/AsepriteWizard/interface/shared/tree/tree_selection_confirmation_warning.tscn" id="5_jigim"]
 
-[node name="ImportedSpriteFrames" type="PanelContainer" unique_id=2083545448]
+[node name="ImportedSpriteFrames" type="PanelContainer" unique_id=210500439]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,48 +14,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dk2ra")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=795752583]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1493569761]
 layout_mode = 2
 
-[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer" unique_id=372541638]
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer" unique_id=1100438268]
 layout_mode = 2
 
-[node name="tree" parent="MarginContainer/HSplitContainer" unique_id=1538246017 instance=ExtResource("2_svrqo")]
+[node name="tree" parent="MarginContainer/HSplitContainer" unique_id=2078453918 instance=ExtResource("2_svrqo")]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer" unique_id=2072699030]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer" unique_id=1004048434]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer" unique_id=691537612]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HSplitContainer/MarginContainer" unique_id=83055021]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=102401552]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=1442061920]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=575757918]
+[node name="Label" type="Label" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=775022748]
 layout_mode = 2
 text = "Details"
 horizontal_alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=476303147]
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=953076420]
 layout_mode = 2
 
-[node name="nothing" type="Label" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=1105562908]
+[node name="nothing" type="Label" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=347486983]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Nothing selected"
 horizontal_alignment = 1
 
-[node name="single_item" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=725432358 instance=ExtResource("3_pe1cg")]
+[node name="single_item" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=474143299 instance=ExtResource("3_pe1cg")]
 visible = false
 layout_mode = 2
 
-[node name="multiple_items" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=764535174 instance=ExtResource("4_vteew")]
+[node name="multiple_items" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=180807864 instance=ExtResource("4_vteew")]
 visible = false
 layout_mode = 2
 
-[node name="confirmation_warning" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=1776540502 instance=ExtResource("5_jigim")]
+[node name="confirmation_warning" parent="MarginContainer/HSplitContainer/MarginContainer/VBoxContainer" unique_id=1995525246 instance=ExtResource("5_jigim")]
 visible = false
 layout_mode = 2
 

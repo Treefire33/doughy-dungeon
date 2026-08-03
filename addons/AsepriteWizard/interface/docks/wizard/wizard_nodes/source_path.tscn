@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5vp72sqovo7p" path="res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/source_path.gd" id="1"]
 
-[node name="source_path" type="LineEdit" unique_id=944043477]
+[node name="source_path" type="LineEdit" unique_id=8700045]
 offset_top = 34.0
 offset_right = 440.0
 offset_bottom = 58.0

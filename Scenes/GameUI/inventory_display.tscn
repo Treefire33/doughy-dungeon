@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://7n1jkadyaweh" path="res://Scripts/UI/inventory_display.gd" id="1_viq6x"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_gvvfn"]
-[ext_resource type="Texture2D" uid="uid://cvfbxu6htryil" path="res://Sprites/Items/SharpeningStone.tres" id="3_tmpmi"]
 [ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="4_gvvfn"]
+[ext_resource type="Script" uid="uid://i82hqdguo0go" path="res://Scripts/UI/animated_texture_rect.gd" id="4_m11ir"]
+[ext_resource type="SpriteFrames" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="4_tmpmi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvvfn"]
 bg_color = Color(0, 0, 0, 1)
@@ -118,7 +119,7 @@ size_flags_vertical = 3
 theme = ExtResource("2_gvvfn")
 columns = 5
 
-[node name="Item" type="TextureRect" parent="Panel" unique_id=312108807]
+[node name="Item" type="TextureRect" parent="Panel" unique_id=1549125753]
 visible = false
 layout_mode = 0
 offset_left = 260.0
@@ -126,8 +127,10 @@ offset_top = -2.0
 offset_right = 324.0
 offset_bottom = 62.0
 theme = ExtResource("2_gvvfn")
-texture = ExtResource("3_tmpmi")
 stretch_mode = 5
+script = ExtResource("4_m11ir")
+frames = ExtResource("4_tmpmi")
+metadata/_custom_type_script = "uid://i82hqdguo0go"
 
 [node name="Count" type="RichTextLabel" parent="Panel/Item" unique_id=196404841]
 layout_mode = 1

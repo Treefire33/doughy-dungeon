@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://baju4siqvb0tl"]
 
 [ext_resource type="Script" uid="uid://ne0xsvetiobn" path="res://Scripts/grounds_for_evil.gd" id="1_dfe45"]
-[ext_resource type="SpriteFrames" uid="uid://dioh5vipamvkh" path="res://Sprites/evilgroundsanim.tres" id="1_gv5y6"]
+[ext_resource type="SpriteFrames" uid="uid://b2ay6qvjn4dw7" path="res://Sprites/groundsforevil.aseprite" id="2_dfe45"]
 
 [node name="GroundsForEvil" type="Node2D" unique_id=373260012]
 script = ExtResource("1_dfe45")
@@ -34,5 +34,5 @@ vertical_alignment = 1
 
 [node name="evilgrounds" type="AnimatedSprite2D" parent="." unique_id=543408837]
 position = Vector2(400, 200)
-sprite_frames = ExtResource("1_gv5y6")
+sprite_frames = ExtResource("2_dfe45")
 autoplay = "default"

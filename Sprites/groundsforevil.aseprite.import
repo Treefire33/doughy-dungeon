@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.static-texture"
-type="PortableCompressedTexture2D"
+importer="aseprite_wizard.plugin.spriteframes"
+type="SpriteFrames"
 uid="uid://b2ay6qvjn4dw7"
 path="res://.godot/imported/groundsforevil.aseprite-f32ed97a07a6b1f059dc0c9e241c0862.res"
 
@@ -14,7 +14,8 @@ dest_files=["res://.godot/imported/groundsforevil.aseprite-f32ed97a07a6b1f059dc0
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
-first_frame_only=false
 sheet/sheet_type="columns"
 sheet/sheet_columns=2
+sheet/frame_padding=0
 sheet/scale=1
+animation/round_fps=false

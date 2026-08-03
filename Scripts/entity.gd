@@ -81,9 +81,10 @@ var speed: int:
         @warning_ignore("narrowing_conversion")
         return apply_stat_mods(Enum.StatType.Speed, _speed);
 
+## Positive turn points correspond to basically "stun resistance"
 var turn_points: int = 1:
     set(value):
-        turn_points = clampi(value, -10, 1);
+        turn_points = clampi(value, -10, 10);
 
 var stat_modifiers: Array[StatModifier] = [];
 func add_stat_mod(

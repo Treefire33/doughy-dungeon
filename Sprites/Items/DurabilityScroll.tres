@@ -1,7 +1,0 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://dltkficgaveds"]
-
-[ext_resource type="Texture2D" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="1_y0ucj"]
-
-[resource]
-atlas = ExtResource("1_y0ucj")
-region = Rect2(64, 192, 64, 64)

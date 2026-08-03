@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvxrtdhohr6us" path="res://addons/AsepriteWizard/interface/shared/animation_player_drop_button.gd" id="1_tfmxw"]
 
-[node name="options" type="OptionButton" unique_id=1805865889]
+[node name="options" type="OptionButton" unique_id=2047435590]
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 selected = 0
