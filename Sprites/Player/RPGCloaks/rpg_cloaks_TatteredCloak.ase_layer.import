@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://dlf00fe3lejle"
+path="res://.godot/imported/rpg_cloaks_TatteredCloak.ase_layer-044110d2f79f605a33f0736186aaed8d.res"
+
+[deps]
+
+source_file="res://Sprites/Player/RPGCloaks/rpg_cloaks_TatteredCloak.ase_layer"
+dest_files=["res://.godot/imported/rpg_cloaks_TatteredCloak.ase_layer-044110d2f79f605a33f0736186aaed8d.res"]
+
+[params]
+

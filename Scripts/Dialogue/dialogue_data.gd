@@ -3,18 +3,3 @@ extends Resource
 class_name DialogueData
 
 @export var dialogue: Array[DialogueSpeech] = [];
-
-static var character_icons: Dictionary[Enum.Character, AtlasTexture] = {
-    Enum.Character.Midnight: preload("res://Sprites/Dialogue/midnight_dialogue.tres"),
-    Enum.Character.Vendor: preload("res://Sprites/Dialogue/vendor_dialogue.tres"),
-    Enum.Character.TripDawg: preload("res://Sprites/Dialogue/tripdawg.tres")
-};
-
-static func get_character_icon(character: Enum.Character, emotion: Enum.DialogueEmotion):
-    if (character == Enum.Character.None):
-        return null;
-    var icons = character_icons[character];
-    icons.region = Rect2i(emotion * 64, icons.region.position.y, 64, 64);
-    if (character == Enum.Character.TripDawg):
-        icons.region = Rect2i(0, 180, 405, 360);
-    return icons;

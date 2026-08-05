@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://djsp2qnli4vai"]
 
+[ext_resource type="SpriteFrames" uid="uid://wkart3yi7mn8" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_GuildCloak.ase_layer" id="1_76qbf"]
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_l76fd"]
 
 [resource]
 script = ExtResource("1_l76fd")
 name = "Recruit's Cloak"
 description = "A custom-made cloak bearing your priorities."
+overworld_cloak = ExtResource("1_76qbf")
 max_health = 20
 max_stamina = 15
 metadata/_custom_type_script = "uid://i8t58il84vkc"

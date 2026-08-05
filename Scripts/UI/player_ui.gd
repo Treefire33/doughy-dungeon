@@ -85,8 +85,11 @@ func update_enemy_buttons():
         var tooltip: TooltipTrigger = enemy.hover_tooltip;
         if (enemy == null || enemy.health <= 0):
             tooltip.tooltip_strings.clear();
+            tooltip.visible = false;
             continue;
         
+        tooltip.visible = true;
+        tooltip.tooltip_strings.clear();
         tooltip.tooltip_strings.append(enemy_tooltip % [
             enemy.name, enemy.flavour_text,
             enemy.health, enemy.max_health,

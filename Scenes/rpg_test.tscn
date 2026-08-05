@@ -9,8 +9,11 @@
 [ext_resource type="Script" uid="uid://dwh6wgo300efx" path="res://Scripts/RPG/NPCs/npc_vendor.gd" id="7_sbuoh"]
 [ext_resource type="Script" uid="uid://da11h8jjenhy5" path="res://Scripts/RPG/rpg_dungeon.gd" id="7_wqeb0"]
 [ext_resource type="Resource" uid="uid://bwtevdgyame2h" path="res://Dungeons/OceanicDungeon.tres" id="9_euyhw"]
+[ext_resource type="Texture2D" uid="uid://encrpk507m2s" path="res://Sprites/NPCs/SecretCharacters/afternoon.aseprite" id="10_ivg0g"]
 [ext_resource type="Script" uid="uid://c1wgamhrfup3x" path="res://Scripts/RPG/NPCs/npc_sign.gd" id="10_vcj0l"]
+[ext_resource type="Script" uid="uid://0x4w4j2fvgdq" path="res://Scripts/RPG/NPCs/npc_afternoon.gd" id="10_wqeb0"]
 [ext_resource type="Texture2D" uid="uid://7vv8faysb4sc" path="res://Sprites/NPCs/coolsign.aseprite" id="11_ivg0g"]
+[ext_resource type="Texture2D" uid="uid://rjh54u5s0jjc" path="res://Sprites/NPCs/SecretCharacters/evening.aseprite" id="12_fdaef"]
 [ext_resource type="Script" uid="uid://dqe5puy2qo32c" path="res://Scripts/RPG/rpg_room_trigger.gd" id="13_ivg0g"]
 
 [sub_resource type="GDScript" id="GDScript_71b5o"]
@@ -27,14 +30,14 @@ size = Vector2(64, 64)
 size = Vector2(64, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo64u"]
-size = Vector2(64, 64)
+size = Vector2(128, 64)
 
 [sub_resource type="Animation" id="Animation_birco"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +49,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("../Vendor/Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,7 +71,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -86,7 +89,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +105,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -120,7 +123,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -132,7 +135,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("../Vendor/Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -149,7 +152,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,7 +164,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("../Vendor/Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -179,7 +182,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -191,7 +194,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("../Vendor/Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -208,7 +211,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -220,7 +223,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("../Vendor/Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -238,7 +241,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -250,7 +253,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("../Vendor/Sprite:flip_h")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -271,6 +274,12 @@ _data = {
 &"RightIdle": SubResource("Animation_sbuoh"),
 &"RightWalk": SubResource("Animation_71b5o")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ckj"]
+size = Vector2(128, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdaef"]
+size = Vector2(64, 64)
 
 [node name="RPGTest" type="Node2D" unique_id=815577568 node_paths=PackedStringArray("entrances", "camera_limits")]
 y_sort_enabled = true
@@ -430,6 +439,85 @@ metadata/_aseprite_wizard_interface_config_ = {
 libraries/ = SubResource("AnimationLibrary_eeauh")
 libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
 
+[node name="Afternoon" type="CharacterBody2D" parent="." unique_id=1322539155]
+visible = false
+position = Vector2(288, -192)
+collision_layer = 3
+motion_mode = 1
+script = ExtResource("10_wqeb0")
+metadata/_custom_type_script = "uid://6om5utstdwe5"
+
+[node name="Collider" type="CollisionShape2D" parent="Afternoon" unique_id=1933785203]
+position = Vector2(-32, 32)
+shape = SubResource("RectangleShape2D_g7ckj")
+
+[node name="Sprite" type="Sprite2D" parent="Afternoon" unique_id=956045828]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("10_ivg0g")
+hframes = 6
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"convert_fps_field": 30.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": true,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Animator",
+"scale": "1.0",
+"slice": "",
+"source": "res://Sprites/Player/player_rpg_new.aseprite",
+"source_uid": 7096081574418346694
+},
+"slice_section": false
+}
+
+[node name="Evening" type="Sprite2D" parent="Afternoon" unique_id=1033934688]
+y_sort_enabled = true
+position = Vector2(-64, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("12_fdaef")
+hframes = 6
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"convert_fps_field": 30.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": true,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Animator",
+"scale": "1.0",
+"slice": "",
+"source": "res://Sprites/Player/player_rpg_new.aseprite",
+"source_uid": 7096081574418346694
+},
+"slice_section": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Afternoon" unique_id=1892287586]
+libraries/ = SubResource("AnimationLibrary_eeauh")
+libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
+
 [node name="TutorialSign" type="CharacterBody2D" parent="." unique_id=1637142011]
 position = Vector2(0, -96)
 collision_layer = 3
@@ -438,7 +526,7 @@ script = ExtResource("10_vcj0l")
 metadata/_custom_type_script = "uid://6om5utstdwe5"
 
 [node name="Collider" type="CollisionShape2D" parent="TutorialSign" unique_id=1288064290]
-shape = SubResource("RectangleShape2D_oo64u")
+shape = SubResource("RectangleShape2D_fdaef")
 
 [node name="Sprite" type="Sprite2D" parent="TutorialSign" unique_id=259116635]
 y_sort_enabled = true

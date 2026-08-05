@@ -1,0 +1,22 @@
+~ start
+if GlobalPlayer.get_bool_flag(&"bErrorWorld") 
+	=> talked
+[speed=0.25]You found something out of place
+[speed=0.25]It stares at you for a long time, before opening its mouth to speak
+[speed=0.25]It asks you if you've seen its mother
+[speed=0.25]... Only it didn't speak
+[speed=0.25]Instead it stared at you, pleadingly, with tears welling in its eyes
+[speed=0.25]As if waiting for you to understand its peril through body alone
+[speed=0.25]... Only you didn't
+[speed=0.25]Its head lowered, wandering away from you
+[speed=0.25]Well, not before looking back to you, as if coming to ask you something else
+[speed=0.25]You knew you wouldn't have any more answers, so instead you gave it a gift
+[speed=0.25]*Obtained the Erroneous Glaive*
+$> GlobalPlayer.add_rpg_item(&"ErroneousGlaive")
+[speed=0.25]And then you parted ways
+$> GlobalPlayer.set_bool_flag(&"bErrorWorld", true)
+=> END
+
+~ talked
+[speed=0.25]You didn't come back.
+=> END

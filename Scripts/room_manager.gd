@@ -218,7 +218,7 @@ func gen_safe_room():
     if (current_dungeon.id == Enum.Dungeon.Oceanic && floor_count == 2 && !GlobalPlayer.get_flag(&"bVendorMet")):
         safe_room_anims.play("VendorIntro");
         await safe_room_anims.animation_finished;
-        player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.tres"));
+        player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.dialogue"));
         player_ui.stats_display.hide();
         player_ui.upgrades_panel.hide();
         player_ui.safe_room_proceed.hide();

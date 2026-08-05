@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://ntibjll4ow53"
+path="res://.godot/imported/rpg_cloaks_BaseCloak.ase_layer-6c95dff555214527e8c5cafbaab332b3.res"
+
+[deps]
+
+source_file="res://Sprites/Player/RPGCloaks/rpg_cloaks_BaseCloak.ase_layer"
+dest_files=["res://.godot/imported/rpg_cloaks_BaseCloak.ase_layer-6c95dff555214527e8c5cafbaab332b3.res"]
+
+[params]
+

@@ -1,6 +1,6 @@
 extends RPGInteractable
 
-var entrance_dialogue: DialogueData = preload("res://Dialogue/error_demoentity.tres");
+var entrance_dialogue: DialogueResource = preload("res://Dialogue/error_demoentity.dialogue");
 
 func _on_room_entered(args: RPGEventBus.RPGRoomEventArgs):
     super(args);

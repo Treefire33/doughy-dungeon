@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://di0nn6wjrrbvg"]
 
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_rsot7"]
+[ext_resource type="SpriteFrames" uid="uid://dlf00fe3lejle" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_TatteredCloak.ase_layer" id="1_x7jyg"]
 
 [resource]
 script = ExtResource("1_rsot7")
 name = "Tattered Cloak"
 description = "A gift from mom. It's worn down over the years, quite a lot actually."
+overworld_cloak = ExtResource("1_x7jyg")
 max_health = 15
 max_stamina = 12
 metadata/_custom_type_script = "uid://i8t58il84vkc"

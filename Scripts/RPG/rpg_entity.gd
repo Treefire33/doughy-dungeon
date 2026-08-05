@@ -16,6 +16,10 @@ func _set_collision(enabled: bool = true) -> void:
     var collider = get_node("Collider") as CollisionShape2D;
     collider.disabled = !enabled;
 
+func set_enabled(enabled: bool) -> void:
+    _set_collision(enabled);
+    self.visible = enabled;
+
 func _physics_process(delta: float) -> void:
     if (static_body): return;
 

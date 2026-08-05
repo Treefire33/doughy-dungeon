@@ -5,13 +5,13 @@ class_name RPGPlayer
 @onready var animator: AnimationPlayer = $Animator;
 @onready var interaction_ray: RayCast2D = $InteractionRay;
 @onready var sprite: Sprite2D = $Sprite;
+@onready var cloak: AnimatedSprite2D = $Cloak;
 
 @export var rpg_ui: RPGUI;
 @export var speed: int = 5;
 @export var sprint_mod: int = 2;
 
-@export var tattered_texture: Texture2D;
-@export var guild_texture: Texture2D;
+@export var default_cloak: SpriteFrames;
 
 func animate_player():
     var move_axis: Vector2 = Vector2(round(self._tile_velocity.x), round(self._tile_velocity.y));
@@ -22,12 +22,16 @@ func animate_player():
             animator.play(animator.current_animation.left(-4)+"Idle");
         Vector2.UP:
             animator.play("PlayerRPG/BackwardWalk");
+            cloak.play("Back");
         Vector2.DOWN:
             animator.play("PlayerRPG/ForwardWalk");
+            cloak.play("Forward");
         Vector2.LEFT:
             animator.play("PlayerRPG/LeftWalk");
+            cloak.play("Left");
         Vector2.RIGHT:
             animator.play("PlayerRPG/RightWalk");
+            cloak.play("Right");
 
 func get_interactable(raycast: RayCast2D) -> RPGInteractable:
     if (!raycast.get_collider()): return null;
@@ -45,18 +49,23 @@ func _ready() -> void:
             GlobalPlayer.add_rpg_item("BronzeSword");
             GlobalPlayer.add_rpg_item("StandardSpellTwo");
         if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Oceanic]):
-            GlobalPlayer.unlocked_items.append("GuildMember");
+            GlobalPlayer.add_rpg_item("GuildMember");
         if (GlobalPlayer.completed_dungeons[Enum.Dungeon.ErrorEntity]):
-            GlobalPlayer.unlocked_items.append("ErroneousCloak");
+            GlobalPlayer.add_rpg_item("ErroneousCloak");
     );
 
 func _draw() -> void:
-    if (GlobalPlayer.cloak.name != "Tattered Cloak"):
-        sprite.texture = guild_texture;
+    if (is_instance_valid(GlobalPlayer.cloak.overworld_cloak)):
+        cloak.sprite_frames = GlobalPlayer.cloak.overworld_cloak;
     else:
-        sprite.texture = tattered_texture;
+        cloak.sprite_frames = default_cloak;
 
 func _physics_process(delta: float) -> void:
+    if (
+        is_instance_valid(GlobalPlayer.cloak.overworld_cloak) 
+        && cloak.sprite_frames != GlobalPlayer.cloak.overworld_cloak
+    ):
+        queue_redraw();
     var movement_direction: Vector2 = Vector2.ZERO;
     movement_direction = Input.get_vector("Left", "Right", "Up", "Down").normalized();
 

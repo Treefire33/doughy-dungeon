@@ -51,7 +51,9 @@ func format_action_string(action_string: String):
     var final_string = action_string;
     for action in bindable_actions:
         var act_string = "[[%s]]" % action;
+        var act_string_rtl = "[lb][lb]%s[rb][rb]" % action;
         final_string = final_string.replacen(act_string, get_action_text(action));
+        final_string = final_string.replacen(act_string_rtl, get_action_text(action));
     return final_string;
 
 var keybinds_menu: PackedScene = preload("res://Scenes/Menus/KeybindsMenu/keybinds_menu.tscn");

@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://cvxsk5ly3scfq"]
 
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_ervh4"]
+[ext_resource type="SpriteFrames" uid="uid://wkart3yi7mn8" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_GuildCloak.ase_layer" id="1_ov86q"]
 
 [resource]
 script = ExtResource("1_ervh4")
 name = "Master's Cloak"
 description = "A custom-made cloak bearing your priorities. A patch reading \"Master\" is sewn on."
+overworld_cloak = ExtResource("1_ov86q")
 max_health = 45
 max_stamina = 30
 metadata/_custom_type_script = "uid://i8t58il84vkc"

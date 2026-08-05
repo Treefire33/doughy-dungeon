@@ -62,8 +62,8 @@ class RPGInteractionArgs extends RPGEventArgs:
         self.interaction_object = interaction_object;
 
 class RPGDialogueArgs extends RPGInteractionArgs:
-    var dialogue: DialogueData;
+    var dialogue: DialogueResource;
 
-    func _init(event_id: RPGEventId, interaction_object: RPGInteractable, dialogue: DialogueData) -> void:
+    func _init(event_id: RPGEventId, interaction_object: RPGInteractable, dialogue: DialogueResource) -> void:
         super(event_id, interaction_object);
         self.dialogue = dialogue;

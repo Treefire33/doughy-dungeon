@@ -1,0 +1,30 @@
+~ start
+Vendor: [#happy] Hey there!
+Midnight: [#surprised] !!!
+Vendor: No need to panic! I'm not gonna hurt ya or anything!
+Midnight: [#tired] ...
+Vendor: Name's Stell. I'm the vendor of this here... uh... dungeon shop.
+Vendor: Feel free to ask me anything!
+- What are these items? => vendor_response
+- How did you transform? => vendor_response
+- The errors? [if GlobalPlayer.get_flag(&"iEvilScore") > 0] => vendor_error
+- Nothing => vendor_exit
+=> END
+
+~ vendor_response
+Vendor: [#confused] Sorry?
+Vendor: I don't quite understand you, apologies. => vendor_exit
+=> END
+
+~ vendor_error
+ERROR: [#vendor] It stares at through the eyes of its new friend.
+ERROR: [#vendor] What does it want?
+ERROR: [#vendor] Well, you'll be meeting soon enough.
+ERROR: [#vendor] Only {{3 - GlobalPlayer.get_flag(&"iEvilScore")}} more times...
+=> vendor_exit
+
+~ vendor_exit
+Vendor: Well, if you need anything else, I'll be in this dungeon 'til you're out.
+Vendor: [#happy] Farewell!
+$> GlobalPlayer.set_bool_flag(&"bVendorMet", true)
+=> END

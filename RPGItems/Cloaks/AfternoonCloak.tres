@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://ck5rf6pv2ura5"]
+
+[ext_resource type="SpriteFrames" uid="uid://uma6qv4gh1uk" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_AfternoonCloak.ase_layer" id="1_1axwv"]
+[ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="2_x448i"]
+
+[resource]
+script = ExtResource("2_x448i")
+name = "Afternoon's Cloak"
+description = "It's extremely blue, like, severely blue."
+overworld_cloak = ExtResource("1_1axwv")
+max_health = 2
+max_stamina = 20
+attack = 1
+max_defense_duration = 15
+max_defense_durability = 30
+metadata/_custom_type_script = "uid://i8t58il84vkc"

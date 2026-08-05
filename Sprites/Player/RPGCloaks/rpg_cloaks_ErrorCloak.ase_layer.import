@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://co5157fslugmu"
+path="res://.godot/imported/rpg_cloaks_ErrorCloak.ase_layer-2ea253461bb10975b967a1828b0decdf.res"
+
+[deps]
+
+source_file="res://Sprites/Player/RPGCloaks/rpg_cloaks_ErrorCloak.ase_layer"
+dest_files=["res://.godot/imported/rpg_cloaks_ErrorCloak.ase_layer-2ea253461bb10975b967a1828b0decdf.res"]
+
+[params]
+

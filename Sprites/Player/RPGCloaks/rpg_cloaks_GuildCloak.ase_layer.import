@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://wkart3yi7mn8"
+path="res://.godot/imported/rpg_cloaks_GuildCloak.ase_layer-49a048a72828004ad40b6ac4c0acfa00.res"
+
+[deps]
+
+source_file="res://Sprites/Player/RPGCloaks/rpg_cloaks_GuildCloak.ase_layer"
+dest_files=["res://.godot/imported/rpg_cloaks_GuildCloak.ase_layer-49a048a72828004ad40b6ac4c0acfa00.res"]
+
+[params]
+

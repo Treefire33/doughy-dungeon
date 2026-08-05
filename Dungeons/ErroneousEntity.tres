@@ -11,7 +11,7 @@
 
 [resource]
 script = ExtResource("25_bjeno")
-id = -1
+id = 11
 name = "ERROR"
 boss_enemy = ExtResource("1_5dk6o")
 rooms = Array[ExtResource("24_lgk53")]([ExtResource("5_jq0rq")])

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ccakrup6pevkm"
+path="res://.godot/imported/error_demoentity.dialogue-663af8e120c13325b22498794627b86b.tres"
+
+[deps]
+
+source_file="res://Dialogue/error_demoentity.dialogue"
+dest_files=["res://.godot/imported/error_demoentity.dialogue-663af8e120c13325b22498794627b86b.tres"]
+
+[params]
+
+defaults=true

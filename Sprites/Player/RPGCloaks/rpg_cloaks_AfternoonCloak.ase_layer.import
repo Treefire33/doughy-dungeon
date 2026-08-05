@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes-split-layer"
+type="SpriteFrames"
+uid="uid://uma6qv4gh1uk"
+path="res://.godot/imported/rpg_cloaks_AfternoonCloak.ase_layer-792715dfa63cf79aecc1d3dac33a9c16.res"
+
+[deps]
+
+source_file="res://Sprites/Player/RPGCloaks/rpg_cloaks_AfternoonCloak.ase_layer"
+dest_files=["res://.godot/imported/rpg_cloaks_AfternoonCloak.ase_layer-792715dfa63cf79aecc1d3dac33a9c16.res"]
+
+[params]
+

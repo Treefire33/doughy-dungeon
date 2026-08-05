@@ -13,7 +13,8 @@ dest_files=["res://.godot/imported/player_rpg_new.aseprite-39fd0e11f6073d747d2f1
 [params]
 
 layer/exclude_layers_pattern=""
-layer/only_visible_layers=false
+layer/only_visible_layers=true
+layer/split_layers=false
 first_frame_only=false
 sheet/sheet_type="columns"
 sheet/sheet_columns=6

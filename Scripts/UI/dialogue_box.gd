@@ -4,55 +4,80 @@ class_name DialogueBox
 signal start_dialogue(dialogue: DialogueData);
 signal dialogue_finished();
 
-@onready var background: Panel = $Background;
-@onready var icon: TextureRect = $IconRect;
-@onready var dialogue_label: RichTextLabel = $Dialogue;
+@export var background: Panel;
+@export var icon: AnimatedTextureRect;
+@export var dialogue_label: DialogueLabel;
+@export var dialogue_responses: DialogueResponsesMenu;
 
 @export var button_advance: Button;
 @export var button_skip: Button;
 @export var button_skip_complete: Button;
 
-var current_dialogue: DialogueData;
-var current_speech: int = 0;
-var speech_finished: bool = false;
+var current_dialogue: DialogueResource;
+var current_line: DialogueLine;
+var next_line: String = "start";
 
-func typewriter(duration: float):
-    for i in range(dialogue_label.get_total_character_count() + 1):
-        if (speech_finished): break;
-        dialogue_label.visible_characters = i;
-        await get_tree().create_timer(duration / 20).timeout;
-    speech_finished = true;
+const dialogue_character: Dictionary[String, SpriteFrames] = {
+    "Midnight": preload("res://Sprites/Dialogue/midnight_icons.aseprite"),
+    "Vendor": preload("res://Sprites/Dialogue/vendor_icons.aseprite"),
+    "ERROR": preload("res://Sprites/Dialogue/error_icons.aseprite")
+};
 
-func init_dialogue(dialogue: DialogueData):
-    dialogue_label.visible_characters = 0;
+func init_dialogue(dialogue: DialogueResource):
     current_dialogue = dialogue;
-    current_speech = -1;
-    speech_finished = true;
+    next_line = "start";
     advance_dialogue();
 
+func _set_dialogue_character():
+    var emotion_tag = "neutral";
+    if (current_line.tags.size() > 0):
+        emotion_tag = current_line.tags[0];
+    var character = dialogue_character.get(current_line.character);
+    icon.visible = false;
+    if (is_instance_valid(character)):
+        icon.frames = character;
+        icon.play(emotion_tag);
+    icon.visible = is_instance_valid(character);
+
 func advance_dialogue():
-    if (!speech_finished):
-        return;
-    current_speech += 1;
-    speech_finished = false;
-    if (current_speech >= len(current_dialogue.dialogue)):
-        dialogue_finished.emit();
-        self.visible = false;
-        return;
-    var current_speech_data = current_dialogue.dialogue[current_speech];
-    dialogue_label.text = Keybinds.format_action_string(current_speech_data.speech);
-    icon.texture = DialogueData.get_character_icon(current_speech_data.character, current_speech_data.emotion);
-    typewriter(current_speech_data.duration);
+    if (dialogue_label.is_typing): return;
+    current_line = await current_dialogue.get_next_dialogue_line(next_line);
+    if (!current_line): finish_dialogue(); return;
+
+    dialogue_responses.visible = false;
+    dialogue_responses.responses = current_line.responses;
+
+    _set_dialogue_character();
+    if (!self.visible): self.visible = true;
+
+    next_line = current_line.next_id;
+    dialogue_label.dialogue_line = current_line;
+    dialogue_label.type_out();
+    if (current_line.responses.size() > 0):
+        dialogue_responses.visible = true;
 
 func skip_dialogue():
-    speech_finished = true;
-    dialogue_label.visible_characters = dialogue_label.get_total_character_count();
+    dialogue_label.skip_typing();
+
+func finish_dialogue():
+    dialogue_finished.emit();
+    self.visible = false;
+    current_dialogue = null;
+    current_line = null;
 
 func _ready() -> void:
     start_dialogue.connect(
-        func(dialogue: DialogueData):
-            self.visible = true;
+        func(dialogue: DialogueResource):
             init_dialogue(dialogue);
+    );
+    DialogueManager.dialogue_ended.connect(func(dia_resource: DialogueResource):
+        if (dia_resource != current_dialogue): return;
+        finish_dialogue();
+    );
+
+    dialogue_responses.response_selected.connect(func(response: DialogueResponse):
+        next_line = response.next_id;
+        advance_dialogue();
     );
 
     button_advance.text = Keybinds.format_action_string(button_advance.text);
@@ -73,5 +98,5 @@ func _process(delta: float) -> void:
     elif (Input.is_action_just_pressed("Secondary")):
         skip_dialogue();
     elif (Input.is_action_pressed("Tertiary")):
-        if (!speech_finished): skip_dialogue();
+        if (current_dialogue && dialogue_label.is_typing): skip_dialogue();
         else: advance_dialogue();

@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://xoamwvqembae" path="res://Scripts/RPG/rpg_player.gd" id="1_wv30c"]
 [ext_resource type="PackedScene" uid="uid://cn2u81ry85eg1" path="res://Scenes/GameUI/rpg_ui.tscn" id="2_dgm50"]
-[ext_resource type="Texture2D" uid="uid://bcxfhanb06ffb" path="res://Sprites/Player/player_rpg_new_tattered.png" id="2_wv30c"]
-[ext_resource type="Texture2D" uid="uid://cu0or7ylge42r" path="res://Sprites/Player/player_rpg_new_guild.png" id="3_ibwra"]
 [ext_resource type="Texture2D" uid="uid://c8dnormfykoew" path="res://Sprites/Player/player_rpg_new.aseprite" id="6_ibwra"]
+[ext_resource type="SpriteFrames" uid="uid://dlf00fe3lejle" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_TatteredCloak.ase_layer" id="6_s1egi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo64u"]
 size = Vector2(60, 60)
@@ -256,8 +255,6 @@ _data = {
 collision_layer = 5
 script = ExtResource("1_wv30c")
 rpg_ui = NodePath("Camera/RPGUILayer/UI")
-tattered_texture = ExtResource("2_wv30c")
-guild_texture = ExtResource("3_ibwra")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1344781562]
 limit_smoothed = true
@@ -307,6 +304,31 @@ metadata/_aseprite_wizard_interface_config_ = {
 "only_visible": true,
 "player": "Animator",
 "scale": "1.0",
+"slice": "",
+"source": "res://Sprites/Player/player_rpg_new.aseprite",
+"source_uid": 7096081574418346694
+},
+"slice_section": false
+}
+
+[node name="Cloak" type="AnimatedSprite2D" parent="." unique_id=302487913]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("6_s1egi")
+animation = &"Forward"
+autoplay = "Forward"
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"scale": "1.0",
+"should_round_fps": true,
 "slice": "",
 "source": "res://Sprites/Player/player_rpg_new.aseprite",
 "source_uid": 7096081574418346694
