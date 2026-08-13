@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://d225vhxwxgete"]
+
+[ext_resource type="TileSet" uid="uid://brb3en8g8r7c0" path="res://Sprites/Tiles/default_tiles.tres" id="1_04c8d"]
+[ext_resource type="Script" uid="uid://dyq5h38pmsq3s" path="res://Scripts/RPG/rpg_scene.gd" id="1_w83cr"]
+
+[node name="RPGBase" type="Node2D" unique_id=2062462669 node_paths=PackedStringArray("camera_limits")]
+script = ExtResource("1_w83cr")
+camera_limits = NodePath("CameraLimits")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=706792868]
+z_index = -10
+z_as_relative = false
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_04c8d")
+collision_enabled = false
+navigation_enabled = false
+
+[node name="Decor" type="TileMapLayer" parent="." unique_id=1688133337]
+z_index = -10
+z_as_relative = false
+tile_set = ExtResource("1_04c8d")
+navigation_enabled = false
+
+[node name="Collider" type="TileMapLayer" parent="." unique_id=1257006687]
+z_index = -10
+z_as_relative = false
+tile_set = ExtResource("1_04c8d")
+navigation_enabled = false
+
+[node name="CameraLimits" type="TileMapLayer" parent="." unique_id=2078863211]
+z_index = -10
+z_as_relative = false
+tile_set = ExtResource("1_04c8d")
+collision_enabled = false
+navigation_enabled = false

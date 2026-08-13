@@ -3,6 +3,8 @@ extends Node
 signal rpgplayer_valid();
 const player_scene: PackedScene = preload("res://Scenes/Prefabs/rpg_player.tscn");
 var _scene_list: Dictionary[StringName, PackedScene] = {
+    &"INTRO": preload("res://Scenes/RPG/rpg_intro.tscn"),
+    &"INTRO_B": preload("res://Scenes/RPG/rpg_intro_b.tscn"),
     &"TEST_SCENE": preload("res://Scenes/rpg_test.tscn"),
     &"ERR_WORLD": preload("res://Scenes/RPG/rpg_error_entity_world.tscn")
 };
@@ -21,7 +23,9 @@ func move_rooms(destination_id: StringName, entrance_id: int = 0):
     var destination_entrance: Node2D = SuperLoader.current_scene.find_entrance_by_id(entrance_id);
     if (destination_entrance):
         await destination_entrance.ready;
-        player.global_position = destination_entrance.entrance_position.position;
+        if (!player.is_node_ready()): await player.ready;
+        player.velocity = Vector2.ZERO;
+        player.global_position = destination_entrance.entrance_position.global_position;
     else:
         player.global_position = SuperLoader.current_scene.position;
     current_scene_id = destination_id;

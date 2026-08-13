@@ -1,7 +1,7 @@
 extends Control
 class_name DialogueBox
 
-signal start_dialogue(dialogue: DialogueData);
+signal start_dialogue(dialogue: DialogueResource);
 signal dialogue_finished();
 
 @export var background: Panel;

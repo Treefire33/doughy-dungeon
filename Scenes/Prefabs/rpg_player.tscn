@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bnxhv0f4cpmu5"]
 
-[ext_resource type="Script" uid="uid://xoamwvqembae" path="res://Scripts/RPG/rpg_player.gd" id="1_wv30c"]
+[ext_resource type="Script" uid="uid://xoamwvqembae" path="res://Scripts/Player/rpg_player.gd" id="1_wv30c"]
 [ext_resource type="PackedScene" uid="uid://cn2u81ry85eg1" path="res://Scenes/GameUI/rpg_ui.tscn" id="2_dgm50"]
 [ext_resource type="Texture2D" uid="uid://c8dnormfykoew" path="res://Sprites/Player/player_rpg_new.aseprite" id="6_ibwra"]
 [ext_resource type="SpriteFrames" uid="uid://dlf00fe3lejle" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_TatteredCloak.ase_layer" id="6_s1egi"]

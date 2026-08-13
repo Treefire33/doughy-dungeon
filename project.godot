@@ -42,13 +42,13 @@ ItemUtils="*res://Scripts/Items/item_utils.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 AccessibilityHelper="*uid://b0g45ldc0cbhi"
+DialogueManager="*uid://c3rodes2l3gxb"
 SuperLoader="*uid://dw6auv6ikfe3f"
 RPGManager="*uid://blntkoo1yvmv7"
 RPGEventBus="*uid://07mj5ajgs8um"
 TooltipManager="*uid://brqdjqtp7oci6"
 TooltipPlaceholderVariables="*uid://nel5st3wktcw"
 TooltipLinkData="*uid://bjkjmtptqed1y"
-DialogueManager="*uid://c3rodes2l3gxb"
 
 [debug]
 
