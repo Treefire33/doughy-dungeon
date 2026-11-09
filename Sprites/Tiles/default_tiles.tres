@@ -1,11 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://brb3en8g8r7c0"]
 
-[ext_resource type="Texture2D" uid="uid://7eksyvebmd4n" path="res://Sprites/Tiles/grass_tiles.aseprite" id="1_a0h8j"]
-[ext_resource type="Texture2D" uid="uid://cp6toykmxrywc" path="res://Sprites/Tiles/cabin_tiles.aseprite" id="2_4upob"]
-[ext_resource type="Texture2D" uid="uid://cvl6gmlkpkddg" path="res://Sprites/Tiles/prop_tree.aseprite" id="3_4upob"]
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stros"]
-texture = ExtResource("1_a0h8j")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -51,7 +46,6 @@ texture_region_size = Vector2i(32, 32)
 9:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, 16, 16, 16, -16, -16, -16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbqa0"]
-texture = ExtResource("2_4upob")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -61,7 +55,6 @@ texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o371r"]
-texture = ExtResource("3_4upob")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0

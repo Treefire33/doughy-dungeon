@@ -16,9 +16,11 @@ func start_battle(enemies: Array[Enemy], player: Player):
 
 func decision_text(decision: Enum.Decision):
     match (decision):
-        Enum.Decision.Attack, Enum.Decision.AttackHeavy, Enum.Decision.SpellAttack:
+        Enum.Decision.Attack, Enum.Decision.AttackHeavy:
             return "attacked";
-        Enum.Decision.SpellDefend:
+        Enum.Decision.Spell:
+            return "casted a spell";
+        Enum.Decision.SpellEnemyDefend:
             return "defended";
         Enum.Decision.Rest:
             return "rested";
@@ -30,12 +32,14 @@ func do_turn(room_manager: RoomManager):
     var decision: Enum.Decision = Enum.Decision.Rest;
     var selected_enemy: Enemy = null;
     var decision_count: int = -1;
+    var selected_spell: SpellFunction = null;
     if (player.turn_points > 0):
         request_decision.emit();
         var decision_info = await room_manager.player_ui.decision_panel.decision;
         decision = decision_info[0];
         selected_enemy = decision_info[1];
         decision_count = decision_info[2];
+        selected_spell = decision_info[3];
 
     # Do turns
     current_entities.sort_custom(_sort_entity);
@@ -52,8 +56,15 @@ func do_turn(room_manager: RoomManager):
         var turn_cost: int = 0;
         if (entity is Player):
             if (decision_count == -1): continue;
-            turn_cost = entity.turn(selected_enemy, decision, decision_count);
-            ItemUtils.activate_items(player, "decision", player, selected_enemy, decision);
+            turn_cost = entity.turn(selected_enemy, decision, decision_count, selected_spell);
+            
+            if (selected_spell == null):
+                ItemUtils.activate_items(player, "decision", ItemFunction.ItemFunctionArgs.new_decision_args(player, selected_enemy, decision));
+            else:
+                ItemUtils.activate_items(player, "decision", ItemFunction.ItemFunctionArgs.new_decision_args(
+                    player, selected_enemy, decision, 
+                    selected_spell.specification(), selected_spell.spell_name()
+                ));
 
             if (player.stamina <= 0):
                 player.play_anim(Enum.PlayerAnimation.Rest);
@@ -61,15 +72,15 @@ func do_turn(room_manager: RoomManager):
                 player.play_anim(player.decision_to_animation[decision]);
 
             if (selected_enemy != null && selected_enemy.health <= 0):
-                ItemUtils.activate_items(player, "enemy_kill", player, selected_enemy);
+                ItemUtils.activate_items(player, "enemy_kill", ItemFunction.ItemFunctionArgs.new_enemy_kill_args(player, selected_enemy));
                 Audio.play_audio(Audio.die_sfx);
                 player.coins += room_manager.difficulty_adjust(selected_enemy.get_coin_drops() * room_manager.room_multiplier);
                 selected_enemy.visible = false;
         else:
             var enemy_decision = entity.get_decision(player, room_manager.room_difficulty);
             var enemy_target = entity.get_target(player, get_enemies());
-            turn_cost = entity.turn(enemy_target, enemy_decision);
-            ItemUtils.activate_items(player, "decision", entity, enemy_target, enemy_decision);
+            turn_cost = entity.turn(enemy_target, enemy_decision, 1, selected_spell);
+            ItemUtils.activate_items(player, "decision", ItemFunction.ItemFunctionArgs.new_decision_args(entity, enemy_target, enemy_decision));
             ToastParty.show({
                 "text": entity.name + " " + decision_text(enemy_decision) + "!",
                 "text_size": Settings.toast_size,

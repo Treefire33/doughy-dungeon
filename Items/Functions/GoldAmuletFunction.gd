@@ -1,5 +1,5 @@
 extends ItemFunction
 
-func enemy_kill(player: Player, enemy: Enemy, room_manager: RoomManager, stack_count: int):
-    enemy.coin_drop_range = [enemy.coin_drop_range[0] + 5, enemy.coin_drop_range[1] + 10];
+func enemy_kill(args: ItemFunction.ItemFunctionArgs):
+    args.target.coin_drop_range = [args.target.coin_drop_range[0] + 5, args.target.coin_drop_range[1] + 10];
     ItemUtils.show_activation_toast("Gold Amulet");

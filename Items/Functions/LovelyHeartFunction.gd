@@ -7,12 +7,12 @@ func get_heart_count(player: Player) -> int:
         count += player.items[item];
     return max(1, count);
 
-func purchased(player: Player, purchased: bool, _room_manager: RoomManager, _stack_count: int):
-    if (!purchased):
-        player.update_stat_mod("lovelyHeartAttack", get_heart_count(player));
+func purchased(args: ItemFunction.ItemFunctionArgs):
+    if (!args.purchased):
+        args.user.update_stat_mod("lovelyHeartAttack", get_heart_count(args.user));
         return;
     
     @warning_ignore("integer_division")
-    player.add_stat_mod(Enum.ModifierType.Preset, Enum.StatType.Attack, get_heart_count(player), "lovelyHeartAttack");
+    args.user.add_stat_mod(Enum.ModifierType.Preset, Enum.StatType.Attack, get_heart_count(args.user), "lovelyHeartAttack");
     ItemUtils.show_custom_toast("You begin to wield your love...");
 

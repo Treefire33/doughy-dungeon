@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://ci3tuoljm37ln"]
+
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="1_3c80a"]
+[ext_resource type="Script" uid="uid://camd46md8gib7" path="res://RPGItems/Spells/Functions/AttackFunction.gd" id="1_j41w6"]
+
+[resource]
+script = ExtResource("1_3c80a")
+dungeon_icon_name = &"Attack"
+dungeon_name = "ATTACK"
+dungeon_description = "An attack spell that deals 50% of your attack stat but doesn't consume stamina."
+function = ExtResource("1_j41w6")
+item_type = 3
+name = "Attack"
+description = "Most members of the Mages are taught this at a young age, it seems you're no different from them."
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

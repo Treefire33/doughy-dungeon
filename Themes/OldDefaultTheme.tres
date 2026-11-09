@@ -1,6 +1,5 @@
 [gd_resource type="Theme" format=3 uid="uid://mmdyi7frxt4n"]
 
-[ext_resource type="Texture2D" uid="uid://yuhn3pqi5gav" path="res://Sprites/Other/checkmark.aseprite" id="1_2ccob"]
 [ext_resource type="Texture2D" uid="uid://d0hoyd24xr65f" path="res://Themes/Assets/SliderGrabberMeshTexture.tres" id="1_ko64t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpvoi"]
@@ -178,7 +177,7 @@ Button/styles/normal = SubResource("StyleBoxFlat_2ccob")
 Button/styles/pressed = SubResource("StyleBoxFlat_rk5vj")
 CheckBox/constants/align_to_largest_stylebox = 1
 CheckBox/font_sizes/font_size = 12
-CheckBox/icons/checked = ExtResource("1_2ccob")
+CheckBox/icons/checked = null
 CheckBox/icons/unchecked = SubResource("PlaceholderTexture2D_hvsms")
 CheckBox/styles/hover_pressed = SubResource("StyleBoxFlat_7c3mr")
 CheckBox/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2ccob")

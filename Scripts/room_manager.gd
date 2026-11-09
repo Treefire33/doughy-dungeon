@@ -122,6 +122,13 @@ func get_num_enemies(difficulty: int):
         (room_count - 1) % 10
     ];
 
+func get_alive_enemies() -> Array[Enemy]:
+    var res: Array[Enemy] = [];
+    for enemy in battle_manager.get_enemies():
+        if (enemy.health <= 0): continue;
+        res.append(enemy);
+    return res;
+
 func gen_room(decision: Enum.RoomDecision):	
     StatModifier.update_stat_mod(room_stat_modifiers, "tempDifficultyRoom", 0);
     StatModifier.update_stat_mod(room_stat_modifiers, "tempMultiplierRoom", 0);
@@ -134,8 +141,8 @@ func gen_room(decision: Enum.RoomDecision):
                 room_count += 1;
             player.stamina += 5;
             StatModifier.update_stat_mod(room_stat_modifiers, "tempDifficultyRoom", 1);
-            
-    ItemUtils.activate_items(player, "room_decision", decision);
+    
+    ItemUtils.activate_items(player, "room_decision", ItemFunction.ItemFunctionArgs.new_room_decision_args(decision));
     
     player.health += int(player.max_health * 0.4);
     

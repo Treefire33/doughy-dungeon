@@ -14,6 +14,7 @@ dest_files=["res://.godot/imported/ocean_sunfish.aseprite-f6b56cedb8c50a28cfe906
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
+layer/split_layers=false
 first_frame_only=true
 sheet/sheet_type="packed"
 sheet/sheet_columns=12

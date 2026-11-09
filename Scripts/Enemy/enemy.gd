@@ -63,7 +63,7 @@ var enemy_ais = {
         if (self.stamina == 0):
             return Enum.Decision.Rest;
         if (self.health < (0.2 * self.max_health) or randi_range(0, 10) > 5):
-            return Enum.Decision.SpellDefend;
+            return Enum.Decision.SpellEnemyDefend;
         if (!self.defending_duration >= 1 and randi_range(0, 10) > 6):
             return Enum.Decision.Attack;
         return Enum.Decision.Rest;),
@@ -73,7 +73,7 @@ var enemy_ais = {
         if (self.stamina == 0):
             return Enum.Decision.Rest;
         if (self.health < (0.1 * self.max_health) or randi_range(0, 10) > 6):
-            return Enum.Decision.SpellDefend;
+            return Enum.Decision.SpellEnemyDefend;
         return Enum.Decision.Attack;,
     "Attack": func(_player): # Only attack.
         if (self.stamina == 0):
@@ -85,18 +85,18 @@ var enemy_ais = {
         if (self.health > (0.8 * self.max_health) and randi_range(0, 10) > 4):
             return Enum.Decision.Attack;
         if (self.defending_duration <= 0):
-            return Enum.Decision.SpellDefend;
+            return Enum.Decision.SpellEnemyDefend;
         return Enum.Decision.Rest,
     "Defend": func(_player): # Only defend.
         if (self.defending_duration > 1 or self.stamina == 0):
             return Enum.Decision.Rest;
-        return Enum.Decision.SpellDefend;,
+        return Enum.Decision.SpellEnemyDefend;,
     "Restless": func(_player): # Focus on stamina, chance attack or defense.
         var roll = randi_range(0, 10);
         if (self.stamina != 0):
             if (roll < 3): return Enum.Decision.Attack;
-            elif (roll > 8): return Enum.Decision.SpellDefend;
-        return Enum.Decision.SpellDefend;,
+            elif (roll > 8): return Enum.Decision.SpellEnemyDefend;
+        return Enum.Decision.SpellEnemyDefend;,
     "Rest": func(_player): # Only rest.
         if (randi_range(0, 100) == 99): return Enum.Decision.Attack;
         return Enum.Decision.Rest;,
@@ -116,7 +116,7 @@ var enemy_ais = {
         if (randi_range(0, 10) > 3):
             return Enum.Decision.Attack;
             
-        return Enum.Decision.SpellDefend;,
+        return Enum.Decision.SpellEnemyDefend;,
 };
     
 func get_decision(player: Player, room_difficulty: int) -> Enum.Decision:

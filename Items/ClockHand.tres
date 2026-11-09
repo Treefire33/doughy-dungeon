@@ -7,7 +7,7 @@
 script = ExtResource("2_v7ew7")
 name = "Clock Hand"
 flavour_text = "It's real handy!"
-description = "Casting Retype rewinds your health, stamina, and defense stats back two turns."
+description = "Casting any activation-spec spell rewinds your health, stamina, and defense stats back two turns."
 price = 185
 weight = 0.35
 function = ExtResource("1_5koxg")

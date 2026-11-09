@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://ditx38p6ff1qe"]
+
+[ext_resource type="Script" uid="uid://c5uj2nkcy35me" path="res://RPGItems/Spells/Functions/NilFunction.gd" id="1_1l4x7"]
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="1_s7rxx"]
+
+[resource]
+script = ExtResource("1_s7rxx")
+dungeon_icon_name = &"Retype"
+dungeon_name = "RETYPE"
+dungeon_description = "Does nothing, expect if paired with certain items."
+function = ExtResource("1_1l4x7")
+item_type = 3
+name = "Retype"
+description = "Once believed to have changed the caster's type, now a multi-purpose spell used to perform a variety of actions."
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

@@ -19,7 +19,7 @@ border_color = Color(1, 1, 1, 1)
 corner_detail = 1
 anti_aliasing = false
 
-[node name="DecisionPanel" type="Control" unique_id=1249531929 node_paths=PackedStringArray("options", "attack_button", "spell_button", "rest_button", "spell_options", "spell_attack", "spell_defend", "spell_retype", "attack_options", "attack_light", "attack_heavy", "depth_options", "depth_one", "depth_two", "depth_three", "depth_four", "cancel_button", "selection_prompt", "selection_prompt_label")]
+[node name="DecisionPanel" type="Control" unique_id=1249531929 node_paths=PackedStringArray("options", "attack_button", "spell_button", "rest_button", "spell_options", "spell_buttons", "attack_options", "attack_light", "attack_heavy", "depth_options", "depth_one", "depth_two", "depth_three", "depth_four", "cancel_button", "selection_prompt", "selection_prompt_label")]
 layout_mode = 3
 anchor_right = 1.0
 anchor_bottom = 0.77800006
@@ -31,9 +31,7 @@ attack_button = NodePath("Options/Container/Attack")
 spell_button = NodePath("Options/Container/Spell")
 rest_button = NodePath("Options/Container/Rest")
 spell_options = NodePath("SpellOptions")
-spell_attack = NodePath("SpellOptions/Container/SpellAttack")
-spell_defend = NodePath("SpellOptions/Container/SpellDefend")
-spell_retype = NodePath("SpellOptions/Container/SpellRetype")
+spell_buttons = [NodePath("SpellOptions/Container/SpellOne"), NodePath("SpellOptions/Container/SpellTwo"), NodePath("SpellOptions/Container/SpellThree")]
 attack_options = NodePath("AttackOptions")
 attack_light = NodePath("AttackOptions/Container/AttackLight")
 attack_heavy = NodePath("AttackOptions/Container/AttackHeavy")
@@ -189,41 +187,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SpellDefend" type="Button" parent="SpellOptions/Container" unique_id=1305096301]
+[node name="SpellOne" type="Button" parent="SpellOptions/Container" unique_id=1305096301]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("5_drmvv")
-text = "DEFEND"
+text = "ONE"
 icon = ExtResource("5_5uw8l")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_qdcan")
-tooltip_strings = Array[String](["A shield spell which creates a barrier around you."])
+tooltip_strings = Array[String](["Casts the spell in spell slot one."])
 
-[node name="SpellRetype" type="Button" parent="SpellOptions/Container" unique_id=759208024]
+[node name="SpellTwo" type="Button" parent="SpellOptions/Container" unique_id=759208024]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("5_drmvv")
-text = "RETYPE"
+text = "TWO"
 icon = ExtResource("6_hx2q3")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_qdcan")
-tooltip_strings = Array[String](["A typing spell which changes your type."])
+tooltip_strings = Array[String](["Casts the spell in spell slot two."])
 
-[node name="SpellAttack" type="Button" parent="SpellOptions/Container" unique_id=283140128]
+[node name="SpellThree" type="Button" parent="SpellOptions/Container" unique_id=283140128]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("5_drmvv")
-text = "ATTACK"
+text = "THREE"
 icon = ExtResource("7_qdcan")
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_qdcan")
-tooltip_strings = Array[String](["An attack spell that deals 50% of your attack stat but doesn't consume stamina."])
+tooltip_strings = Array[String](["Casts the spell in spell slot three."])
 
 [node name="Title" type="RichTextLabel" parent="SpellOptions" unique_id=957797760]
 layout_mode = 1

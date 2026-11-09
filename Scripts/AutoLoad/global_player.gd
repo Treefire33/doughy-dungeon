@@ -57,6 +57,11 @@ var unlocked_items: Array[StringName] = [
 var cloak: RPGItemData = preload("res://RPGItems/Cloaks/TatteredCloak.tres");
 var sword: RPGItemData = preload("res://RPGItems/Swords/WoodSword.tres");
 var shield_spell: RPGItemData = preload("res://RPGItems/ShieldSpells/StandardSpell.tres");
+var spells: Array[RPGItemData] = [
+    preload("res://RPGItems/Spells/Defend.tres"),
+    preload("res://RPGItems/Spells/Retype.tres"),
+    preload("res://RPGItems/Spells/Attack.tres")
+];
 
 func get_unlocked_items_of_type(item_type: Enum.RPGItemType) -> Array[StringName]:
     return ItemUtils._database_where(rpg_item_database, {

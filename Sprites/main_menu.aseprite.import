@@ -14,6 +14,7 @@ dest_files=["res://.godot/imported/main_menu.aseprite-18fb8d04724ab131d7b28e063c
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=true
+layer/split_layers=false
 first_frame_only=true
 sheet/sheet_type="packed"
 sheet/sheet_columns=12

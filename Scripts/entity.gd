@@ -45,7 +45,7 @@ var _attack: int = 1;
 var attack:
     get: 
         @warning_ignore("narrowing_conversion") 
-        return apply_stat_mods(Enum.StatType.Attack, _attack);
+        return maxi(1, apply_stat_mods(Enum.StatType.Attack, _attack));
 
 # Defense
 var _max_defending_duration: int = 1;
@@ -81,7 +81,7 @@ var speed: int:
         @warning_ignore("narrowing_conversion")
         return apply_stat_mods(Enum.StatType.Speed, _speed);
 
-## Positive turn points correspond to basically "stun resistance"
+## Positive turn points correspond to "stun resistance" basically
 var turn_points: int = 1:
     set(value):
         turn_points = clampi(value, -10, 10);
@@ -104,6 +104,13 @@ func remove_stat_mod(key: String, remove_all: bool = false) -> void:
 var status_effects: Array[StatusEffect] = [];
 var status_ui: GridContainer;
 
+var _persistent_item_register: Dictionary[String, Variant] = {};
+func set_persistent_item_value(key: String, value: Variant):
+    _persistent_item_register.set(key, value);
+
+func get_persistent_item_value(key: String) -> Variant:
+    return _persistent_item_register.get(key);
+
 var sprite: Sprite2D;
 var animator: AnimationPlayer;
 
@@ -118,12 +125,12 @@ func hurt():
         await get_tree().create_timer(0.1 / Settings.game_speed).timeout;
         passes += 1;
 
-func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
+func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellFunction = null) -> int:
     if (StatusEffect.has_effect(self, Enum.StatusEffect.Influence)):
         decision = Enum.Decision.Attack;
         
     match (decision):
-        Enum.Decision.Attack, Enum.Decision.AttackHeavy, Enum.Decision.SpellAttack:
+        Enum.Decision.Attack, Enum.Decision.AttackHeavy:
             if (StatusEffect.has_effect(self, Enum.StatusEffect.Sadness)): return 1;
             if (target == null): return 0;
             if (target.defending_duration >= 1): 
@@ -137,9 +144,6 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
                 attack_damage = max(1, ceili(attack_damage + (count * attack_damage * 0.75)));
                 stun_chance += count * 3;
                 self.stamina -= floori(count * 1.5);
-            elif (decision == Enum.Decision.SpellAttack):
-                attack_damage = max(1, ceili(attack_damage * 0.5));
-                stun_chance = 0;
             else:
                 self.stamina -= 1;
             if (StatusEffect.has_effect(target, Enum.StatusEffect.Bravery)):
@@ -147,11 +151,15 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1) -> int:
             target.health -= attack_damage;
             if (randi_range(0, 100) <= stun_chance):
                 StatusEffect.apply_effect(target, count, Enum.StatusEffect.Stun);
-        Enum.Decision.SpellDefend:
+        Enum.Decision.Spell:
+            return 0;
+        Enum.Decision.SpellEnemyDefend:
             if (self.stamina <= 0): return 0;
             self.stamina -= 1;
             if (self.defending_duration != 0): return 0;
-            if (self.defense_stun): self.defense_stun = false; return 0;
+            if (self.defense_stun): 
+                self.defense_stun = false; 
+                return 0;
             Audio.play_audio(Audio.defend_sfx);
             self.defending_duration = self.max_defending_duration;
             self.defense_durability = self.max_defense_durability;

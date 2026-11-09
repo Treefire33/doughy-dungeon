@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cadwtwq2to4u4"]
+
+[ext_resource type="Script" uid="uid://tp7atlgbgtcn" path="res://Items/Functions/MonowireFunction.gd" id="1_14mrf"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_whbxm"]
+
+[resource]
+script = ExtResource("2_whbxm")
+name = "Monowire"
+flavour_text = "Chrome-up, choom."
+description = "All attacks ignore defense and hit adjacent enemies, at the cost of only dealing 35% of your damage stat."
+price = 277
+weight = 0.277
+function = ExtResource("1_14mrf")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

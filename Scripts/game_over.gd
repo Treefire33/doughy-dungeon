@@ -2,7 +2,7 @@ extends Control
 class_name GameOver
 
 @export var completion_status: RichTextLabel;
-@export var item_icon: Control;
+@export var item_icon: AnimatedTextureRect;
 @export var item_container: GridContainer;
 
 @onready var try_again_button: Button = $Buttons/TryAgain;
@@ -31,7 +31,7 @@ func load_info(player: Player, room_manager: RoomManager, status: String):
         new_item.visible = true;
         item_tooltip.tooltip_strings.append_array(ItemUtils.get_tooltip_text(data, false));
         new_item.get_node("Count").text = str(count);
-        new_item.animation = ItemUtils.get_item_animation_name(data);
+        new_item.play(ItemUtils.get_item_animation_name(data));
         item_container.add_child(new_item);
     
     completion_status.text = status;

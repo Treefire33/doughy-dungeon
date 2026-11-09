@@ -14,6 +14,7 @@ dest_files=["res://.godot/imported/erroneous_entity.aseprite-93cd57864b6ba1e411e
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
+layer/split_layers=false
 first_frame_only=true
 sheet/sheet_type="packed"
 sheet/sheet_columns=12
