@@ -14,6 +14,7 @@ dest_files=["res://.godot/imported/checkmark.aseprite-a44b27264a8cf12c6a53becfaf
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
+layer/split_layers=false
 first_frame_only=true
 sheet/sheet_type="packed"
 sheet/sheet_columns=12

@@ -78,7 +78,6 @@ folder_colors={
 "res://Audio/": "yellow",
 "res://Dialogue/": "orange",
 "res://Dungeons/": "orange",
-"res://EditorTools/": "purple",
 "res://EnemyData/": "orange",
 "res://Items/": "orange",
 "res://Items/Functions/": "gray",

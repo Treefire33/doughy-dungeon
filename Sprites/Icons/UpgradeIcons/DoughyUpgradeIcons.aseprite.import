@@ -14,6 +14,7 @@ dest_files=["res://.godot/imported/DoughyUpgradeIcons.aseprite-5d4a74da8e88b5705
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
+layer/split_layers=false
 first_frame_only=false
 sheet/sheet_type="columns"
 sheet/sheet_columns=2

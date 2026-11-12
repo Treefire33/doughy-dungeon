@@ -14,6 +14,7 @@ dest_files=["res://.godot/imported/vendor_rpg.aseprite-e83f313b012e3ab40cfdef6c1
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=false
+layer/split_layers=false
 first_frame_only=false
 sheet/sheet_type="columns"
 sheet/sheet_columns=6
