@@ -95,7 +95,7 @@ func load_decisions(player_ui: PlayerUI) -> void:
         spell_buttons[i].visible = true;
         spell_buttons[i].text = spell.dungeon_name;
         spell_buttons[i].tooltip_strings[0] = spell.dungeon_description;
-        spell_buttons[i].pressed.connect(spell_decision.bind(Enum.Decision.Spell));
+        spell_buttons[i].pressed.connect(spell_decision.bind(Enum.Decision.Spell + i));
 
     depth_one.pressed.connect(depth_decision.bind(1));
     depth_two.pressed.connect(depth_decision.bind(2));
@@ -168,8 +168,8 @@ func attack_decision(decision: Enum.Decision):
     else: move_page(DecisionPage.EnemySelect);
 
 func spell_decision(decision: Enum.Decision):
-    _selected_decision = decision;
-    _selected_spell = GlobalPlayer.spells[Enum.Decision.SpellSlotOne - decision].function.new();
+    _selected_decision = Enum.Decision.Spell;
+    _selected_spell = GlobalPlayer.spells[decision - Enum.Decision.Spell].function.new();
 
     if (_selected_spell.requires_depth()):
         move_page(DecisionPage.DepthOptions);

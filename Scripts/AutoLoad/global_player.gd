@@ -52,15 +52,15 @@ func increment_flag(flag_name: StringName, amount: int = 1):
 # RPG Items
 var rpg_item_database: Dictionary[StringName, RPGItemData] = ItemUtils._get_loaded_rpgitems_directory("res://RPGItems/");
 var unlocked_items: Array[StringName] = [
-    "TatteredCloak", "WoodSword", "StandardSpell"
+    "TatteredCloak", "WoodSword",
+    "Defend", "Retype", "Attack"
 ];
 var cloak: RPGItemData = preload("res://RPGItems/Cloaks/TatteredCloak.tres");
 var sword: RPGItemData = preload("res://RPGItems/Swords/WoodSword.tres");
-var shield_spell: RPGItemData = preload("res://RPGItems/ShieldSpells/StandardSpell.tres");
 var spells: Array[RPGItemData] = [
-    preload("res://RPGItems/Spells/Defend.tres"),
-    preload("res://RPGItems/Spells/Retype.tres"),
-    preload("res://RPGItems/Spells/Attack.tres")
+    load("res://RPGItems/Spells/Defend.tres"),
+    load("res://RPGItems/Spells/Retype.tres"),
+    load("res://RPGItems/Spells/Attack.tres")
 ];
 
 func get_unlocked_items_of_type(item_type: Enum.RPGItemType) -> Array[StringName]:
@@ -70,7 +70,10 @@ func get_unlocked_items_of_type(item_type: Enum.RPGItemType) -> Array[StringName
     });
 
 func get_upgrade_stat(stat_name: StringName) -> int:
-    return cloak.get(stat_name) + sword.get(stat_name) + shield_spell.get(stat_name);
+    var sum = cloak.get(stat_name) + sword.get(stat_name);
+    for spell in spells:
+        sum += spell.get(stat_name)
+    return sum;
 
 func add_rpg_item(item_name: StringName):
     if (unlocked_items.has(item_name)): return;
@@ -83,8 +86,8 @@ func equip_item(item_type: Enum.RPGItemType, item_name: StringName):
         cloak = item;
     elif (item_type == Enum.RPGItemType.Sword):
         sword = item;
-    elif (item_type == Enum.RPGItemType.ShieldSpell):
-        shield_spell = item;
+    elif (item_type == Enum.RPGItemType.Spell):
+        spells[item_type - Enum.RPGItemType.Spell] = item;
 
 # wow I sure hope no one is able to modify their saves
 # using this conviently exposed AES-256 encryption key!
@@ -99,7 +102,9 @@ func save_player():
     save_data.set_value("rpg_items", "unlocked_items", unlocked_items);
     save_data.set_value("rpg_items", "cloak", cloak.resource_path);
     save_data.set_value("rpg_items", "sword", sword.resource_path);
-    save_data.set_value("rpg_items", "shield_spell", shield_spell.resource_path);
+    save_data.set_value("rpg_items", "num_spells", spells.size());
+    for i in range(spells.size()):
+        save_data.set_value("rpg_items", "spell%s" % i, spells[i].resource_path);
 
     if (OS.is_debug_build()):
         save_data.save("user://player_save_debug.sav");
@@ -118,10 +123,11 @@ func load_player():
             player_flags = save_data.get_value(section, "player_flags", player_flags);
         if (section == "rpg_items"):
             unlocked_items = save_data.get_value(section, "unlocked_items", unlocked_items);
-            cloak = load(save_data.get_value(section, "cloak", "TatteredCloak")) as RPGItemData;
-            sword = load(save_data.get_value(section, "sword", "WoodSword")) as RPGItemData;
-            shield_spell = load(save_data.get_value(section, "shield_spell", "StandardSpell")) as RPGItemData;
-
+            cloak = load(save_data.get_value(section, "cloak", "res://RPGItems/Cloaks/TatteredCloak.tres")) as RPGItemData;
+            sword = load(save_data.get_value(section, "sword", "res://RPGItems/Cloaks/WoodSword.tres")) as RPGItemData;
+            var num_spells = save_data.get_value(section, "num_spells", 3);
+            for i in range(num_spells):
+                spells[i] = load(save_data.get_value(section, "spell%s" % i, "res://RPGItems/Spells/Retype.tres")) as SpellItemData;
 func _ready() -> void:
     load_player();
 

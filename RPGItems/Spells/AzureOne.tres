@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://bl74wgkuyo7wd"]
+
+[ext_resource type="Script" uid="uid://cmlrcjwxplt3b" path="res://RPGItems/Spells/Functions/DefendFunction.gd" id="1_oolp4"]
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="2_mnnk5"]
+
+[resource]
+script = ExtResource("2_mnnk5")
+dungeon_icon_name = &"Defend"
+dungeon_name = "DEFEND"
+dungeon_description = "A shield spell which creates a barrier around you (duration: 5, durability: 2)."
+function = ExtResource("1_oolp4")
+item_type = 2
+name = "Azure Spell I"
+description = "A specialized version of the shield spell that focuses on duration over durability."
+max_defense_duration = 5
+max_defense_durability = 2
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

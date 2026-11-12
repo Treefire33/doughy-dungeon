@@ -14,6 +14,7 @@ class_name RPGUI
 @export var menu_settings: Button;
 
 @export var inventory: RPGInventory;
+@export var stats: RPGStats;
 
 @export var mobile_ui: Control;
 @export var mobile_joystick: VirtualJoystick;
@@ -23,7 +24,9 @@ class_name RPGUI
 @export var mobile_quaternary: Button;
 
 var _current_interactable: RPGInteractable = null;
+
 var _in_menu: bool = false;
+var _in_interaction: bool = false;
 
 func enter_dungeon():
     var tween = get_tree().create_tween();
@@ -37,7 +40,7 @@ func enter_dungeon():
 func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):
     assert(interaction_args.interaction_object is RPGDungeon);
 
-    _in_menu = true;
+    _in_interaction = true;
     dungeon_inspect.visible = true;
     dungeon_name.text = interaction_args.interaction_object.dungeon.name;
     dungeon_description.text = interaction_args.interaction_object.dungeon.description;
@@ -69,20 +72,26 @@ func _ready() -> void:
         _in_menu = false;
         menu.visible = false;
         inventory.visible = false;
+        stats.visible = false;
     );
+    AccessibilityHelper.make_keybind_helper(menu_resume, "Primary");
 
     menu_inventory.pressed.connect(func():
         inventory.visible = !inventory.visible;  
+        stats.visible = !stats.visible;
     );
+    AccessibilityHelper.make_keybind_helper(menu_inventory, "Tertiary");
 
     menu_exit.pressed.connect(func():
         Settings.game_paused = false;
         SuperLoader.switch_scene("res://Scenes/title_screen.tscn");
     );
+    AccessibilityHelper.make_keybind_helper(menu_exit, "Quaternary");
 
     menu_settings.pressed.connect(func():
         Settings.load_settings_menu(self);
     );
+    AccessibilityHelper.make_keybind_helper(menu_settings, "Secondary");
 
     _toggle_mobile_controls(false);
     Settings.settings_changed.connect(func(setting_name: StringName):
@@ -113,19 +122,28 @@ func _process(delta: float) -> void:
         Settings.pause_game(self);
     if (dialogue_box.visible): return;
 
-    if (Input.is_action_just_pressed("Primary")):
-        if (!_in_menu): attempt_interaction(); return;
-        RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_EnterDungeon, _current_interactable));
-        enter_dungeon();
-    elif (Input.is_action_just_pressed("Secondary")):
-        if (!_in_menu): return;
-        _in_menu = false;
-        dungeon_inspect.visible = false;
-    elif (Input.is_action_just_pressed("Tertiary")):
-        if (_in_menu): 
-            if (menu.visible):
-                _in_menu = false;
-                menu.visible = false;
-            return;
-        _in_menu = true;
-        menu.visible = true;
+    if (_in_menu):
+        if (Input.is_action_just_pressed("Primary")):
+            menu_resume.pressed.emit();
+            _in_menu = false;
+        elif (Input.is_action_just_pressed("Secondary")):
+            menu_settings.pressed.emit();
+        elif (Input.is_action_just_pressed("Tertiary")):
+            menu_inventory.pressed.emit();
+        elif (Input.is_action_just_pressed("Quinary")):
+            menu_exit.pressed.emit();
+    elif (!_in_menu && !_in_interaction):
+        if (Input.is_action_just_pressed("Primary")):
+                attempt_interaction();
+        elif (Input.is_action_just_pressed("Secondary")):
+            pass;
+        elif (Input.is_action_just_pressed("Tertiary")):
+            _in_menu = true;
+            menu.visible = true;
+    elif (_in_interaction):
+        if (Input.is_action_just_pressed("Primary")):
+            RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_EnterDungeon, _current_interactable));
+            enter_dungeon();
+        elif (Input.is_action_just_pressed("Secondary")):
+            _in_interaction = false;
+            dungeon_inspect.visible = false;

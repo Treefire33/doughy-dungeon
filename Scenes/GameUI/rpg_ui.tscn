@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b7cm1ddjhva1d" path="res://Sprites/Icons/MenuIcons/Cloak.tres" id="4_aj82v"]
 [ext_resource type="Script" uid="uid://ytk8e1k8luhb" path="res://Scripts/UI/rpg_inventory.gd" id="4_qe5ut"]
 [ext_resource type="Texture2D" uid="uid://bm31jcbank6en" path="res://Sprites/Icons/MenuIcons/Sword.tres" id="5_qe5ut"]
-[ext_resource type="Texture2D" uid="uid://dw73un6orerpu" path="res://Sprites/Icons/MenuIcons/ShieldSpell.tres" id="6_laea1"]
+[ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="6_j1uh6"]
+[ext_resource type="Texture2D" uid="uid://dw73un6orerpu" path="res://Sprites/Icons/MenuIcons/Spell.tres" id="6_laea1"]
+[ext_resource type="Script" uid="uid://c8t3mcb04es4v" path="res://Scenes/GameUI/stats_menu.gd" id="9_j1uh6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_57k7u"]
 
@@ -16,7 +18,7 @@ content_margin_top = 5.0
 content_margin_right = 5.0
 content_margin_bottom = 5.0
 
-[node name="UI" type="ColorRect" unique_id=383094572 node_paths=PackedStringArray("menu", "menu_resume", "menu_inventory", "menu_exit", "menu_settings", "inventory", "mobile_ui", "mobile_joystick", "mobile_primary", "mobile_secondary", "mobile_tertiary", "mobile_quaternary")]
+[node name="UI" type="ColorRect" unique_id=383094572 node_paths=PackedStringArray("menu", "menu_resume", "menu_inventory", "menu_exit", "menu_settings", "inventory", "stats", "mobile_ui", "mobile_joystick", "mobile_primary", "mobile_secondary", "mobile_tertiary", "mobile_quaternary")]
 z_index = 100
 offset_right = 800.0
 offset_bottom = 450.0
@@ -28,6 +30,7 @@ menu_inventory = NodePath("RPGMenu/Menu/VBoxContainer/Inventory")
 menu_exit = NodePath("RPGMenu/Menu/VBoxContainer/ExitMenu")
 menu_settings = NodePath("RPGMenu/Menu/VBoxContainer/Settings")
 inventory = NodePath("RPGMenu/MenuSpace/Inventory")
+stats = NodePath("RPGMenu/MenuSpace/Stats")
 mobile_ui = NodePath("MobileUI")
 mobile_joystick = NodePath("MobileUI/Joystick")
 mobile_primary = NodePath("MobileUI/Primary")
@@ -184,21 +187,28 @@ color = Color(0, 0, 0, 0.24313726)
 [node name="Menu" type="Panel" parent="RPGMenu" unique_id=1066271720]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.16000001
-anchor_bottom = 1.0
-offset_right = -1.5258789e-05
+anchor_left = 0.125
+anchor_top = 0.056
+anchor_right = 0.87500006
+anchor_bottom = 0.156
+offset_top = -0.20000076
+offset_right = -6.1035156e-05
+offset_bottom = -0.20000458
+mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RPGMenu/Menu" unique_id=1092903756]
+[node name="VBoxContainer" type="BoxContainer" parent="RPGMenu/Menu" unique_id=1649275619]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="Resume" type="Button" parent="RPGMenu/Menu/VBoxContainer" unique_id=1710537484]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
 text = "RESUME"
@@ -206,6 +216,7 @@ flat = true
 
 [node name="Inventory" type="Button" parent="RPGMenu/Menu/VBoxContainer" unique_id=73817378]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
 text = "INVENTORY"
@@ -213,6 +224,7 @@ flat = true
 
 [node name="Settings" type="Button" parent="RPGMenu/Menu/VBoxContainer" unique_id=884389518]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
 text = "SETTINGS"
@@ -220,46 +232,14 @@ flat = true
 
 [node name="ExitMenu" type="Button" parent="RPGMenu/Menu/VBoxContainer" unique_id=1830608182]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
-text = "EXIT TO MENU"
+text = "EXIT"
 flat = true
 autowrap_mode = 3
 
 [node name="MenuSpace" type="Control" parent="RPGMenu" unique_id=674386150]
-anchors_preset = 0
-offset_left = 128.0
-offset_right = 800.0
-offset_bottom = 450.0
-
-[node name="Inventory" type="Panel" parent="RPGMenu/MenuSpace" unique_id=889817593 node_paths=PackedStringArray("cloak_slot", "sword_slot", "spell_slot", "item_slot_prototype", "item_slot_container", "stats_display_health", "stats_display_stamina", "stats_display_attack", "stats_display_duration", "stats_display_durability", "stats_display_speed")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.128
-anchor_top = 0.12200001
-anchor_right = 0.87200004
-anchor_bottom = 0.878
-offset_left = -0.01600647
-offset_top = 0.09999466
-offset_right = 0.015991211
-offset_bottom = -0.1000061
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_qe5ut")
-cloak_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/CloakSlot")
-sword_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SwordSlot")
-spell_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/ShieldSlot")
-item_slot_prototype = NodePath("InventoryContainer/ItemSlot")
-item_slot_container = NodePath("InventoryContainer/MarginContainer/Sections/Items/Items/VBoxContainer")
-stats_display_health = NodePath("InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer/Health")
-stats_display_stamina = NodePath("InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer/Stamina")
-stats_display_attack = NodePath("InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer/Attack")
-stats_display_duration = NodePath("InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer/Duration")
-stats_display_durability = NodePath("InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer/Durability")
-stats_display_speed = NodePath("InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer/Speed")
-
-[node name="InventoryContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Inventory" unique_id=1916955081]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -267,7 +247,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Title" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer" unique_id=1583725040]
+[node name="Inventory" type="Panel" parent="RPGMenu/MenuSpace" unique_id=889817593 node_paths=PackedStringArray("cloak_slot", "spell_slot_one", "spell_slot_two", "spell_slot_three", "sword_slot", "item_slot_prototype", "item_slot_container")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.128
+anchor_top = 0.22200002
+anchor_right = 0.5
+anchor_bottom = 0.88900006
+offset_left = -2.4000015
+offset_top = 0.099990845
+offset_bottom = -0.05001831
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_qe5ut")
+cloak_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/CloakSlot")
+spell_slot_one = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotOne")
+spell_slot_two = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotTwo")
+spell_slot_three = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotThree")
+sword_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SwordSlot")
+item_slot_prototype = NodePath("InventoryContainer/ItemSlot")
+item_slot_container = NodePath("InventoryContainer/MarginContainer/Sections/Items/Items/VBoxContainer")
+
+[node name="InventoryContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Inventory" unique_id=691110065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer" unique_id=122125508]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_stretch_ratio = 0.15
@@ -275,7 +285,7 @@ text = "INVENTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer" unique_id=1983367323]
+[node name="MarginContainer" type="MarginContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer" unique_id=1961484925]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 4
@@ -283,27 +293,17 @@ theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="Sections" type="HBoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer" unique_id=1071824126]
+[node name="Sections" type="BoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer" unique_id=1388992257]
 layout_mode = 2
 size_flags_vertical = 3
+vertical = true
 
-[node name="Equipped" type="Control" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=1660854364]
+[node name="Equipped" type="Control" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=169903343]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EquippedItems" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped" unique_id=2023121041]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.12100001
-offset_bottom = 0.08799744
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-text = "Equipped"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped" unique_id=1418679015]
+[node name="VBoxContainer" type="BoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped" unique_id=1085405366]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -312,85 +312,154 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="CloakSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1881109829]
+[node name="CloakSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1432436239]
 custom_maximum_size = Vector2(-1, 55)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_type_variation = &"RPGItemSlot"
 theme_override_constants/icon_max_width = 32
-text = "Tattered Cloak"
+icon = ExtResource("4_aj82v")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_j1uh6")
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
+tooltip_strings = Array[String]([""])
+
+[node name="VSeparator" type="VSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=698200237]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="SpellSlotOne" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1238935941]
+custom_maximum_size = Vector2(-1, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"RPGItemSlot"
+theme_override_constants/icon_max_width = 32
+icon = ExtResource("6_laea1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_j1uh6")
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
+tooltip_strings = Array[String]([""])
+
+[node name="SpellSlotTwo" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1751684785]
+custom_maximum_size = Vector2(-1, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"RPGItemSlot"
+theme_override_constants/icon_max_width = 32
+icon = ExtResource("6_laea1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_j1uh6")
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
+tooltip_strings = Array[String]([""])
+
+[node name="SpellSlotThree" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=2075100633]
+custom_maximum_size = Vector2(-1, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"RPGItemSlot"
+theme_override_constants/icon_max_width = 32
+icon = ExtResource("6_laea1")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_j1uh6")
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
+tooltip_strings = Array[String]([""])
+
+[node name="VSeparator2" type="VSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1663976407]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="SwordSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1013767735]
+custom_maximum_size = Vector2(-1, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_type_variation = &"RPGItemSlot"
+theme_override_constants/icon_max_width = 32
+icon = ExtResource("5_qe5ut")
+flat = true
+autowrap_trim_flags = 0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_j1uh6")
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
+tooltip_strings = Array[String]([""])
+
+[node name="HSeparator" type="HSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=1239444866]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 5
+
+[node name="Items" type="Control" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=403216717]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Items" type="ScrollContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Items" unique_id=935907399]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Items/Items" unique_id=1565404507]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ItemSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer" unique_id=692966912]
+visible = false
+custom_minimum_size = Vector2(0, 55)
+custom_maximum_size = Vector2(-1, 55)
+layout_mode = 2
+theme_type_variation = &"RPGItemSlot"
+theme_override_constants/icon_max_width = 32
+text = "ITEMNAME"
 icon = ExtResource("4_aj82v")
 flat = true
 expand_icon = true
+script = ExtResource("6_j1uh6")
+tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
 
-[node name="SwordSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=2086355363]
-custom_maximum_size = Vector2(-1, 55)
-layout_mode = 2
-size_flags_vertical = 3
-theme_type_variation = &"RPGItemSlot"
-theme_override_constants/icon_max_width = 32
-text = "Wood Sword"
-icon = ExtResource("5_qe5ut")
-flat = true
-expand_icon = true
-
-[node name="ShieldSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1120450923]
-custom_maximum_size = Vector2(-1, 55)
-layout_mode = 2
-size_flags_vertical = 3
-theme_type_variation = &"RPGItemSlot"
-theme_override_constants/icon_max_width = 32
-text = "kitty cat"
-icon = ExtResource("6_laea1")
-flat = true
-expand_icon = true
-
-[node name="VSeparator" type="VSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=1871808181]
-layout_mode = 2
+[node name="Stats" type="Panel" parent="RPGMenu/MenuSpace" unique_id=1218795242 node_paths=PackedStringArray("stats_display_health", "stats_display_stamina", "stats_display_attack", "stats_display_duration", "stats_display_durability", "stats_display_speed")]
+visible = false
+layout_mode = 0
+offset_left = 500.0
+offset_top = 100.0
+offset_right = 700.0
+offset_bottom = 400.0
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
+script = ExtResource("9_j1uh6")
+stats_display_health = NodePath("VBoxContainer/Health")
+stats_display_stamina = NodePath("VBoxContainer/Stamina")
+stats_display_attack = NodePath("VBoxContainer/Attack")
+stats_display_duration = NodePath("VBoxContainer/Duration")
+stats_display_durability = NodePath("VBoxContainer/Durability")
+stats_display_speed = NodePath("VBoxContainer/Speed")
 
-[node name="Items" type="Control" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=498096486]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Items2" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Items" unique_id=1197863602]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.12100001
-offset_bottom = 0.08799744
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.25
-text = "Items"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Items" type="ScrollContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Items" unique_id=775674386]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Items/Items" unique_id=1425484018]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="VSeparator2" type="VSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=210901146]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.0
-
-[node name="Stats" type="Control" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=1801294846]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="StatsName" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats" unique_id=567217898]
+[node name="StatsName" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats" unique_id=567217898]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -402,7 +471,7 @@ text = "Stats"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats" unique_id=778048114]
+[node name="VBoxContainer" type="VBoxContainer" parent="RPGMenu/MenuSpace/Stats" unique_id=778048114]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.133
@@ -415,7 +484,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="Health" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer" unique_id=655233409]
+[node name="Health" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=655233409]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -424,7 +493,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Stamina" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer" unique_id=520405259]
+[node name="Stamina" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=520405259]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -433,7 +502,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Attack" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer" unique_id=134910666]
+[node name="Attack" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=134910666]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -442,7 +511,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Duration" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer" unique_id=734448668]
+[node name="Duration" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=734448668]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -451,7 +520,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Durability" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer" unique_id=2120384103]
+[node name="Durability" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=2120384103]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -460,7 +529,7 @@ text = "ITEMNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Speed" type="RichTextLabel" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Stats/VBoxContainer" unique_id=1354095266]
+[node name="Speed" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=1354095266]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -468,16 +537,3 @@ theme_override_font_sizes/normal_font_size = 8
 text = "ITEMNAME"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ItemSlot" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer" unique_id=1784448136]
-visible = false
-custom_minimum_size = Vector2(0, 55)
-custom_maximum_size = Vector2(-1, 55)
-layout_mode = 2
-mouse_filter = 1
-theme_type_variation = &"RPGItemSlot"
-theme_override_constants/icon_max_width = 32
-text = "ITEMNAME"
-icon = ExtResource("4_aj82v")
-flat = true
-expand_icon = true
