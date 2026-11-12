@@ -1,12 +1,12 @@
 ~ start
 Vendor: [#happy] Thanks for playing the dungeon demo for Midnight Dungeons!
-if (GlobalPlayer.get_flag(&"iEvilScore") > 0 && !(GlobalPlayer.get_bool_flag(&"bErrorWorld") || GlobalPlayer.has(&"ErroneousCloak")))
+if (GlobalPlayer.get_flag(&"iEvilScore") > 0 && !(GlobalPlayer.get_bool_flag(&"bErrorWorld") || GlobalPlayer.unlocked_items.has(&"ErroneousCloak")))
 	- The errors? => vendor_error
 => END
 
 ~ vendor_error
 ERROR: [#vendor] You witness its gaze once more.
-ERROR: [#vendor] Does it believe you hold the answer to some, much, much deeper?
+ERROR: [#vendor] Does it believe you hold the answer to something, much, much deeper?
 ERROR: [#vendor] ...
 if GlobalPlayer.get_flag(&"iEvilScore") < 3:
 	ERROR: [#vendor] Well, you'll be meeting soon enough.
