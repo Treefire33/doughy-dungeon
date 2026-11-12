@@ -9,7 +9,7 @@ class_name Player
 var coins: int = 15:
     get: return coins;
     set(value):
-        ItemUtils.activate_items(self, "stat_changed", self, "coins");
+        ItemUtils.activate_items(self, "stat_changed", ItemFunction.ItemFunctionArgs.new_stat_changed_args(self, "coins"));
         coins = value;
         
 var items: Dictionary[String, int] = {};
@@ -20,10 +20,16 @@ func add_item(item_name: String):
     
     items[item_name] += 1;
     for item in items:
-        var count: int = items[item];
         var data: ItemData = ItemUtils.get_item_data(item);
         if (data.function == null): continue;
-        ItemUtils._execute_item_func(data, "purchased", [self, item_name == item, RoomManager.instance, count]);
+        ItemUtils._execute_item_func(data, "purchased", ItemFunction.ItemFunctionArgs.new_purchased_args(self, item_name == item));
+
+func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellFunction = null) -> int:
+    if (decision == Enum.Decision.Spell):
+        if (spell == null): return 0;
+        if (spell.requires_selection() && target == null): return 0;
+        return spell.cast(self, target, count);
+    return super.turn(target, decision, count, spell);
 
 var player_animation_to_name = {
     Enum.PlayerAnimation.Idle: "Player/Idle",
@@ -35,12 +41,10 @@ var player_animation_to_name = {
 var decision_to_animation = {
     Enum.Decision.Attack: Enum.PlayerAnimation.Attack,
     Enum.Decision.AttackHeavy: Enum.PlayerAnimation.Attack,
-    Enum.Decision.SpellAttack: Enum.PlayerAnimation.Attack,
 
-    Enum.Decision.SpellDefend: Enum.PlayerAnimation.Defend,
+    Enum.Decision.Spell: Enum.PlayerAnimation.Defend,
 
     Enum.Decision.Rest: Enum.PlayerAnimation.Rest,
-    Enum.Decision.SpellRetype: Enum.PlayerAnimation.Rest,
 }
 func play_anim(decision: Enum.PlayerAnimation):
     # animator.speed_scale = Settings.game_speed;

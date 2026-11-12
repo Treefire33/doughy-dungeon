@@ -130,6 +130,8 @@ theme = ExtResource("2_gvvfn")
 stretch_mode = 5
 script = ExtResource("4_m11ir")
 frames = ExtResource("4_tmpmi")
+animation = &"AbyssFragment"
+speed_scale = 1.0
 metadata/_custom_type_script = "uid://i82hqdguo0go"
 
 [node name="Count" type="RichTextLabel" parent="Panel/Item" unique_id=196404841]

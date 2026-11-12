@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://7pj0s33u4320"]
+
+[ext_resource type="Script" uid="uid://cmlrcjwxplt3b" path="res://RPGItems/Spells/Functions/DefendFunction.gd" id="1_0we1y"]
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="2_xoxq5"]
+
+[resource]
+script = ExtResource("2_xoxq5")
+dungeon_icon_name = &"Defend"
+dungeon_name = "DEFEND"
+dungeon_description = "A shield spell which creates a barrier around you."
+function = ExtResource("1_0we1y")
+item_type = 3
+name = "Defend"
+description = "hi"
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

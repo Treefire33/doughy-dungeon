@@ -7,7 +7,7 @@
 script = ExtResource("1_wf2t3")
 name = "Peace Charm"
 flavour_text = "A symbol of peace used by many guilds. Soothing."
-description = "On defend or rest, 40% chance to regen 40% health."
+description = "Upon NOT attacking or casting an attack-spec spell, 40% chance to regen 40% health."
 price = 125
 weight = 6.0
 function = ExtResource("2_2nyna")

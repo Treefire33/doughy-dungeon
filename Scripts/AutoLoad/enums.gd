@@ -4,9 +4,9 @@ enum Decision {
 	Attack,
 	AttackHeavy,
 	Spell,
-	SpellDefend,	
-	SpellAttack,
-	SpellRetype,
+	SpellSlotOne,	
+	SpellSlotTwo,
+	SpellEnemyDefend,
 	Rest
 };
 
@@ -81,5 +81,9 @@ enum StatusEffect {
 }
 
 enum RPGItemType {
-	Cloak, Sword, ShieldSpell
+	Cloak, Sword, ShieldSpell, Spell
+}
+
+enum SpellSpecification {
+	None, Attack, Defend, Activate
 }

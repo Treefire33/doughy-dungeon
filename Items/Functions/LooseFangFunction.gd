@@ -1,10 +1,10 @@
 extends ItemFunction
 
-func decision(user: Entity, target: Entity, decision: Enum.Decision, room_manager: RoomManager, stack_count: int):
-	if (target == null): return;
-	if (user is not Player): return;
-	if (!ItemUtils.decision_is_attack(decision)): return;
-	if (target.defending_duration != 0): return;
+func decision(args: ItemFunction.ItemFunctionArgs):
+	if (args.target == null): return;
+	if (args.user is not Player): return;
+	if (!ItemUtils.decision_is_attack(args.decision)): return;
+	if (args.target.defending_duration != 0): return;
 	if (randi_range(0, 100) <= 10):
-		user.health += user.attack;
+		args.user.health += args.user.attack;
 		ItemUtils.show_activation_toast("Loose Fang");

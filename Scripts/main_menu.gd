@@ -14,7 +14,7 @@ func _ready():
         Settings.load_settings_menu(self);
     );
     var platform = OS.get_name();
-    if (platform == "Web" || platform == "iOS" || platform == "Android"):
+    if (platform == "Web"):
         quit_button.queue_free();
     else:
         quit_button.pressed.connect(func():

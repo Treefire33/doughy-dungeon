@@ -1,8 +1,7 @@
 extends ItemFunction
 
-func decision(user: Entity, target: Entity, decision: Enum.Decision, room_manager: RoomManager, stack_count: int):
-	if (user is not Player): return;
-	ItemUtils.show_activation_toast("Coffee");
-	user.stamina = user.max_stamina;
+func decision(args: ItemFunction.ItemFunctionArgs):
+	if (args.user is not Player): return;
+	args.user.stamina = args.user.max_stamina;
 	if (randi_range(1, 100) < 5):
-		user.health -= 1;
+		args.user.health -= 1;

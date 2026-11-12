@@ -1,9 +1,6 @@
 extends ItemFunction
 
-func decision(
-    user: Entity, target: Entity, decision: Enum.Decision, 
-    room_manager: RoomManager, stack_count: int
-):
-    if (user is not Player || !ItemUtils.decision_is_spell(decision)): return;
+func decision(args: ItemFunction.ItemFunctionArgs):
+    if (args.user is not Player || !ItemUtils.decision_is_spell(args.decision)): return;
 
-    user.stamina += 1 * stack_count;
+    args.user.stamina += 1 * args.stack_count;
