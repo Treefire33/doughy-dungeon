@@ -85,5 +85,5 @@ enum RPGItemType {
 }
 
 enum SpellSpecification {
-	None, Attack, Defend, Activate
+	None, Attack, Defend, Activate, Special
 }

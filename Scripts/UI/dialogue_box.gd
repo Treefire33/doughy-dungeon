@@ -1,7 +1,7 @@
 extends Control
 class_name DialogueBox
 
-signal start_dialogue(dialogue: DialogueResource);
+signal start_dialogue(dialogue: RPGEventBus.RPGDialogueArgs);
 signal dialogue_finished();
 
 @export var background: Panel;
@@ -13,7 +13,7 @@ signal dialogue_finished();
 @export var button_skip: Button;
 @export var button_skip_complete: Button;
 
-var current_dialogue: DialogueResource;
+var current_dialogue: RPGEventBus.RPGDialogueArgs;
 var current_line: DialogueLine;
 var next_line: String = "start";
 
@@ -23,7 +23,7 @@ const dialogue_character: Dictionary[String, SpriteFrames] = {
     "ERROR": preload("res://Sprites/Dialogue/error_icons.aseprite")
 };
 
-func init_dialogue(dialogue: DialogueResource):
+func init_dialogue(dialogue: RPGEventBus.RPGDialogueArgs):
     current_dialogue = dialogue;
     next_line = "start";
     advance_dialogue();
@@ -41,7 +41,7 @@ func _set_dialogue_character():
 
 func advance_dialogue():
     if (dialogue_label.is_typing): return;
-    current_line = await current_dialogue.get_next_dialogue_line(next_line);
+    current_line = await current_dialogue.dialogue.get_next_dialogue_line(next_line, [ {"speaker": current_dialogue.interaction_object} ]);
     if (!current_line): finish_dialogue(); return;
 
     dialogue_responses.visible = false;
@@ -51,6 +51,7 @@ func advance_dialogue():
     if (!self.visible): self.visible = true;
 
     next_line = current_line.next_id;
+    current_line.text = Keybinds.format_action_string(current_line.text);
     dialogue_label.dialogue_line = current_line;
     dialogue_label.type_out();
     if (current_line.responses.size() > 0):
@@ -66,9 +67,8 @@ func finish_dialogue():
     current_line = null;
 
 func _ready() -> void:
-    start_dialogue.connect(
-        func(dialogue: DialogueResource):
-            init_dialogue(dialogue);
+    start_dialogue.connect(func(dialogue: RPGEventBus.RPGEventArgs):
+        init_dialogue(dialogue);
     );
     DialogueManager.dialogue_ended.connect(func(dia_resource: DialogueResource):
         if (dia_resource != current_dialogue): return;

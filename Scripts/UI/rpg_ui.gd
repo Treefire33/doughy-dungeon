@@ -46,16 +46,15 @@ func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):
     dungeon_description.text = interaction_args.interaction_object.dungeon.description;
 
 func start_dialogue(dialogue_args: RPGEventBus.RPGDialogueArgs):
-    var dialogue = dialogue_args.dialogue;
     _in_menu = true;
     _toggle_mobile_controls(true);
-    dialogue_box.start_dialogue.emit(dialogue);
+    dialogue_box.start_dialogue.emit(dialogue_args);
     await dialogue_box.dialogue_finished;
     _toggle_mobile_controls(false);
     _in_menu = false;
 
 func attempt_interaction():
-    if (!_current_interactable || _in_menu): return;
+    if (!_current_interactable || _in_menu || _in_interaction): return;
     RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_Interaction, _current_interactable));
 
 func _toggle_mobile_controls(force_off: bool):
@@ -86,7 +85,7 @@ func _ready() -> void:
         Settings.game_paused = false;
         SuperLoader.switch_scene("res://Scenes/title_screen.tscn");
     );
-    AccessibilityHelper.make_keybind_helper(menu_exit, "Quaternary");
+    AccessibilityHelper.make_keybind_helper(menu_exit, "Quinary");
 
     menu_settings.pressed.connect(func():
         Settings.load_settings_menu(self);
@@ -135,8 +134,6 @@ func _process(delta: float) -> void:
     elif (!_in_menu && !_in_interaction):
         if (Input.is_action_just_pressed("Primary")):
                 attempt_interaction();
-        elif (Input.is_action_just_pressed("Secondary")):
-            pass;
         elif (Input.is_action_just_pressed("Tertiary")):
             _in_menu = true;
             menu.visible = true;

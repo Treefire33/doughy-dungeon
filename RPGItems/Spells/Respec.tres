@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://hnqwh5r1qduw"]
+
+[ext_resource type="Script" uid="uid://c5uj2nkcy35me" path="res://RPGItems/Spells/Functions/NilFunction.gd" id="1_eukkf"]
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="2_msf4p"]
+
+[resource]
+script = ExtResource("2_msf4p")
+dungeon_icon_name = &"Respec"
+dungeon_name = "RESPEC"
+dungeon_description = "When cast, allows you to equivalently trade stat points. Still an activation spell."
+function = ExtResource("1_eukkf")
+item_type = 2
+name = "Respec"
+description = "An advanced version of the Retype spell, allowing you to trade stat points."
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

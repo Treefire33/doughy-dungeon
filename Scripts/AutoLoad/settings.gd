@@ -278,6 +278,11 @@ func _ready() -> void:
             SuperLoader.change_font(font_dict[game_font]);
     );
     load_settings();
-    
-func _exit_tree() -> void:
-    save_settings();
+
+func _notification(what: int) -> void:
+    match what:
+        NOTIFICATION_WM_CLOSE_REQUEST:
+            save_settings();
+
+        NOTIFICATION_APPLICATION_PAUSED:
+            save_settings();

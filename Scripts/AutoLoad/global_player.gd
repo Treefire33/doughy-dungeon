@@ -1,6 +1,7 @@
 extends Node
 
 var current_dungeon: DungeonData;
+var last_unlocked_item: RPGItemData;
 
 # Save Stuff
 var completed_dungeons: Dictionary[Enum.Dungeon, bool] = {
@@ -31,7 +32,10 @@ var player_flags: Dictionary[StringName, int] = {
     # Erroneous Entity Flags
     &"iEvilScore": 0, # Counts how many times you've visited Evilgrounds
     &"bErrorUnlocked": 0, # Flag for if the player has seen the error unlock dialogue
-    &"bErrorWorld": 0 # Flag for if the player has been to the error world
+    &"bErrorWorld": 0, # Flag for if the player has been to the error world
+
+    # Easter Egg Flags
+    &"bMetAfternoon": 0 # Flag for if you met Afternoon and their sister Evening.
 };
 
 func set_flag(flag_name: StringName, value: int):
@@ -79,6 +83,7 @@ func add_rpg_item(item_name: StringName):
     if (unlocked_items.has(item_name)): return;
     if (!rpg_item_database.has(item_name)): return;
     unlocked_items.append(item_name);
+    last_unlocked_item = rpg_item_database[item_name];
 
 func equip_item(item_type: Enum.RPGItemType, item_name: StringName):
     var item = rpg_item_database[item_name];
@@ -119,8 +124,13 @@ func load_player():
     
     for section in save_data.get_sections():
         if (section == "flags"):
-            completed_dungeons = save_data.get_value(section, "completed_dungeons", completed_dungeons);
-            player_flags = save_data.get_value(section, "player_flags", player_flags);
+            var saved_dungeons = save_data.get_value(section, "completed_dungeons", completed_dungeons);
+            for dungeon in saved_dungeons:
+                completed_dungeons[dungeon] = saved_dungeons[dungeon];
+
+            var saved_flags = save_data.get_value(section, "player_flags", player_flags);
+            for flag in saved_flags:
+                player_flags[flag] = saved_flags[flag];
         if (section == "rpg_items"):
             unlocked_items = save_data.get_value(section, "unlocked_items", unlocked_items);
             cloak = load(save_data.get_value(section, "cloak", "res://RPGItems/Cloaks/TatteredCloak.tres")) as RPGItemData;
@@ -131,5 +141,10 @@ func load_player():
 func _ready() -> void:
     load_player();
 
-func _exit_tree() -> void:
-    save_player();
+func _notification(what: int) -> void:
+    match what:
+        NOTIFICATION_WM_CLOSE_REQUEST:
+            save_player();
+
+        NOTIFICATION_APPLICATION_PAUSED:
+            save_player();

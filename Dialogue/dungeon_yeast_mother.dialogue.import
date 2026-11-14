@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bek0i2yb4pgvh"
+path="res://.godot/imported/dungeon_yeast_mother.dialogue-c7343b6716ff741b8daa2ab780707cc4.tres"
+
+[deps]
+
+source_file="res://Dialogue/dungeon_yeast_mother.dialogue"
+dest_files=["res://.godot/imported/dungeon_yeast_mother.dialogue-c7343b6716ff741b8daa2ab780707cc4.tres"]
+
+[params]
+
+defaults=true

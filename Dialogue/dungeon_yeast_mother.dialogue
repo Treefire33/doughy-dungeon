@@ -1,0 +1,6 @@
+~ start
+*You hear the scuttering legs of what feels to be 1000 tiny critters crawl out of the room*
+*You hear a screech coming from right in front of you, the light adjusts to reveal...*
+$> player_ui.fade_to_black(false)
+Midnight: [#surprised] !!!
+=> END

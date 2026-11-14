@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://xt4vby16hdj"
-path="res://.godot/imported/BossFightB.wav-5b8b68ab3eb3c3d7366b6c5aa34032cf.sample"
+path="res://.godot/imported/IdleWading.wav-6b130096b365960c3ef39c0900eecb71.sample"
 
 [deps]
 
-source_file="res://Audio/Music/BossFightB.wav"
-dest_files=["res://.godot/imported/BossFightB.wav-5b8b68ab3eb3c3d7366b6c5aa34032cf.sample"]
+source_file="res://Audio/Music/IdleWading.wav"
+dest_files=["res://.godot/imported/IdleWading.wav-6b130096b365960c3ef39c0900eecb71.sample"]
 
 [params]
 

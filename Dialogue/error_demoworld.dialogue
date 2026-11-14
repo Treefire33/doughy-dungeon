@@ -1,3 +1,5 @@
+import "res://Dialogue/rpg_item_unlock.dialogue" as rpg_item_unlock
+
 ~ start
 if GlobalPlayer.get_bool_flag(&"bErrorWorld") 
 	=> talked
@@ -13,6 +15,8 @@ if GlobalPlayer.get_bool_flag(&"bErrorWorld")
 [speed=0.25]You knew you wouldn't have any more answers, so instead you gave it a gift
 [speed=0.25]*Obtained the Erroneous Glaive*
 $> GlobalPlayer.add_rpg_item(&"ErroneousGlaive")
+=>< rpg_item_unlock/start
+
 [speed=0.25]And then you parted ways
 $> GlobalPlayer.set_bool_flag(&"bErrorWorld", true)
 => END

@@ -7,7 +7,7 @@
 script = ExtResource("2_xoxq5")
 dungeon_icon_name = &"Defend"
 dungeon_name = "DEFEND"
-dungeon_description = "A shield spell which creates a barrier around you (duration: 1, durability: 1)."
+dungeon_description = "A shield spell which creates a barrier around you."
 function = ExtResource("1_0we1y")
 item_type = 2
 name = "Shield Spell I"

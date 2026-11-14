@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ne0xsvetiobn" path="res://Scripts/grounds_for_evil.gd" id="1_dfe45"]
 [ext_resource type="SpriteFrames" uid="uid://b2ay6qvjn4dw7" path="res://Sprites/groundsforevil.aseprite" id="2_dfe45"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_vs78h"]
+[ext_resource type="Texture2D" uid="uid://bp06uts1l4hsw" path="res://Sprites/Icons/MenuIcons/Pause.tres" id="3_wo857"]
 
-[node name="GroundsForEvil" type="Node2D" unique_id=373260012]
+[node name="GroundsForEvil" type="Node2D" unique_id=373260012 node_paths=PackedStringArray("exit_button")]
 script = ExtResource("1_dfe45")
+exit_button = NodePath("PauseGame")
 
 [node name="background" type="ColorRect" parent="." unique_id=413021080]
 offset_right = 800.0
@@ -31,6 +34,21 @@ offset_bottom = 331.0
 text = "evilgrounds"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PauseGame" type="Button" parent="." unique_id=1297389461]
+z_index = 5
+anchors_preset = -1
+anchor_left = 0.011
+anchor_top = 0.02
+anchor_right = 0.011
+anchor_bottom = 0.02
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 44.0
+offset_bottom = 44.0
+theme = ExtResource("2_vs78h")
+icon = ExtResource("3_wo857")
+expand_icon = true
 
 [node name="evilgrounds" type="AnimatedSprite2D" parent="." unique_id=543408837]
 position = Vector2(400, 200)

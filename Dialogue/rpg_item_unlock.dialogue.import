@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dmew6ldxdtlk8"
+path="res://.godot/imported/rpg_item_unlock.dialogue-ee3a51c6085e9a2ef3bdc74e1684e3cd.tres"
+
+[deps]
+
+source_file="res://Dialogue/rpg_item_unlock.dialogue"
+dest_files=["res://.godot/imported/rpg_item_unlock.dialogue-ee3a51c6085e9a2ef3bdc74e1684e3cd.tres"]
+
+[params]
+
+defaults=true

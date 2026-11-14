@@ -1,0 +1,4 @@
+~ start
+*Obtained "{{GlobalPlayer.last_unlocked_item.name}}".*
+$> GlobalPlayer.last_unlocked_item = null
+=> END

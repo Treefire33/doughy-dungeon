@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bm31jcbank6en" path="res://Sprites/Icons/MenuIcons/Sword.tres" id="5_qe5ut"]
 [ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="6_j1uh6"]
 [ext_resource type="Texture2D" uid="uid://dw73un6orerpu" path="res://Sprites/Icons/MenuIcons/Spell.tres" id="6_laea1"]
-[ext_resource type="Script" uid="uid://c8t3mcb04es4v" path="res://Scenes/GameUI/stats_menu.gd" id="9_j1uh6"]
+[ext_resource type="Script" uid="uid://c8t3mcb04es4v" path="res://Scripts/UI/stats_menu.gd" id="9_j1uh6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_57k7u"]
 
@@ -325,8 +325,7 @@ autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_j1uh6")
-tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
-tooltip_strings = Array[String]([""])
+tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
 [node name="VSeparator" type="VSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=698200237]
 layout_mode = 2
@@ -346,8 +345,7 @@ autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_j1uh6")
-tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
-tooltip_strings = Array[String]([""])
+tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
 [node name="SpellSlotTwo" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1751684785]
 custom_maximum_size = Vector2(-1, 55)
@@ -362,8 +360,7 @@ autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_j1uh6")
-tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
-tooltip_strings = Array[String]([""])
+tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
 [node name="SpellSlotThree" type="Button" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=2075100633]
 custom_maximum_size = Vector2(-1, 55)
@@ -378,8 +375,7 @@ autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_j1uh6")
-tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
-tooltip_strings = Array[String]([""])
+tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
 [node name="VSeparator2" type="VSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer" unique_id=1663976407]
 layout_mode = 2
@@ -399,8 +395,7 @@ autowrap_trim_flags = 0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_j1uh6")
-tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
-tooltip_strings = Array[String]([""])
+tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
 [node name="HSeparator" type="HSeparator" parent="RPGMenu/MenuSpace/Inventory/InventoryContainer/MarginContainer/Sections" unique_id=1239444866]
 layout_mode = 2
@@ -441,7 +436,7 @@ icon = ExtResource("4_aj82v")
 flat = true
 expand_icon = true
 script = ExtResource("6_j1uh6")
-tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
+tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
 [node name="Stats" type="Panel" parent="RPGMenu/MenuSpace" unique_id=1218795242 node_paths=PackedStringArray("stats_display_health", "stats_display_stamina", "stats_display_attack", "stats_display_duration", "stats_display_durability", "stats_display_speed")]
 visible = false

@@ -1,13 +1,13 @@
 [gd_resource type="AudioStreamInteractive" format=3 uid="uid://ca5dnxu781s32"]
 
+[ext_resource type="AudioStream" uid="uid://xt4vby16hdj" path="res://Audio/Music/IdleWading.wav" id="1_7jvax"]
 [ext_resource type="AudioStream" uid="uid://dyk33ntv27hdu" path="res://Audio/Music/RapidWaters.wav" id="2_7jvax"]
-[ext_resource type="AudioStream" uid="uid://xt4vby16hdj" path="res://Audio/Music/BossFightB.wav" id="3_7jvax"]
-[ext_resource type="AudioStream" uid="uid://dxiss6rkfileo" path="res://Audio/Music/BossFightA.wav" id="3_ng0qt"]
+[ext_resource type="AudioStream" uid="uid://dfujr5com6r55" path="res://Audio/Music/BossFightO.wav" id="3_ng0qt"]
 
 [resource]
 clip_count = 3
 clip_0/name = &"Idle"
-clip_0/stream = ExtResource("3_7jvax")
+clip_0/stream = ExtResource("1_7jvax")
 clip_0/auto_advance = 1
 clip_0/next_clip = 0
 clip_1/name = &"Quickening"

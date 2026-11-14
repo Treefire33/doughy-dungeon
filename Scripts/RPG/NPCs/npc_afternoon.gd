@@ -4,7 +4,7 @@ var afternoon_secret: DialogueResource = preload("res://Dialogue/afternoon_secre
 
 func _on_room_entered(args: RPGEventBus.RPGRoomEventArgs):
     super(args);
-    if (args.scene_id == "TEST_SCENE"):
+    if (args.scene_id == "TEST_SCENE" && !GlobalPlayer.get_bool_flag(&"bMetAfternoon")):
         var is_existing: bool = randi_range(0, 1000) <= 100;
         self.set_enabled(is_existing);
 

@@ -7,7 +7,7 @@ Vendor: Name's Stell. I'm the vendor of this here... uh... dungeon shop.
 Vendor: Feel free to ask me anything!
 - What are these items? => vendor_response
 - How did you transform? => vendor_response
-- The errors? [if GlobalPlayer.get_flag(&"iEvilScore") > 0] => vendor_error
+- The errors? [if GlobalPlayer.get_flag(&"iEvilScore") > 0 /] => vendor_error
 - Nothing => vendor_exit
 => END
 

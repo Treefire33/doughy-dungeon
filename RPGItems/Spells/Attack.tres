@@ -11,5 +11,5 @@ dungeon_description = "An attack spell that deals 50% of your attack stat but do
 function = ExtResource("1_j41w6")
 item_type = 2
 name = "Attack"
-description = "Most members of the Mages are taught this at a young age, it seems you're no different from them."
+description = "Most members of the Mages are taught this at a young age. However, your mom taught you this one."
 metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

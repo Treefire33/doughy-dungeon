@@ -49,7 +49,7 @@ func _ready() -> void:
         if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Alcove]):
             GlobalPlayer.add_rpg_item("GuildApp");
             GlobalPlayer.add_rpg_item("BronzeSword");
-            GlobalPlayer.add_rpg_item("StandardSpellTwo");
+            GlobalPlayer.add_rpg_item("DefendTwo");
         if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Oceanic]):
             GlobalPlayer.add_rpg_item("GuildMember");
         if (GlobalPlayer.completed_dungeons[Enum.Dungeon.ErrorEntity]):

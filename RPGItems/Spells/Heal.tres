@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://duvi7w7t0tlb5"]
+
+[ext_resource type="Script" uid="uid://cd56gws6bpapj" path="res://RPGItems/Spells/Functions/HealFunction.gd" id="1_ln51a"]
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="2_dsg02"]
+
+[resource]
+script = ExtResource("2_dsg02")
+dungeon_icon_name = &"Heal"
+dungeon_name = "HEAL"
+dungeon_description = "When cast, heals 50% health for 5 stamina."
+function = ExtResource("1_ln51a")
+item_type = 2
+name = "Heal"
+description = "A simple healing spell, not too efficient."
+max_health = 1
+max_stamina = 1
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"
