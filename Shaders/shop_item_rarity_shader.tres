@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cjxoavdrot8xp"]
+
+[ext_resource type="Shader" uid="uid://cjc5q7ffpghf0" path="res://Shaders/shop_item_rarity_shader.gdshader" id="1_vxdey"]
+
+[resource]
+shader = ExtResource("1_vxdey")
+shader_parameter/outline_colour = Color(0, 0, 0, 1)
+shader_parameter/outline_size = 2.0

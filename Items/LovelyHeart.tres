@@ -8,6 +8,7 @@ script = ExtResource("2_5tccb")
 name = "Lovely Heart"
 flavour_text = "Wielding my love!"
 description = "Base attack stat is set to the number of heart items currently purchased. Additionally, heart items no longer conflict."
+rarity = 4
 price = 250
 weight = 1.073
 function = ExtResource("1_os7fv")

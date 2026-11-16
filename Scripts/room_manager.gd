@@ -198,7 +198,9 @@ func generate_shop_item(display_index: int):
         item_button.pressed.disconnect(connection.callable)
     var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
-    item_display.get_node("Sprite").animation = ItemUtils.get_item_animation_name(item);
+    var item_sprite: AnimatedSprite2D = item_display.get_node("Sprite");
+    item_sprite.animation = ItemUtils.get_item_animation_name(item);
+    item_sprite.material.set_shader_parameter("outline_colour", ItemUtils.item_rarity_colours[item.rarity]);
     item_button.tooltip_strings.clear();
     item_button.tooltip_strings.append_array(ItemUtils.get_tooltip_text(item, true, true, difficulty_adjust(item.price, 0.06)));
     item_button.pressed.connect(purchase_item.bind(item_name, item_display, display_index));
@@ -215,7 +217,7 @@ func gen_safe_room():
     player.position = Vector2(225, 225);
     player.health = player.max_health;
     player.stamina = player.max_stamina;
-    player_ui.update_ui();
+    player.rerolls = player.max_rerolls;
     get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
     safe_room.get_parent().visible = true;
 
@@ -233,23 +235,16 @@ func gen_safe_room():
         player_ui.stats_display.show();
         safe_room_anims.play("VendorExit");
         await safe_room_anims.animation_finished;
-        GlobalPlayer.set_bool_flag(&"bVendorMet", true);
 
-    player_ui.safe_room_proceed.show();
-    player_ui.safe_room_reroll.show();
-    player_ui.upgrades_panel.show();
-    player_ui.in_safe_room = true;
+    player_ui.toggle_safe_room(true);
     await player_ui.room_select.room_decision;
-    player_ui.safe_room_proceed.hide();
-    player_ui.safe_room_reroll.hide();
-    player_ui.upgrades_panel.hide();
-    player_ui.in_safe_room = false;
     if (floor_count % current_dungeon.difficulty_floor_increment == 0):
         _room_difficulty += 1;
     player.health = player.max_health;
     player.stamina = player.max_stamina;
+    player.rerolls = player.max_rerolls;
     player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor, current_dungeon.rooms, self.room_difficulty);
-    player_ui.update_ui();
+    player_ui.toggle_safe_room(false);
     next_room(true);
 
 func room_turn():

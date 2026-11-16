@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://7c3camomb7u7" path="res://Sprites/Tiles/DungeonTiles/DoughyFloor.tres" id="2_tgy6u"]
 [ext_resource type="Texture2D" uid="uid://dj46tr1pwf3nu" path="res://Sprites/SafeRoom/Shop.aseprite" id="3_81klo"]
 [ext_resource type="SpriteFrames" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="4_8m3t6"]
+[ext_resource type="Shader" uid="uid://cjc5q7ffpghf0" path="res://Shaders/shop_item_rarity_shader.gdshader" id="4_ese38"]
 [ext_resource type="Script" uid="uid://c730dibuqkvem" path="res://Scripts/room_manager.gd" id="5_iivbl"]
 [ext_resource type="Script" uid="uid://bh1n8shephiis" path="res://Scripts/Player/player.gd" id="6_7nbq1"]
 [ext_resource type="Texture2D" uid="uid://u130ujrllbuu" path="res://Sprites/SafeRoom/Chair.tres" id="6_exi56"]
@@ -32,6 +33,11 @@
 [ext_resource type="PackedScene" uid="uid://8cmpy3acntlo" path="res://Scenes/dungeon_complete.tscn" id="27_8m3t6"]
 [ext_resource type="Texture2D" uid="uid://bp06uts1l4hsw" path="res://Sprites/Icons/MenuIcons/Pause.tres" id="28_tgy6u"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oeip8"]
+shader = ExtResource("4_ese38")
+shader_parameter/outline_colour = Color(0, 0, 0, 1)
+shader_parameter/outline_size = 2.0
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tgy6u"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81klo"]
@@ -53,6 +59,21 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iivbl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85qyi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ese38"]
+shader = ExtResource("4_ese38")
+shader_parameter/outline_colour = Color(0, 0, 0, 1)
+shader_parameter/outline_size = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xe308"]
+shader = ExtResource("4_ese38")
+shader_parameter/outline_colour = Color(0, 0, 0, 1)
+shader_parameter/outline_size = 2.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d3cha"]
+shader = ExtResource("4_ese38")
+shader_parameter/outline_colour = Color(0, 0, 0, 1)
+shader_parameter/outline_size = 2.0
 
 [sub_resource type="Animation" id="Animation_hpqnc"]
 length = 0.001
@@ -296,6 +317,7 @@ frame = 2
 position = Vector2(-67, -60)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="SafeRoom/Shop/Item1" unique_id=414761162]
+material = SubResource("ShaderMaterial_oeip8")
 sprite_frames = ExtResource("4_8m3t6")
 animation = &"AbyssFragment"
 
@@ -324,6 +346,7 @@ tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
 position = Vector2(-3, -60)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="SafeRoom/Shop/Item2" unique_id=1817915097]
+material = SubResource("ShaderMaterial_ese38")
 sprite_frames = ExtResource("4_8m3t6")
 animation = &"AbyssFragment"
 
@@ -359,6 +382,7 @@ tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
 position = Vector2(61, -60)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="SafeRoom/Shop/Item3" unique_id=2017829348]
+material = SubResource("ShaderMaterial_xe308")
 sprite_frames = ExtResource("4_8m3t6")
 animation = &"AbyssFragment"
 
@@ -387,6 +411,7 @@ tooltip_template_path = "res://Scenes/Tooltips/item_tooltip.tscn"
 position = Vector2(-3, -125)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="SafeRoom/Shop/Item4" unique_id=630651501]
+material = SubResource("ShaderMaterial_d3cha")
 sprite_frames = ExtResource("4_8m3t6")
 animation = &"AbyssFragment"
 
@@ -550,7 +575,7 @@ size_flags_vertical = 3
 [node name="Camera" type="Camera2D" parent="." unique_id=1653346387]
 anchor_mode = 0
 
-[node name="PlayerUI" type="Control" parent="Camera" unique_id=339884879 node_paths=PackedStringArray("room_manager", "stats_display", "inventory_display", "decision_panel", "room_select")]
+[node name="PlayerUI" type="Control" parent="Camera" unique_id=339884879 node_paths=PackedStringArray("room_manager", "player", "stats_display", "inventory_display", "decision_panel", "room_select")]
 z_index = 3
 layout_mode = 3
 anchors_preset = 15
@@ -563,6 +588,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("8_7t8sx")
 room_manager = NodePath("../../RoomManager")
+player = NodePath("../../Player")
 stats_display = NodePath("Stats")
 inventory_display = NodePath("Inventory")
 decision_panel = NodePath("DecisionPanel")
@@ -683,9 +709,11 @@ offset_top = 270.0
 offset_right = 460.0
 offset_bottom = 310.0
 theme = ExtResource("10_vm72l")
-text = "Reroll"
+theme_override_font_sizes/font_size = 8
+text = "Reroll (1)
+"
 script = ExtResource("6_oeip8")
-tooltip_strings = Array[String](["Reroll the current item selection (once per shop)."])
+tooltip_strings = Array[String](["Reroll the current item selection."])
 
 [node name="SafeRoomProceed" type="Button" parent="Camera/PlayerUI" unique_id=730180464]
 visible = false

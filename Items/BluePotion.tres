@@ -8,6 +8,7 @@ script = ExtResource("1_crjcn")
 name = "Blue Potion"
 flavour_text = "Magical!"
 description = "Increases Shield Spell duration by 1 turn."
+rarity = 2
 price = 75
 weight = 8.0
 function = ExtResource("1_ymsjn")

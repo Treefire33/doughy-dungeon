@@ -9,6 +9,7 @@ name = "Guild Banner"
 flavour_text = "Show your pride of your priorities!"
 description = "(1, 2, 3) -> (3, 2, 1). 
 Show your priorities."
+rarity = 3
 price = 250
 weight = 1.2
 function = ExtResource("1_ocrt2")

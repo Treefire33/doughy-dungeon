@@ -8,6 +8,7 @@ script = ExtResource("1_scvqu")
 name = "Sharpening Stone"
 flavour_text = "How do you sharpen a wooden sword?"
 description = "On attack, 25% chance to deal damage again."
+rarity = 2
 price = 50
 weight = 10.0
 function = ExtResource("2_datyu")

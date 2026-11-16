@@ -8,6 +8,7 @@ script = ExtResource("1_y84kd")
 name = "Red Potion"
 flavour_text = "Healthy!"
 description = "Increases max health by 2."
+rarity = 2
 price = 50
 weight = 7.0
 function = ExtResource("1_ervyh")

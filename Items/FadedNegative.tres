@@ -8,6 +8,7 @@ script = ExtResource("2_ckmo8")
 name = "Faded Negative"
 flavour_text = "...mom?"
 description = "Damage dealt has a chance to reflect back onto you."
+rarity = 3
 price = -100
 weight = 10.0
 function = ExtResource("1_copju")

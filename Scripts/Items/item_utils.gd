@@ -49,12 +49,32 @@ func _database_where(database: Dictionary, conditions: Dictionary[StringName, Va
     
     return final;
 
+var item_rarity_probabilities: Dictionary[Enum.ItemRarity, float] = {
+    Enum.ItemRarity.None: 0,
+    Enum.ItemRarity.NoneTwo: 0,
+    Enum.ItemRarity.Common: 0.60,
+    Enum.ItemRarity.Uncommon: 0.23,
+    Enum.ItemRarity.Rare: 0.07,
+    Enum.ItemRarity.Abyssal: 0.001,
+    Enum.ItemRarity.Curio: 0.01,
+};
+var item_rarity_colours: Dictionary[Enum.ItemRarity, Color] = {
+    Enum.ItemRarity.None: Color.TRANSPARENT,
+    Enum.ItemRarity.NoneTwo: Color.TRANSPARENT,
+    Enum.ItemRarity.Common: Color.from_rgba8(127, 127, 127),
+    Enum.ItemRarity.Uncommon: Color.from_rgba8(0, 200, 50),
+    Enum.ItemRarity.Rare: Color.from_string("#00bad0", Color.RED),
+    Enum.ItemRarity.Abyssal: Color.from_string("#540079", Color.RED),
+    Enum.ItemRarity.Curio: Color.from_string("#cb7cff", Color.RED),
+};
 func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String:
     var rng = RandomNumberGenerator.new();
-    
+    var random_rarity: Enum.ItemRarity = item_rarity_probabilities.keys()[rng.rand_weighted(item_rarity_probabilities.values())];
+
     var item_pool = _database_where(item_database, {
         &"dungeon_pool": func(v: Array): return v.has(Enum.Dungeon.All) || v.has(dungeon_data.id),
         &"dungeon_exclude_pool": func(v: Array): return !v.has(dungeon_data.id),
+        &"rarity": random_rarity,
         &"painful": painful
     });
     var keys = [];
@@ -64,6 +84,9 @@ func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String
         keys.append(item);
         weights.append(item_data.weight);
     
+    if (keys.size() <= 0):
+        return get_random_item(dungeon_data, painful);
+
     return keys[rng.rand_weighted(weights)];
 
 func get_item_name(item_data: ItemData) -> String:

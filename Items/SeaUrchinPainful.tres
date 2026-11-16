@@ -8,6 +8,7 @@ script = ExtResource("2_g62gw")
 name = "Urchin"
 flavour_text = "I won't make the same mistake thri- ow..."
 description = "I'm not really sure what this does?"
+rarity = 2
 price = -25
 sprite = &"SeaUrchin"
 weight = 1.0

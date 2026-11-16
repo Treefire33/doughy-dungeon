@@ -1,7 +1,20 @@
 [gd_scene format=3 uid="uid://cd2q6pbmnaejf"]
 
 [ext_resource type="PackedScene" uid="uid://bo46ei7by7wus" path="res://Scenes/Prefabs/vendor.tscn" id="1_hpqnc"]
+[ext_resource type="SpriteFrames" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="2_gglfx"]
+[ext_resource type="Shader" uid="uid://cjc5q7ffpghf0" path="res://Shaders/shop_item_rarity_shader.gdshader" id="2_kvxub"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2j45"]
+shader = ExtResource("2_kvxub")
+shader_parameter/outline_colour = Color(0.33020464, 0.000700495, 0.47588015, 1)
+shader_parameter/outline_size = 2.0
 
 [node name="Spriting" type="Node2D" unique_id=1553309383]
 
 [node name="Vendor" parent="." unique_id=512740090 instance=ExtResource("1_hpqnc")]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=68826635]
+material = SubResource("ShaderMaterial_o2j45")
+position = Vector2(192, 79)
+sprite_frames = ExtResource("2_gglfx")
+animation = &"AbyssFragment"

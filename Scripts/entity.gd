@@ -101,6 +101,9 @@ func update_stat_mod(key: String, value: float) -> void:
 func remove_stat_mod(key: String, remove_all: bool = false) -> void:
     StatModifier.remove_stat_mod(stat_modifiers, key, remove_all);
 
+func has_stat_mod(key: String) -> bool:
+    return stat_modifiers.find_custom(func(mod: StatModifier): return mod.key == key) != -1;
+
 var status_effects: Array[StatusEffect] = [];
 var status_ui: GridContainer;
 

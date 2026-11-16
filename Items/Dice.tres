@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://drh436qnvj4nj"]
+
+[ext_resource type="Script" uid="uid://b7iye1cpys265" path="res://Items/Functions/DiceFunction.gd" id="1_queso"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_0xh6e"]
+
+[resource]
+script = ExtResource("2_0xh6e")
+name = "Dice"
+flavour_text = "A simple game dice. Each face is a number one through six."
+description = "Increases max shop reroll by one."
+rarity = 2
+price = 125
+weight = 1.0
+function = ExtResource("1_queso")
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

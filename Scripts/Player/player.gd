@@ -14,6 +14,17 @@ var coins: int = 15:
         
 var items: Dictionary[String, int] = {};
 
+var _max_rerolls: int = 1;
+var max_rerolls: int:
+    get:
+        @warning_ignore("narrowing_conversion")
+        return apply_stat_mods(Enum.StatType.Rerolls, _max_rerolls);
+
+var rerolls: int = self._max_rerolls:
+    get: return rerolls;
+    set(value):
+        rerolls = clampi(value, 0, max_rerolls);
+
 func add_item(item_name: String):
     if (!items.get(item_name)):
         items[item_name] = 0;

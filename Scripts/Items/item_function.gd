@@ -21,6 +21,10 @@ func stat_changed(
     args: ItemFunctionArgs
 ): pass;
 
+func removed(
+    args: ItemFunctionArgs
+): pass;
+
 class ItemFunctionArgs:
     # Doubles as the 'player' argument.
     var user: Entity;

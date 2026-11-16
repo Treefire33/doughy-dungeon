@@ -8,6 +8,7 @@ script = ExtResource("1_jkqge")
 name = "Gold Amulet"
 flavour_text = "Lustrous amulet made of pure gold."
 description = "Enemies drop more coins."
+rarity = 3
 price = 175
 weight = 3.0
 function = ExtResource("2_f6hel")

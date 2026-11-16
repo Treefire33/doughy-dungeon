@@ -8,6 +8,7 @@ script = ExtResource("2_6h1x0")
 name = "Golden Heart"
 flavour_text = "Feeling like pure- AU! My heart..."
 description = "Your health scales with the amount of coins you have."
+rarity = 4
 price = 237
 weight = 2.0
 function = ExtResource("1_7yh04")

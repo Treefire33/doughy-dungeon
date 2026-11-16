@@ -8,6 +8,7 @@ script = ExtResource("1_6pk5h")
 name = "Durability Scroll"
 flavour_text = "A scroll containing arcane instructions."
 description = "Increases Shield Spell durability by 1 HP."
+rarity = 2
 price = 125
 weight = 5.0
 function = ExtResource("1_hmyro")

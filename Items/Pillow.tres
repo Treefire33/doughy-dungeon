@@ -8,6 +8,7 @@ script = ExtResource("1_wvrwm")
 name = "Pillow"
 flavour_text = "Comfy!"
 description = "Reseting recovers more stamina."
+rarity = 2
 price = 50
 weight = 9.0
 function = ExtResource("2_wjp01")

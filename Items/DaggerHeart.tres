@@ -9,6 +9,7 @@ name = "Dagger Heart"
 flavour_text = "If you're willing to bear the pain..."
 description = "Halve your health and double your damage 
 (Applied once on purchase)."
+rarity = 4
 price = 345
 weight = 1.0
 function = ExtResource("1_ma8ng")

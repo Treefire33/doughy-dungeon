@@ -8,6 +8,7 @@ script = ExtResource("2_4fpd1")
 name = "Ivory Key"
 flavour_text = "1-e-and-a, 2-e-and-a, 3-e-and-a..."
 description = "Every consecutive same-decision increases its respective stat by 1, only for that room however."
+rarity = 3
 price = 240
 weight = 0.4
 function = ExtResource("1_0tvka")

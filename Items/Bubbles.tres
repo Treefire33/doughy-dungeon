@@ -8,6 +8,7 @@ script = ExtResource("2_0egcf")
 name = "Bubbles"
 flavour_text = "*POP* Wowie! *POP* So fun!!"
 description = "The Shield Spell now lasts infinitely longer, yet is extremely fragile."
+rarity = 3
 price = 150
 weight = 4.0
 function = ExtResource("1_8fftx")

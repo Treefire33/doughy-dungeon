@@ -9,6 +9,7 @@ name = "Coffee"
 flavour_text = "A strong, aromatic smell eminates from the cup. It gives you a headache."
 description = "Stamina won't drain, period.
 However, sometimes you'll randomly take a single point of damage (remember that headache?)."
+rarity = 4
 price = 400
 weight = 0.1
 function = ExtResource("2_68qpl")

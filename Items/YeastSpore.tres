@@ -8,6 +8,7 @@ script = ExtResource("2_r3uo7")
 name = "Yeast Spore"
 flavour_text = "The egg of a Yeast Crawler... ugh..."
 description = "Resting now decreases defense duration."
+rarity = 2
 price = -50
 weight = 10.0
 function = ExtResource("1_fqdj2")

@@ -8,6 +8,7 @@ script = ExtResource("2_jphwl")
 name = "Spell Gem"
 flavour_text = "A peculiar gem comprised almost entirely of magic."
 description = "All spells now require one less stamina."
+rarity = 2
 price = 60
 weight = 3.75
 function = ExtResource("1_ibtiv")

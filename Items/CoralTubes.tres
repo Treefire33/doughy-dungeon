@@ -8,6 +8,7 @@ script = ExtResource("2_b252y")
 name = "Organ Coral"
 flavour_text = "A sweet melody plays from its tubes"
 description = "Resting heals (1 * stack) HP."
+rarity = 3
 price = 175
 weight = 5.5
 function = ExtResource("1_yjq0b")

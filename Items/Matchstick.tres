@@ -8,6 +8,7 @@ script = ExtResource("1_wworn")
 name = "Matchstick"
 flavour_text = "Strike a match, light a fire!"
 description = "Casting any defend-spec spell now applies one stack of burn."
+rarity = 2
 price = -75
 weight = 10.0
 function = ExtResource("1_op4wt")

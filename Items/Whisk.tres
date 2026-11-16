@@ -9,6 +9,7 @@ name = "Whisk"
 flavour_text = "Shaking (stirring) things up!"
 description = "On attack, damage is randomized between
 base attack and 50% of max health."
+rarity = 3
 price = 250
 weight = 1.0
 function = ExtResource("2_fhgo8")

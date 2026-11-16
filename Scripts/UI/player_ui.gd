@@ -5,6 +5,7 @@ signal _enemy_selected();
 
 # Export vars
 @export var room_manager: RoomManager;
+@export var player: Player;
 @export var stats_display: StatsDisplay;
 @export var inventory_display: InventoryDisplay;
 @export var decision_panel: DecisionPanel;
@@ -52,13 +53,13 @@ func upgrade_stat(stat: int):
     if (!in_safe_room): return;
     match (stat):
         0:
-            room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxHealth, 5);
+            player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxHealth, 5);
         1: 
-            room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxStamina, 3);
+            player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.MaxStamina, 3);
         2:
-            room_manager.player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.Attack, 2);
-    room_manager.player.health = room_manager.player.max_health;
-    room_manager.player.stamina = room_manager.player.max_stamina;
+            player.add_stat_mod(Enum.ModifierType.Additive, Enum.StatType.Attack, 2);
+    player.health = player.max_health;
+    player.stamina = player.max_stamina;
     ToastParty.show({
         "text": "Applied %s upgrade!" % translation_dict[stat],
         "text_size": Settings.toast_size,
@@ -106,6 +107,17 @@ func select_enemy(enemy: Enemy):
         return
     _enemy_selected.emit(enemy);
 
+func update_ui():
+    stats_display.update(room_manager);
+    update_enemy_buttons();
+
+func toggle_safe_room(state: bool):
+    safe_room_proceed.visible = state;
+    safe_room_reroll.visible = state;
+    upgrades_panel.visible = state;
+    in_safe_room = state;
+    update_ui();
+
 var previewing_room_select: bool = false;
 func _ready() -> void:
     room_manager.battle_manager.request_decision.connect(decision_panel.begin_decision);
@@ -126,7 +138,10 @@ func _ready() -> void:
     );
     safe_room_reroll.pressed.connect(func():
         room_manager.gen_safe_room_items();
-        safe_room_reroll.hide();    
+        player.rerolls -= 1;
+        safe_room_reroll.text = "Reroll (%d)" % player.rerolls;
+        if (player.rerolls <= 0):
+            safe_room_reroll.hide();
     );
     
     health_upgrade.pressed.connect(upgrade_stat.bind(0));
@@ -140,10 +155,6 @@ func _ready() -> void:
         fade_panel.visible = previewing_room_select;
         room_select.visible = previewing_room_select;
     );
-    
-func update_ui():
-    stats_display.update(room_manager);
-    update_enemy_buttons();
     
 var action_to_index: Dictionary[String, int] = {
     "Primary": 0,

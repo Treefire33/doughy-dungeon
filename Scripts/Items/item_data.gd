@@ -11,6 +11,9 @@ class_name ItemData
 ## Formal description of mechanics.
 @export_multiline var description: String;
 
+## Item's rarity bucket.
+@export var rarity: Enum.ItemRarity;
+
 ## The price of the item.
 @export var price: int;
 

@@ -8,6 +8,7 @@ script = ExtResource("2_s7qyp")
 name = "Pure Nail"
 flavour_text = "The work of a skilled craftsman. The perfect weapon."
 description = "Caps attack at 5, but allows you to peirce through shield spells."
+rarity = 6
 price = 200
 weight = 0.5
 function = ExtResource("1_wrfsl")
