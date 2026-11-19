@@ -41,7 +41,6 @@ Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
 Settings="*res://Scripts/AutoLoad/settings.gd"
 ItemUtils="*res://Scripts/Items/item_utils.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
-SuperLoader="*uid://dw6auv6ikfe3f"
 MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
 AccessibilityHelper="*uid://b0g45ldc0cbhi"
 RPGManager="*uid://blntkoo1yvmv7"
@@ -49,6 +48,7 @@ RPGEventBus="*uid://07mj5ajgs8um"
 TooltipManager="*uid://brqdjqtp7oci6"
 TooltipPlaceholderVariables="*uid://nel5st3wktcw"
 TooltipLinkData="*uid://bjkjmtptqed1y"
+SuperLoader="*uid://dw6auv6ikfe3f"
 
 [debug]
 

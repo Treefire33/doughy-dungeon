@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cptwg5u2wsla5"]
+
+[ext_resource type="Script" uid="uid://b25ni8nfc5yy1" path="res://Items/Functions/LooseBrickFunction.gd" id="1_h5cdc"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_2nggw"]
+
+[resource]
+script = ExtResource("2_2nggw")
+name = "Loose Brick"
+flavour_text = "A loose brick from the walls of this dungeon."
+description = "On attack: Throws the brick, dealing 4 damage. Has a 35% chance to break, every survived throw adds  +(1 * stack) damage."
+rarity = 3
+price = 220
+weight = 1.0
+function = ExtResource("1_h5cdc")
+dungeon_pool = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

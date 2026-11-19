@@ -35,6 +35,13 @@ func add_item(item_name: String):
         if (data.function == null): continue;
         ItemUtils._execute_item_func(data, "purchased", ItemFunction.ItemFunctionArgs.new_purchased_args(self, item_name == item));
 
+func remove_item(item_name: String, count: int = 1):
+    if (!items.get(item_name)): return;
+    
+    items[item_name] -= count;
+    if (items[item_name] <= 0):
+        items.erase(item_name);
+
 func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellFunction = null) -> int:
     if (decision == Enum.Decision.Spell):
         if (spell == null): return 0;

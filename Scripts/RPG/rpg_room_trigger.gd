@@ -9,5 +9,6 @@ class_name RPGRoomTrigger
 
 func _ready() -> void:
     self.body_entered.connect(func(body):
+        if (next_room_id.is_empty()): return;
         RPGManager.move_rooms(next_room_id, next_entrance_id);
     );

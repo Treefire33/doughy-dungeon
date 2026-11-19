@@ -8,9 +8,15 @@ extends Node2D
 var current_scene: Node = null;
 
 func switch_scene(scene_path: Variant):
-    assert(scene_path is String || scene_path is PackedScene);
     if (is_instance_valid(self.current_scene)): self.current_scene.queue_free.call_deferred();
-    var new_scene = ResourceLoader.load(scene_path).instantiate() if scene_path is String else scene_path.instantiate();
+    var new_scene: Node;
+    if (scene_path is String):
+        new_scene = ResourceLoader.load(scene_path).instantiate();
+    elif (scene_path is PackedScene):
+        new_scene = scene_path.instantiate();
+    elif (scene_path is Node):
+        new_scene = scene_path;
+    else: push_error("Invalid scene path for SuperLoader.");
     new_scene.process_mode = Node.PROCESS_MODE_PAUSABLE;
     self.game_container.add_child.call_deferred(new_scene);
     self.current_scene = new_scene;

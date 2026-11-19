@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c4b7ee2e1aji7"]
+
+[ext_resource type="Texture2D" uid="uid://cteut4t3qrdan" path="res://Sprites/Other/SelectionBox2.tres" id="1_cu2dd"]
+[ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="2_rd6ph"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cu2dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rd6ph")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

@@ -26,6 +26,19 @@ signal _enemy_selected();
 @onready var stamina_upgrade: Button = $Upgrades/Stamina;
 @onready var attack_upgrade: Button = $Upgrades/Attack;
 
+# Turn Order
+@onready var turn_order_icons: Array[AtlasTexture] = [
+    preload("res://Sprites/Icons/MenuIcons/Midnight.tres"),
+    preload("res://Sprites/Icons/MenuIcons/Enemy.tres")
+];
+
+@onready var turn_order_indicators: Array[TooltipTrigger] = [
+    $TurnOrder/HBoxContainer/Entity1,
+    $TurnOrder/HBoxContainer/Entity2,
+    $TurnOrder/HBoxContainer/Entity3,
+    $TurnOrder/HBoxContainer/Entity4
+];
+
 # Decision
 var selecting_enemy: bool = false;
 var making_decision: bool = false;
@@ -35,14 +48,14 @@ var in_safe_room: bool = false;
 @onready var safe_room_proceed: Button = $SafeRoomProceed;
 @onready var safe_room_reroll: Button = $SafeRoomReroll;
 
-func move_selection_box(enemy: Enemy):
-    selection_box.visible = true;
-    if (enemy == null || enemy.health <= 0):
+func move_selection_box(entity: Entity):
+    if (entity == null || entity.health <= 0):
         selection_box.visible = false;
         return	
 
-    selection_box.size = enemy.sprite.get_rect().size * enemy.global_scale;
-    selection_box.position = enemy.get_parent().position - selection_box.size / 2;
+    selection_box.size = entity.sprite.get_rect().size * entity.global_scale;
+    selection_box.position = entity.global_position - selection_box.size / 2;
+    selection_box.visible = true;
 
 var translation_dict = {
     0: "health",
@@ -110,6 +123,21 @@ func select_enemy(enemy: Enemy):
 func update_ui():
     stats_display.update(room_manager);
     update_enemy_buttons();
+
+func update_turn_order():
+    var current_entities: Array[Entity] = room_manager.battle_manager.current_entities;
+    for i in range(turn_order_indicators.size()):
+        turn_order_indicators[i].visible = i < current_entities.size();
+        if (!turn_order_indicators[i].visible):
+            continue;
+        
+        turn_order_indicators[i].icon = turn_order_icons[0 if current_entities[i] is Player else 1];
+        # turn_order_indicators[i].mouse_entered.connect(move_selection_box.bind(current_entities[i]));
+        # turn_order_indicators[i].mouse_exited.connect(move_selection_box.bind(null));
+        turn_order_indicators[i].tooltip_strings = [
+            current_entities[i].name + "\n" + 
+            "Speed: %d" % current_entities[i].speed
+        ];
 
 func toggle_safe_room(state: bool):
     safe_room_proceed.visible = state;

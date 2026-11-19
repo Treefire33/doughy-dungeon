@@ -278,7 +278,7 @@ offset_right = 400.0
 offset_bottom = 225.0
 
 [node name="Collider" type="CollisionShape2D" parent="." unique_id=269109444]
-position = Vector2(0, 30)
+position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_oo64u")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1771876752]

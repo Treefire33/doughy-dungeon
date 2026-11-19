@@ -93,7 +93,7 @@ func do_turn(room_manager: RoomManager):
         if (StatusEffect.has_effect(entity, Enum.StatusEffect.Exhausted)):
             turn_cost += 1;
         entity.turn_points -= turn_cost;
-
+    
     # cleanup
     for entity in current_entities:
         if (entity is Enemy): entity.update_health();
@@ -102,6 +102,8 @@ func do_turn(room_manager: RoomManager):
         entity.turn_points += 1; # give a much needed turn point
         entity.update_shield();
         entity.update_status_notifs();
+    
+    room_manager.player_ui.update_turn_order();
 
 func battle_active() -> bool:
     var enemies_dead: int = 0;

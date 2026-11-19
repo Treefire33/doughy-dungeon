@@ -14,6 +14,7 @@ class_name RPGPlayer
 @export var default_cloak: SpriteFrames;
 
 func animate_player():
+    @warning_ignore("integer_division")
     animator.speed_scale = self._tile_speed / speed;
 
     var move_axis: Vector2 = Vector2(round(self._tile_velocity.x), round(self._tile_velocity.y));

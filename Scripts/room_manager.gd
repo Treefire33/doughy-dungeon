@@ -319,6 +319,7 @@ func _ready() -> void:
     RoomManager.instance = self;
     gen_room(Enum.RoomDecision.Proceed);
     player_ui.update_ui();
+    player_ui.update_turn_order();
     player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor - 1, current_dungeon.rooms, self.room_difficulty);
     Audio.play_music(current_dungeon.dungeon_music);
     Audio.change_music(Audio.DungeonMusic.Idle);

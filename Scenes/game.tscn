@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
 [ext_resource type="Texture2D" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="16_ese38"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
+[ext_resource type="Texture2D" uid="uid://bxl6mqljkxkhm" path="res://Sprites/Player/player_icon.aseprite" id="24_oeip8"]
+[ext_resource type="Texture2D" uid="uid://ler003tb368l" path="res://Sprites/Other/DoughyCursor.png" id="25_xe308"]
 [ext_resource type="Texture2D" uid="uid://qfikmbdmm8g3" path="res://Sprites/Icons/MenuIcons/Magnify.tres" id="26_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="26_81klo"]
 [ext_resource type="PackedScene" uid="uid://8cmpy3acntlo" path="res://Scenes/dungeon_complete.tscn" id="27_8m3t6"]
@@ -623,6 +625,124 @@ patch_margin_left = 16
 patch_margin_top = 16
 patch_margin_right = 16
 patch_margin_bottom = 16
+
+[node name="TurnOrder" type="Panel" parent="Camera/PlayerUI" unique_id=914949869]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42000002
+anchor_top = 0.020000001
+anchor_right = 0.58000004
+anchor_bottom = 0.091000006
+offset_right = -3.0517578e-05
+offset_bottom = 0.049999237
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera/PlayerUI/TurnOrder" unique_id=807926547]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Entity1" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=740123449]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("24_oeip8")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_oeip8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity1" unique_id=785801953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Entity2" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=1902190113]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("25_xe308")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_oeip8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity2" unique_id=1326667878]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "2"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Entity3" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=1870295795]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("25_xe308")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_oeip8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity3" unique_id=578821094]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Entity4" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=844641683]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("25_xe308")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("6_oeip8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity4" unique_id=2118492308]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 8
+text = "4"
+horizontal_alignment = 2
+vertical_alignment = 2
 
 [node name="Upgrades" type="Panel" parent="Camera/PlayerUI" unique_id=1812481481]
 visible = false
