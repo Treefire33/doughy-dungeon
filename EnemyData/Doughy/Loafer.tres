@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_2aaj7")
 name = "Loafer"
-flavour_text = "Would rather lay around than be here."
+flavour_text = "Pretty lazy, especially for a slice of bread."
 base_health = 5
 base_stamina = 1
 base_attack = 0

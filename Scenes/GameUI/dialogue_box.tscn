@@ -1,17 +1,9 @@
-[gd_scene format=4 uid="uid://cer6cdqaw15p1"]
+[gd_scene format=3 uid="uid://cer6cdqaw15p1"]
 
 [ext_resource type="Script" uid="uid://4n7wj5yvmv5j" path="res://Scripts/UI/dialogue_box.gd" id="1_wbuxg"]
 [ext_resource type="Script" uid="uid://i82hqdguo0go" path="res://Scripts/UI/animated_texture_rect.gd" id="2_bt6a3"]
-[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_lg7tv"]
-[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="4_f2gy2"]
-
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_404mn"]
-_data = PackedByteArray("AAADAAUAAAABAAAAgAEAAEAAAAAGAwAAUklGRv4CAABXRUJQVlA4TPICAAAvf8EPEBcw//M///MfgAc6rm3HkaQPeuI+ctJ+PhFFq+bq1iqE9qp9+uqBAPWXyeE/8edoRvTfkdtGjsTNN1WHfQS95scuIi9bqfzL/oSefUxZdYf8CxziqhV32nQUcS085GG51mZj6WgdvnXgTpuOGzefOfX4rgn8u3Fax9J14E6jjrYymyLXrGOkdSylwZ0mHZEz0R4GB7Mn+oMHSkfP406Tjq5g58Fn5qXN3u+D3lF8EY87rTpcxw+eOmejdxQ6xONOi449MK9UuFufbgey2yNzKpXeQVTfcKdJBzNnulVPVRfgd66k0jvcLuJxp1VH6tyNloarVe9oF93hTrMOH3Xn0c2hOA8F7rToKNyWMAz22LK+jsYOBe606Lg1dwpuj85fIn7oUOBOu46MbNA27hPutOvgJit+NL7SO/6ucKdhB1dJwc2i4ea3iMOdsx0GHOLohSkvjwdO6LzAW3fwAqQiqAPjxbzjCfl33pN5xx3ABu7mO6atqOPlcY+wg55H1GRHh2qtDvXHShc6TToCWJnPDMbWO7I4wp3THa+XMEtEJL4kWUJqyqpIL01MsvGdiGp7XrnbidH5Cn3qOkiRNuYcXpAUoVydL8gp2Nl1zvnB4XmdIc3aeLOwXrflmOKmOYXRnOfGEucVPyHFFP6cIpXMI7oucmT+c+oczWOIO1P3LoXLInD0Akts9I5BHMRBhGIv8tm7aV3Z0d5XhXhGXolwR+vUZNA9dmgydEe9JMOqwA7sTu/g1qFL2x1dxYwwX8JzkvCfQ0cBXXvUTw3uwJ1THYoddd30OXAH7rzYgQXFU/WHIjnCHbjTpoOiEu7bRVCcRLgDdxp13BRomRe60AE7DTpeiTLKnTjyhDtwp1XHHsAx+EM7RrgDd1p10GjpfNZWFXfgTrMOGZaxX/gj9oQId+BOs45966xDRgldlaMLHbDTroOOFiJKuATmXKtwB+406VD3Vs0I3V/KhQ7YadpxiIhKRFYi3IE7DTo+RA8C")
-size_override = Vector2(384, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2jy8b"]
-atlas = SubResource("PortableCompressedTexture2D_404mn")
-region = Rect2(128, 0, 64, 64)
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/nodes/dialogue_label/dialogue_label.gd" id="3_lg7tv"]
+[ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/nodes/responses_menu/dialogue_responses_menu.gd" id="4_f2gy2"]
 
 [node name="DialogueBox" type="Control" unique_id=1426754256 node_paths=PackedStringArray("background", "icon", "dialogue_label", "dialogue_responses", "button_advance", "button_skip", "button_skip_complete")]
 layout_mode = 3
@@ -51,7 +43,6 @@ offset_top = 0.059999466
 offset_right = 0.24999237
 offset_bottom = -0.060005188
 mouse_filter = 2
-texture = SubResource("AtlasTexture_2jy8b")
 expand_mode = 1
 stretch_mode = 6
 script = ExtResource("2_bt6a3")
@@ -77,7 +68,7 @@ skip_action = &"Secondary"
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
 
-[node name="Responses" type="Container" parent="." unique_id=579328471]
+[node name="Responses" type="BoxContainer" parent="." unique_id=524082929 node_paths=PackedStringArray("response_template")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.19100001
@@ -89,12 +80,15 @@ offset_top = -0.040000916
 offset_right = -0.25006104
 offset_bottom = 0.019989014
 mouse_filter = 2
+alignment = 1
+vertical = true
 script = ExtResource("4_f2gy2")
-metadata/_custom_type_script = "uid://bb52rsfwhkxbn"
+response_template = NodePath("ResponseTemplate")
 
-[node name="ResponseExample" type="Button" parent="Responses" unique_id=1897809174]
+[node name="ResponseTemplate" type="Button" parent="Responses" unique_id=1876301939]
 layout_mode = 2
-text = "Response example"
+size_flags_horizontal = 3
+text = "RESPONSE"
 
 [node name="MouseButtons" type="HBoxContainer" parent="." unique_id=1338726866]
 layout_mode = 0

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bsqu2anrx2825"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_161rk"]
+
+[resource]
+script = ExtResource("2_161rk")
+name = "Broken Heart"
+flavour_text = "Tape won't fix a thing."
+description = "Max health now decreases with damage taken (this is not permanent)."
+rarity = 4
+price = -400
+weight = 1.0
+unique_stacking = true
+painful = true
+dungeon_pool = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

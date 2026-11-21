@@ -7,11 +7,10 @@
 script = ExtResource("2_kw7f6")
 name = "Guild Banner"
 flavour_text = "Show your pride of your priorities!"
-description = "(1, 2, 3) -> (3, 2, 1). 
-Show your priorities."
+description = "Health swaps with attack and attack swaps with health."
 rarity = 3
 price = 250
-weight = 1.2
+weight = 1.0
 function = ExtResource("1_ocrt2")
 unique_stacking = true
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

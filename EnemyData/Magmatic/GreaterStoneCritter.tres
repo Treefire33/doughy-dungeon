@@ -5,9 +5,8 @@
 
 [resource]
 script = ExtResource("1_dbmql")
-name = "Greater Stone Critter"
-flavour_text = "A larger, tankier, stone critter. 
-Protects the weak and young critters."
+name = "Stone Critter"
+flavour_text = "An older stone critter. Seeks to protect its young."
 base_health = 40
 base_stamina = 8
 base_attack = 7

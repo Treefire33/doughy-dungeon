@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource("1_crjcn")
-name = "Blue Potion"
-flavour_text = "Magical!"
-description = "Increases Shield Spell duration by 1 turn."
+name = "Defense Oil"
+flavour_text = "It's sour."
+description = "Increases the duration of defense-spec spells by 1."
 rarity = 2
 price = 75
-weight = 8.0
+weight = 1.0
 function = ExtResource("1_ymsjn")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

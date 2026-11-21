@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bq77cugppg0eb"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_a1wmi"]
+
+[resource]
+script = ExtResource("2_a1wmi")
+name = "Symmetri-Die"
+flavour_text = "Reflects two different sides of the world."
+description = "Increases max shop rerolls by the amount of coins you current have."
+rarity = 6
+price = 404
+weight = 1.0
+unique_stacking = true
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

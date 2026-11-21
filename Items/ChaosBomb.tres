@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bq5vt7g3j10f2"]
+
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_v0ayy"]
+
+[resource]
+script = ExtResource("1_v0ayy")
+name = "Chaos Bomb"
+flavour_text = "You only have so much time."
+description = "Using any activation-spec spell damages you. This damage increases with every use."
+rarity = 6
+price = -650
+weight = 1.0
+unique_stacking = true
+painful = true
+dungeon_pool = Array[int]([0, 2])
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

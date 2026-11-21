@@ -2,7 +2,7 @@ extends ItemFunction
 
 func purchased(args: ItemFunction.ItemFunctionArgs):
     if (!args.purchased): return;
-    args.user.add_stat_mod(Enum.ModifierType.Set, Enum.StatType.Attack, 5, "hollowKnight");
+    args.user.add_stat_mod(Enum.ModifierType.Preset, Enum.StatType.Attack, 2, "hollowKnight");
     ItemUtils.show_activation_toast("Nail");
 
 func decision(args: ItemFunction.ItemFunctionArgs):

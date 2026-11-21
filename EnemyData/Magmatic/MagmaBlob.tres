@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_si1hy")
 name = "Magma Blob"
-flavour_text = "A beast made of pure magma. Scorching hot!"
+flavour_text = "A beast made of pure magma."
 base_health = 25
 base_stamina = 10
 base_attack = 2

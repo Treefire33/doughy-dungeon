@@ -5,9 +5,8 @@
 
 [resource]
 script = ExtResource("1_w1v2k")
-name = "Lesser Stone Critter"
-flavour_text = "A smaller, weaker stone critter.
-Tends to cower away."
+name = "Stone Critter"
+flavour_text = "A young stone critter. Seeks the protection of it's elders."
 base_health = 20
 base_stamina = 10
 base_attack = 3

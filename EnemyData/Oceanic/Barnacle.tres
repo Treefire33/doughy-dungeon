@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ecge2")
 name = "Barnacle Cannon"
-flavour_text = "Fires acidic projectiles from its mouth, weak."
+flavour_text = "Fires acidic bullets from its mouth, really hurts."
 base_health = 4
 base_stamina = 1
 base_attack = 10

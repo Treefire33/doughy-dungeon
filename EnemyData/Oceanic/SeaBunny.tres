@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_tyxow")
 name = "Sea Bunny"
-flavour_text = "Awwwwwwww"
+flavour_text = "Awwwwwwwwww!!"
 base_health = 1
 base_stamina = 1
 base_defense_duration = 10

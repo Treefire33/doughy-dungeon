@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_0xh6e")
-name = "Dice"
-flavour_text = "A simple game dice. Each face is a number one through six."
+name = "Die"
+flavour_text = "A simple six-sided die. Each face is a number one through six."
 description = "Increases max shop reroll by one."
 rarity = 2
 price = 125

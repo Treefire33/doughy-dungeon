@@ -1,9 +1,30 @@
 ~ start
+Welcome to Midnight Dungeons!
+This game is played using both the keyboard and mouse, however, you can change your settings to prioritize one over the other.
 
-This game is primarily played using both the keyboard and mouse, however there are certain keybinds and toggles meant to allow for use of one or the other.
-You can also press [lb][lb]Secondary[rb][rb] to instantly complete any dialogue! This acts as a sort of "skip". Holding [lb][lb]Tertiary[rb][rb] will skip through all dialogue.
-Pressing [lb][lb]Pause[rb][rb] will pause the game. Pressing [lb][lb]Tertiary[rb][rb] will bring up the RPG menu (this is where your global inventory is). Lastly holding [lb][lb]Quaternary[rb][rb] while moving will allow you to sprint.
-Also, make sure to check your inventory ([lb][lb]Tertiary[rb][rb]) after completing a dungeon!
-That's all! Have fun playing the game!
+Pressing [lb][lb]Secondary[rb][rb] will skip the current dialogue line, allowing to be advanced immediately. Holding [lb][lb]Tertiary[rb][rb] will both skip and advance for as long as it's held.
+...
+=> choices
 
+~ choices
+- RPG Controls => rpg_controls
+- RPG Menu => rpg_menu
+- Exit => quit
+=> END
+
+~ rpg_controls
+Pressing [lb][lb]Pause[rb][rb] will pause the game. Pressing [lb][lb]Tertiary[rb][rb] will bring up the menu. Lastly, holding [lb][lb]Quaternary[rb][rb] while moving will allow you to sprint.
+Make sure to check your inventory after completing a dungeon!
+=> choices
+
+~ rpg_menu
+The RPG menu contains four options\: "Resume", "Inventory", "Settings", and "Exit".
+Pressing "Resume" will close the menu and bring you back to the world.
+Pressing "Inventory" will open the inventory menu. This is where all of your unlocked items can be viewed and where you change your equipment.
+Pressing "Settings" will open the settings menu.
+Pressing "Exit" will exit back to the main menu.
+=> choices
+
+~ quit
+Have fun playing the game!
 => END

@@ -6,8 +6,7 @@
 [resource]
 script = ExtResource("1_be7cb")
 name = "Parasitic Stone Fish"
-flavour_text = "A fish that feeds off the body of a L. Stone Critter. 
-The critter has since reclaimed its body."
+flavour_text = "A beast made of- you mean it was two beasts?!"
 base_health = 35
 base_stamina = 15
 base_attack = 4

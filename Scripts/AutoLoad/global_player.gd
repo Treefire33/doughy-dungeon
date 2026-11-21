@@ -56,8 +56,8 @@ func increment_flag(flag_name: StringName, amount: int = 1):
 # RPG Items
 var rpg_item_database: Dictionary[StringName, RPGItemData] = ItemUtils._get_loaded_rpgitems_directory("res://RPGItems/");
 var unlocked_items: Array[StringName] = [
-    "TatteredCloak", "WoodSword",
-    "Defend", "Retype", "Attack"
+    &"TatteredCloak", &"WoodSword",
+    &"Defend", &"Retype", &"Attack"
 ];
 var cloak: RPGItemData = preload("res://RPGItems/Cloaks/TatteredCloak.tres");
 var sword: RPGItemData = preload("res://RPGItems/Swords/WoodSword.tres");
@@ -110,6 +110,8 @@ func save_player():
     save_data.set_value("rpg_items", "num_spells", spells.size());
     for i in range(spells.size()):
         save_data.set_value("rpg_items", "spell%s" % i, spells[i].resource_path);
+    
+    save_data.set_value("version_info", "version", ProjectSettings.get_setting("application/config/version", "0.0.0"));
 
     if (OS.is_debug_build()):
         save_data.save("user://player_save_debug.sav");
@@ -133,11 +135,15 @@ func load_player():
                 player_flags[flag] = saved_flags[flag];
         if (section == "rpg_items"):
             unlocked_items = save_data.get_value(section, "unlocked_items", unlocked_items);
-            cloak = load(save_data.get_value(section, "cloak", "res://RPGItems/Cloaks/TatteredCloak.tres")) as RPGItemData;
-            sword = load(save_data.get_value(section, "sword", "res://RPGItems/Cloaks/WoodSword.tres")) as RPGItemData;
+            cloak = rpg_item_database.get(save_data.get_value(section, "cloak", &"TatteredCloak"), rpg_item_database[&"TatteredCloak"]);
+            sword = rpg_item_database.get(save_data.get_value(section, "sword", &"WoodSword"), rpg_item_database[&"WoodSword"]);
             var num_spells = save_data.get_value(section, "num_spells", 3);
+            var default_spells = [
+                &"Defend", &"Retype", &"Attack"
+            ];
             for i in range(num_spells):
-                spells[i] = load(save_data.get_value(section, "spell%s" % i, "res://RPGItems/Spells/Retype.tres")) as SpellItemData;
+                spells[i] = rpg_item_database.get(save_data.get_value(section, "spell%s" % i, default_spells[i]), rpg_item_database[default_spells[i]]) as SpellItemData;
+
 func _ready() -> void:
     load_player();
 

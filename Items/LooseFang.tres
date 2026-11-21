@@ -10,6 +10,6 @@ flavour_text = "A sharp fang from an unknown beast."
 description = "On attack, 10% chance to siphon health."
 rarity = 2
 price = 135
-weight = 5.0
+weight = 1.0
 function = ExtResource("2_n156d")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

@@ -10,6 +10,6 @@ flavour_text = "A symbol of peace used by many guilds. Soothing."
 description = "Upon NOT attacking or casting an attack-spec spell, 40% chance to regen 40% health."
 rarity = 2
 price = 125
-weight = 6.0
+weight = 1.0
 function = ExtResource("2_2nyna")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

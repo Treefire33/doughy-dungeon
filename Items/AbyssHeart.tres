@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_5qtqu")
 name = "Abyss Heart"
-flavour_text = "The heart of the abyss. A strange force overwhelmes you."
+flavour_text = "The heart of the abyss. The key to someplace deeper."
 description = "Every room passed, -1 max health, +5 max stamina. 
 Every item bought, +1 max health, -5 max stamina.
 Every enemy killed, +1 attack.

@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_jfyxa")
 name = "Hard Tack"
-flavour_text = "..."
+flavour_text = "Good thing I don't have teeth! ...or a mouth."
 base_health = 30
 sprite = ExtResource("2_nd1vm")
 base_ai = "Defensive"

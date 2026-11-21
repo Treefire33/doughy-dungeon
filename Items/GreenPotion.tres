@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://0t7lgxcq3tie"]
+
+[ext_resource type="Script" uid="uid://dgfqabn47d2om" path="res://Items/Functions/GreenPotionFunction.gd" id="1_wwytv"]
+[ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_dmki5"]
+
+[resource]
+script = ExtResource("2_dmki5")
+name = "Stamina Oil"
+flavour_text = "It's sweet."
+description = "Increases max stamina by 2."
+rarity = 2
+price = 50
+weight = 1.0
+function = ExtResource("1_wwytv")
+metadata/_custom_type_script = "uid://cordgir5vu6pr"

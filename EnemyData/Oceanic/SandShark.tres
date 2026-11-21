@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_vvxnp")
 name = "Sand Shark"
-flavour_text = "Awwwww- OWCH"
+flavour_text = "I'll just admire from afar. [font-size=8]Awwww!![/font-size]"
 base_health = 45
 base_stamina = 15
 base_attack = 11

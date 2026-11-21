@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_rsxyc")
 name = "Sea Angel"
-flavour_text = "A seemingly innocent beast..."
+flavour_text = "A saviour divine! Or maybe it just wants to eat me..."
 base_health = 12
 base_attack = 2
 sprite = ExtResource("2_rsxyc")

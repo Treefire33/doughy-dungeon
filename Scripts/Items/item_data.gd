@@ -32,6 +32,9 @@ class_name ItemData
 ## Denotes if an item is painful or not.
 @export var painful: bool = false;
 
+## Denotes if an item stacks at all.
+@export var stacks: bool = true;
+
 ## Which dungeon's item pools this item appears in.
 @export var dungeon_pool: Array[Enum.Dungeon] = [ Enum.Dungeon.All ];
 

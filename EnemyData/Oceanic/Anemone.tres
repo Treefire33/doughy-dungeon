@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_vfdmj")
 name = "Mimicry Anemone"
-flavour_text = "More interested in luring jellyfish to eat..."
+flavour_text = "It prefers jellyfish over feline flesh."
 base_attack = 2
 base_defense_duration = 6
 base_defense_durability = 3

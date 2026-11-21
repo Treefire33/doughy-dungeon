@@ -7,8 +7,7 @@
 script = ExtResource("1_tkuus")
 name = "Dagger Heart"
 flavour_text = "If you're willing to bear the pain..."
-description = "Halve your health and double your damage 
-(Applied once on purchase)."
+description = "Halves your health and doubles your damage."
 rarity = 4
 price = 345
 weight = 1.0

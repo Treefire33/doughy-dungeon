@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_3jr28")
 name = "Cake"
-flavour_text = "So many eyes... it's unnerving."
+flavour_text = "This tastes horrible how could it lie to me??"
 base_health = 60
 base_stamina = 10
 base_attack = 5

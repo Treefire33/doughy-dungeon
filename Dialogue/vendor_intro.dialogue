@@ -13,8 +13,8 @@ Vendor: Feel free to ask me anything!
 
 ~ vendor_response
 Vendor: [#confused] Sorry?
-Vendor: I don't quite understand you, apologies. => vendor_exit
-=> END
+Vendor: I don't quite understand you, apologies. 
+=> vendor_exit
 
 ~ vendor_error
 ERROR: [#vendor] It stares at through the eyes of its new friend.

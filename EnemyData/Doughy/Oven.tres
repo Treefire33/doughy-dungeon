@@ -6,8 +6,7 @@
 [resource]
 script = ExtResource("1_dxm3r")
 name = "Oven"
-flavour_text = "Why is it called an oven when you \"of-in\"
-the cold food \"of-out-hot\" eat the food?"
+flavour_text = "Why is it called an oven when you \"of-in\" the cold food \"of-out-hot\" eat the food?"
 base_health = 100
 base_stamina = 20
 base_attack = 8

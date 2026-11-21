@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_bkf0m")
 name = "Biscuit Mimic"
-flavour_text = "Once baked good turned monster."
+flavour_text = "Should probably eat this one before it eats me..."
 base_health = 15
 base_stamina = 3
 base_attack = 2

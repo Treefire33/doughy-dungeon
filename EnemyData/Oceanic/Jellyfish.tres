@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_v8t0e")
 name = "Jellyfish"
-flavour_text = "Just floats around..."
+flavour_text = "It's kinda like me, except more stupid."
 base_health = 5
 base_stamina = 2
 base_attack = 4

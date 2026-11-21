@@ -44,18 +44,18 @@ func advance_dialogue():
     current_line = await current_dialogue.dialogue.get_next_dialogue_line(next_line, [ {"speaker": current_dialogue.interaction_object} ]);
     if (!current_line): finish_dialogue(); return;
 
-    dialogue_responses.visible = false;
-    dialogue_responses.responses = current_line.responses;
-
     _set_dialogue_character();
     if (!self.visible): self.visible = true;
 
-    next_line = current_line.next_id;
     current_line.text = Keybinds.format_action_string(current_line.text);
     dialogue_label.dialogue_line = current_line;
     dialogue_label.type_out();
-    if (current_line.responses.size() > 0):
-        dialogue_responses.visible = true;
+
+    dialogue_responses.responses = current_line.responses;
+    dialogue_responses.visible = current_line.responses.size() > 0;
+    if (!dialogue_responses.visible):
+        next_line = current_line.next_id;
+
 
 func skip_dialogue():
     dialogue_label.skip_typing();
