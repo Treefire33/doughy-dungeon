@@ -3,11 +3,11 @@ class_name KeybindsMenu
 
 signal get_key;
 
-@onready var setting_keybind_popup: Panel = $SettingKeybind;
-@onready var setting_keybind_button: Button = $SettingKeybind/CancelKey;
-@onready var keybinds_container: GridContainer = $ScrollContainer/KeybindsContainer;
-@onready var bind_preset: Control = $BindPreset;
-@onready var keybinds_done: Button = $Done;
+@export var setting_keybind_popup: Panel;
+@export var setting_keybind_button: Button;
+@export var keybinds_container: GridContainer;
+@export var bind_preset: Control;
+@export var keybinds_done: Button;
 
 var setting_key: bool = false;
 

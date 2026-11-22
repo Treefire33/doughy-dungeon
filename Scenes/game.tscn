@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="16_ese38"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://bxl6mqljkxkhm" path="res://Sprites/Player/player_icon.aseprite" id="24_oeip8"]
-[ext_resource type="Texture2D" uid="uid://ler003tb368l" path="res://Sprites/Other/DoughyCursor.png" id="25_xe308"]
 [ext_resource type="Texture2D" uid="uid://qfikmbdmm8g3" path="res://Sprites/Icons/MenuIcons/Magnify.tres" id="26_8m3t6"]
 [ext_resource type="PackedScene" uid="uid://cer6cdqaw15p1" path="res://Scenes/GameUI/dialogue_box.tscn" id="26_81klo"]
 [ext_resource type="PackedScene" uid="uid://8cmpy3acntlo" path="res://Scenes/dungeon_complete.tscn" id="27_8m3t6"]
@@ -478,7 +477,7 @@ wall_rect = NodePath("../Background/Wall")
 floor_rect = NodePath("../Background/Floor")
 battle_manager = NodePath("BattleManager")
 current_dungeon = ExtResource("12_81klo")
-player = NodePath("../Player")
+player = NodePath("../Midnight")
 camera = NodePath("../Camera")
 safe_room = NodePath("../SafeRoom/Shop")
 safe_room_anims = NodePath("../SafeRoom/SafeRoomAnimations")
@@ -500,76 +499,76 @@ scale = Vector2(2, 2)
 script = ExtResource("13_tgy6u")
 metadata/_custom_type_script = "uid://bwvpfwom0xr8m"
 
-[node name="Player" type="Node2D" parent="." unique_id=685296421]
+[node name="Midnight" type="Node2D" parent="." unique_id=685296421]
 z_index = 1
 position = Vector2(225, 225)
 script = ExtResource("6_7nbq1")
 tattered_texture = ExtResource("11_mg4q0")
 guild_texture = ExtResource("16_ese38")
 
-[node name="Sprite" type="Sprite2D" parent="Player" unique_id=1877316557]
+[node name="Sprite" type="Sprite2D" parent="Midnight" unique_id=1877316557]
 texture = ExtResource("11_mg4q0")
 hframes = 4
 vframes = 4
 
-[node name="Shield" type="Sprite2D" parent="Player" unique_id=253125294]
+[node name="Shield" type="Sprite2D" parent="Midnight" unique_id=253125294]
 visible = false
 texture = ExtResource("12_mg4q0")
 hframes = 2
 
-[node name="Animator" type="AnimationPlayer" parent="Player" unique_id=196307539]
+[node name="Animator" type="AnimationPlayer" parent="Midnight" unique_id=196307539]
 libraries/ = SubResource("AnimationLibrary_a8tyi")
 libraries/Player = ExtResource("12_exi56")
 autoplay = &"Player/Idle"
 
-[node name="StatusIcons" type="GridContainer" parent="Player" unique_id=96466188]
+[node name="StatusIcons" type="GridContainer" parent="Midnight" unique_id=96466188]
 offset_left = 25.0
 offset_top = -40.0
 offset_right = 110.0
 offset_bottom = 45.0
 columns = 3
 
-[node name="Slot1" type="Control" parent="Player/StatusIcons" unique_id=358907982]
+[node name="Slot1" type="Control" parent="Midnight/StatusIcons" unique_id=358907982]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot2" type="Control" parent="Player/StatusIcons" unique_id=1359794829]
+[node name="Slot2" type="Control" parent="Midnight/StatusIcons" unique_id=1359794829]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot3" type="Control" parent="Player/StatusIcons" unique_id=96554289]
+[node name="Slot3" type="Control" parent="Midnight/StatusIcons" unique_id=96554289]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot4" type="Control" parent="Player/StatusIcons" unique_id=567759249]
+[node name="Slot4" type="Control" parent="Midnight/StatusIcons" unique_id=567759249]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot5" type="Control" parent="Player/StatusIcons" unique_id=705306958]
+[node name="Slot5" type="Control" parent="Midnight/StatusIcons" unique_id=705306958]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot6" type="Control" parent="Player/StatusIcons" unique_id=369616839]
+[node name="Slot6" type="Control" parent="Midnight/StatusIcons" unique_id=369616839]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot7" type="Control" parent="Player/StatusIcons" unique_id=1726950646]
+[node name="Slot7" type="Control" parent="Midnight/StatusIcons" unique_id=1726950646]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot8" type="Control" parent="Player/StatusIcons" unique_id=699528917]
+[node name="Slot8" type="Control" parent="Midnight/StatusIcons" unique_id=699528917]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Slot9" type="Control" parent="Player/StatusIcons" unique_id=1721776627]
+[node name="Slot9" type="Control" parent="Midnight/StatusIcons" unique_id=1721776627]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -577,7 +576,7 @@ size_flags_vertical = 3
 [node name="Camera" type="Camera2D" parent="." unique_id=1653346387]
 anchor_mode = 0
 
-[node name="PlayerUI" type="Control" parent="Camera" unique_id=339884879 node_paths=PackedStringArray("room_manager", "player", "stats_display", "inventory_display", "decision_panel", "room_select")]
+[node name="PlayerUI" type="Control" parent="Camera" unique_id=339884879 node_paths=PackedStringArray("room_manager", "player", "stats_display", "inventory_display", "decision_panel", "room_select", "turn_order_prototype", "turn_order_container")]
 z_index = 3
 layout_mode = 3
 anchors_preset = 15
@@ -590,11 +589,13 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("8_7t8sx")
 room_manager = NodePath("../../RoomManager")
-player = NodePath("../../Player")
+player = NodePath("../../Midnight")
 stats_display = NodePath("Stats")
 inventory_display = NodePath("Inventory")
 decision_panel = NodePath("DecisionPanel")
 room_select = NodePath("RoomSelect")
+turn_order_prototype = NodePath("TurnOrder/Entity")
+turn_order_container = NodePath("TurnOrder/HBoxContainer")
 
 [node name="Stats" parent="Camera/PlayerUI" unique_id=2063253076 instance=ExtResource("13_7nbq1")]
 layout_mode = 1
@@ -652,17 +653,22 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Entity1" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=740123449]
+[node name="Entity" type="Button" parent="Camera/PlayerUI/TurnOrder" unique_id=740123449]
 visible = false
-layout_mode = 2
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 10.0
+offset_bottom = 10.0
 size_flags_horizontal = 3
 icon = ExtResource("24_oeip8")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_oeip8")
+tooltip_template_path = "res://Scenes/Tooltips/default_tooltip.tscn"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity1" unique_id=785801953]
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/Entity" unique_id=785801953]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -672,75 +678,6 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_font_sizes/normal_font_size = 8
 text = "1"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Entity2" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=1902190113]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-icon = ExtResource("25_xe308")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("6_oeip8")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity2" unique_id=1326667878]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 8
-text = "2"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Entity3" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=1870295795]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-icon = ExtResource("25_xe308")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("6_oeip8")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity3" unique_id=578821094]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 8
-text = "3"
-horizontal_alignment = 2
-vertical_alignment = 2
-
-[node name="Entity4" type="Button" parent="Camera/PlayerUI/TurnOrder/HBoxContainer" unique_id=844641683]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-icon = ExtResource("25_xe308")
-flat = true
-icon_alignment = 1
-expand_icon = true
-script = ExtResource("6_oeip8")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Camera/PlayerUI/TurnOrder/HBoxContainer/Entity4" unique_id=2118492308]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_font_sizes/normal_font_size = 8
-text = "4"
 horizontal_alignment = 2
 vertical_alignment = 2
 

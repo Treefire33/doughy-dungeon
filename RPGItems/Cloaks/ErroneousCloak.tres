@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_ycvy0")
 name = "Erroneous Mantle"
-description = "I'll always be with you, Midnight! Through evil and good, I'll stick by!"
+description = "ERROR_ITEM_MISSING
+ERROR_DESC_MISSING
+ERROR_i'll always be watching, Midnight_MISSING"
 icon_override = ExtResource("1_pja4q")
 overworld_cloak = ExtResource("2_lxwqr")
 max_health = 33

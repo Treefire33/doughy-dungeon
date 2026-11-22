@@ -13,6 +13,7 @@ class_name GameOver
 @export var max_stamina: RichTextLabel;
 @export var attack: RichTextLabel;
 @export var damage_taken: RichTextLabel;
+@export var coins: RichTextLabel;
 
 func _ready() -> void:
     try_again_button.pressed.connect(func():
@@ -22,7 +23,7 @@ func _ready() -> void:
         RPGManager.move_rooms(&"TEST_SCENE");
     );
 
-func load_info(player: Player, room_manager: RoomManager, status: String):
+func load_info(player: Player, room_manager: RoomManager, status: String, profit: int):
     for item in player.items:
         var count = player.items[item];
         var data = ItemUtils.get_item_data(item);
@@ -40,3 +41,4 @@ func load_info(player: Player, room_manager: RoomManager, status: String):
     max_stamina.text = "MAX STAMINA: %d" % player.max_stamina;
     attack.text = "ATTACK: %d" % player.attack;
     damage_taken.text = "DEFENSE: %d/%d" % [player.max_defense_durability, player.max_defending_duration];
+    coins.text = "COMMISSION: +%d" % profit;

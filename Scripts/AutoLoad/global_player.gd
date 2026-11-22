@@ -22,6 +22,8 @@ var completed_dungeons: Dictionary[Enum.Dungeon, bool] = {
 
 var player_flags: Dictionary[StringName, int] = {
     # Story Flags
+    # Tutorial Flags
+    &"bDungeonTutorial": 0,
     # Vendor Flags
     &"bVendorMet": 0,
 
@@ -37,6 +39,8 @@ var player_flags: Dictionary[StringName, int] = {
     # Easter Egg Flags
     &"bMetAfternoon": 0 # Flag for if you met Afternoon and their sister Evening.
 };
+
+var coins: int = 0;
 
 func set_flag(flag_name: StringName, value: int):
     player_flags[flag_name] = value;
@@ -103,6 +107,7 @@ func save_player():
     var save_data = ConfigFile.new();
     save_data.set_value("flags", "completed_dungeons", completed_dungeons);
     save_data.set_value("flags", "player_flags", player_flags);
+    save_data.set_value("flags", "coins", coins);
 
     save_data.set_value("rpg_items", "unlocked_items", unlocked_items);
     save_data.set_value("rpg_items", "cloak", cloak.resource_path);
@@ -133,6 +138,8 @@ func load_player():
             var saved_flags = save_data.get_value(section, "player_flags", player_flags);
             for flag in saved_flags:
                 player_flags[flag] = saved_flags[flag];
+            
+            coins = save_data.get_value(section, "coins", coins);
         if (section == "rpg_items"):
             unlocked_items = save_data.get_value(section, "unlocked_items", unlocked_items);
             cloak = rpg_item_database.get(save_data.get_value(section, "cloak", &"TatteredCloak"), rpg_item_database[&"TatteredCloak"]);

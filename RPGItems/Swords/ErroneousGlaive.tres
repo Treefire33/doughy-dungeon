@@ -6,7 +6,7 @@
 script = ExtResource("1_oncux")
 item_type = 1
 name = "Erroneous Glaive"
-description = "Despite your apprehension, you can't help but feel sorry for it."
+description = "You hope it'd prove useful to it."
 max_health = 1
 max_stamina = 1
 attack = 20

@@ -29,8 +29,5 @@ room_count = 30
 difficulty_floor_increment = 3
 rooms_until_next_floor = 5
 maximum_difficulty = 3
-description = "A ocean-facing segment of the Doughy Dungeon, covered in sand and small, parasitic insects.
-
-30 Rooms
-Difficulty 1-3"
+description = "An ocean-facing segment of the Doughy Dungeon, which has been infested by small yeast-like parasitic insects."
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

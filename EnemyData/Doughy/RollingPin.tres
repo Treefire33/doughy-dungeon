@@ -7,9 +7,11 @@
 script = ExtResource("1_o0bfs")
 name = "Rolling Pin"
 flavour_text = "It'll flatten you like dough."
-base_health = 5
-base_stamina = 2
-base_attack = 5
+base_health = 24
+base_stamina = 6
+base_attack = 12
+base_defense_duration = 4
+base_defense_durability = 3
 sprite = ExtResource("2_828kt")
 base_ai_five = "Defensive"
 difficulty_range = Array[int]([4, 7])

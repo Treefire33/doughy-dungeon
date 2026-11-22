@@ -248,7 +248,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Inventory" type="Panel" parent="RPGMenu/MenuSpace" unique_id=889817593 node_paths=PackedStringArray("cloak_slot", "spell_slot_one", "spell_slot_two", "spell_slot_three", "sword_slot", "item_slot_prototype", "item_slot_container")]
+[node name="Inventory" type="Panel" parent="RPGMenu/MenuSpace" unique_id=889817593 node_paths=PackedStringArray("cloak_slot", "spell_slots", "sword_slot", "item_slot_prototype", "item_slot_container")]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -263,9 +263,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_qe5ut")
 cloak_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/CloakSlot")
-spell_slot_one = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotOne")
-spell_slot_two = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotTwo")
-spell_slot_three = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotThree")
+spell_slots = [NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotOne"), NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotTwo"), NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SpellSlotThree")]
 sword_slot = NodePath("InventoryContainer/MarginContainer/Sections/Equipped/VBoxContainer/SwordSlot")
 item_slot_prototype = NodePath("InventoryContainer/ItemSlot")
 item_slot_container = NodePath("InventoryContainer/MarginContainer/Sections/Items/Items/VBoxContainer")

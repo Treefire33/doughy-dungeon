@@ -1,6 +1,4 @@
 ~ start
-
 *Something opened in the barriers of this world*
 $> GlobalPlayer.set_bool_flag(&"bErrorUnlocked", true)
-
 => END

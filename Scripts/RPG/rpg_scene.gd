@@ -14,6 +14,9 @@ func find_entrance_by_id(entrance_id: int) -> RPGRoomTrigger:
 func _on_entered(args: RPGEventBus.RPGRoomEventArgs):
     pass;
 
+func _on_exit(args: RPGEventBus.RPGRoomEventArgs):
+    pass;
+
 func _ready() -> void:
     var limits_rect = camera_limits.get_used_rect();
     var limit_topleft = limits_rect.position * camera_limits.tile_set.tile_size;
@@ -28,4 +31,6 @@ func _ready() -> void:
     RPGEventBus.fire_event(RPGEventBus.RPGRoomEventArgs.new(RPGEventBus.RPGEventId.RPG_RoomEntered, self.scene_id));
 
 func _exit_tree() -> void:
-    RPGEventBus.fire_event(RPGEventBus.RPGRoomEventArgs.new(RPGEventBus.RPGEventId.RPG_RoomExited, self.scene_id));
+    var args = RPGEventBus.RPGRoomEventArgs.new(RPGEventBus.RPGEventId.RPG_RoomExited, self.scene_id);
+    _on_exit(args);
+    RPGEventBus.fire_event(args);

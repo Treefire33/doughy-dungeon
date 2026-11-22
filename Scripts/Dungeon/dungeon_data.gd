@@ -9,6 +9,7 @@ class_name DungeonData
 @export var wall_texture: Texture;
 @export var floor_texture: Texture;
 @export var dungeon_music: AudioStreamInteractive;
+@export var requirements: Array[Enum.Dungeon] = [];
 
 @export_category("Dungeon Info")
 @export var room_count: int = 100;

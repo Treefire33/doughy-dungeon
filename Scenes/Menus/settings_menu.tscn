@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dmjvxujvl2nkc"]
 
-[ext_resource type="Script" uid="uid://bekqcpen8mmqh" path="res://Scenes/Menus/SettingsMenu/settings_menu.gd" id="1_437ti"]
+[ext_resource type="Script" uid="uid://bekqcpen8mmqh" path="res://Scripts/UI/settings_menu.gd" id="1_437ti"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="1_un4yt"]
-[ext_resource type="PackedScene" uid="uid://bbrp5jnlths23" path="res://Scenes/Menus/SettingsMenu/setting_prototype.tscn" id="2_nrclt"]
+[ext_resource type="PackedScene" uid="uid://bbrp5jnlths23" path="res://Scenes/Menus/setting_prototype.tscn" id="2_nrclt"]
 
 [node name="SettingsMenu" type="Control" unique_id=1581669506 node_paths=PackedStringArray("settings_done", "categories")]
 process_mode = 3

@@ -22,7 +22,7 @@ run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/stretch_mode=0
 boot_splash/use_filter=false
-boot_splash/image="uid://cy2oknvm4psij"
+boot_splash/image="uid://djid0yo7wj06y"
 config/icon="uid://b1yk2sgwhouw1"
 
 [aseprite]
@@ -41,7 +41,7 @@ Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
 Settings="*res://Scripts/AutoLoad/settings.gd"
 ItemUtils="*res://Scripts/Items/item_utils.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
-MidnightDebug="*res://Scripts/AutoLoad/midnight-debug.gd"
+MidnightDebug="*res://Scripts/AutoLoad/midnight_debug.gd"
 AccessibilityHelper="*uid://b0g45ldc0cbhi"
 RPGManager="*uid://blntkoo1yvmv7"
 RPGEventBus="*uid://07mj5ajgs8um"
@@ -59,6 +59,8 @@ gdscript/warnings/shadowed_variable_base_class=0
 [dialogue_manager]
 
 runtime/balloon_path="res:///balloon.tscn"
+editor/new_file_template="~ start
+=> END"
 
 [display]
 
@@ -66,6 +68,7 @@ window/size/viewport_width=800
 window/size/viewport_height=450
 window/stretch/aspect="ignore"
 window/stretch/scale_mode="integer"
+window/per_pixel_transparency/allowed=true
 mouse_cursor/custom_image="uid://ler003tb368l"
 
 [dotnet]
@@ -190,14 +193,14 @@ pointing/emulate_touch_from_mouse=true
 
 locale/translation_remaps={}
 locale/translations=PackedStringArray("res://Locale/en_US/en_US.po")
-locale/translations_pot_files=PackedStringArray("res://Items/AbyssFragment.tres", "res://Items/AbyssHeart.tres", "res://Items/BluePotion.tres", "res://Items/Bubbles.tres", "res://Items/CloutiumPipe.tres", "res://Items/Coffee.tres", "res://Items/CoralTubes.tres", "res://Items/DaggerHeart.tres", "res://Items/DurabilityScroll.tres", "res://Items/FadedNegative.tres", "res://Items/GoldAmulet.tres", "res://Items/GoldenHeart.tres", "res://Items/GraffitiHeart.tres", "res://Items/GuildBanner.tres", "res://Items/IvoryKey.tres", "res://Items/LooseFang.tres", "res://Items/LovelyHeart.tres", "res://Items/Matchstick.tres", "res://Items/Nail.tres", "res://Items/OvenMitt.tres", "res://Items/PeaceCharm.tres", "res://Items/Pillow.tres", "res://Items/RedPotion.tres", "res://Items/SeaUrchin.tres", "res://Items/SeaUrchinPainful.tres", "res://Items/SharpeningStone.tres", "res://Items/Splinter.tres", "res://Items/Whisk.tres", "res://Items/YeastSpore.tres", "res://Dungeons/AbyssalDungeon.tres", "res://Dungeons/CliffsideDungeon.tres", "res://Dungeons/DoughyAlcove.tres", "res://Dungeons/DoughyDungeon.tres", "res://Dungeons/MagmaticDungeon.tres", "res://Dungeons/OceanicDungeon.tres", "res://EnemyData/Abyssal/AbyssLurker.tres", "res://EnemyData/Doughy/BiscuitMimic2.tres", "res://EnemyData/Doughy/BiscuitMimic.tres", "res://EnemyData/Doughy/Cake.tres", "res://EnemyData/Doughy/Dough.tres", "res://EnemyData/Doughy/Doughnut.tres", "res://EnemyData/Doughy/HardTack.tres", "res://EnemyData/Doughy/Loafer.tres", "res://EnemyData/Doughy/Oven.tres", "res://EnemyData/Doughy/PretzelSpider.tres", "res://EnemyData/Doughy/RollingPin.tres", "res://EnemyData/Doughy/YeastCrawler.tres", "res://EnemyData/Magmatic/Crystalis.tres", "res://EnemyData/Magmatic/GreaterStoneCritter.tres", "res://EnemyData/Magmatic/LesserStoneCritter.tres", "res://EnemyData/Magmatic/MagmaBlob.tres", "res://EnemyData/Magmatic/ParasiticStoneFish.tres", "res://EnemyData/Oceanic/Anemone.tres", "res://EnemyData/Oceanic/Barnacle.tres", "res://EnemyData/Oceanic/GiantTubeWorm.tres", "res://EnemyData/Oceanic/Jellyfish.tres", "res://EnemyData/Oceanic/SandDollar.tres", "res://EnemyData/Oceanic/SandShark.tres", "res://EnemyData/Oceanic/SeaAngel.tres", "res://EnemyData/Oceanic/SeaBunny.tres", "res://EnemyData/Oceanic/Squid.tres", "res://EnemyData/Oceanic/StoneFish.tres", "res://Scenes/game.tscn", "res://Scenes/game_over.tscn", "res://Scenes/grounds_for_evil.tscn", "res://Scenes/Menus/SettingsMenu/settings_menu.tscn", "res://Dialogue/error_demoentity.tres", "res://Dialogue/error_demoworld.tres", "res://Dialogue/tripdawg.tres", "res://Dialogue/tutorial_sign.tres", "res://Dungeons/DebugDungeon.tres", "res://Dungeons/ErroneousEntity.tres", "res://Dialogue/vendor_beta.dialogue", "res://Dialogue/afternoon_secret.dialogue", "res://Dialogue/tutorial_sign.dialogue", "res://Dialogue/error_demoentity.dialogue", "res://Dialogue/error_demoworld.dialogue", "res://Dialogue/dungeon_yeast_mother.dialogue", "res://Dialogue/rpg_item_unlock.dialogue", "res://Dialogue/vendor_intro.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Items/AbyssFragment.tres", "res://Items/AbyssHeart.tres", "res://Items/BluePotion.tres", "res://Items/Bubbles.tres", "res://Items/CloutiumPipe.tres", "res://Items/Coffee.tres", "res://Items/CoralTubes.tres", "res://Items/DaggerHeart.tres", "res://Items/DurabilityScroll.tres", "res://Items/FadedNegative.tres", "res://Items/GoldAmulet.tres", "res://Items/GoldenHeart.tres", "res://Items/GraffitiHeart.tres", "res://Items/GuildBanner.tres", "res://Items/IvoryKey.tres", "res://Items/LooseFang.tres", "res://Items/LovelyHeart.tres", "res://Items/Matchstick.tres", "res://Items/Nail.tres", "res://Items/OvenMitt.tres", "res://Items/PeaceCharm.tres", "res://Items/Pillow.tres", "res://Items/RedPotion.tres", "res://Items/SeaUrchin.tres", "res://Items/SeaUrchinPainful.tres", "res://Items/SharpeningStone.tres", "res://Items/Splinter.tres", "res://Items/Whisk.tres", "res://Items/YeastSpore.tres", "res://Dungeons/AbyssalDungeon.tres", "res://Dungeons/CliffsideDungeon.tres", "res://Dungeons/DoughyAlcove.tres", "res://Dungeons/DoughyDungeon.tres", "res://Dungeons/MagmaticDungeon.tres", "res://Dungeons/OceanicDungeon.tres", "res://EnemyData/Abyssal/AbyssLurker.tres", "res://EnemyData/Doughy/BiscuitMimic2.tres", "res://EnemyData/Doughy/BiscuitMimic.tres", "res://EnemyData/Doughy/Cake.tres", "res://EnemyData/Doughy/Dough.tres", "res://EnemyData/Doughy/Doughnut.tres", "res://EnemyData/Doughy/HardTack.tres", "res://EnemyData/Doughy/Loafer.tres", "res://EnemyData/Doughy/Oven.tres", "res://EnemyData/Doughy/PretzelSpider.tres", "res://EnemyData/Doughy/RollingPin.tres", "res://EnemyData/Doughy/YeastCrawler.tres", "res://EnemyData/Magmatic/Crystalis.tres", "res://EnemyData/Magmatic/GreaterStoneCritter.tres", "res://EnemyData/Magmatic/LesserStoneCritter.tres", "res://EnemyData/Magmatic/MagmaBlob.tres", "res://EnemyData/Magmatic/ParasiticStoneFish.tres", "res://EnemyData/Oceanic/Anemone.tres", "res://EnemyData/Oceanic/Barnacle.tres", "res://EnemyData/Oceanic/GiantTubeWorm.tres", "res://EnemyData/Oceanic/Jellyfish.tres", "res://EnemyData/Oceanic/SandDollar.tres", "res://EnemyData/Oceanic/SandShark.tres", "res://EnemyData/Oceanic/SeaAngel.tres", "res://EnemyData/Oceanic/SeaBunny.tres", "res://EnemyData/Oceanic/Squid.tres", "res://EnemyData/Oceanic/StoneFish.tres", "res://Scenes/game.tscn", "res://Scenes/game_over.tscn", "res://Scenes/grounds_for_evil.tscn", "res://Dialogue/error_demoentity.tres", "res://Dialogue/error_demoworld.tres", "res://Dialogue/tripdawg.tres", "res://Dialogue/tutorial_sign.tres", "res://Dungeons/DebugDungeon.tres", "res://Dungeons/ErroneousEntity.tres", "res://Dialogue/vendor_beta.dialogue", "res://Dialogue/afternoon_secret.dialogue", "res://Dialogue/tutorial_sign.dialogue", "res://Dialogue/error_demoentity.dialogue", "res://Dialogue/error_demoworld.dialogue", "res://Dialogue/dungeon_yeast_mother.dialogue", "res://Dialogue/rpg_item_unlock.dialogue", "res://Dialogue/vendor_intro.dialogue", "res://Scenes/Menus/settings_menu.tscn", "res://Items/BrokenHeart.tres", "res://Items/ChaosBomb.tres", "res://Items/ClockHand.tres", "res://Items/Dice.tres", "res://Items/GreenPotion.tres", "res://Items/LooseBrick.tres", "res://Items/Monowire.tres", "res://Items/SpellGem.tres", "res://Items/SymmetriDice.tres", "res://Items/VipersKnife.tres", "res://Dialogue/dungeon_tutorial.dialogue")
 locale/fallback="en_US"
 locale/locale_filter_mode=0
 
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/sdf/oversize=0
+anti_aliasing/screen_space_roughness_limiter/enabled=false

@@ -2,9 +2,7 @@ extends Control
 class_name RPGInventory
 
 @export var cloak_slot: Button;
-@export var spell_slot_one: Button;
-@export var spell_slot_two: Button;
-@export var spell_slot_three: Button;
+@export var spell_slots: Array[Button];
 @export var sword_slot: Button;
 
 @export var item_slot_prototype: Button;
@@ -60,11 +58,15 @@ func _get_rpg_item_tooltip(rpg_item: RPGItemData) -> Array[String]:
     return tooltip_strings;
 
 func _update_equipped_display():
+    cloak_slot.icon = GlobalPlayer.cloak.icon_override if GlobalPlayer.cloak.icon_override else item_type_icon_dict[GlobalPlayer.cloak.item_type];
     cloak_slot.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.cloak);
+
+    sword_slot.icon = GlobalPlayer.sword.icon_override if GlobalPlayer.sword.icon_override else item_type_icon_dict[GlobalPlayer.sword.item_type];
     sword_slot.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.sword);
-    spell_slot_one.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.spells[0]);
-    spell_slot_two.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.spells[1]);
-    spell_slot_three.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.spells[2]);
+
+    for i in range(spell_slots.size()):
+        spell_slots[i].icon = GlobalPlayer.spells[i].icon_override if GlobalPlayer.spells[i].icon_override else item_type_icon_dict[GlobalPlayer.spells[i].item_type];
+        spell_slots[i].tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.spells[i]);
 
 var current_equip_type: Enum.RPGItemType = Enum.RPGItemType.Cloak;
 func _update_equippable_display_container():
@@ -111,9 +113,8 @@ func _ready() -> void:
 
     cloak_slot.mouse_entered.connect(_update_equippable_display.bind(Enum.RPGItemType.Cloak));
     sword_slot.mouse_entered.connect(_update_equippable_display.bind(Enum.RPGItemType.Sword));
-    spell_slot_one.mouse_entered.connect(_update_equippable_display.bind(Enum.RPGItemType.Spell));
-    spell_slot_two.mouse_entered.connect(_update_equippable_display.bind(Enum.RPGItemType.Spell + 1));
-    spell_slot_three.mouse_entered.connect(_update_equippable_display.bind(Enum.RPGItemType.Spell + 2));
+    for i in range(spell_slots.size()):
+        spell_slots[i].mouse_entered.connect(_update_equippable_display.bind(Enum.RPGItemType.Spell + i));
 
     _update_equippable_display_container();
     _update_equipped_display();

@@ -1,0 +1,50 @@
+~ start
+It appears this is your first time playing a dungeon segment.
+Would you like to a read a tutorial?
+...
+- Yes => tutorial
+- No => done
+
+~ tutorial
+Let's go over the basics.
+You have a few stats to keep track of\: health, stamina, attack, etc.
+Most of the stats are self-explanatory, health is the remaining amount of hit points before failure, stamina is the amount of energy you still have to make decisions, and attack is how much damage you deal onto enemies.
+However, there are two interesting ones\: defense duration and durability. Duration determines how long defense-spec spells last for, and durability determines how many attacks the shield can absorb before breaking. 
+If a shield breaks (durability reaches zero), you'll be unable to recast a defense-spec spell for one turn.
+Enemies also share almost all of your stats, meaning they too have defense duration and durability (so use that to your advantage!).
+Next, dungeon segments can be divided into two parts\: fighting and traversing.
+Fighting involves making decisions and trying to defeat the current room's enemies.
+Traversing involves selecting which rooms to pass through.
+You'll be spending most of your time fighting, but that doesn't mean there isn't any strategy in traversal.
+...
+- Fighting => fighting
+- Traversal => traversal
+- Exit => done
+
+~ fighting
+As mentioned, fighting involves making decisions. Decisions require stamina to perform. If a decision takes too much stamina to perform, it can go negative (the action will still be performed however).
+There are three types of "core" decision\: Attack, Spell, and Rest. Each "core" decision has "sub-decisions" which may also require a target enemy or "depth".
+Depth determines the strength of most decisions, for example, heavy attacks increase in damage the deeper it's performed.
+"Attack"ing is simple\: select an attack type, choose depth if needed, then select a target and deal damage. However, if an enemy is defending, you're decision won't cost any stamina and you'll deal one hit point of damage to the enemy's shield. 
+"Spell"s are player-chosen and have a lot of potential for strategy. By default you're provided with a defense-spec spell, an activation-spec spell, and an attack-spec spell. 
+If you're unaware of what a spell does, read its description by hovering over the decision button. Spells may also require depth or targets.
+"Rest"ing is the only way to recover stamina (by default). You can recover more stamina by increasing the depth. Resting does not expend any stamina.
+All decisions have a "turn cost". The higher the cost, the more turns you'll sit around doing nothing. For most decisions, increasing depth increases turn cost (typically one-to-one), so plan around that.
+...
+- Traversal => traversal
+- Exit => done
+
+~ traversal
+When you defeat all of the enemies in a room, you'll be presented with the floor map and a set of highlighted rooms which you can travel to.
+There are three main types of room\: "Proceed" rooms, "Stay Clear" rooms, and "Risk It" rooms.
+"Proceed" rooms are the standard room type, entering them increments the room count by one and gives you a standard set of enemies.
+"Stay Clear" rooms let you skip a room, at the cost of having harder enemies in the next room.
+"Risk It" rooms increase the difficulty of the room and enemies but increases coin drops.
+There are also special rooms (though internally they are still one of the three) that change enemy pools and a variety of other things.
+...
+- Fighting => fighting
+- Exit => done
+
+~ done
+$> GlobalPlayer.set_bool_flag(&"bDungeonTutorial", true)
+=> END!

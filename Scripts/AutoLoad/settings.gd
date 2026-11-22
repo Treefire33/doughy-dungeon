@@ -220,14 +220,14 @@ func load_settings_save_dict(save_dict: Dictionary):
             continue;
         set_setting_value(setting, save_dict[setting]);
 
-var _settings_menu: SettingsMenu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
+var _settings_menu: SettingsMenu = load("res://Scenes/Menus/settings_menu.tscn").instantiate();
 func load_settings_menu(node: Node):
-    if (!is_instance_valid(_settings_menu)): _settings_menu = load("res://Scenes/Menus/SettingsMenu/settings_menu.tscn").instantiate();
+    if (!is_instance_valid(_settings_menu)): _settings_menu = load("res://Scenes/Menus/settings_menu.tscn").instantiate();
     _settings_menu.visible = true;
     if (_settings_menu.get_parent() == node): return;
     node.add_child(_settings_menu);
 
-var _pause_menu: PauseMenu = load("res://Scenes/Menus/PauseMenu/pause_menu.tscn").instantiate();
+var _pause_menu: PauseMenu = load("res://Scenes/Menus/pause_menu.tscn").instantiate();
 var game_paused: bool = false:
     get: return game_paused;
     set (value):
@@ -235,7 +235,7 @@ var game_paused: bool = false:
         get_tree().paused = game_paused;
 func pause_game(node: Control):
     if (game_paused): return;
-    if (!is_instance_valid(_pause_menu)): _pause_menu = load("res://Scenes/Menus/PauseMenu/pause_menu.tscn").instantiate();
+    if (!is_instance_valid(_pause_menu)): _pause_menu = load("res://Scenes/Menus/pause_menu.tscn").instantiate();
     game_paused = true;
     _pause_menu.visible = true;
     if (_pause_menu.get_parent() == node): return;

@@ -7,10 +7,11 @@
 script = ExtResource("1_3jr28")
 name = "Cake"
 flavour_text = "This tastes horrible how could it lie to me??"
-base_health = 60
-base_stamina = 10
-base_attack = 5
+base_health = 110
+base_stamina = 15
+base_attack = 13
 base_defense_duration = 4
+base_defense_durability = 4
 sprite = ExtResource("2_e6wv1")
 base_ai = "Smart"
 base_ai_five = "Smart"

@@ -27,6 +27,11 @@ func decision_text(decision: Enum.Decision):
     return "???";
 
 func do_turn(room_manager: RoomManager):
+    # Update turn order
+    current_entities.sort_custom(_sort_entity);
+    for entity in current_entities:
+        room_manager.player_ui.add_to_turn_order(entity);
+
     # Get player's decision
     player.play_anim(Enum.PlayerAnimation.Idle);
     var decision: Enum.Decision = Enum.Decision.Rest;
@@ -42,7 +47,6 @@ func do_turn(room_manager: RoomManager):
         selected_spell = decision_info[3];
 
     # Do turns
-    current_entities.sort_custom(_sort_entity);
     for entity in current_entities:
         if (entity.health <= 0): continue;
 
@@ -103,7 +107,7 @@ func do_turn(room_manager: RoomManager):
         entity.update_shield();
         entity.update_status_notifs();
     
-    room_manager.player_ui.update_turn_order();
+    room_manager.player_ui.reset_turn_order();
 
 func battle_active() -> bool:
     var enemies_dead: int = 0;

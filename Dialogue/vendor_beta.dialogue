@@ -5,14 +5,14 @@ if (GlobalPlayer.get_flag(&"iEvilScore") > 0 && !(GlobalPlayer.get_bool_flag(&"b
 => END
 
 ~ vendor_error
-ERROR: [#vendor] You witness its gaze once more.
-ERROR: [#vendor] Does it believe you hold the answer to something, much, much deeper?
+ERROR: [#vendor] Once again you meet, staring beyond the face of its friend.
+ERROR: [#vendor] Does it believe you hold the answer? Something more?
 ERROR: [#vendor] ...
 if GlobalPlayer.get_flag(&"iEvilScore") < 3:
 	ERROR: [#vendor] Well, you'll be meeting soon enough.
 	ERROR: [#vendor] Only {{3 - GlobalPlayer.get_flag(&"iEvilScore")}} more times...
 else:
 	ERROR: [#vendor] Though, you should've already met.
-	ERROR: [#vendor] Through the bottom of its world sits your's.
+	ERROR: [#vendor] Through the bottom of its world sits yours.
 	ERROR: [#vendor] Perhaps it should visit?
 => END

@@ -24,6 +24,14 @@ func switch_scene(scene_path: Variant):
 func change_font(font_file: Font):
     game_control.theme.default_font = font_file;
 
+func set_transparent(state: bool):
+    if (!DisplayServer.is_window_transparency_available()):
+        print("Can't set this window to be transparent.");
+        return;
+    var rid = get_tree().get_root().get_viewport_rid();
+    RenderingServer.viewport_set_transparent_background(rid, state);
+    DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT, state);
+
 func _bootstrap_loader():
     var current_scene = get_tree().current_scene;
     if (current_scene is RPGScene):

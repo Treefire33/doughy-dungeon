@@ -27,10 +27,8 @@ boss_enemy = ExtResource("1_kqfiu")
 wall_texture = ExtResource("27_4yyok")
 floor_texture = ExtResource("12_wnklr")
 dungeon_music = ExtResource("2_5s1xb")
+requirements = Array[int]([0])
 room_count = 50
 maximum_difficulty = 5
-description = "A dungeon located on the ocean floor. Many beasts hunt here, so be careful.
-
-50 Rooms
-Difficulty 1-5"
+description = "Located on the sea floor, where many strange and curious beasts live and thrive. I'd be careful though, most are out for blood."
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

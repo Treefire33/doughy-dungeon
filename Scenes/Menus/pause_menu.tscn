@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://co3pys803rpam"]
 
-[ext_resource type="Script" uid="uid://b32apeoqpsfnd" path="res://Scenes/Menus/PauseMenu/pause_menu.gd" id="1_xybiy"]
+[ext_resource type="Script" uid="uid://b32apeoqpsfnd" path="res://Scripts/UI/pause_menu.gd" id="1_xybiy"]
 
 [node name="PauseMenu" type="Control" unique_id=524549715 node_paths=PackedStringArray("resume_button", "restart_button", "options_button", "return_button", "exit_button")]
 process_mode = 3

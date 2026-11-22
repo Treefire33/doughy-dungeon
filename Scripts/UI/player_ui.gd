@@ -32,12 +32,8 @@ signal _enemy_selected();
     preload("res://Sprites/Icons/MenuIcons/Enemy.tres")
 ];
 
-@onready var turn_order_indicators: Array[TooltipTrigger] = [
-    $TurnOrder/HBoxContainer/Entity1,
-    $TurnOrder/HBoxContainer/Entity2,
-    $TurnOrder/HBoxContainer/Entity3,
-    $TurnOrder/HBoxContainer/Entity4
-];
+@export var turn_order_prototype: TooltipTrigger;
+@export var turn_order_container: Container;
 
 # Decision
 var selecting_enemy: bool = false;
@@ -124,20 +120,22 @@ func update_ui():
     stats_display.update(room_manager);
     update_enemy_buttons();
 
-func update_turn_order():
-    var current_entities: Array[Entity] = room_manager.battle_manager.current_entities;
-    for i in range(turn_order_indicators.size()):
-        turn_order_indicators[i].visible = i < current_entities.size();
-        if (!turn_order_indicators[i].visible):
-            continue;
-        
-        turn_order_indicators[i].icon = turn_order_icons[0 if current_entities[i] is Player else 1];
-        # turn_order_indicators[i].mouse_entered.connect(move_selection_box.bind(current_entities[i]));
-        # turn_order_indicators[i].mouse_exited.connect(move_selection_box.bind(null));
-        turn_order_indicators[i].tooltip_strings = [
-            current_entities[i].name + "\n" + 
-            "Speed: %d" % current_entities[i].speed
-        ];
+func reset_turn_order():
+    for indicator in turn_order_container.get_children():
+        indicator.queue_free();
+
+func add_to_turn_order(entity: Entity):
+    var new_indicator = turn_order_prototype.duplicate(DUPLICATE_SCRIPTS);
+    new_indicator.icon = turn_order_icons[0 if entity is Player else 1];
+    new_indicator.tooltip_strings = [
+        entity.name + "\n[font_size=8]Speed: %d[/font_size]" % entity.speed
+    ] as Array[String];
+
+    new_indicator.mouse_entered.connect(move_selection_box.bind(entity));
+    new_indicator.mouse_exited.connect(move_selection_box.bind(null));
+
+    new_indicator.visible = true;
+    turn_order_container.add_child(new_indicator);
 
 func toggle_safe_room(state: bool):
     safe_room_proceed.visible = state;
@@ -157,7 +155,7 @@ func _ready() -> void:
     
     inventory_button.pressed.connect(func():
         inventory_display.update(room_manager, in_safe_room);
-    )
+    );
     
     safe_room_proceed.pressed.connect(func():
         if (!in_safe_room):
@@ -193,12 +191,12 @@ func _process(delta: float) -> void:
     if (Input.is_action_just_pressed("Pause")):
         Settings.pause_game(self);
 
-    if (Input.is_action_just_pressed("Quaternary") && !making_decision):
-        inventory_button.pressed.emit();
-    
     if (Input.is_key_pressed(KEY_END)):
         SuperLoader.switch_scene.call_deferred("res://Scenes/grounds_for_evil.tscn");
         return;
+    
+    if (Input.is_action_just_pressed("Quaternary") && !making_decision):
+        inventory_button.pressed.emit();
 
     if (room_select.visible && !previewing_room_select):
         show_room_select_button.visible = false;

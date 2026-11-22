@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_g5aej")
-name = "???"
-flavour_text = "You're in the wrong place, at the right time!"
+name = "ERROR_ERRONEOUS_ENTITY"
+flavour_text = "You should've tried harder, Midnight."
 base_health = 9999
 base_stamina = 999
 base_attack = 10

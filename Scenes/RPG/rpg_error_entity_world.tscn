@@ -9,8 +9,21 @@
 script/source = "extends RPGScene
 
 func _on_entered(args: RPGEventBus.RPGRoomEventArgs):
+    DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true);
+    DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_MOUSE_PASSTHROUGH, true);
+    if (!Settings.fullscreen):
+        DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN);
+    SuperLoader.set_transparent(true);
     Audio.play_music(Audio.evilgrounds_music);
-    Audio.change_music(1);
+    if (!GlobalPlayer.get_bool_flag(&\"bErrorWorld\")):
+        Audio.change_music(1);
+        
+func _on_exit(args: RPGEventBus.RPGRoomEventArgs):
+    DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false);
+    DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_MOUSE_PASSTHROUGH, false);
+    if (!Settings.fullscreen):
+        DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED);
+    SuperLoader.set_transparent(false);
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oo64u"]

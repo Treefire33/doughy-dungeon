@@ -7,10 +7,11 @@
 script = ExtResource("1_2aaj7")
 name = "Loafer"
 flavour_text = "Pretty lazy, especially for a slice of bread."
-base_health = 5
-base_stamina = 1
+base_health = 35
+base_stamina = 70
 base_attack = 0
-base_defense_duration = 2
+base_defense_duration = 70
+base_defense_durability = 3
 sprite = ExtResource("2_7ftbb")
 base_ai = "Restless"
 base_ai_five = "Restless"

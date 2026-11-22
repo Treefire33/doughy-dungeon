@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dbn6ivh0qv23i"
+path="res://.godot/imported/dungeon_tutorial.dialogue-09c735f6bf8da1dd38c8d55d62e0ade0.tres"
+
+[deps]
+
+source_file="res://Dialogue/dungeon_tutorial.dialogue"
+dest_files=["res://.godot/imported/dungeon_tutorial.dialogue-09c735f6bf8da1dd38c8d55d62e0ade0.tres"]
+
+[params]
+
+defaults=true

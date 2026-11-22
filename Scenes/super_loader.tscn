@@ -41,13 +41,16 @@ stretch = true
 
 [node name="GameViewport" type="SubViewport" parent="Game/GameViewportContainer" unique_id=1012181752]
 process_mode = 1
+transparent_bg = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
+scaling_3d_mode = 5
+scaling_3d_scale = 0.1
+anisotropic_filtering_level = 0
 canvas_item_default_texture_filter = 0
 physics_object_picking = true
 gui_embed_subwindows = true
-sdf_oversize = 0
 oversampling = false
 size = Vector2i(800, 450)
 size_2d_override = Vector2i(800, 450)

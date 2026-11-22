@@ -7,9 +7,11 @@
 script = ExtResource("1_cw0yr")
 name = "Don't-Nut"
 flavour_text = "Seems happy to just be here."
-base_health = 40
+base_health = 65
+base_stamina = 65
 base_attack = 0
-base_defense_duration = 0
+base_defense_duration = 20
+base_defense_durability = 8
 sprite = ExtResource("2_ig3f8")
 base_ai = "Defensive"
 base_ai_five = "Defensive"

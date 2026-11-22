@@ -21,7 +21,7 @@ size_override = Vector2(384, 448)
 atlas = SubResource("PortableCompressedTexture2D_conl1")
 region = Rect2(0, 128, 64, 64)
 
-[node name="GameComplete" type="ColorRect" unique_id=313561997 node_paths=PackedStringArray("completion_status", "item_icon", "item_container", "room_reached", "max_health", "max_stamina", "attack", "damage_taken")]
+[node name="GameComplete" type="ColorRect" unique_id=313561997 node_paths=PackedStringArray("completion_status", "item_icon", "item_container", "room_reached", "max_health", "max_stamina", "attack", "damage_taken", "profit")]
 z_index = 5
 offset_right = 800.0
 offset_bottom = 450.0
@@ -36,6 +36,7 @@ max_health = NodePath("Summaries/VBoxContainer/MaxHealth")
 max_stamina = NodePath("Summaries/VBoxContainer/MaxStamina")
 attack = NodePath("Summaries/VBoxContainer/Attack")
 damage_taken = NodePath("Summaries/VBoxContainer/DamageTaken")
+profit = NodePath("Summaries/VBoxContainer/Coins")
 
 [node name="CompletionStatus" type="RichTextLabel" parent="." unique_id=2145486174]
 layout_mode = 1
@@ -103,48 +104,63 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="RoomReached" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=1929343886]
-custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
 text = "ROOM REACHED: 50"
 vertical_alignment = 1
 
 [node name="MaxHealth" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=1754428846]
-custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
 text = "MAX HEALTH: 10"
 vertical_alignment = 1
 
 [node name="MaxStamina" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=139937720]
-custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
 text = "MAX STAMINA: 10"
 vertical_alignment = 1
 
 [node name="Attack" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=580495138]
-custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
 text = "ATTACK: 10"
 vertical_alignment = 1
 
 [node name="DamageTaken" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=983552912]
-custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
 text = "DAMAGE TAKEN: 10"
 vertical_alignment = 1
 
-[node name="Items" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=2142094389]
-custom_minimum_size = Vector2(0, 32)
+[node name="Coins" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=256949482]
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_font_sizes/normal_font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
+text = "COMMISSION: +100"
+vertical_alignment = 1
+
+[node name="Items" type="RichTextLabel" parent="Summaries/VBoxContainer" unique_id=2142094389]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 theme_override_font_sizes/normal_font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxEmpty_oo64u")
 text = "ITEMS:"

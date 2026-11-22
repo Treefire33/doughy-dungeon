@@ -73,9 +73,12 @@ func complete_dungeon(status: String):
         Color(0, 0, 0, 1), 
         2.0 / Settings.game_speed
     ).set_delay(0.5);
+
+    var profit = int(difficulty_adjust(player.coins) / 10);
+    GlobalPlayer.coins += profit;
     player_ui.game_completed.load_info(
         player, self,
-        status
+        status, profit
     );
     new_tween.tween_callback(func():
         player_ui.game_completed.visible = true;
@@ -210,6 +213,22 @@ func gen_safe_room_items():
         if (purchased_indicies.has(i)): continue;
         generate_shop_item(i);
 
+func dialogue(dialogue_path: String):
+    player_ui.stats_display.visible = false;
+
+    var decisions_visible = player_ui.decision_panel.visible; 
+    if (decisions_visible):
+        player_ui.decision_panel.visible = false;
+    player_ui.turn_order_container.visible = false;
+
+    player_ui.dialogue_box.start_dialogue.emit(RPGEventBus.RPGDialogueArgs.new(RPGEventBus.RPGEventId.RPG_Dialogue, null, load(dialogue_path)));
+    await player_ui.dialogue_box.dialogue_finished;
+
+    if (decisions_visible):
+        player_ui.decision_panel.visible = true;
+    player_ui.stats_display.visible = true;
+    player_ui.turn_order_container.visible = true;
+
 @export var safe_room: Node2D;
 @export var safe_room_anims: AnimationPlayer;
 func gen_safe_room():
@@ -224,15 +243,10 @@ func gen_safe_room():
     purchased_indicies.clear();
     gen_safe_room_items();
 
-    if (current_dungeon.id == Enum.Dungeon.Oceanic && floor_count == 2 && !GlobalPlayer.get_flag(&"bVendorMet")):
+    if (current_dungeon.id == Enum.Dungeon.Oceanic && !GlobalPlayer.get_flag(&"bVendorMet")):
         safe_room_anims.play("VendorIntro");
         await safe_room_anims.animation_finished;
-        player_ui.dialogue_box.start_dialogue.emit(load("res://Dialogue/vendor_intro.dialogue"));
-        player_ui.stats_display.hide();
-        player_ui.upgrades_panel.hide();
-        player_ui.safe_room_proceed.hide();
-        await player_ui.dialogue_box.dialogue_finished;
-        player_ui.stats_display.show();
+        await dialogue("res://Dialogue/vendor_intro.dialogue");
         safe_room_anims.play("VendorExit");
         await safe_room_anims.animation_finished;
 
@@ -251,7 +265,7 @@ func room_turn():
     while (battle_manager.battle_active()):
         await battle_manager.do_turn(self);
         player_ui.update_ui();
-        await get_tree().create_timer(0.5 / Settings.game_speed).timeout
+        await get_tree().create_timer(0.5 / Settings.game_speed).timeout;
         player.update_shield();
     
     battle_manager.clear_battle();
@@ -273,7 +287,7 @@ func gen_next_room():
         decision = await player_ui.room_select.room_decision;
     camera.position = Vector2.ZERO;
     player.position = Vector2(225, 225);
-    get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35)
+    get_tree().create_tween().tween_property(player_ui.fade_panel, "modulate", Color(0, 0, 0, 0), 0.35);
     room_count += 1;
     gen_room(decision);
     player_ui.update_ui();
@@ -317,9 +331,12 @@ func _ready() -> void:
     if (RoomManager.instance):
         RoomManager.instance.queue_free();
     RoomManager.instance = self;
+
+    if (!GlobalPlayer.get_bool_flag(&"bDungeonTutorial")):
+        await dialogue("res://Dialogue/dungeon_tutorial.dialogue");
+
     gen_room(Enum.RoomDecision.Proceed);
     player_ui.update_ui();
-    player_ui.update_turn_order();
     player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor - 1, current_dungeon.rooms, self.room_difficulty);
     Audio.play_music(current_dungeon.dungeon_music);
     Audio.change_music(Audio.DungeonMusic.Idle);

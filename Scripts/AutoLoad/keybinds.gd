@@ -56,7 +56,7 @@ func format_action_string(action_string: String):
         final_string = final_string.replacen(act_string_rtl, get_action_text(action));
     return final_string;
 
-var keybinds_menu: PackedScene = preload("res://Scenes/Menus/KeybindsMenu/keybinds_menu.tscn");
+var keybinds_menu: PackedScene = preload("res://Scenes/Menus/keybinds_menu.tscn");
 func load_keybinds_menu(node: Node):
     var new_keybinds = keybinds_menu.instantiate();
     node.add_child(new_keybinds);

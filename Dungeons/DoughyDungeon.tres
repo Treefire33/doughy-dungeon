@@ -25,9 +25,7 @@ enemies = Array[ExtResource("1_1mqci")]([ExtResource("2_164du"), ExtResource("3_
 wall_texture = ExtResource("28_4sgh7")
 floor_texture = ExtResource("12_g2dxu")
 dungeon_music = ExtResource("1_aofr0")
+requirements = Array[int]([0, 1])
 minimum_difficulty = 3
-description = "A dungeon comprised almost entirely out of doughy beasts and baking tools. I'd suggest eating before entering.
-
-100 Rooms
-Difficulty 3-10"
+description = "A dungeon comprised almost entirely out of doughy beasts and baking tools. Try not to gain an appetite for these beasts."
 metadata/_custom_type_script = "uid://bpf21k2dfy5fp"

@@ -24,6 +24,7 @@ class_name RPGUI
 @export var mobile_quaternary: Button;
 
 var _current_interactable: RPGInteractable = null;
+var _invalid_dungeon: bool = false;
 
 var _in_menu: bool = false;
 var _in_interaction: bool = false;
@@ -39,11 +40,27 @@ func enter_dungeon():
 
 func inspect_dungeon(interaction_args: RPGEventBus.RPGInteractionArgs):
     assert(interaction_args.interaction_object is RPGDungeon);
+    var dungeon_data: DungeonData = interaction_args.interaction_object.dungeon;
 
     _in_interaction = true;
     dungeon_inspect.visible = true;
-    dungeon_name.text = interaction_args.interaction_object.dungeon.name;
-    dungeon_description.text = interaction_args.interaction_object.dungeon.description;
+    dungeon_name.text = dungeon_data.name;
+
+    _invalid_dungeon = false;
+    var failing_dungeon = Enum.Dungeon.Alcove;
+    for requirement in dungeon_data.requirements:
+        if (!GlobalPlayer.completed_dungeons[requirement]):
+            failing_dungeon = requirement;
+            _invalid_dungeon = true;
+            break;
+
+    if (_invalid_dungeon):
+        dungeon_description.text = "Please complete %s before entering this dungeon." % Enum.Dungeon.keys()[failing_dungeon + 1];
+    else:
+        dungeon_description.text = "%s\n\n%d Rooms\nDifficulty %d-%d" % [
+            dungeon_data.description, dungeon_data.room_count, 
+            dungeon_data.minimum_difficulty, dungeon_data.maximum_difficulty
+        ];
 
 func start_dialogue(dialogue_args: RPGEventBus.RPGDialogueArgs):
     _in_menu = true;
@@ -138,7 +155,7 @@ func _process(delta: float) -> void:
             _in_menu = true;
             menu.visible = true;
     elif (_in_interaction):
-        if (Input.is_action_just_pressed("Primary")):
+        if (Input.is_action_just_pressed("Primary") && !_invalid_dungeon):
             RPGEventBus.fire_event(RPGEventBus.RPGInteractionArgs.new(RPGEventBus.RPGEventId.RPG_EnterDungeon, _current_interactable));
             enter_dungeon();
         elif (Input.is_action_just_pressed("Secondary")):

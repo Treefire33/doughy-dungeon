@@ -6,9 +6,12 @@
 [resource]
 script = ExtResource("1_oahtm")
 name = "Pretzel Spider"
-flavour_text = "It's somehow a single pretzel stick."
-base_stamina = 20
-base_defense_duration = 2
+flavour_text = "It's somehow a single pretzel stick... eugh..."
+base_health = 75
+base_stamina = 25
+base_attack = 6
+base_defense_duration = 7
+base_defense_durability = 5
 sprite = ExtResource("2_ws6vb")
 base_ai = "Defensive"
 base_ai_five = "Aggressive"
