@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b6tlmce3kxlc7"
+path="res://.godot/imported/lana_demo.dialogue-45d997b6dbe187cfbd8242d155301e79.tres"
+
+[deps]
+
+source_file="res://Dialogue/lana_demo.dialogue"
+dest_files=["res://.godot/imported/lana_demo.dialogue-45d997b6dbe187cfbd8242d155301e79.tres"]
+
+[params]
+
+defaults=true

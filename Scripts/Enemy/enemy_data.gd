@@ -1,37 +1,17 @@
 extends Resource
 class_name EnemyData
 
-@export var name: String = "Enemy":
-	set (value):
-		name = value;
-
-@export_multiline var flavour_text: String = "Flavour":
-	set (value):
-		flavour_text = value;
+@export var name: String = "Enemy";
+@export_multiline var flavour_text: String = "Flavour";
 		
-@export var base_health: int = 10:
-	set (value):
-		base_health = value;
+@export var base_health: int = 10;
+@export var base_stamina: int = 5;
+@export var base_attack: int = 1;
+@export var base_defense_duration: int = 1;
+@export var base_defense_durability: int = 1;
 
-@export var base_stamina: int = 5:
-	set (value):
-		base_stamina = value;
-
-@export var base_attack: int = 1:
-	set (value):
-		base_attack = value;
-
-@export var base_defense_duration: int = 1:
-	set (value):
-		base_defense_duration = value;
-
-@export var base_defense_durability: int = 1:
-	set (value):
-		base_defense_durability = value;
-
-@export var sprite: StringName = "Nil":
-	set (value):
-		sprite = value;
+@export var sprite: StringName = &"Nil";
+@export var boss: bool = false;
 
 @export_enum(
 	"Default", "Random", 

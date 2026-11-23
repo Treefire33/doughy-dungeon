@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://skuymh1v0uv0"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_oahtm"]
-[ext_resource type="Texture2D" uid="uid://bsogx1j4ccqj8" path="res://Sprites/Enemies/DoughyDungeon/PretzelSpider.tres" id="2_ws6vb"]
 
 [resource]
 script = ExtResource("1_oahtm")
@@ -12,7 +11,7 @@ base_stamina = 25
 base_attack = 6
 base_defense_duration = 7
 base_defense_durability = 5
-sprite = ExtResource("2_ws6vb")
+sprite = &"PretzelSpider"
 base_ai = "Defensive"
 base_ai_five = "Aggressive"
 difficulty_range = Array[int]([5, 8])

@@ -49,7 +49,7 @@ func move_selection_box(entity: Entity):
         selection_box.visible = false;
         return	
 
-    selection_box.size = entity.sprite.get_rect().size * entity.global_scale;
+    selection_box.size = entity.sprite.sprite_frames.get_frame_texture(entity.sprite.animation, 0).get_size() * entity.global_scale;
     selection_box.position = entity.global_position - selection_box.size / 2;
     selection_box.visible = true;
 

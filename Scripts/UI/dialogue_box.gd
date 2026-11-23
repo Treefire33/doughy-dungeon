@@ -20,6 +20,7 @@ var next_line: String = "start";
 const dialogue_character: Dictionary[String, SpriteFrames] = {
     "Midnight": preload("res://Sprites/Dialogue/midnight_icons.aseprite"),
     "Vendor": preload("res://Sprites/Dialogue/vendor_icons.aseprite"),
+    "Lana": preload("res://Sprites/Dialogue/lana_icons.aseprite"),
     "ERROR": preload("res://Sprites/Dialogue/error_icons.aseprite")
 };
 

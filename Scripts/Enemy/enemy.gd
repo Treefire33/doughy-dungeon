@@ -7,6 +7,9 @@ signal pressed();
 @export var health_bar: ProgressBar;
 @export var notif: Sprite2D;
 
+@export var enemy_frames: SpriteFrames;
+@export var boss_frames: SpriteFrames;
+
 var flavour_text: String = "placeholder";
 var coin_drop_range = [0, 1];
 var ai0_type = "Default";
@@ -26,6 +29,7 @@ func load_enemy(enemy_data: EnemyData):
         $Sprite,
         $StatusIcons
     );
+    self.sprite.sprite_frames = boss_frames if enemy_data.boss else enemy_frames;
     self.sprite.play(enemy_data.sprite if !enemy_data.sprite.is_empty() else StringName(enemy_data.resource_path.get_file().trim_suffix(".tres")));
     self.flavour_text = enemy_data.flavour_text;
     self.coin_drop_range = enemy_data.coins_range;

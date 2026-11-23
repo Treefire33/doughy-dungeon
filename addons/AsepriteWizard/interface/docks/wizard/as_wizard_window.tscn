@@ -2,17 +2,9 @@
 
 [ext_resource type="Script" uid="uid://ufmscsnm8ya3" path="res://addons/AsepriteWizard/interface/docks/wizard/as_wizard_window.gd" id="1"]
 
-[sub_resource type="Image" id="Image_gc3fe"]
-data = {
-"data": PackedByteArray(255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 92, 92, 127, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 90, 90, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 42, 255, 90, 90, 0, 255, 94, 94, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 93, 93, 41, 255, 90, 90, 0, 255, 94, 94, 0, 255, 91, 91, 42, 255, 93, 93, 233, 255, 92, 92, 232, 255, 92, 92, 0, 255, 92, 92, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 93, 93, 44, 255, 91, 91, 0, 255, 91, 91, 42, 255, 91, 91, 42, 255, 93, 93, 0, 255, 91, 91, 45, 255, 93, 93, 44, 255, 91, 91, 0, 255, 91, 91, 42, 255, 91, 91, 42, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 45, 255, 92, 92, 235, 255, 92, 92, 234, 255, 89, 89, 43, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 91, 91, 0, 255, 92, 92, 0, 255, 92, 92, 0, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 91, 91, 59, 255, 92, 92, 61, 255, 92, 92, 0, 255, 92, 92, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0, 255, 93, 93, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 16
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_lk6qb"]
-image = SubResource("Image_gc3fe")
+[sub_resource type="DPITexture" id="DPITexture_brc5y"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#ff5d5d\" d=\"M2 1v8.586l1.293-1.293a1 1 0 0 1 1.414 0L7 10.587l2.293-2.293a1 1 0 0 1 1.414 0L13 10.586l1-1V6H9V1H2zm8 0v4h4zm-6 9.414-2 2V15h12v-2.586l-.293.293a1 1 0 0 1-1.414 0L10 10.414l-2.293 2.293a1 1 0 0 1-1.414 0L4 10.414z\"/></svg>
+"
 
 [node name="ASWizardWindow" type="PanelContainer" unique_id=756550313]
 offset_right = 600.0
@@ -46,7 +38,6 @@ layout_mode = 2
 [node name="file_location_path" type="LineEdit" parent="container/options/file_location/HBoxContainer" unique_id=1534413779]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "res://llamacorp_ramon_pinata.aseprite"
 caret_blink = true
 
 [node name="file_location_btn" type="Button" parent="container/options/file_location/HBoxContainer" unique_id=54594202]
@@ -62,7 +53,7 @@ layout_mode = 2
 [node name="section_header" type="Button" parent="container/options/layer_section/header" unique_id=544035097]
 layout_mode = 2
 text = "Layers"
-icon = SubResource("ImageTexture_lk6qb")
+icon = SubResource("DPITexture_brc5y")
 flat = true
 alignment = 0
 
@@ -89,7 +80,6 @@ text = "Exclude layers with name matching pattern:"
 
 [node name="pattern" type="LineEdit" parent="container/options/layer_section/section_content/items/exclude_pattern" unique_id=193823839]
 layout_mode = 2
-text = "_$"
 caret_blink = true
 
 [node name="split_layers" type="HBoxContainer" parent="container/options/layer_section/section_content/items" unique_id=1091494111]
@@ -107,6 +97,7 @@ layout_mode = 2
 [node name="field" type="CheckBox" parent="container/options/layer_section/section_content/items/visible_layers" unique_id=1921108660]
 layout_mode = 2
 tooltip_text = "If selected, layers not visible in the source file won't be included in the final image."
+button_pressed = true
 text = "Only include visible layers"
 
 [node name="animation_section" type="VBoxContainer" parent="container/options" unique_id=1607578897]
@@ -118,7 +109,7 @@ layout_mode = 2
 [node name="section_header" type="Button" parent="container/options/animation_section/header" unique_id=1066324554]
 layout_mode = 2
 text = "Animation"
-icon = SubResource("ImageTexture_lk6qb")
+icon = SubResource("DPITexture_brc5y")
 flat = true
 alignment = 0
 
@@ -147,7 +138,7 @@ layout_mode = 2
 [node name="section_header" type="Button" parent="container/options/output_section/header" unique_id=1598909113]
 layout_mode = 2
 text = "Output"
-icon = SubResource("ImageTexture_lk6qb")
+icon = SubResource("DPITexture_brc5y")
 flat = true
 alignment = 0
 
@@ -178,7 +169,7 @@ layout_mode = 2
 [node name="file_location_path" type="LineEdit" parent="container/options/output_section/section_content/items/output_folder/HBoxContainer" unique_id=1270843163]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "res://test"
+text = "res://"
 caret_blink = true
 
 [node name="output_folder_btn" type="Button" parent="container/options/output_section/section_content/items/output_folder/HBoxContainer" unique_id=1611330346]
@@ -197,7 +188,6 @@ text = "Output File Name / Prefix:"
 
 [node name="pattern" type="LineEdit" parent="container/options/output_section/section_content/items/custom_filename" unique_id=129212468]
 layout_mode = 2
-text = "fromwiz"
 caret_blink = true
 
 [node name="scale" type="HBoxContainer" parent="container/options/output_section/section_content/items" unique_id=170003683]

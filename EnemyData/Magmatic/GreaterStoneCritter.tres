@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://kxu6ocuaxqyo"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_dbmql"]
-[ext_resource type="Texture2D" uid="uid://cp8uf8r3uetuu" path="res://Sprites/Enemies/MagmaticDungeon/GreaterStoneCritter.tres" id="2_dbmql"]
 
 [resource]
 script = ExtResource("1_dbmql")
@@ -12,7 +11,7 @@ base_stamina = 8
 base_attack = 7
 base_defense_duration = 15
 base_defense_durability = 8
-sprite = ExtResource("2_dbmql")
+sprite = &"GreaterStoneCritter"
 base_ai = "Smart"
 base_ai_five = "Smart"
 difficulty_range = Array[int]([5, 14])

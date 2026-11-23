@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://cy4fowjolr7k8"]
 
 [ext_resource type="SpriteFrames" uid="uid://wkart3yi7mn8" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_GuildCloak.ase_layer" id="1_e7wg5"]
+[ext_resource type="SpriteFrames" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="1_ffa8u"]
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_t6yt7"]
 
 [resource]
@@ -8,6 +9,7 @@ script = ExtResource("1_t6yt7")
 name = "Guild Cloak"
 description = "A custom-made cloak bearing your priorities. A patch reading \"Member\" is sewn on."
 overworld_cloak = ExtResource("1_e7wg5")
+dungeon_cloak = ExtResource("1_ffa8u")
 max_health = 35
 max_stamina = 20
 metadata/_custom_type_script = "uid://i8t58il84vkc"

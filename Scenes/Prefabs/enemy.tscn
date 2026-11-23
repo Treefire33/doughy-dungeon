@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cvq0pmcgajwhs" path="res://Scripts/Enemy/enemy.gd" id="1_hghv2"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_pe7bt"]
 [ext_resource type="SpriteFrames" uid="uid://dda188wx3a0rm" path="res://Sprites/Enemies/enemies.aseprite" id="3_07cr6"]
+[ext_resource type="SpriteFrames" uid="uid://tvo67ao733br" path="res://Sprites/Enemies/bosses.aseprite" id="3_a801k"]
 [ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="4_07cr6"]
 [ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="6_a801k"]
 
@@ -20,6 +21,8 @@ hover_area = NodePath("HoverArea")
 hover_tooltip = NodePath("HoverArea")
 health_bar = NodePath("Health")
 notif = NodePath("Notif")
+enemy_frames = ExtResource("3_07cr6")
+boss_frames = ExtResource("3_a801k")
 
 [node name="Health" type="ProgressBar" parent="." unique_id=466868539]
 offset_left = -32.0

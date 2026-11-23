@@ -1,7 +1,7 @@
 ~ start
-Vendor: [#happy] Thanks for playing the dungeon demo for Midnight Dungeons!
+Vendor: [#happy] Hello Midnight!
 if (GlobalPlayer.get_flag(&"iEvilScore") > 0 && !(GlobalPlayer.get_bool_flag(&"bErrorWorld") || GlobalPlayer.unlocked_items.has(&"ErroneousCloak")))
-	- The errors? => vendor_error
+	- Errors? => vendor_error
 => END
 
 ~ vendor_error

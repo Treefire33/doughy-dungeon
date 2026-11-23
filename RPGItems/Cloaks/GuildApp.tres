@@ -2,12 +2,14 @@
 
 [ext_resource type="SpriteFrames" uid="uid://wkart3yi7mn8" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_GuildCloak.ase_layer" id="1_76qbf"]
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_l76fd"]
+[ext_resource type="SpriteFrames" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="1_m6acc"]
 
 [resource]
 script = ExtResource("1_l76fd")
 name = "Recruit's Cloak"
 description = "A custom-made cloak bearing your priorities."
 overworld_cloak = ExtResource("1_76qbf")
+dungeon_cloak = ExtResource("1_m6acc")
 max_health = 20
 max_stamina = 15
 metadata/_custom_type_script = "uid://i8t58il84vkc"

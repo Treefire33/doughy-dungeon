@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://cm6le14a2ek4"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_be7cb"]
-[ext_resource type="Texture2D" uid="uid://bsxynwaxwwnga" path="res://Sprites/Enemies/MagmaticDungeon/ParasiticStoneFish.tres" id="2_be7cb"]
 
 [resource]
 script = ExtResource("1_be7cb")
@@ -12,7 +11,7 @@ base_stamina = 15
 base_attack = 4
 base_defense_duration = 8
 base_defense_durability = 5
-sprite = ExtResource("2_be7cb")
+sprite = &"ParasiticStoneFish"
 base_ai_five = "Smart"
 target_selection_ai = "Random"
 difficulty_range = Array[int]([3, 15])

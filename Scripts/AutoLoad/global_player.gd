@@ -26,6 +26,8 @@ var player_flags: Dictionary[StringName, int] = {
     &"bDungeonTutorial": 0,
     # Vendor Flags
     &"bVendorMet": 0,
+    # Lana Flags
+    &"bLanaMet": 0,
 
     # True Ending Flags
     &"iAbyssFragmentCount": 0,

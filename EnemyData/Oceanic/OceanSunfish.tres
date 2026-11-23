@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://sa7uaipmehb5"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_u2qrv"]
-[ext_resource type="Texture2D" uid="uid://kq1xuj81sw2s" path="res://Sprites/Enemies/Bosses/ocean_sunfish.aseprite" id="2_u2qrv"]
 
 [resource]
 script = ExtResource("1_u2qrv")
@@ -12,7 +11,8 @@ base_stamina = 9
 base_attack = 4
 base_defense_duration = 3
 base_defense_durability = 40
-sprite = ExtResource("2_u2qrv")
+sprite = &"OceanSunfish"
+boss = true
 base_ai = "Random"
 base_ai_five = "Random"
 target_selection_ai = "Random"

@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://dke42syc18r32"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_q87my"]
-[ext_resource type="Texture2D" uid="uid://blo5d2cnoejil" path="res://Sprites/Enemies/OceanicDungeon/Squid.tres" id="2_q87my"]
 
 [resource]
 script = ExtResource("1_q87my")
@@ -12,7 +11,7 @@ base_stamina = 11
 base_attack = 5
 base_defense_duration = 5
 base_defense_durability = 3
-sprite = ExtResource("2_q87my")
+sprite = &"Squid"
 base_ai = "Aggressive"
 base_ai_five = "Smart"
 target_selection_ai = "Random"

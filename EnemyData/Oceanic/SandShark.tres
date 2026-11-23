@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://c5ctnnjlicuo"]
 
 [ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_vvxnp"]
-[ext_resource type="Texture2D" uid="uid://bo47vlfl4vc37" path="res://Sprites/Enemies/OceanicDungeon/SandShark.tres" id="2_vvxnp"]
 
 [resource]
 script = ExtResource("1_vvxnp")
@@ -12,7 +11,7 @@ base_stamina = 15
 base_attack = 11
 base_defense_duration = 7
 base_defense_durability = 4
-sprite = ExtResource("2_vvxnp")
+sprite = &"SandShark"
 base_ai = "Smart"
 base_ai_five = "Smart"
 target_selection_ai = "Random"

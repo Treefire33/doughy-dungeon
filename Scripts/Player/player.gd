@@ -78,10 +78,7 @@ func update_shield():
             
 func _ready():
     load_entity(15, 12, 2, $Sprite, $StatusIcons);
-    if (GlobalPlayer.cloak.name != "Tattered Cloak"):
-        sprite.sprite_frames = guild_texture;
-    else:
-        sprite.sprite_frames = tattered_texture;
+    sprite.sprite_frames = GlobalPlayer.cloak.dungeon_cloak if !is_instance_valid(GlobalPlayer.cloak.dungeon_cloak) else tattered_texture;
     play_anim(Enum.PlayerAnimation.Idle);
 
     _max_health = GlobalPlayer.get_upgrade_stat("max_health");

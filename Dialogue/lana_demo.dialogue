@@ -1,0 +1,49 @@
+~ start
+if (!GlobalPlayer.get_bool_flag(&"bLanaMet")):
+	=>< intro
+else:
+	Lana: [#happy] Hey Midnight! Thanks for playing the Spells & Stuff demo for Midnight Dungeons!
+Lana: You've completed all of the available dungeons in this demo, you're free to go!
+Lana: [#sideeye] Unless you're on the trail of a secret...
+if (GlobalPlayer.get_flag(&"iEvilScore") > 0):
+	Lana: You are?
+	Lana: [#happy] Amazing! Tell me more!
+	- Errors? => error
+	- Nothing...
+		Lana: That's fine.
+		Lana: [#happy] Feel free to tell me when you're ready!
+		=> END
+Lana: In which case, chase away!
+=> END
+
+~ intro
+Lana: ...
+Lana: [#happy] Oh! I forgot!
+Lana: You haven't met me yet, but you will soon!
+Lana: [#sideeye] Well, now too I suppose...
+Lana: I mean in the next build of...
+Lana: [#sideeye] Midnight... [font_size=8]dungeons...[/font_size]
+Lana: [#skeptical] ...
+Midnight: [#confused] ...?
+Lana: Anyways...
+Lana: My name is Lana, and I'm your guild representative!
+Lana: Once the guild starts existing... I'll be the one to help you get in and hopefully *not* get kicked out.
+Lana: [#sideeye] [font_size=8]Because humans don't particularly like beasts.[/font_size]
+Midnight: [#surprised] ?!
+Lana: Yeah... 
+Lana: You'll have to wait for the next build to get more of that story!
+$> GlobalPlayer.set_bool_flag(&"bLanaMet", true)
+=> END
+
+~ error
+ERROR: [#lana] Once more you meet, it stares at you through the face of its mentor.
+ERROR: [#lana] Does it believe you have the strength?
+ERROR: [#lana] ...
+if GlobalPlayer.get_flag(&"iEvilScore") < 3:
+	ERROR: [#lana] Well, you'll be meeting soon enough.
+	ERROR: [#lana] Only {{3 - GlobalPlayer.get_flag(&"iEvilScore")}} more times...
+else:
+	ERROR: [#lana] Though, you should've already met.
+	ERROR: [#lana] Through the bottom of its world sits yours.
+	ERROR: [#lana] Perhaps it should visit?
+=> END

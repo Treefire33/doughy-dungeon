@@ -6,6 +6,7 @@ class_name RPGItemData
 @export_multiline() var description: String;
 @export var icon_override: Texture2D;
 @export var overworld_cloak: SpriteFrames;
+@export var dungeon_cloak: SpriteFrames;
 
 @export var max_health: int;
 @export var max_stamina: int;

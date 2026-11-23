@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://cn7uunh5bgyun" path="res://Sprites/NPCs/TheVendor/vendor_rpg.aseprite" id="9_2ypvi"]
 [ext_resource type="Script" uid="uid://0x4w4j2fvgdq" path="res://Scripts/RPG/NPCs/npc_afternoon.gd" id="10_gssja"]
 [ext_resource type="Texture2D" uid="uid://encrpk507m2s" path="res://Sprites/NPCs/SecretCharacters/afternoon.aseprite" id="11_0jx1e"]
+[ext_resource type="Texture2D" uid="uid://sgssnxboggu1" path="res://Sprites/NPCs/Lana/lana_rpg.aseprite" id="11_d1etd"]
+[ext_resource type="Script" uid="uid://tms3m2wf5pe6" path="res://Scripts/RPG/NPCs/npc_lana.gd" id="11_vvash"]
 [ext_resource type="Texture2D" uid="uid://rjh54u5s0jjc" path="res://Sprites/NPCs/SecretCharacters/evening.aseprite" id="12_5gprs"]
 [ext_resource type="Script" uid="uid://c1wgamhrfup3x" path="res://Scripts/RPG/NPCs/npc_sign.gd" id="13_cx3db"]
 [ext_resource type="Texture2D" uid="uid://7vv8faysb4sc" path="res://Sprites/NPCs/coolsign.aseprite" id="14_qwrpj"]
@@ -41,6 +43,255 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eeauh"]
+_data = {
+&"RESET": SubResource("Animation_birco")
+}
+
+[sub_resource type="Animation" id="Animation_pa10k"]
+resource_name = "BackwardIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_npbpj"]
+resource_name = "BackwardWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_eeauh"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_a8tyi"]
+resource_name = "ForwardWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 0, 2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xdpjr"]
+resource_name = "SidewaysIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xhvd6"]
+resource_name = "SidewaysWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [4, 3, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_sbuoh"]
+resource_name = "RightIdle"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_71b5o"]
+resource_name = "RightWalk"
+length = 0.500005
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [7, 6, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdpjr"]
+_data = {
+&"BackwardIdle": SubResource("Animation_pa10k"),
+&"BackwardWalk": SubResource("Animation_npbpj"),
+&"ForwardIdle": SubResource("Animation_eeauh"),
+&"ForwardWalk": SubResource("Animation_a8tyi"),
+&"LeftIdle": SubResource("Animation_xdpjr"),
+&"LeftWalk": SubResource("Animation_xhvd6"),
+&"RightIdle": SubResource("Animation_sbuoh"),
+&"RightWalk": SubResource("Animation_71b5o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvash"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ckj"]
+size = Vector2(128, 64)
+
+[sub_resource type="Animation" id="Animation_dxxcr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("../Vendor/Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -63,12 +314,12 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_eeauh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ruict"]
 _data = {
-&"RESET": SubResource("Animation_birco")
+&"RESET": SubResource("Animation_dxxcr")
 }
 
-[sub_resource type="Animation" id="Animation_pa10k"]
+[sub_resource type="Animation" id="Animation_hb8al"]
 resource_name = "BackwardIdle"
 length = 0.001
 loop_mode = 1
@@ -85,7 +336,7 @@ tracks/0/keys = {
 "values": [9]
 }
 
-[sub_resource type="Animation" id="Animation_npbpj"]
+[sub_resource type="Animation" id="Animation_4dxc3"]
 resource_name = "BackwardWalk"
 length = 0.500005
 loop_mode = 2
@@ -103,7 +354,7 @@ tracks/0/keys = {
 "values": [10, 9, 11]
 }
 
-[sub_resource type="Animation" id="Animation_eeauh"]
+[sub_resource type="Animation" id="Animation_2ypvi"]
 length = 0.001
 loop_mode = 1
 tracks/0/type = "value"
@@ -119,7 +370,7 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_a8tyi"]
+[sub_resource type="Animation" id="Animation_gssja"]
 resource_name = "ForwardWalk"
 length = 0.500005
 loop_mode = 2
@@ -149,7 +400,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_xdpjr"]
+[sub_resource type="Animation" id="Animation_0jx1e"]
 resource_name = "SidewaysIdle"
 length = 0.001
 loop_mode = 1
@@ -178,7 +429,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_xhvd6"]
+[sub_resource type="Animation" id="Animation_5gprs"]
 resource_name = "SidewaysWalk"
 length = 0.500005
 loop_mode = 2
@@ -208,7 +459,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_sbuoh"]
+[sub_resource type="Animation" id="Animation_cx3db"]
 resource_name = "RightIdle"
 length = 0.001
 loop_mode = 1
@@ -237,7 +488,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_71b5o"]
+[sub_resource type="Animation" id="Animation_qwrpj"]
 resource_name = "RightWalk"
 length = 0.500005
 loop_mode = 2
@@ -267,20 +518,17 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xdpjr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rydru"]
 _data = {
-&"BackwardIdle": SubResource("Animation_pa10k"),
-&"BackwardWalk": SubResource("Animation_npbpj"),
-&"ForwardIdle": SubResource("Animation_eeauh"),
-&"ForwardWalk": SubResource("Animation_a8tyi"),
-&"LeftIdle": SubResource("Animation_xdpjr"),
-&"LeftWalk": SubResource("Animation_xhvd6"),
-&"RightIdle": SubResource("Animation_sbuoh"),
-&"RightWalk": SubResource("Animation_71b5o")
+&"BackwardIdle": SubResource("Animation_hb8al"),
+&"BackwardWalk": SubResource("Animation_4dxc3"),
+&"ForwardIdle": SubResource("Animation_2ypvi"),
+&"ForwardWalk": SubResource("Animation_gssja"),
+&"LeftIdle": SubResource("Animation_0jx1e"),
+&"LeftWalk": SubResource("Animation_5gprs"),
+&"RightIdle": SubResource("Animation_cx3db"),
+&"RightWalk": SubResource("Animation_qwrpj")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7ckj"]
-size = Vector2(128, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdaef"]
 size = Vector2(64, 64)
@@ -473,9 +721,57 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
-[node name="Animator" type="AnimationPlayer" parent="Vendor" unique_id=342741059]
+[node name="Animator" type="AnimationPlayer" parent="Vendor" unique_id=561094946]
 libraries/ = SubResource("AnimationLibrary_eeauh")
 libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
+autoplay = &"PlayerRPG/ForwardIdle"
+
+[node name="Lana" type="CharacterBody2D" parent="." unique_id=648550833]
+position = Vector2(-160, -256)
+collision_layer = 3
+motion_mode = 1
+script = ExtResource("11_vvash")
+metadata/_custom_type_script = "uid://6om5utstdwe5"
+
+[node name="Collider" type="CollisionShape2D" parent="Lana" unique_id=1674343404]
+position = Vector2(0, 32)
+shape = SubResource("RectangleShape2D_vvash")
+
+[node name="Sprite" type="Sprite2D" parent="Lana" unique_id=1471213464]
+y_sort_enabled = true
+scale = Vector2(2, 2)
+texture = ExtResource("11_d1etd")
+hframes = 6
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"convert_fps_field": 30.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": true,
+"embed_tex": true,
+"i_mode": 0,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "Animator",
+"scale": "1.0",
+"slice": "",
+"source": "res://Sprites/Player/player_rpg_new.aseprite",
+"source_uid": 7096081574418346694
+},
+"slice_section": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="Lana" unique_id=908128940]
+libraries/ = SubResource("AnimationLibrary_eeauh")
+libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
+autoplay = &"PlayerRPG/ForwardIdle"
 
 [node name="Afternoon" type="CharacterBody2D" parent="." unique_id=1322539155]
 visible = false
@@ -553,8 +849,8 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="Animator" type="AnimationPlayer" parent="Afternoon" unique_id=1892287586]
-libraries/ = SubResource("AnimationLibrary_eeauh")
-libraries/PlayerRPG = SubResource("AnimationLibrary_xdpjr")
+libraries/ = SubResource("AnimationLibrary_ruict")
+libraries/PlayerRPG = SubResource("AnimationLibrary_rydru")
 
 [node name="TutorialSign" type="CharacterBody2D" parent="." unique_id=1637142011]
 position = Vector2(0, -32)

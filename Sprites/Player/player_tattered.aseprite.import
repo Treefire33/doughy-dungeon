@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/player_tattered.aseprite-24cf2572130e7c6c12b9
 [params]
 
 layer/exclude_layers_pattern=""
-layer/only_visible_layers=false
+layer/only_visible_layers=true
 sheet/sheet_type="columns"
 sheet/sheet_columns=4
 sheet/frame_padding=0
