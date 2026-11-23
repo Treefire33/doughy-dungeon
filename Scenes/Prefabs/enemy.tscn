@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cvq0pmcgajwhs" path="res://Scripts/Enemy/enemy.gd" id="1_hghv2"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="2_pe7bt"]
-[ext_resource type="Texture2D" uid="uid://drcx2bgrq2urj" path="res://Sprites/Enemies/DoughyDungeon/BiscuitMimic2.tres" id="3_ytpux"]
+[ext_resource type="SpriteFrames" uid="uid://dda188wx3a0rm" path="res://Sprites/Enemies/enemies.aseprite" id="3_07cr6"]
 [ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="4_07cr6"]
-[ext_resource type="AnimationLibrary" uid="uid://chm365vo5ctw7" path="res://Sprites/Enemies/Animations/Enemy.res" id="5_07cr6"]
 [ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="6_a801k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe7bt"]
@@ -85,8 +84,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=1524926891]
-texture = ExtResource("3_ytpux")
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=964527969]
+sprite_frames = ExtResource("3_07cr6")
+animation = &"BiscuitMimicTwo"
 
 [node name="Notif" type="Sprite2D" parent="." unique_id=734849556]
 visible = false
@@ -96,7 +96,6 @@ texture = ExtResource("4_07cr6")
 
 [node name="Animator" type="AnimationPlayer" parent="." unique_id=1778643066]
 libraries/ = SubResource("AnimationLibrary_a801k")
-libraries/Enemy = ExtResource("5_07cr6")
 
 [node name="HoverArea" type="Area2D" parent="." unique_id=384912529]
 disable_mode = 1

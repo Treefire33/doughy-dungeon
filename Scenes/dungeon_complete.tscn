@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://8cmpy3acntlo"]
 
 [ext_resource type="Script" uid="uid://xffga17t265" path="res://Scripts/game_over.gd" id="1_rcc1d"]
-[ext_resource type="Texture2D" uid="uid://bukeyqj7moayo" path="res://Sprites/Player/happy_midnight.tres" id="2_on8gr"]
+[ext_resource type="Texture2D" uid="uid://ler003tb368l" path="res://Sprites/Other/DoughyCursor.png" id="2_on8gr"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="3_e4baj"]
 [ext_resource type="Script" uid="uid://i82hqdguo0go" path="res://Scripts/UI/animated_texture_rect.gd" id="5_e4baj"]
 [ext_resource type="SpriteFrames" uid="uid://cbre5nl4kvwnj" path="res://Sprites/Items/items.aseprite" id="5_on8gr"]
@@ -21,7 +21,7 @@ size_override = Vector2(384, 448)
 atlas = SubResource("PortableCompressedTexture2D_conl1")
 region = Rect2(0, 128, 64, 64)
 
-[node name="GameComplete" type="ColorRect" unique_id=313561997 node_paths=PackedStringArray("completion_status", "item_icon", "item_container", "room_reached", "max_health", "max_stamina", "attack", "damage_taken", "profit")]
+[node name="GameComplete" type="ColorRect" unique_id=313561997 node_paths=PackedStringArray("completion_status", "item_icon", "item_container", "room_reached", "max_health", "max_stamina", "attack", "damage_taken")]
 z_index = 5
 offset_right = 800.0
 offset_bottom = 450.0
@@ -36,7 +36,6 @@ max_health = NodePath("Summaries/VBoxContainer/MaxHealth")
 max_stamina = NodePath("Summaries/VBoxContainer/MaxStamina")
 attack = NodePath("Summaries/VBoxContainer/Attack")
 damage_taken = NodePath("Summaries/VBoxContainer/DamageTaken")
-profit = NodePath("Summaries/VBoxContainer/Coins")
 
 [node name="CompletionStatus" type="RichTextLabel" parent="." unique_id=2145486174]
 layout_mode = 1

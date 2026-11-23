@@ -7,7 +7,7 @@
 script = ExtResource("2_1iqir")
 name = "Splinter"
 flavour_text = "ouch"
-description = "Every enemy attack now does (1 * stack) more damage."
+description = "Every enemy now does +{stack} more damage to you."
 rarity = 2
 price = -25
 weight = 1.0

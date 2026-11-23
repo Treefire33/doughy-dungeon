@@ -181,6 +181,10 @@ func _ready() -> void:
         fade_panel.visible = previewing_room_select;
         room_select.visible = previewing_room_select;
     );
+
+    player.stat_changed.connect(func(_a, _b, _c):
+        update_ui();
+    );
     
 var action_to_index: Dictionary[String, int] = {
     "Primary": 0,

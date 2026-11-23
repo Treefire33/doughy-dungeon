@@ -1,6 +1,7 @@
 extends Node2D
 class_name Entity
-signal durability_changed;
+
+signal stat_changed(stat_name: StringName, prev: float, new: float);
 
 func apply_stat_mods(stat_type: Enum.StatType, stat_value: float) -> float:
     return StatModifier.apply_stat_mods(stat_modifiers, stat_type, stat_value);
@@ -9,7 +10,7 @@ func apply_stat_mods(stat_type: Enum.StatType, stat_value: float) -> float:
 var _max_health: int:
     get: return _max_health;
     set (value):
-        _max_health = clampi(value, 1, 5000);
+        _max_health = value;
         health = _max_health;
 
 var max_health: int:
@@ -19,15 +20,18 @@ var max_health: int:
 var health: int:
     get: return health
     set (value):
+        value = clampi(value, 0, max_health);
         if (value < health && health < _max_health):
             self.call_deferred("hurt");
-        health = clampi(value, 0, max_health);
+        
+        stat_changed.emit(&"health", health, value);
+        health = value;
 
 # Stamina
 var _max_stamina: int:
     get: return _max_stamina;
     set (value):
-        _max_stamina = clampi(value, 1, 5000);
+        _max_stamina = value;
         stamina = _max_stamina;
 
 var max_stamina: int:
@@ -38,7 +42,9 @@ var max_stamina: int:
 var stamina: int:
     get: return stamina
     set (value):
-        stamina = clampi(value, -5, max_stamina);
+        value = clampi(value, -5, max_stamina);
+        stat_changed.emit(&"stamina", stamina, value);
+        stamina = value;
 
 # Attack
 var _attack: int = 1;
@@ -57,7 +63,9 @@ var max_defending_duration: int:
 var defending_duration: int:
     get: return defending_duration;
     set (value):
-        defending_duration = clampi(value, 0, max_defending_duration);
+        value = clampi(value, 0, max_defending_duration);
+        stat_changed.emit(&"defense_duration", defending_duration, value);
+        defending_duration = value;
 
 var _max_defense_durability: int = 1;
 var max_defense_durability: int:
@@ -68,12 +76,14 @@ var max_defense_durability: int:
 var defense_stun: bool = false;
 var defense_durability: int = 1:
     get: return defense_durability;
-    set(value): 
-        defense_durability = clampi(value, 0, max_defense_durability);
+    set(value):
+        value = clampi(value, 0, max_defense_durability);
+        stat_changed.emit(&"defense_durability", defense_durability, value);
+        defense_durability = value;
         if (defense_durability == 0):
             defending_duration = 0;
             defense_stun = true;
-        durability_changed.emit();
+        
 
 var _speed: int = 1;
 var speed: int:
@@ -114,8 +124,7 @@ func set_persistent_item_value(key: String, value: Variant):
 func get_persistent_item_value(key: String) -> Variant:
     return _persistent_item_register.get(key);
 
-var sprite: Sprite2D;
-var animator: AnimationPlayer;
+var sprite: AnimatedSprite2D;
 
 # Virtual function for Player and Enemy
 func update_shield(): pass;
@@ -201,17 +210,15 @@ func update_status_notifs():
 
 @warning_ignore("shadowed_variable")
 func load_entity(
-    _max_health: int, 
-    _max_stamina: int, 
-    _attack: int, 
-    _sprite: Sprite2D,
-    _animator: AnimationPlayer,
-    _status_ui: GridContainer
+    max_health: int, 
+    max_stamina: int, 
+    attack: int, 
+    sprite: AnimatedSprite2D,
+    status_ui: GridContainer
 ):
-    self._max_health = _max_health;
-    self._max_stamina = _max_stamina;
-    self.attack = _attack;
-    
-    self.sprite = _sprite;
-    self.animator = _animator;
-    self.status_ui = _status_ui;
+    self._max_health = max_health;
+    self._max_stamina = max_stamina;
+    self.attack = attack;
+
+    self.sprite = sprite;
+    self.status_ui = status_ui;

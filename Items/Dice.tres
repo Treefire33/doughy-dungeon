@@ -7,7 +7,7 @@
 script = ExtResource("2_0xh6e")
 name = "Die"
 flavour_text = "A simple six-sided die. Each face is a number one through six."
-description = "Increases max shop reroll by one."
+description = "Increases max shop reroll by 1."
 rarity = 2
 price = 125
 weight = 1.0

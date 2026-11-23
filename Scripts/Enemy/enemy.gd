@@ -24,11 +24,9 @@ func load_enemy(enemy_data: EnemyData):
         enemy_data.base_stamina,
         enemy_data.base_attack,
         $Sprite,
-        $Animator,
         $StatusIcons
     );
-    self.sprite.texture = enemy_data.sprite;
-    self.animator.play("Enemy/Idle");
+    self.sprite.play(enemy_data.sprite if !enemy_data.sprite.is_empty() else StringName(enemy_data.resource_path.get_file().trim_suffix(".tres")));
     self.flavour_text = enemy_data.flavour_text;
     self.coin_drop_range = enemy_data.coins_range;
     self.ai0_type = enemy_data.base_ai;

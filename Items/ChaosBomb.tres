@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bq5vt7g3j10f2"]
 
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_v0ayy"]
+[ext_resource type="Script" uid="uid://d0ad5f57hbr20" path="res://Items/Functions/ChaosBombFunction.gd" id="1_xt8my"]
 
 [resource]
 script = ExtResource("1_v0ayy")
 name = "Chaos Bomb"
-flavour_text = "You only have so much time."
+flavour_text = "R-CTRL? Seriously?! The right-hand control key?!"
 description = "Using any activation-spec spell damages you. This damage increases with every use."
 rarity = 6
 price = -650
 weight = 1.0
+function = ExtResource("1_xt8my")
 unique_stacking = true
 painful = true
 dungeon_pool = Array[int]([0, 2])

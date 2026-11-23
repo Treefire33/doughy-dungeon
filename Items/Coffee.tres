@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_0l1ee")
 name = "Coffee"
-flavour_text = "A strong, aromatic smell eminates from the cup. It gives you a headache."
+flavour_text = "A strong, aromatic smell eminates from the cup. It's headache inducing."
 description = "Stamina won't drain, period.
 However, sometimes you'll randomly take a single point of damage (remember that headache?)."
 rarity = 4

@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.static-texture"
-type="PortableCompressedTexture2D"
+importer="aseprite_wizard.plugin.spriteframes"
+type="SpriteFrames"
 uid="uid://dda188wx3a0rm"
 path="res://.godot/imported/enemies.aseprite-f3de5927d56dcb53658736f6c63fc019.res"
 
@@ -14,8 +14,8 @@ dest_files=["res://.godot/imported/enemies.aseprite-f3de5927d56dcb53658736f6c63f
 
 layer/exclude_layers_pattern=""
 layer/only_visible_layers=true
-layer/split_layers=false
-first_frame_only=false
 sheet/sheet_type="columns"
-sheet/sheet_columns=3
+sheet/sheet_columns=6
+sheet/frame_padding=0
 sheet/scale=1
+animation/round_fps=true

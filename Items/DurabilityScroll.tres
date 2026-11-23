@@ -7,7 +7,7 @@
 script = ExtResource("1_6pk5h")
 name = "Durability Scroll"
 flavour_text = "A scroll containing arcane instructions."
-description = "Increases defense-spec spell durability by one."
+description = "Increases defense-spec spell durability by 1."
 rarity = 2
 price = 125
 weight = 1.0

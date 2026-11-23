@@ -1,15 +1,17 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bsqu2anrx2825"]
 
+[ext_resource type="Script" uid="uid://b6qe1v6oergud" path="res://Items/Functions/BrokenHeartFunction.gd" id="1_412gm"]
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="2_161rk"]
 
 [resource]
 script = ExtResource("2_161rk")
 name = "Broken Heart"
 flavour_text = "Tape won't fix a thing."
-description = "Max health now decreases with damage taken (this is not permanent)."
+description = "Max health now decreases with damage taken."
 rarity = 4
 price = -400
 weight = 1.0
+function = ExtResource("1_412gm")
 unique_stacking = true
 painful = true
 dungeon_pool = Array[int]([0, 2])

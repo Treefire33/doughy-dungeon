@@ -22,7 +22,7 @@ run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/stretch_mode=0
 boot_splash/use_filter=false
-boot_splash/image="uid://djid0yo7wj06y"
+boot_splash/image="uid://cj15p8jw5xygt"
 config/icon="uid://b1yk2sgwhouw1"
 
 [aseprite]
@@ -39,6 +39,7 @@ Enum="*res://Scripts/AutoLoad/enums.gd"
 Audio="*res://Scripts/AutoLoad/audio.gd"
 Keybinds="*res://Scripts/AutoLoad/keybinds.gd"
 Settings="*res://Scripts/AutoLoad/settings.gd"
+GlobalRandom="*uid://vfhktqgw8axb"
 ItemUtils="*res://Scripts/Items/item_utils.gd"
 GlobalPlayer="*res://Scripts/AutoLoad/global_player.gd"
 MidnightDebug="*res://Scripts/AutoLoad/midnight_debug.gd"

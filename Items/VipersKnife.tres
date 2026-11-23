@@ -1,14 +1,16 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://ca24ytad6ejfm"]
 
 [ext_resource type="Script" uid="uid://cordgir5vu6pr" path="res://Scripts/Items/item_data.gd" id="1_4egp1"]
+[ext_resource type="Script" uid="uid://beowb7lbwlwa6" path="res://Items/Functions/VipersKnifeFunction.gd" id="1_5ac3o"]
 
 [resource]
 script = ExtResource("1_4egp1")
 name = "Viper's Knife"
 flavour_text = "Careful not to nick yourself!"
-description = "Upon attacking, inflicts bleed on the target."
+description = "Upon attacking, inflicts Poison on the target."
 rarity = 6
 price = 200
 weight = 1.0
+function = ExtResource("1_5ac3o")
 unique_stacking = true
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

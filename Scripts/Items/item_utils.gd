@@ -117,7 +117,32 @@ func show_custom_toast(message: String):
     });
     Audio.play_audio(Audio.item_activated);
 
-func get_tooltip_text(item_data: ItemData, shop_item: bool, override = false, override_price: int = 0) -> Array[String]:
+func format_special_text(raw_text: String, item_data: ItemData, player: Player) -> String:
+    var final_string: String = "";
+    var i: int = 0;
+    while (i < raw_text.length()):
+        var c = raw_text[i];
+        i += 1;
+
+        if (c == '['):
+            var stat_name: String = "";
+            while (c != ']'):
+                c = raw_text[i];
+                stat_name += c;
+                i += 1;
+            final_string += str(player.get(stat_name));
+            continue;
+        elif (c == '{'):
+            while (c != '}'):
+                c = raw_text[i];
+                i += 1;
+            final_string += str(player.get_item_stack_by_name(item_data.name));
+            continue;
+
+        final_string += c;
+    return final_string;
+
+func get_tooltip_text(item_data: ItemData, shop_item: bool, player: Player, override = false, override_price: int = 0) -> Array[String]:
     var res: Array[String] = [
         item_data.name, "(%s)" % item_data.flavour_text
     ];
@@ -128,7 +153,7 @@ func get_tooltip_text(item_data: ItemData, shop_item: bool, override = false, ov
             res.append("Reward: %d coins" % -(override_price if override else item_data.price));
     else:
         res.append("");
-    res.append(item_data.description);
+    res.append(format_special_text(item_data.description, item_data, player));
     return res;
 
 func get_item_animation_name(item_data: ItemData) -> StringName:

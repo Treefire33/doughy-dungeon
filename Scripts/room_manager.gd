@@ -74,6 +74,7 @@ func complete_dungeon(status: String):
         2.0 / Settings.game_speed
     ).set_delay(0.5);
 
+    @warning_ignore("integer_division")
     var profit = int(difficulty_adjust(player.coins) / 10);
     GlobalPlayer.coins += profit;
     player_ui.game_completed.load_info(
@@ -205,7 +206,7 @@ func generate_shop_item(display_index: int):
     item_sprite.animation = ItemUtils.get_item_animation_name(item);
     item_sprite.material.set_shader_parameter("outline_colour", ItemUtils.item_rarity_colours[item.rarity]);
     item_button.tooltip_strings.clear();
-    item_button.tooltip_strings.append_array(ItemUtils.get_tooltip_text(item, true, true, difficulty_adjust(item.price, 0.06)));
+    item_button.tooltip_strings.append_array(ItemUtils.get_tooltip_text(item, true, player, true, difficulty_adjust(item.price, 0.06)));
     item_button.pressed.connect(purchase_item.bind(item_name, item_display, display_index));
 
 func gen_safe_room_items():

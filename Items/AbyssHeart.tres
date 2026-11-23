@@ -7,9 +7,9 @@
 script = ExtResource("1_5qtqu")
 name = "Abyss Heart"
 flavour_text = "The heart of the abyss. The key to someplace deeper."
-description = "Every room passed, -1 max health, +5 max stamina. 
-Every item bought, +1 max health, -5 max stamina.
-Every enemy killed, +1 attack.
-Every time you rest, -1 attack."
+description = "On room traversal: -1 max health, +5 max stamina. 
+On item purchase: +1 max health, -5 max stamina.
+On enemy kill: +1 attack.
+On rest: -1 attack."
 function = ExtResource("3_1yksr")
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

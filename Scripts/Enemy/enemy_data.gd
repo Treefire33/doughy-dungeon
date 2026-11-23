@@ -29,7 +29,7 @@ class_name EnemyData
 	set (value):
 		base_defense_durability = value;
 
-@export var sprite: Texture2D = null:
+@export var sprite: StringName = "Nil":
 	set (value):
 		sprite = value;
 

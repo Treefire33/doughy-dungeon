@@ -3,13 +3,13 @@ class_name Player
 
 @onready var shield: Sprite2D = $Shield;
 
-@export var tattered_texture: Texture2D;
-@export var guild_texture: Texture2D;
+@export var tattered_texture: SpriteFrames;
+@export var guild_texture: SpriteFrames;
 
 var coins: int = 15:
     get: return coins;
     set(value):
-        ItemUtils.activate_items(self, "stat_changed", ItemFunction.ItemFunctionArgs.new_stat_changed_args(self, "coins"));
+        stat_changed.emit(&"coins", coins, value);
         coins = value;
         
 var items: Dictionary[String, int] = {};
@@ -42,6 +42,11 @@ func remove_item(item_name: String, count: int = 1):
     if (items[item_name] <= 0):
         items.erase(item_name);
 
+func get_item_stack_by_name(item_name: String):
+    for item in items:
+        if (ItemUtils.get_item_data(item).name != item_name): continue;
+        return items[item];
+
 func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellFunction = null) -> int:
     if (decision == Enum.Decision.Spell):
         if (spell == null): return 0;
@@ -50,11 +55,11 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellF
     return super.turn(target, decision, count, spell);
 
 var player_animation_to_name = {
-    Enum.PlayerAnimation.Idle: "Player/Idle",
-    Enum.PlayerAnimation.Attack: "Player/Attack",
-    Enum.PlayerAnimation.Defend: "Player/Defend",
-    Enum.PlayerAnimation.Rest: "Player/Rest",
-    Enum.PlayerAnimation.Dead: "Player/Dead"
+    Enum.PlayerAnimation.Idle: "Idle",
+    Enum.PlayerAnimation.Attack: "Attack",
+    Enum.PlayerAnimation.Defend: "DefendStart",
+    Enum.PlayerAnimation.Rest: "Rest",
+    Enum.PlayerAnimation.Dead: "Dead"
 };
 var decision_to_animation = {
     Enum.Decision.Attack: Enum.PlayerAnimation.Attack,
@@ -66,23 +71,18 @@ var decision_to_animation = {
 }
 func play_anim(decision: Enum.PlayerAnimation):
     # animator.speed_scale = Settings.game_speed;
-    animator.play(player_animation_to_name[decision]);
+    sprite.play(player_animation_to_name[decision]);
 
 func update_shield():
     shield.visible = defense_durability != 0 && defending_duration != 0;
             
 func _ready():
-    load_entity(15, 12, 2, $Sprite, $Animator, $StatusIcons);
+    load_entity(15, 12, 2, $Sprite, $StatusIcons);
     if (GlobalPlayer.cloak.name != "Tattered Cloak"):
-        $Sprite.texture = guild_texture;
+        sprite.sprite_frames = guild_texture;
     else:
-        $Sprite.texture = tattered_texture;
+        sprite.sprite_frames = tattered_texture;
     play_anim(Enum.PlayerAnimation.Idle);
-    durability_changed.connect(func():
-        shield.frame = 0;
-        if (defense_durability == 0):
-            shield.frame = 1;
-    );
 
     _max_health = GlobalPlayer.get_upgrade_stat("max_health");
     _max_stamina = GlobalPlayer.get_upgrade_stat("max_stamina");
@@ -90,3 +90,11 @@ func _ready():
     _max_defending_duration = GlobalPlayer.get_upgrade_stat("max_defense_duration");
     _max_defense_durability = GlobalPlayer.get_upgrade_stat("max_defense_durability");
     _speed = max(2, GlobalPlayer.get_upgrade_stat("speed"));
+
+    stat_changed.connect(func(stat_name: StringName, prev: float, new: float):
+        ItemUtils.activate_items(self, "stat_changed", ItemFunction.ItemFunctionArgs.new_stat_changed_args(self, stat_name, prev, new));
+        if (stat_name == &"defense_durability"):
+            shield.frame = 0;
+            if (defense_durability == 0):
+                shield.frame = 1;
+    );

@@ -30,7 +30,7 @@ func load_info(player: Player, room_manager: RoomManager, status: String, profit
         var new_item = item_icon.duplicate();
         var item_tooltip: TooltipTrigger = new_item.get_node("TooltipTrigger") as TooltipTrigger;
         new_item.visible = true;
-        item_tooltip.tooltip_strings.append_array(ItemUtils.get_tooltip_text(data, false));
+        item_tooltip.tooltip_strings.append_array(ItemUtils.get_tooltip_text(data, false, player));
         new_item.get_node("Count").text = str(count);
         new_item.play(ItemUtils.get_item_animation_name(data));
         item_container.add_child(new_item);

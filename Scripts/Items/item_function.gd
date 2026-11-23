@@ -36,6 +36,8 @@ class ItemFunctionArgs:
     var stack_count: int;
     var purchased: bool;
     var stat_name: StringName;
+    var stat_previous: float;
+    var stat_current: float;
 
     var spell_specification: Enum.SpellSpecification;
     var spell_name: StringName;
@@ -71,8 +73,10 @@ class ItemFunctionArgs:
         args.target = enemy;
         return args;
 
-    static func new_stat_changed_args(player: Player, stat_name: StringName) -> ItemFunctionArgs:
+    static func new_stat_changed_args(player: Player, stat_name: StringName, stat_prev: float, stat_new: float) -> ItemFunctionArgs:
         var args = ItemFunctionArgs.new();
         args.user = player;
         args.stat_name = stat_name;
+        args.stat_previous = stat_prev;
+        args.stat_current = stat_new;
         return args;

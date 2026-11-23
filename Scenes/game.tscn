@@ -14,9 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bkdbhrobyjlra" path="res://Sprites/NPCs/TheVendor/vendor.aseprite" id="8_fkdbe"]
 [ext_resource type="AnimationLibrary" uid="uid://ddmjimkaqyeqx" path="res://Sprites/NPCs/TheVendor/Animations/Vendor.res" id="9_81klo"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="10_vm72l"]
-[ext_resource type="Texture2D" uid="uid://qjofli7jv6ub" path="res://Sprites/Player/player_tattered.png" id="11_mg4q0"]
 [ext_resource type="Resource" uid="uid://i6xwk6el8jyh" path="res://Dungeons/DoughyAlcove.tres" id="12_81klo"]
-[ext_resource type="AnimationLibrary" uid="uid://b82s5he28e0n3" path="res://Sprites/Player/Animations/Player.res" id="12_exi56"]
 [ext_resource type="Texture2D" uid="uid://5cvbmxxaju0q" path="res://Sprites/Other/SelectionBox.tres" id="12_fkdbe"]
 [ext_resource type="Texture2D" uid="uid://b0pvhoesh3677" path="res://Sprites/Player/shield.aseprite" id="12_mg4q0"]
 [ext_resource type="PackedScene" uid="uid://ddhc62nuidtg3" path="res://Scenes/GameUI/stats_display.tscn" id="13_7nbq1"]
@@ -26,7 +24,8 @@
 [ext_resource type="Texture2D" uid="uid://dkkxnal01f2w3" path="res://Sprites/Icons/UpgradeIcons/UpgradeAttack.tres" id="15_7nbq1"]
 [ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
-[ext_resource type="Texture2D" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="16_ese38"]
+[ext_resource type="SpriteFrames" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="16_ese38"]
+[ext_resource type="SpriteFrames" uid="uid://b04lsstwaona8" path="res://Sprites/Player/player_tattered.aseprite" id="16_oeip8"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://bxl6mqljkxkhm" path="res://Sprites/Player/player_icon.aseprite" id="24_oeip8"]
 [ext_resource type="Texture2D" uid="uid://qfikmbdmm8g3" path="res://Sprites/Icons/MenuIcons/Magnify.tres" id="26_8m3t6"]
@@ -266,8 +265,6 @@ _data = {
 &"VendorIntro": SubResource("Animation_tgy6u")
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8tyi"]
-
 [node name="Game" type="Node2D" unique_id=1496207552]
 
 [node name="Background" type="Node2D" parent="." unique_id=416798358]
@@ -503,23 +500,17 @@ metadata/_custom_type_script = "uid://bwvpfwom0xr8m"
 z_index = 1
 position = Vector2(225, 225)
 script = ExtResource("6_7nbq1")
-tattered_texture = ExtResource("11_mg4q0")
+tattered_texture = ExtResource("16_oeip8")
 guild_texture = ExtResource("16_ese38")
 
-[node name="Sprite" type="Sprite2D" parent="Midnight" unique_id=1877316557]
-texture = ExtResource("11_mg4q0")
-hframes = 4
-vframes = 4
+[node name="Sprite" type="AnimatedSprite2D" parent="Midnight" unique_id=929552673]
+sprite_frames = ExtResource("16_ese38")
+animation = &"Attack"
 
 [node name="Shield" type="Sprite2D" parent="Midnight" unique_id=253125294]
 visible = false
 texture = ExtResource("12_mg4q0")
 hframes = 2
-
-[node name="Animator" type="AnimationPlayer" parent="Midnight" unique_id=196307539]
-libraries/ = SubResource("AnimationLibrary_a8tyi")
-libraries/Player = ExtResource("12_exi56")
-autoplay = &"Player/Idle"
 
 [node name="StatusIcons" type="GridContainer" parent="Midnight" unique_id=96466188]
 offset_left = 25.0
