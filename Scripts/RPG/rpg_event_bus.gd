@@ -2,30 +2,34 @@ extends Node
 
 signal event_fired(args: RPGEventArgs);
 
+signal rpg_interaction_signal(args: RPGEventArgs);
+signal rpg_enter_dungeon_signal(args: RPGEventArgs);
+signal rpg_inspect_dungeon_signal(args: RPGEventArgs);
+signal rpg_dialogue_signal(args: RPGEventArgs);
+signal rpg_room_entered_signal(args: RPGEventArgs);
+signal rpg_room_exited_signal(args: RPGEventArgs);
+
 func fire_event(args: RPGEventArgs):
     self.event_fired.emit(args);
 
-var _id_specific_connections: Dictionary[RPGEventId, Array] = {};
 func _id_specific_connection(args: RPGEventArgs):
-    if (!_id_specific_connections.get(args.event_id)): return;
-    for callable in _id_specific_connections[args.event_id]:
-        if (!callable.is_valid()):
-            _id_specific_connections[args.event_id].erase(callable);
-            continue;
-        callable.call(args);
+    var signal_name: StringName = StringName("rpg_%s_signal" % _id_to_signal_name[args.event_id]);
+    emit_signal(signal_name, args);
 
+var _id_to_signal_name: Dictionary[RPGEventId, String] = {
+    RPGEventId.RPG_Interaction: "interaction",
+    RPGEventId.RPG_EnterDungeon: "enter_dungeon",
+    RPGEventId.RPG_InpsectDungeon: "inspect_dungeon",
+    RPGEventId.RPG_Dialogue: "dialogue",
+    RPGEventId.RPG_RoomEntered: "room_entered",
+    RPGEventId.RPG_RoomExited: "room_exited"
+};
 func connect_to_id(event_id: RPGEventId, callable: Callable):
-    if (!_id_specific_connections.get(event_id)): _id_specific_connections[event_id] = [];
-    _id_specific_connections[event_id].append(callable);
+    var signal_name: StringName = StringName("rpg_%s_signal" % _id_to_signal_name[event_id]);
+    connect(signal_name, callable);
 
 func clear_connections():
-    for id in _id_specific_connections:
-        var to_remove: Array = [];
-        for callable in _id_specific_connections[id]:
-            if (callable.is_valid()): continue;
-            to_remove.append(callable);
-        for callable in to_remove:
-            _id_specific_connections[id].erase(callable);
+    pass;
 
 func _ready() -> void:
     self.event_fired.connect(_id_specific_connection);

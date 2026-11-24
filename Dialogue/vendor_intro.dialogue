@@ -6,7 +6,8 @@ Midnight: [#tired] ...
 Vendor: The name's Stell and I'm the vendor of this here...
 Vendor: [#sideeye] uh...
 Vendor: Dungeon shop.
-Vendor: You've bought from me before, just needed to observe you a bit more before introducing myself.
+Vendor: You've bought from this shop before, y'know?
+Vendor: Just needed to observe a bit more before introducing myself.
 Vendor: [#happy]  So, feel free to ask me any question that comes to mind!
 ...
 - What are these items? => vendor_response
@@ -29,7 +30,7 @@ ERROR: [#vendor] Only {{3 - GlobalPlayer.get_flag(&"iEvilScore")}} more times...
 => vendor_exit
 
 ~ vendor_exit
-Vendor: Well, if you need anything else, I'll be in the next saferoom!
+Vendor: [#tired] Well, I have some other tasks I have to attend.
 Vendor: [#happy] So long!
 $> GlobalPlayer.set_bool_flag(&"bVendorMet", true)
 => END

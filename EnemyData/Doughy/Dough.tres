@@ -6,7 +6,7 @@
 script = ExtResource("1_yc7o0")
 name = "Dough"
 flavour_text = "The first step in the large world of baking."
-base_health = 72
+base_health = 28
 base_stamina = 13
 base_attack = 8
 base_defense_duration = 7

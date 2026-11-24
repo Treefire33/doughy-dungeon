@@ -10,11 +10,10 @@ Pressing [lb][lb]Secondary[rb][rb] will skip the current dialogue line, allowing
 - RPG Controls => rpg_controls
 - RPG Menu => rpg_menu
 - Exit => quit
-=> END
 
 ~ rpg_controls
 Pressing [lb][lb]Pause[rb][rb] will pause the game. Pressing [lb][lb]Tertiary[rb][rb] will bring up the menu. Lastly, holding [lb][lb]Quaternary[rb][rb] while moving will allow you to sprint.
-Make sure to check your inventory after completing a dungeon!
+...
 => choices
 
 ~ rpg_menu
@@ -23,6 +22,7 @@ Pressing "Resume" will close the menu and bring you back to the world.
 Pressing "Inventory" will open the inventory menu. This is where all of your unlocked items can be viewed and where you change your equipment.
 Pressing "Settings" will open the settings menu.
 Pressing "Exit" will exit back to the main menu.
+...
 => choices
 
 ~ quit

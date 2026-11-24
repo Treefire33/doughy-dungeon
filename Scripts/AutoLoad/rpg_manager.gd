@@ -44,3 +44,22 @@ func move_rooms(destination_id: StringName, entrance_id: int = 0):
     RPGEventBus.clear_connections();
 
     current_scene_id = destination_id;
+
+func move_in_place(destination_id: StringName, entrance_id: int = 0):
+    if (!is_instance_valid(player)): player = player_scene.instantiate();
+    if (player.get_parent()): player.get_parent().remove_child(player);
+
+    var destination_entrance: Node2D = SuperLoader.current_scene.find_entrance_by_id(entrance_id);
+    if (destination_entrance):
+        if (!destination_entrance.is_node_ready()): await destination_entrance.ready;
+        player.velocity = Vector2.ZERO;
+        player.global_position = destination_entrance.entrance_position.global_position;
+    else:
+        player.global_position = SuperLoader.current_scene.position;
+
+    SuperLoader.current_scene.add_child(player);
+    if (!player.is_node_ready()): await player.ready;
+    rpgplayer_valid.emit();
+    RPGEventBus.clear_connections();
+
+    current_scene_id = destination_id;

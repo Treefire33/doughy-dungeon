@@ -32,16 +32,20 @@ func set_transparent(state: bool):
     RenderingServer.viewport_set_transparent_background(rid, state);
     DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_TRANSPARENT, state);
 
+func quit():
+    get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST);
+    get_tree().quit();
+
 func _bootstrap_loader():
     var current_scene = get_tree().current_scene;
-    if (current_scene is RPGScene):
-        RPGManager.move_rooms(current_scene.scene_id);
-        current_scene.queue_free();
-    elif (current_scene != self):
+    if (current_scene != self):
         await current_scene.get_parent().ready;
         current_scene.reparent(self.game_container);
         self.current_scene = current_scene;
     else: switch_scene("res://Scenes/title_screen.tscn");
+
+    if (current_scene is RPGScene):
+        RPGManager.move_in_place(current_scene.scene_id);
 
 func _enter_tree() -> void:
     RenderingServer.set_default_clear_color(Color.BLACK);

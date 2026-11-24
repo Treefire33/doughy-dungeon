@@ -6,7 +6,7 @@
 script = ExtResource("1_jfyxa")
 name = "Hard Tack"
 flavour_text = "Good thing I don't have teeth! ...or a mouth."
-base_health = 60
+base_health = 40
 base_stamina = 6
 base_attack = 3
 base_defense_duration = 12

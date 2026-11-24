@@ -125,6 +125,7 @@ func reset_turn_order():
         indicator.queue_free();
 
 func add_to_turn_order(entity: Entity):
+    if (entity.health <= 0): return;
     var new_indicator = turn_order_prototype.duplicate(DUPLICATE_SCRIPTS);
     new_indicator.icon = turn_order_icons[0 if entity is Player else 1];
     new_indicator.tooltip_strings = [

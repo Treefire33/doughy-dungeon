@@ -67,7 +67,7 @@ var item_rarity_colours: Dictionary[Enum.ItemRarity, Color] = {
     Enum.ItemRarity.Abyssal: Color.from_string("#540079", Color.RED),
     Enum.ItemRarity.Curio: Color.from_string("#cb7cff", Color.RED),
 };
-func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String:
+func get_random_item(dungeon_data: DungeonData, player: Player, painful: bool = false) -> String:
     var rng = RandomNumberGenerator.new();
     var random_rarity: Enum.ItemRarity = item_rarity_probabilities.keys()[rng.rand_weighted(item_rarity_probabilities.values())];
 
@@ -81,11 +81,13 @@ func get_random_item(dungeon_data: DungeonData, painful: bool = false) -> String
     var weights = [];
     for item in item_pool:
         var item_data: ItemData = get_item_data(item);
+        if (!item_data.stacks && player.items.get(item, -1) > 0):
+            continue;
         keys.append(item);
         weights.append(item_data.weight);
     
     if (keys.size() <= 0):
-        return get_random_item(dungeon_data, painful);
+        return get_random_item(dungeon_data, player, painful);
 
     return keys[rng.rand_weighted(weights)];
 

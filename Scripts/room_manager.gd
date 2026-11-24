@@ -200,7 +200,7 @@ func generate_shop_item(display_index: int):
     var item_button: Button = item_display.get_node("Purchase");
     for connection in item_button.pressed.get_connections():
         item_button.pressed.disconnect(connection.callable)
-    var item_name = ItemUtils.get_random_item(current_dungeon, display_index == 4);
+    var item_name = ItemUtils.get_random_item(current_dungeon, player, display_index == 4);
     var item = ItemUtils.get_item_data(item_name);
     var item_sprite: AnimatedSprite2D = item_display.get_node("Sprite");
     item_sprite.animation = ItemUtils.get_item_animation_name(item);
@@ -332,6 +332,9 @@ func _ready() -> void:
     if (RoomManager.instance):
         RoomManager.instance.queue_free();
     RoomManager.instance = self;
+    
+    Audio.play_music(current_dungeon.dungeon_music);
+    Audio.change_music(Audio.DungeonMusic.Idle);
 
     if (!GlobalPlayer.get_bool_flag(&"bDungeonTutorial")):
         await dialogue("res://Dialogue/dungeon_tutorial.dialogue");
@@ -339,8 +342,6 @@ func _ready() -> void:
     gen_room(Enum.RoomDecision.Proceed);
     player_ui.update_ui();
     player_ui.room_select.request_floor(current_dungeon.rooms_until_next_floor - 1, current_dungeon.rooms, self.room_difficulty);
-    Audio.play_music(current_dungeon.dungeon_music);
-    Audio.change_music(Audio.DungeonMusic.Idle);
     room_turn();
 
 func _process(delta: float) -> void:

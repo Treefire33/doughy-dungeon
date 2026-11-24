@@ -7,5 +7,5 @@ script = ExtResource("1_wf8y5")
 item_type = 1
 name = "Iron Sword"
 description = "A ferric sword. Heavy and deadly."
-attack = 6
+attack = 7
 metadata/_custom_type_script = "uid://i8t58il84vkc"

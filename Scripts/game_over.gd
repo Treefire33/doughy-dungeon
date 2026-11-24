@@ -41,4 +41,4 @@ func load_info(player: Player, room_manager: RoomManager, status: String, profit
     max_stamina.text = "MAX STAMINA: %d" % player.max_stamina;
     attack.text = "ATTACK: %d" % player.attack;
     damage_taken.text = "DEFENSE: %d/%d" % [player.max_defense_durability, player.max_defending_duration];
-    coins.text = "COMMISSION: +%d" % profit;
+    coins.text = "COMMISSION: +%d¢" % profit;

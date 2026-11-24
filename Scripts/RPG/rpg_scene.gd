@@ -27,6 +27,7 @@ func _ready() -> void:
     RPGManager.player.camera.limit_left = limit_topleft.x;
     RPGManager.player.camera.limit_bottom = limit_bottomright.y;
     RPGManager.player.camera.limit_right = limit_bottomright.x;
+
     RPGEventBus.connect_to_id(RPGEventBus.RPGEventId.RPG_RoomEntered, _on_entered);
     RPGEventBus.fire_event(RPGEventBus.RPGRoomEventArgs.new(RPGEventBus.RPGEventId.RPG_RoomEntered, self.scene_id));
 

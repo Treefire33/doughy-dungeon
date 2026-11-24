@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_y84kd")
-name = "Attack Oil"
+name = "Health Oil"
 flavour_text = "It's bitter."
 description = "Increases max health by 2."
 rarity = 2

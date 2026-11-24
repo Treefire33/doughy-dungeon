@@ -437,7 +437,7 @@ expand_icon = true
 script = ExtResource("6_j1uh6")
 tooltip_template_path = "res://Scenes/Tooltips/rpg_item_tooltip.tscn"
 
-[node name="Stats" type="Panel" parent="RPGMenu/MenuSpace" unique_id=1218795242 node_paths=PackedStringArray("stats_display_health", "stats_display_stamina", "stats_display_attack", "stats_display_duration", "stats_display_durability", "stats_display_speed")]
+[node name="Stats" type="Panel" parent="RPGMenu/MenuSpace" unique_id=1218795242 node_paths=PackedStringArray("stats_display_health", "stats_display_stamina", "stats_display_attack", "stats_display_duration", "stats_display_durability", "stats_display_speed", "stats_display_coins")]
 visible = false
 layout_mode = 0
 offset_left = 500.0
@@ -452,6 +452,7 @@ stats_display_attack = NodePath("VBoxContainer/Attack")
 stats_display_duration = NodePath("VBoxContainer/Duration")
 stats_display_durability = NodePath("VBoxContainer/Durability")
 stats_display_speed = NodePath("VBoxContainer/Speed")
+stats_display_coins = NodePath("VBoxContainer/Coins")
 
 [node name="StatsName" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats" unique_id=567217898]
 layout_mode = 1
@@ -524,6 +525,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Speed" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=1354095266]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Coins" type="RichTextLabel" parent="RPGMenu/MenuSpace/Stats/VBoxContainer" unique_id=1893750959]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

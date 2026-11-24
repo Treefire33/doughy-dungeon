@@ -58,6 +58,7 @@ static func clean_effects(entity: Entity):
         i += 1;
     
     for index in to_remove:
+        if (entity.status_effects.size() < index): continue;
         var effect = entity.status_effects[index];
         for stat_mod in effect.stat_mods:
             entity.stat_modifiers.erase(stat_mod);

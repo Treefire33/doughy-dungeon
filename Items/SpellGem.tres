@@ -13,5 +13,4 @@ price = 60
 weight = 1.0
 function = ExtResource("1_ibtiv")
 unique_stacking = true
-dungeon_exclude_pool = Array[int]([-1])
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

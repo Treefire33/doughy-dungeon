@@ -47,6 +47,8 @@ func get_item_stack_by_name(item_name: String):
         if (ItemUtils.get_item_data(item).name != item_name): continue;
         return items[item];
 
+    return 1;
+
 func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellFunction = null) -> int:
     if (decision == Enum.Decision.Spell):
         if (spell == null): return 0;

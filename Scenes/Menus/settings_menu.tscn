@@ -22,6 +22,7 @@ categories = {
 &"Audio": NodePath("SettingsContainer/Audio/Margin/AudSettings"),
 &"General": NodePath("SettingsContainer/General/Margin/GenSettings"),
 &"Language": NodePath("SettingsContainer/Language/Margin/LangSettings"),
+&"Misc": NodePath("SettingsContainer/Misc/Margin/MiscSettings"),
 &"Visual": NodePath("SettingsContainer/Visual/Margin/VisSettings")
 }
 setting_prototype = ExtResource("2_nrclt")
@@ -139,6 +140,23 @@ theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
 [node name="LangSettings" type="VBoxContainer" parent="SettingsContainer/Language/Margin" unique_id=811328399]
+layout_mode = 2
+
+[node name="Misc" type="Control" parent="SettingsContainer" unique_id=1020806061]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Margin" type="MarginContainer" parent="SettingsContainer/Misc" unique_id=1763291632]
+layout_mode = 0
+offset_right = 519.0
+offset_bottom = 24.0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MiscSettings" type="VBoxContainer" parent="SettingsContainer/Misc/Margin" unique_id=107052916]
 layout_mode = 2
 
 [node name="Done" type="Button" parent="." unique_id=1791709479]

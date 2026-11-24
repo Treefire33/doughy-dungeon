@@ -29,6 +29,11 @@ var player_flags: Dictionary[StringName, int] = {
     # Lana Flags
     &"bLanaMet": 0,
 
+    # Dungeon Reward Flags
+    &"bAlcoveClaimed": 0,
+    &"bOceanicClaimed": 0,
+    &"bDoughyClaimed": 0,
+
     # True Ending Flags
     &"iAbyssFragmentCount": 0,
     &"bAbyssHeartObtained": 0,
@@ -37,6 +42,7 @@ var player_flags: Dictionary[StringName, int] = {
     &"iEvilScore": 0, # Counts how many times you've visited Evilgrounds
     &"bErrorUnlocked": 0, # Flag for if the player has seen the error unlock dialogue
     &"bErrorWorld": 0, # Flag for if the player has been to the error world
+    &"bErrorClaimed": 0,
 
     # Easter Egg Flags
     &"bMetAfternoon": 0 # Flag for if you met Afternoon and their sister Evening.
@@ -97,7 +103,14 @@ func equip_item(item_type: Enum.RPGItemType, item_name: StringName):
         cloak = item;
     elif (item_type == Enum.RPGItemType.Sword):
         sword = item;
-    elif (item_type == Enum.RPGItemType.Spell):
+    elif (item_type >= Enum.RPGItemType.Spell):
+        var possible_swap: int = spells.find(item);
+        if (possible_swap != -1):
+            var temp = spells[possible_swap];
+            spells[possible_swap] = spells[item_type - Enum.RPGItemType.Spell];
+            spells[item_type - Enum.RPGItemType.Spell] = temp;
+            return;
+
         spells[item_type - Enum.RPGItemType.Spell] = item;
 
 # wow I sure hope no one is able to modify their saves
@@ -112,11 +125,11 @@ func save_player():
     save_data.set_value("flags", "coins", coins);
 
     save_data.set_value("rpg_items", "unlocked_items", unlocked_items);
-    save_data.set_value("rpg_items", "cloak", cloak.resource_path);
-    save_data.set_value("rpg_items", "sword", sword.resource_path);
+    save_data.set_value("rpg_items", "cloak", cloak.resource_path.get_file().trim_suffix(".tres"));
+    save_data.set_value("rpg_items", "sword", sword.resource_path.get_file().trim_suffix(".tres"));
     save_data.set_value("rpg_items", "num_spells", spells.size());
     for i in range(spells.size()):
-        save_data.set_value("rpg_items", "spell%s" % i, spells[i].resource_path);
+        save_data.set_value("rpg_items", "spell%s" % i, spells[i].resource_path.get_file().trim_suffix(".tres"));
     
     save_data.set_value("version_info", "version", ProjectSettings.get_setting("application/config/version", "0.0.0"));
 

@@ -42,19 +42,43 @@ func get_interactable(raycast: RayCast2D) -> RPGInteractable:
     if (!object is RPGInteractable): return null;
     return object as RPGInteractable;
 
+func rpg_batch_add_item(item_names: Array[StringName]):
+    var final_dialogue: String = "~ start\n";
+    for item_name in item_names:
+        GlobalPlayer.add_rpg_item(item_name);
+        final_dialogue += "*Unlocked \"%s\"*\n" % GlobalPlayer.rpg_item_database[item_name].name;
+    final_dialogue += "=> END";
+    var dialogue = DialogueManager.create_resource_from_text(final_dialogue);
+        
+    await rpg_ui.start_dialogue(RPGEventBus.RPGDialogueArgs.new(RPGEventBus.RPGEventId.RPG_Dialogue, null, dialogue));
+
+func claim_dungeon_rewards():
+    var batched_items: Array[StringName] = [];
+    if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Alcove] && !GlobalPlayer.get_bool_flag(&"bAlcoveClaimed")):
+        batched_items.append_array([&"GuildApp", &"BronzeSword", &"DefendTwo"]);
+        GlobalPlayer.set_bool_flag(&"bAlcoveClaimed", true);
+    
+    if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Oceanic] && !GlobalPlayer.get_bool_flag(&"bOceanicClaimed")):
+        batched_items.append_array([&"GuildMember", &"IronSword", &"Heal"]);
+        GlobalPlayer.set_bool_flag(&"bOceanicClaimed", true);
+
+    if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Doughy] && !GlobalPlayer.get_bool_flag(&"bDoughyClaimed")):
+        batched_items.append_array([&"BakerSpell"]);
+        GlobalPlayer.set_bool_flag(&"bDoughyClaimed", true);
+    
+    if (GlobalPlayer.completed_dungeons[Enum.Dungeon.ErrorEntity] && !GlobalPlayer.get_bool_flag(&"bErrorClaimed")):
+        batched_items.append_array([&"ErroneousCloak"]);
+        GlobalPlayer.set_bool_flag(&"bErrorClaimed", true);
+    
+    if (batched_items.size() > 0):
+        rpg_batch_add_item(batched_items);
+
 func _ready() -> void:
     self._tile_speed = self.speed;
     animator.play("PlayerRPG/ForwardIdle");
 
     RPGEventBus.connect_to_id(RPGEventBus.RPGEventId.RPG_RoomEntered, func(args: RPGEventBus.RPGRoomEventArgs):
-        if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Alcove]):
-            GlobalPlayer.add_rpg_item("GuildApp");
-            GlobalPlayer.add_rpg_item("BronzeSword");
-            GlobalPlayer.add_rpg_item("DefendTwo");
-        if (GlobalPlayer.completed_dungeons[Enum.Dungeon.Oceanic]):
-            GlobalPlayer.add_rpg_item("GuildMember");
-        if (GlobalPlayer.completed_dungeons[Enum.Dungeon.ErrorEntity]):
-            GlobalPlayer.add_rpg_item("ErroneousCloak");
+        claim_dungeon_rewards();
     );
 
 func _draw() -> void:

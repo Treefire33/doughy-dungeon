@@ -13,4 +13,6 @@ price = 404
 weight = 1.0
 function = ExtResource("1_b70g2")
 unique_stacking = true
+stacks = false
+dungeon_exclude_pool = Array[int]([0])
 metadata/_custom_type_script = "uid://cordgir5vu6pr"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SpellItemData" format=3 uid="uid://pc25bfdyw2iw"]
+
+[ext_resource type="Script" uid="uid://bhpgi71qf83nc" path="res://RPGItems/Spells/Functions/BakerFunction.gd" id="1_yobat"]
+[ext_resource type="Script" uid="uid://dkqnvhp2de3p7" path="res://Scripts/Items/spell_item_data.gd" id="2_w0ed4"]
+
+[resource]
+script = ExtResource("2_w0ed4")
+dungeon_icon_name = &"Defend"
+dungeon_name = "BLESSING"
+dungeon_description = "Heals for 15% health and recovers 30% stamina."
+function = ExtResource("1_yobat")
+item_type = 2
+name = "Baker's Blesing"
+description = "Seems The Baker wasn't controlled by the Force, besting them has granted you their blessing."
+attack = 2
+metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_prbw6")
 item_type = 1
-name = "Bronze Sword"
-description = "It's blue, very blue. Despite being constructed of pure magic, it's also very sharp."
-attack = 11
+name = "Cobalt Sword"
+description = "It's blue, very blue. Being constructed of pure magic, it's very sharp."
+attack = 18
 metadata/_custom_type_script = "uid://i8t58il84vkc"

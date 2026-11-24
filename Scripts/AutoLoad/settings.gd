@@ -185,7 +185,29 @@ Iansui: A more readable, non-pixel font.[/font_size]"""
 
         &"tooltip": "Sets the game's language.\n[font_size=8]Note: Currently only English is available[/font_size]"
     },
+
+    &"reset_save": {
+        &"name": &"Reset Save",
+        &"category": &"Misc",
+        &"type": TYPE_CALLABLE,
+        &"value": reset_save_file,
+        &"callable_name": "RESET",
+
+        &"tooltip": "Completely resets your save, this is permanent and can't be undone (requires restart)."
+    }
 };
+
+func reset_save_file(_a):
+    SuperLoader.quit();
+
+    var save_data = ConfigFile.new();
+
+    if (OS.is_debug_build()):
+        save_data.save("user://player_save_debug.sav");
+    else:
+        save_data.save_encrypted_pass("user://player_save.sav", GlobalPlayer.encryption_pass);
+
+    OS.create_process(OS.get_executable_path(), []);
 
 # Returns the value dict for a setting
 func get_setting_dict(setting_name: StringName):
