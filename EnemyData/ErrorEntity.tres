@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://st6rd4bfysv7"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_aj0ex"]
+
+[resource]
+script = ExtResource("1_aj0ex")
+name = "ERROR_MISSING_ENTITY"
+flavour_text = "You suggest it check behind or below, there's no winning this."
+base_health = 1
+base_stamina = 1
+sprite = &"Error"
+base_ai = "Rest"
+base_ai_five = "Rest"
+target_selection_ai = "Random"
+difficulty_range = Array[int]([1, 20])
+coins_range = Array[int]([1, 1])

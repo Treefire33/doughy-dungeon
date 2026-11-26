@@ -21,7 +21,6 @@ signal decision(decision: Enum.Decision, enemy: Enemy, depth: int, spell: SpellF
 @export var selection_prompt: Control;
 @export var selection_prompt_label: RichTextLabel;
 
-# horrible
 enum DecisionPage {
     BaseOptions, 
     AttackOptions, 
@@ -29,15 +28,13 @@ enum DecisionPage {
     DepthOptions,
     EnemySelect
 }
-var last_page: DecisionPage = DecisionPage.BaseOptions;
-var current_page: DecisionPage = DecisionPage.BaseOptions;
 @onready var action_pages = {
     # primary actions
     DecisionPage.BaseOptions: {
         "Page": self.options,
         "Primary": self.attack_button,
         "Secondary": self.spell_button,
-        "Tertiary": self.rest_button
+        "Tertiary": self.rest_button,
     },
 
     # attack options
@@ -45,7 +42,7 @@ var current_page: DecisionPage = DecisionPage.BaseOptions;
         "Page": self.attack_options,
         "Primary": self.attack_light,
         "Secondary": self.attack_heavy,
-        "Quaternary": self.cancel_button
+        "Quaternary": self.cancel_button,
     },
 
     # spell options
@@ -54,7 +51,7 @@ var current_page: DecisionPage = DecisionPage.BaseOptions;
         "Primary": self.spell_buttons[0],
         "Secondary": self.spell_buttons[1],
         "Tertiary": self.spell_buttons[2],
-        "Quaternary": self.cancel_button
+        "Quaternary": self.cancel_button,
     },
 
     # depth options
@@ -64,15 +61,17 @@ var current_page: DecisionPage = DecisionPage.BaseOptions;
         "Secondary": self.depth_two,
         "Tertiary": self.depth_three,
         "Quinary": self.depth_four,
-        "Quaternary": self.cancel_button
+        "Quaternary": self.cancel_button,
     },
 
     # blank page for enemy select
     DecisionPage.EnemySelect: {
         "Page": null,
-        "Quaternary": self.cancel_button
+        "Quaternary": self.cancel_button,
     }
 };
+var current_page: DecisionPage;
+var page_stack: Array[DecisionPage] = [];
 
 var player_ui: PlayerUI = null;
 var _selected_decision: Enum.Decision = Enum.Decision.Attack;
@@ -109,14 +108,28 @@ func begin_decision():
     _selected_depth = 1;
     _selected_enemy = null;
     _selected_spell = null;
-    move_page(DecisionPage.BaseOptions);
+    advance_page(DecisionPage.BaseOptions);
     self.visible = true;
 
-func move_page(target_page: DecisionPage):
+func advance_page(target_page: DecisionPage):
     if (self.action_pages.has(current_page) && self.action_pages[current_page]["Page"]): self.action_pages[current_page]["Page"].visible = false;
     if (self.action_pages.has(target_page) && self.action_pages[target_page]["Page"]): self.action_pages[target_page]["Page"].visible = true;
-    last_page = current_page;
+    
+    page_stack.append(target_page);
     current_page = target_page;
+
+    move_page();
+
+func cancel_page():
+    var prev_page = page_stack.pop_back();
+    current_page = page_stack.back();
+
+    if (self.action_pages.has(prev_page) && self.action_pages[prev_page]["Page"]): self.action_pages[prev_page]["Page"].visible = false;
+    if (self.action_pages.has(current_page) && self.action_pages[current_page]["Page"]): self.action_pages[current_page]["Page"].visible = true;
+
+    move_page();
+
+func move_page():
     selection_prompt.hide();
     cancel_button.hide();
     player_ui.making_decision = true;
@@ -141,40 +154,31 @@ func move_page(target_page: DecisionPage):
             selection_prompt_label.text = "Select an Enemy";
             selection_prompt.show();
             cancel_button.show();
-            player_ui.selecting_enemy = true;
-            _selected_enemy = await player_ui._enemy_selected;
             enemy_select();
-
-func cancel_page():
-    match (current_page):
-        DecisionPage.AttackOptions, DecisionPage.SpellOptions:
-            move_page(DecisionPage.BaseOptions);
-        DecisionPage.DepthOptions, DecisionPage.EnemySelect:
-            move_page(last_page);
 
 func base_decision(decision: Enum.Decision):
     _selected_decision = decision;
     match (decision):
         Enum.Decision.Attack:
-            move_page(DecisionPage.AttackOptions);
+            advance_page(DecisionPage.AttackOptions);
         Enum.Decision.Spell:
-            move_page(DecisionPage.SpellOptions);
+            advance_page(DecisionPage.SpellOptions);
         Enum.Decision.Rest:
-            move_page(DecisionPage.DepthOptions);
+            advance_page(DecisionPage.DepthOptions);
 
 func attack_decision(decision: Enum.Decision):
     _selected_decision = decision;
-    if (decision == Enum.Decision.AttackHeavy): move_page(DecisionPage.DepthOptions);
-    else: move_page(DecisionPage.EnemySelect);
+    if (decision == Enum.Decision.AttackHeavy): advance_page(DecisionPage.DepthOptions);
+    else: advance_page(DecisionPage.EnemySelect);
 
 func spell_decision(decision: Enum.Decision):
     _selected_decision = Enum.Decision.Spell;
     _selected_spell = GlobalPlayer.spells[decision - Enum.Decision.Spell].function.new();
 
     if (_selected_spell.requires_depth()):
-        move_page(DecisionPage.DepthOptions);
+        advance_page(DecisionPage.DepthOptions);
     elif (_selected_spell.requires_selection()):
-        move_page(DecisionPage.EnemySelect);
+        advance_page(DecisionPage.EnemySelect);
     else: submit_decision();
 
 func depth_decision(depth: int):
@@ -185,10 +189,12 @@ func depth_decision(depth: int):
             _selected_decision == Enum.Decision.Spell 
             && _selected_spell.requires_selection()
         )
-    ): move_page(DecisionPage.EnemySelect);
+    ): advance_page(DecisionPage.EnemySelect);
     else: submit_decision();
 
 func enemy_select():
+    player_ui.selecting_enemy = true;
+    _selected_enemy = await player_ui._enemy_selected;
     player_ui.selecting_enemy = false;
     submit_decision();
 
@@ -221,7 +227,7 @@ func _ready() -> void:
     for page_index in action_pages:
         var page = action_pages[page_index];
         for action in page:
-            if (action == "Page"): continue;
+            if (action == "Page" || action == "EnterPage"): continue;
             var action_object: Button = page[action] as Button;
             AccessibilityHelper.make_keybind_helper(action_object, action);
 

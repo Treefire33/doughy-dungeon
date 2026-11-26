@@ -15,4 +15,4 @@ sprite = &"HardTack"
 base_ai = "Defensive"
 base_ai_five = "Defend"
 difficulty_range = Array[int]([4, 10])
-coins_range = Array[int]([15, 23])
+coins_range = Array[int]([40, 55])

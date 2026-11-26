@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_l6t71")
 room_name = "ERROR"
-room_description = "ERR_ROOMMISSING_EVLGRNDS"
+room_description = "ERROR_MISSING_EVILGROUNDS"
 room_character = "E"
 room_length = -1
 room_weight = 0.05

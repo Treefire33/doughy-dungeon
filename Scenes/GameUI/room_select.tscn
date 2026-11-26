@@ -104,6 +104,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.142
 offset_bottom = 0.099998474
+bbcode_enabled = true
 text = "STANDARD"
 horizontal_alignment = 1
 vertical_alignment = 1

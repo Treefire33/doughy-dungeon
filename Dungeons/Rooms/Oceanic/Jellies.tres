@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://dmjytxd262rbw"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_0rads"]
+[ext_resource type="Resource" uid="uid://nnc2x1sraaf6" path="res://EnemyData/Oceanic/Jellyfish.tres" id="2_0rads"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="3_c2k28"]
+
+[resource]
+script = ExtResource("3_c2k28")
+room_name = "Jellyfish Trench"
+room_description = "Without a clear way out, it seems a lot of jellyfish have gathered here."
+room_character = "J"
+room_weight = 0.5
+minimum_difficulty = 3
+maximum_difficulty = 5
+enemies = Array[ExtResource("1_0rads")]([ExtResource("2_0rads")])
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

@@ -13,7 +13,7 @@ func decision(
     if (!ItemUtils.decision_is_attack(args.decision)): return;
 
     args.target.health -= 4;
-    if (randi_range(0, 100) <= 35):
+    if (randi_range(0, 100) <= 15):
         ItemUtils.show_custom_toast("The loose brick crumbled...");
         args.user.remove_item("LooseBrick");
     else:

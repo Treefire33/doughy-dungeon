@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyData" format=3 uid="uid://bern2d45o4k43"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_t0a3c"]
+
+[resource]
+script = ExtResource("1_t0a3c")
+name = "Golden Biscuit"
+flavour_text = "Also a mimic, a smart tactician however. Tried convicing you its from another timeline."
+base_health = 60
+base_stamina = 10
+base_attack = 2
+base_defense_duration = 4
+base_defense_durability = 12
+sprite = &"GoldenBiscuit"
+base_ai = "Aggressive"
+base_ai_five = "Smart"
+difficulty_range = Array[int]([1, 20])
+coins_range = Array[int]([1000, 5000])

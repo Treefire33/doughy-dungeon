@@ -11,4 +11,4 @@ base_health = 5
 base_stamina = 2
 sprite = &"YeastCrawler"
 difficulty_range = Array[int]([1, 5])
-coins_range = Array[int]([5, 10])
+coins_range = Array[int]([10, 20])

@@ -1,0 +1,28 @@
+[gd_resource type="AudioStreamInteractive" format=3 uid="uid://b1svd3io14ckr"]
+
+[ext_resource type="AudioStream" uid="uid://c8ci2p28grvgj" path="res://Audio/Music/IdleBattle.wav" id="1_c1rob"]
+[ext_resource type="AudioStream" uid="uid://cvmqqv4sttqwn" path="res://Audio/Music/RisingHeat.wav" id="2_c1rob"]
+[ext_resource type="AudioStream" uid="uid://dq8ea48l54na8" path="res://Audio/Music/BossFightD.wav" id="3_wvvmy"]
+
+[resource]
+clip_count = 3
+clip_0/name = &"Idle"
+clip_0/stream = ExtResource("1_c1rob")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0
+clip_1/name = &"Quickening"
+clip_1/stream = ExtResource("2_c1rob")
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
+clip_2/name = &"BossFight"
+clip_2/stream = ExtResource("3_wvvmy")
+clip_2/auto_advance = 1
+clip_2/next_clip = 2
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 1
+}
+}

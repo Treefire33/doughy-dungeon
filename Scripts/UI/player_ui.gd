@@ -150,7 +150,6 @@ func _ready() -> void:
     room_manager.battle_manager.request_decision.connect(decision_panel.begin_decision);
     decision_panel.load_decisions(self);
     stats_display.update(room_manager);
-    inventory_button.grab_focus();
     
     update_enemy_buttons();
     

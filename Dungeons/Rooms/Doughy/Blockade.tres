@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://cmidkqe5hwopn"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_hwqgw"]
+[ext_resource type="Resource" uid="uid://4t7tklgqjcs8" path="res://EnemyData/Doughy/HardTack.tres" id="2_hwqgw"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="3_qsd1q"]
+
+[resource]
+script = ExtResource("3_qsd1q")
+room_name = "Tack Blockade"
+room_description = "A wall of Hard Tack has formed in this room."
+room_character = "H"
+room_type = 1
+room_weight = 0.5
+minimum_difficulty = 3
+maximum_difficulty = 8
+enemies = Array[ExtResource("1_hwqgw")]([ExtResource("2_hwqgw")])
+enemy_count = 3
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

@@ -17,4 +17,4 @@ base_ai = "Smart"
 base_ai_five = "Smart"
 speed = 5
 difficulty_range = Array[int]([20, 20])
-coins_range = Array[int]([999, 999])
+coins_range = Array[int]([1000, 1000])

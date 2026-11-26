@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://cot74q5yusxb8" path="res://Scenes/GameUI/inventory_display.tscn" id="15_exi56"]
 [ext_resource type="PackedScene" uid="uid://c2ayda41o3ped" path="res://Scenes/GameUI/decision_panel.tscn" id="15_iivbl"]
 [ext_resource type="SpriteFrames" uid="uid://bbq14f2dmggqv" path="res://Sprites/Player/player.aseprite" id="16_ese38"]
-[ext_resource type="SpriteFrames" uid="uid://b04lsstwaona8" path="res://Sprites/Player/player_tattered.aseprite" id="16_oeip8"]
+[ext_resource type="SpriteFrames" uid="uid://b04lsstwaona8" path="res://Sprites/Player/DungeonVariants/player_tattered.aseprite" id="16_oeip8"]
 [ext_resource type="PackedScene" uid="uid://cwk7wvoanmvjc" path="res://Scenes/GameUI/room_select.tscn" id="21_7t8sx"]
 [ext_resource type="Texture2D" uid="uid://bxl6mqljkxkhm" path="res://Sprites/Player/player_icon.aseprite" id="24_oeip8"]
 [ext_resource type="Texture2D" uid="uid://qfikmbdmm8g3" path="res://Sprites/Icons/MenuIcons/Magnify.tres" id="26_8m3t6"]
@@ -505,7 +505,7 @@ guild_texture = ExtResource("16_ese38")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Midnight" unique_id=929552673]
 sprite_frames = ExtResource("16_ese38")
-animation = &"Attack"
+animation = &"Idle"
 
 [node name="Shield" type="Sprite2D" parent="Midnight" unique_id=253125294]
 visible = false

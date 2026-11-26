@@ -3,12 +3,12 @@
 importer="aseprite_wizard.plugin.spriteframes"
 type="SpriteFrames"
 uid="uid://b04lsstwaona8"
-path="res://.godot/imported/player_tattered.aseprite-24cf2572130e7c6c12b9ec528647f425.res"
+path="res://.godot/imported/player_tattered.aseprite-f36ea1be33f3191909bf68f39126cc35.res"
 
 [deps]
 
-source_file="res://Sprites/Player/player_tattered.aseprite"
-dest_files=["res://.godot/imported/player_tattered.aseprite-24cf2572130e7c6c12b9ec528647f425.res"]
+source_file="res://Sprites/Player/DungeonVariants/player_tattered.aseprite"
+dest_files=["res://.godot/imported/player_tattered.aseprite-f36ea1be33f3191909bf68f39126cc35.res"]
 
 [params]
 

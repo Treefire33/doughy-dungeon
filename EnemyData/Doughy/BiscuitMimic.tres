@@ -9,4 +9,4 @@ flavour_text = "Once baked good turned monster."
 sprite = &"BiscuitMimic"
 base_ai_five = "Aggressive"
 difficulty_range = Array[int]([0, 5])
-coins_range = Array[int]([5, 10])
+coins_range = Array[int]([15, 25])

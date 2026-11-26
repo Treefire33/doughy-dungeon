@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://dksmdivc1psey"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_7f41s"]
+[ext_resource type="Resource" uid="uid://bern2d45o4k43" path="res://EnemyData/Doughy/GoldenBiscuit.tres" id="2_7f41s"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="3_3nsfy"]
+
+[resource]
+script = ExtResource("3_3nsfy")
+room_name = "Room 100"
+room_description = "Is there such a thing as referencing yourself? Anyway, it appears this is the final room from another timeline; however that works."
+room_character = "G"
+room_type = 1
+room_weight = 0.075
+maximum_difficulty = 50
+enemies = Array[ExtResource("1_7f41s")]([ExtResource("2_7f41s")])
+enemy_count = 1
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

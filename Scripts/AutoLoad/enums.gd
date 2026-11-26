@@ -19,11 +19,12 @@ enum RoomDecision {
 }
 
 enum PlayerAnimation {
-	Idle = 0,
-	Attack = 1,
-	Defend = 2,
-	Rest = 3,
-	Dead = 4
+	Idle,
+	Attack,
+	Defend,
+	Rest,
+	Dead,
+	Spell,
 }
 
 enum Character {

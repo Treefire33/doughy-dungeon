@@ -13,4 +13,4 @@ sprite = &"BiscuitMimicTwo"
 base_ai = "Aggressive"
 base_ai_five = "Attack"
 difficulty_range = Array[int]([2, 8])
-coins_range = Array[int]([8, 20])
+coins_range = Array[int]([20, 35])

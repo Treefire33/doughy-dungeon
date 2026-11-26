@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://blqdr1r8wcknl"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_avt34"]
+[ext_resource type="Resource" uid="uid://8eevr4pkr5t8" path="res://EnemyData/Doughy/Oven.tres" id="2_8q3nv"]
+[ext_resource type="Resource" uid="uid://uqhd6obfjniv" path="res://EnemyData/Doughy/RollingPin.tres" id="3_7cliu"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="3_dgnyl"]
+
+[resource]
+script = ExtResource("3_dgnyl")
+room_name = "Baker's Kitchen"
+room_description = "One room of the Baker's kitchen. There are no baked goods in this room, only utensils and appliances."
+room_character = "K"
+room_type = 1
+room_weight = 0.35
+minimum_difficulty = 7
+maximum_difficulty = 10
+enemies = Array[ExtResource("1_avt34")]([ExtResource("2_8q3nv"), ExtResource("3_7cliu")])
+enemy_count = 3
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

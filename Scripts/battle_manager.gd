@@ -29,6 +29,7 @@ func decision_text(decision: Enum.Decision):
 func do_turn(room_manager: RoomManager):
     # Update turn order
     current_entities.sort_custom(_sort_entity);
+    room_manager.player_ui.reset_turn_order();
     for entity in current_entities:
         room_manager.player_ui.add_to_turn_order(entity);
 
@@ -106,8 +107,6 @@ func do_turn(room_manager: RoomManager):
         entity.turn_points += 1; # give a much needed turn point
         entity.update_shield();
         entity.update_status_notifs();
-    
-    room_manager.player_ui.reset_turn_order();
 
 func battle_active() -> bool:
     var enemies_dead: int = 0;

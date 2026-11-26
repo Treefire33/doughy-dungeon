@@ -162,6 +162,13 @@ func request_room(room_number: int, floor_count_mod: int, dungeon_name: String):
     floor_count.text = "FLOOR: %d" % (int(room_number / floor_count_mod) + 1);
     dungeon_name_label.text = dungeon_name;
 
+var room_type_repr: Dictionary[Enum.RoomDecision, String] = {
+    Enum.RoomDecision.Proceed: "Proceed",
+    Enum.RoomDecision.RiskIt: "Risk It",
+    Enum.RoomDecision.StayClear: "Stay Clear",
+    Enum.RoomDecision.NextBiome: "Next Biome",
+    Enum.RoomDecision.Boss: "Boss",
+};
 func inspect_room(room: RoomSelectButton):    
     if (room.visited): return;    
     midnight_icon.position = room.position + ((room.size / 2) - (midnight_icon.size / 2));
@@ -170,7 +177,7 @@ func inspect_room(room: RoomSelectButton):
         selection_inspect.visible = false;
         return;
     selection_inspect.visible = true;
-    selection_title.text = room.room_data.room_name;
+    selection_title.text ="%s\n[font_size=8]Type: %s[/font_size]" % [room.room_data.room_name, room_type_repr[room.room_data.room_type]];
     selection_description.text = room.room_data.room_description;
     selected_room = room;
 

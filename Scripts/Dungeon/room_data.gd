@@ -11,3 +11,4 @@ class_name RoomData
 @export var minimum_difficulty: int = 1;
 @export var maximum_difficulty: int = 30;
 @export var enemies: Array[EnemyData] = [];
+@export var enemy_count: int = -1;

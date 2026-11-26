@@ -150,9 +150,10 @@ func gen_room(decision: Enum.RoomDecision):
     
     player.health += int(player.max_health * 0.4);
     
+    var num_enemies: int = player_ui.room_select.current_room.room_data.enemy_count if player_ui.room_select.current_room.room_data.enemy_count > 0 else get_num_enemies(room_difficulty);
     var alive_enemies: Array[Enemy] = [];
     if (decision != Enum.RoomDecision.Boss):
-        for i in range(get_num_enemies(room_difficulty)):
+        for i in range(num_enemies):
             var enemy = get_random_enemy(room_difficulty);
             enemy.enemy_index = i;
             enemy.pressed.connect(player_ui.select_enemy.bind(enemy));

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://xt4vby16hdj"
-path="res://.godot/imported/IdleWading.wav-6b130096b365960c3ef39c0900eecb71.sample"
+path="res://.godot/imported/IdleWaters.wav-40a71feda04464a441d4eacd6502cc07.sample"
 
 [deps]
 
-source_file="res://Audio/Music/IdleWading.wav"
-dest_files=["res://.godot/imported/IdleWading.wav-6b130096b365960c3ef39c0900eecb71.sample"]
+source_file="res://Audio/Music/IdleWaters.wav"
+dest_files=["res://.godot/imported/IdleWaters.wav-40a71feda04464a441d4eacd6502cc07.sample"]
 
 [params]
 

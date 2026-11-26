@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="RoomData" format=3 uid="uid://7pxm1f6tha4c"]
+
+[ext_resource type="Script" uid="uid://c8w2dfho12gr4" path="res://Scripts/Enemy/enemy_data.gd" id="1_elu5i"]
+[ext_resource type="Resource" uid="uid://nnc2x1sraaf6" path="res://EnemyData/Oceanic/Jellyfish.tres" id="2_gx71i"]
+[ext_resource type="Script" uid="uid://bop2umllk0kqy" path="res://Scripts/Dungeon/room_data.gd" id="3_26hpr"]
+[ext_resource type="Resource" uid="uid://c6jhgi8n2pv52" path="res://EnemyData/Oceanic/Anemone.tres" id="3_gx71i"]
+
+[resource]
+script = ExtResource("3_26hpr")
+room_name = "Anemone War Zone"
+room_description = "A jellyfish's natural habitat, so it's only natural that the Mimicry Anemone would also choose this place to live."
+room_character = "W"
+room_type = 1
+room_weight = 0.5
+minimum_difficulty = 3
+maximum_difficulty = 5
+enemies = Array[ExtResource("1_elu5i")]([ExtResource("2_gx71i"), ExtResource("3_gx71i")])
+metadata/_custom_type_script = "uid://bop2umllk0kqy"

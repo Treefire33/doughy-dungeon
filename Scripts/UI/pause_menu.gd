@@ -14,13 +14,18 @@ func load_pause_menu(parent: Control):
             Settings._settings_menu.queue_free();
         queue_free();
     );
+
+    restart_button.visible = !(SuperLoader.current_scene is RPGScene);
     restart_button.pressed.connect(func():
         Settings.game_paused = false;
         SuperLoader.switch_scene("res://Scenes/game.tscn");
     );
+
     options_button.pressed.connect(func():
         Settings.load_settings_menu(parent);
     );
+
+    return_button.visible = !(SuperLoader.current_scene is RPGScene);
     return_button.pressed.connect(func():
         Settings.game_paused = false;
         RPGManager.move_rooms(&"TEST_SCENE");

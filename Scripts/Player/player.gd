@@ -57,22 +57,22 @@ func turn(target: Entity, decision: Enum.Decision, count: int = 1, spell: SpellF
     return super.turn(target, decision, count, spell);
 
 var player_animation_to_name = {
-    Enum.PlayerAnimation.Idle: "Idle",
-    Enum.PlayerAnimation.Attack: "Attack",
-    Enum.PlayerAnimation.Defend: "DefendStart",
-    Enum.PlayerAnimation.Rest: "Rest",
-    Enum.PlayerAnimation.Dead: "Dead"
+    Enum.PlayerAnimation.Idle: &"Idle",
+    Enum.PlayerAnimation.Attack: &"Attack",
+    Enum.PlayerAnimation.Defend: &"DefendStart",
+    Enum.PlayerAnimation.Spell: &"Spell",
+    Enum.PlayerAnimation.Rest: &"Rest",
+    Enum.PlayerAnimation.Dead: &"Dead"
 };
 var decision_to_animation = {
     Enum.Decision.Attack: Enum.PlayerAnimation.Attack,
     Enum.Decision.AttackHeavy: Enum.PlayerAnimation.Attack,
 
-    Enum.Decision.Spell: Enum.PlayerAnimation.Defend,
+    Enum.Decision.Spell: Enum.PlayerAnimation.Spell,
 
     Enum.Decision.Rest: Enum.PlayerAnimation.Rest,
 }
 func play_anim(decision: Enum.PlayerAnimation):
-    # animator.speed_scale = Settings.game_speed;
     sprite.play(player_animation_to_name[decision]);
 
 func update_shield():

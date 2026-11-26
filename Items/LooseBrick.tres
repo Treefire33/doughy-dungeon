@@ -7,7 +7,7 @@
 script = ExtResource("2_2nggw")
 name = "Loose Brick"
 flavour_text = "A loose brick from the walls of this dungeon."
-description = "On attack: Throws the brick, dealing 4 damage. Has a 35% chance to break, every survived throw adds  +{stack} damage."
+description = "On attack: Throws the brick, dealing 4 damage. Has a 15% chance to break, every survived throw adds  +{stack} damage."
 rarity = 3
 price = 50
 weight = 1.0
