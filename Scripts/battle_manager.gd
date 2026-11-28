@@ -75,12 +75,6 @@ func do_turn(room_manager: RoomManager):
                 player.play_anim(Enum.PlayerAnimation.Rest);
             else:
                 player.play_anim(player.decision_to_animation[decision]);
-
-            if (selected_enemy != null && selected_enemy.health <= 0):
-                ItemUtils.activate_items(player, "enemy_kill", ItemFunction.ItemFunctionArgs.new_enemy_kill_args(player, selected_enemy));
-                Audio.play_audio(Audio.die_sfx);
-                player.coins += room_manager.difficulty_adjust(selected_enemy.get_coin_drops() * room_manager.room_multiplier);
-                selected_enemy.visible = false;
         else:
             var enemy_decision = entity.get_decision(player, room_manager.room_difficulty);
             var enemy_target = entity.get_target(player, get_enemies());
@@ -101,7 +95,14 @@ func do_turn(room_manager: RoomManager):
     
     # cleanup
     for entity in current_entities:
-        if (entity is Enemy): entity.update_health();
+        if (entity is Enemy): 
+            entity.update_health();
+            if (entity.health <= 0):
+                ItemUtils.activate_items(player, "enemy_kill", ItemFunction.ItemFunctionArgs.new_enemy_kill_args(player, entity));
+                Audio.play_audio(Audio.die_sfx);
+                player.coins += room_manager.difficulty_adjust(entity.get_coin_drops() * room_manager.room_multiplier);
+                entity.visible = false;
+        
         StatusEffect.clean_effects(entity);
 
         entity.turn_points += 1; # give a much needed turn point

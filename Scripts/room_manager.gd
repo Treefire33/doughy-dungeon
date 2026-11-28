@@ -268,7 +268,6 @@ func room_turn():
         await battle_manager.do_turn(self);
         player_ui.update_ui();
         await get_tree().create_timer(0.5 / Settings.game_speed).timeout;
-        player.update_shield();
     
     battle_manager.clear_battle();
 

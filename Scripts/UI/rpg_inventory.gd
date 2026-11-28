@@ -8,10 +8,11 @@ class_name RPGInventory
 @export var item_slot_prototype: Button;
 @export var item_slot_container: Control;
 
-const item_type_icon_dict: Dictionary[Enum.RPGItemType, Texture2D] = {
-    Enum.RPGItemType.Cloak: preload("res://Sprites/Icons/MenuIcons/Cloak.tres"),
-    Enum.RPGItemType.Sword: preload("res://Sprites/Icons/MenuIcons/Sword.tres"),
-    Enum.RPGItemType.Spell: preload("res://Sprites/Icons/MenuIcons/Spell.tres"),
+const menu_icons: SpriteFrames = preload("res://Sprites/Icons/MenuIcons.aseprite");
+const item_type_icon_dict: Dictionary[Enum.RPGItemType, StringName] = {
+    Enum.RPGItemType.Cloak: &"Cloak",
+    Enum.RPGItemType.Sword: &"Sword",
+    Enum.RPGItemType.Spell: &"Spell",
 };
 
 const spec_dict = {
@@ -57,15 +58,18 @@ func _get_rpg_item_tooltip(rpg_item: RPGItemData) -> Array[String]:
 
     return tooltip_strings;
 
+func get_icon(icon_override: StringName, item_type: Enum.RPGItemType):
+    return menu_icons.get_frame_texture(icon_override if icon_override else item_type_icon_dict[item_type], 0);
+
 func _update_equipped_display():
-    cloak_slot.icon = GlobalPlayer.cloak.icon_override if GlobalPlayer.cloak.icon_override else item_type_icon_dict[GlobalPlayer.cloak.item_type];
+    cloak_slot.icon = get_icon(GlobalPlayer.cloak.icon_override, Enum.RPGItemType.Cloak);
     cloak_slot.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.cloak);
 
-    sword_slot.icon = GlobalPlayer.sword.icon_override if GlobalPlayer.sword.icon_override else item_type_icon_dict[GlobalPlayer.sword.item_type];
+    sword_slot.icon = get_icon(GlobalPlayer.sword.icon_override, Enum.RPGItemType.Sword);
     sword_slot.tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.sword);
 
     for i in range(spell_slots.size()):
-        spell_slots[i].icon = GlobalPlayer.spells[i].icon_override if GlobalPlayer.spells[i].icon_override else item_type_icon_dict[GlobalPlayer.spells[i].item_type];
+        spell_slots[i].icon = get_icon(GlobalPlayer.spells[i].icon_override, GlobalPlayer.spells[i].item_type);
         spell_slots[i].tooltip_strings = _get_rpg_item_tooltip(GlobalPlayer.spells[i]);
 
 var current_equip_type: Enum.RPGItemType = Enum.RPGItemType.Cloak;
@@ -85,7 +89,7 @@ func _update_equippable_display_container():
             continue;
 
         var new_slot: Button = item_slot_prototype.duplicate();
-        new_slot.icon = item_data.icon_override if is_instance_valid(item_data.icon_override) else item_type_icon_dict[display_type];
+        new_slot.icon = get_icon(item_data.icon_override, item_data.item_type);
         new_slot.text = item_data.name;
         new_slot.disabled = false;
         new_slot.visible = true;

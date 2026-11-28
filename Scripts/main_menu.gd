@@ -1,8 +1,9 @@
 extends Control
 
-@onready var start_button = $MenuButtons/Start;
-@onready var settings_button = $MenuButtons/Options;
-@onready var quit_button = $MenuButtons/Quit;
+@export var start_button: Button;
+@export var settings_button: Button;
+@export var music_button: Button;
+@export var quit_button: Button;
 
 func _ready():
     start_button.grab_focus();
@@ -13,6 +14,12 @@ func _ready():
     settings_button.pressed.connect(func():
         Settings.load_settings_menu(self);
     );
+
+    music_button.visible = GlobalPlayer.completed_dungeons[Enum.Dungeon.Doughy];
+    music_button.pressed.connect(func():
+        SuperLoader.switch_scene("res://Scenes/music_player.tscn");
+    );
+
     var platform = OS.get_name();
     if (platform == "Web"):
         quit_button.queue_free();

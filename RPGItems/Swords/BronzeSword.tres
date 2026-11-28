@@ -7,5 +7,5 @@ script = ExtResource("1_tioua")
 item_type = 1
 name = "Bronze Sword"
 description = "A bronzen sword. Its edge is quite sharp, thankfully you can't be cut."
-attack = 3
+attack = 4
 metadata/_custom_type_script = "uid://i8t58il84vkc"

@@ -1,6 +1,5 @@
 [gd_resource type="Resource" script_class="RPGItemData" format=3 uid="uid://nhlg714puup5"]
 
-[ext_resource type="Texture2D" uid="uid://d0kymxcdppb2u" path="res://Sprites/Icons/MenuIcons/ErrorCloak.tres" id="1_pja4q"]
 [ext_resource type="Script" uid="uid://i8t58il84vkc" path="res://Scripts/Items/rpg_item_data.gd" id="1_ycvy0"]
 [ext_resource type="SpriteFrames" uid="uid://co5157fslugmu" path="res://Sprites/Player/RPGCloaks/rpg_cloaks_ErrorCloak.ase_layer" id="2_lxwqr"]
 
@@ -10,7 +9,7 @@ name = "Erroneous Mantle"
 description = "ERROR_ITEM_MISSING
 ERROR_DESC_MISSING
 ERROR_i'll always be watching, Midnight_MISSING"
-icon_override = ExtResource("1_pja4q")
+icon_override = &"ErroneousCloak"
 overworld_cloak = ExtResource("2_lxwqr")
 max_health = 33
 max_stamina = 33

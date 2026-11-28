@@ -7,6 +7,7 @@ script = ExtResource("1_oncux")
 item_type = 1
 name = "Erroneous Glaive"
 description = "You hope it'd prove useful to it."
+icon_override = &"ErroneousGlaive"
 max_health = 1
 max_stamina = 1
 attack = 20

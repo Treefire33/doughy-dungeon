@@ -40,6 +40,14 @@ func play_music(clip: AudioStreamInteractive, position: float = 0):
 	music_player.play(position);
 	current_interactive_stream = music_player.get_stream_playback() as AudioStreamPlaybackInteractive;
 
+func play_music_stream(clip: AudioStream, position: float = 0):
+	if (!music_player.is_node_ready()): await music_player.ready;
+	if (music_player.stream == clip && music_player.playing): return;
+	music_player.volume_linear = Settings.music_volume;
+	music_player.stream = clip;
+	music_player.play(position);
+	current_interactive_stream = null;
+
 func change_music(clip: int):
 	if (current_interactive_stream == null): return;
 	if (current_interactive_stream.get_current_clip_index() == clip): return;

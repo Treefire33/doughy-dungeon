@@ -12,6 +12,7 @@ function = ExtResource("1_5ks6u")
 item_type = 2
 name = "Shield Spell II"
 description = "A slightly more complex variation of the shield spell. Lasts longer and is more durable."
+icon_override = &"Defend"
 max_defense_duration = 3
 max_defense_durability = 4
 metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

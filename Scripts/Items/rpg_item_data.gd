@@ -4,7 +4,7 @@ class_name RPGItemData
 @export var item_type: Enum.RPGItemType;
 @export var name: String;
 @export_multiline() var description: String;
-@export var icon_override: Texture2D;
+@export var icon_override: StringName;
 @export var overworld_cloak: SpriteFrames;
 @export var dungeon_cloak: SpriteFrames;
 

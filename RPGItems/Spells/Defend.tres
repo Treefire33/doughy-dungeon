@@ -12,6 +12,7 @@ function = ExtResource("1_0we1y")
 item_type = 2
 name = "Shield Spell I"
 description = "A simple spell taught to all in the guild; creates a shield around the user."
+icon_override = &"Defend"
 max_defense_duration = 1
 max_defense_durability = 1
 metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

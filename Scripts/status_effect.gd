@@ -68,8 +68,9 @@ static func clean_effects(entity: Entity):
 static func has_effect(entity: Entity, effect_id: Enum.StatusEffect):
     return entity.status_effects.find_custom(func(effect): return effect.effect == effect_id) > -1;
 
-static func get_effect_icon(effect: Enum.StatusEffect):
-    return load("res://Sprites/Icons/StatusIcons/%s.tres" % Enum.StatusEffect.keys()[effect]);
+static var status_icons: SpriteFrames = preload("res://Sprites/Icons/StatusIcons.aseprite");
+static func get_effect_icon(effect: Enum.StatusEffect) -> Texture2D:
+    return status_icons.get_frame_texture(StringName(Enum.StatusEffect.keys()[effect]), 0);
 
 func update_effect(entity: Entity):
     if (turns_left <= 0): return;

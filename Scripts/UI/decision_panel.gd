@@ -79,6 +79,7 @@ var _selected_depth: int = 1;
 var _selected_enemy: Variant = null;
 var _selected_spell: SpellFunction = null;
 
+var spell_icons: SpriteFrames = preload("res://Sprites/Icons/SpellIcons.aseprite");
 func load_decisions(player_ui: PlayerUI) -> void:
     self.player_ui = player_ui;
 
@@ -93,6 +94,7 @@ func load_decisions(player_ui: PlayerUI) -> void:
         var spell: SpellItemData = GlobalPlayer.spells[i];
         spell_buttons[i].visible = true;
         spell_buttons[i].text = spell.dungeon_name;
+        spell_buttons[i].icon = spell_icons.get_frame_texture(spell.dungeon_icon_name, 0);
         spell_buttons[i].tooltip_strings[0] = spell.dungeon_description;
         spell_buttons[i].pressed.connect(spell_decision.bind(Enum.Decision.Spell + i));
 

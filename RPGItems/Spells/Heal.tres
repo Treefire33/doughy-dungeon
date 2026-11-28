@@ -12,6 +12,6 @@ function = ExtResource("1_ln51a")
 item_type = 2
 name = "Heal"
 description = "A simple healing spell, not too efficient."
-max_health = 1
+max_health = 3
 max_stamina = 1
 metadata/_custom_type_script = "uid://dkqnvhp2de3p7"

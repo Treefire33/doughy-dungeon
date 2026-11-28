@@ -1,0 +1,164 @@
+[gd_scene format=4 uid="uid://ciunqpwxb2jtu"]
+
+[ext_resource type="Script" uid="uid://c3nr0d5m721mn" path="res://Scripts/UI/music_player.gd" id="1_ftm3w"]
+[ext_resource type="Script" uid="uid://c60klb6lpgt7i" path="res://Scripts/UI/animated_button.gd" id="1_kwwjb"]
+[ext_resource type="SpriteFrames" uid="uid://0dahv4d8j2bb" path="res://Sprites/Icons/MenuIcons.aseprite" id="2_5b442"]
+[ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="3_y2bv6"]
+[ext_resource type="Texture2D" uid="uid://bp06uts1l4hsw" path="res://Sprites/Icons/MenuIcons/Pause.tres" id="4_ftm3w"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_se6sp"]
+_data = PackedByteArray("AAADAAUAAAABAAAAgAAAAGAAAAAGAgAAUklGRv4BAABXRUJQVlA4TPIBAAAvf8AXEA8w//M///Mf8JArbXtbKa+sM9YW3iWDiDaxyjlt3u25BZO7nOMRQxuvgppLELHa4RpU0eUq45njXxaxj+g/A7dtG7G39+kZ/NnxuUz52U8xoQO3wSmnWl57TQOuaRTBCO65gqaB7YXg72jIa5g/JASM9LkUanKp2N4B7aFX/QannIoFTCx+kPTmVNTBSNlk1Gleyu010qfDEqN40B0LriZ9SApKyOuI18L3iYgzAkSYV0NOx2AkqfDK6U64eR9UN372Sfgwj784ssnYGpwCE2KL8Bo3/EQBgFvAZIazNuItdY7bXkTqgqqHr3Mtbc/ZXjDpdSZZjbVMQuSeYnRU8CZoeAWXT1NDPrlqfwbH4MJrKuhN7t6c4XbgPz7UwvFNGd5yNpiRlp9dp92RAuu1raztuROPlduVd2DXHJRa7AhrrsIDJS4RAOYQD+pwmbZDB24Ao6OiA8Hg3gLWUjuVYy3+lYLtRUfXs3cVVD086NYjBdQ5DpQAMJnhlBM+tLwGE+gYTsGq/STGh3n8p2NIqlCSBe5BjZb2txQBI11taYKaJ31uGYIuI2pgHsFMRPRASZjXj5iBCULZROYN9AkTjZLKgYbQb7Q00VKhaUxaeid9SfJB6Q7pTumOv9p5f0sRMJJtQY2WhhCjQvFPDgA=")
+size_override = Vector2(128, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exyu0"]
+atlas = SubResource("PortableCompressedTexture2D_se6sp")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x05j1"]
+atlas = SubResource("PortableCompressedTexture2D_se6sp")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73b5b"]
+atlas = SubResource("PortableCompressedTexture2D_se6sp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftm3w"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[node name="MusicPlayer" type="Node2D" unique_id=156417688 node_paths=PackedStringArray("song_info", "pauseplay_button", "forward_button", "backward_button", "skip_forward_button", "skip_backward_button", "song_position", "pause_button")]
+script = ExtResource("1_ftm3w")
+song_info = NodePath("UI/SongInfo")
+pauseplay_button = NodePath("UI/Controls/PausePlay")
+forward_button = NodePath("UI/Controls/FastForward")
+backward_button = NodePath("UI/Controls/FastBackward")
+skip_forward_button = NodePath("UI/Controls/SkipForward")
+skip_backward_button = NodePath("UI/Controls/SkipBack")
+song_position = NodePath("UI/SongPosition")
+pause_button = NodePath("UI/PauseGame")
+
+[node name="UI" type="ColorRect" parent="." unique_id=1917521329]
+offset_right = 800.0
+offset_bottom = 450.0
+color = Color(0, 0, 0, 1)
+
+[node name="SongInfo" type="RichTextLabel" parent="UI" unique_id=425175371]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.26700002
+anchor_right = 1.0
+anchor_bottom = 0.551
+offset_top = -0.15000916
+offset_bottom = 0.05000305
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "SONG_NAME
+[font_size=16]SONG_CAPTION[/font_size]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Controls" type="HBoxContainer" parent="UI" unique_id=1016264838]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.85800004
+anchor_right = 1.0
+anchor_bottom = 0.929
+offset_top = -32.100006
+offset_bottom = -0.05001831
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="SkipBack" type="Button" parent="UI/Controls" unique_id=1179928591]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_rotation = 3.1415927
+icon = SubResource("AtlasTexture_exyu0")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_kwwjb")
+frames = ExtResource("2_5b442")
+animation = &"Skip"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
+
+[node name="FastBackward" type="Button" parent="UI/Controls" unique_id=1156030489]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_rotation = 3.1415927
+icon = SubResource("AtlasTexture_x05j1")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_kwwjb")
+frames = ExtResource("2_5b442")
+animation = &"FastForward"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
+
+[node name="PausePlay" type="Button" parent="UI/Controls" unique_id=646260833]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = SubResource("AtlasTexture_73b5b")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_kwwjb")
+frames = ExtResource("2_5b442")
+animation = &"Pause"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
+
+[node name="FastForward" type="Button" parent="UI/Controls" unique_id=721726034]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = SubResource("AtlasTexture_x05j1")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_kwwjb")
+frames = ExtResource("2_5b442")
+animation = &"FastForward"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
+
+[node name="SkipForward" type="Button" parent="UI/Controls" unique_id=1600649875]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+icon = SubResource("AtlasTexture_exyu0")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_kwwjb")
+frames = ExtResource("2_5b442")
+animation = &"Skip"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
+
+[node name="SongPosition" type="HSlider" parent="UI" unique_id=5686479]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 280.0
+offset_right = 600.0
+offset_bottom = 312.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_ftm3w")
+step = 0.01
+
+[node name="PauseGame" type="Button" parent="UI" unique_id=315753007]
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_top = 0.02
+anchor_right = 0.051
+anchor_bottom = 0.091
+offset_left = 0.199999
+offset_right = 0.199997
+offset_bottom = 0.0499992
+theme = ExtResource("3_y2bv6")
+icon = ExtResource("4_ftm3w")
+expand_icon = true

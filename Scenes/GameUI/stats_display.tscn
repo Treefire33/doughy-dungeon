@@ -1,12 +1,10 @@
-[gd_scene format=3 uid="uid://ddhc62nuidtg3"]
+[gd_scene format=4 uid="uid://ddhc62nuidtg3"]
 
 [ext_resource type="Script" uid="uid://rgs2s588fupj" path="res://Scripts/UI/stats_display.gd" id="1_5r6ir"]
-[ext_resource type="Texture2D" uid="uid://782sqdh5mol3" path="res://Sprites/Icons/ActionIcons/Health.tres" id="2_dsad8"]
+[ext_resource type="Script" uid="uid://i82hqdguo0go" path="res://Scripts/UI/animated_texture_rect.gd" id="2_qboys"]
+[ext_resource type="SpriteFrames" uid="uid://b8gwdojg2yfvx" path="res://Sprites/Icons/DungeonIcons.aseprite" id="3_1m4ne"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="3_qboys"]
-[ext_resource type="Texture2D" uid="uid://bpyvyaeyhvtc7" path="res://Sprites/Icons/ActionIcons/Stamina.tres" id="4_1m4ne"]
-[ext_resource type="Texture2D" uid="uid://bjnsdfp34m8nc" path="res://Sprites/Icons/ActionIcons/Defend.tres" id="5_dsad8"]
 [ext_resource type="Script" uid="uid://coqwnstoj346c" path="res://addons/tooltips_pro/scripts/tooltip_trigger.gd" id="5_j6apt"]
-[ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/ActionIcons/Attack.tres" id="6_qboys"]
 [ext_resource type="Texture2D" uid="uid://epc8mjeqvxi5" path="res://Sprites/Icons/MenuIcons/Inventory.tres" id="7_1m4ne"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6apt"]
@@ -16,14 +14,34 @@ border_color = Color(1, 1, 1, 1)
 corner_detail = 1
 anti_aliasing = false
 
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_108w3"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAA4BQAAUklGRjAFAABXRUJQVlA4TCQFAAAvv8AfEE9AoGHx6R9CFVEoooaSCGggNJ1JSQQCTH1qZ5iNpK7F+j9X5yBOY/4DAOT5Acv10kwhT3NAt7ZtWa10bwZ3qx2YIgMGEahJ4FfVk18N+LJIQTLxINx/T7fPeYyyI/ovQZLksG0GhwwOgJgjLUJ/aP/rDUC/aYawVr1V/jo9rwJQxcBpss5ohyqvwZDRfo9eZMF92NGj52f3+wmqfIIBugVF0LPCPcrs3cl2eweg6+pfttsZ9Eipzk6XJjHcIvyR/pRDL/UwdyKTetZE50Y67aWWbkN1J+yM+lQAatdftl74NRj0jpBKD2zphq7w9vsLNa4CJJXv3EuEn6aoc5tOSBXGUmEvz6bzisyWEhtmnkgzVLiQASqv8NoUuJJGUeFadsRKgesIUud3pxd4HWBBz7sQL72HS41L3msL9Hh+A+gVUC46l0w6x1It9jydcsW56tS2kz7hcyByUeoVOHQfKbrrdWgKkzM8w3eY8rlbW1fsEszbcbwCclmXzvEMz1UpUyEUIDkBxgwvpBOwx8WzYyatyltip7qG8MwWxeYJeGlXpXc8s/SEtJl6KYH6glgSkppYUeahfxDURRpfFGWGnVqhH41owotwAjrXOxMinKDTF0qLMf1ag919QlahWbRIPyOtwCT7vRbrPrIKTGNEurW0XNNYdc7qv0JKaQ/snSDdmiIjxwmcKcpOS8g1+9p5YuyRkXECTrAuUcrmWwMrvxrlIikn0G0XaI7xJS4Tso9AT4j8E2O6TNoVE1Oar5O7XlNyWXmAx3SdCv+Cs0KfQlU+AbgvXaF6ZYkwH5OVVVrtA7zthgrf+GNNPpN+4091ALcAMh/DCowes0EPCHyuB4i5BlNAMHc11J47MRuArQs4x8hpVI8bQx1nbqcAkOLXI4GKbkbnjRkM6QwfDxMkLovfgOEK285yk7ZdOWZzCitDhmYUFMHx+qHbAxkDy4IewjeS2T5sW4efS5JhrvOqg8mX5REE3yzfhnBSt2IuTv92a3BgNrzqhMrjFOeJkVTg1jDZMP94IwJowPB9MeNvrwYN3QFQ/iU8BhoC1zSd6faqjfq0asXwnTuU/v4UDk9rojp/KuHv44zD8QnBw8yBkFwfHn1V1DVYDsfjshyPn0G1WeJH/5ERflkeEfHDcqHAKx9D8XlQ9PVwPtiZ02SxLLOsOpjy8UrFgLzUGnm10QsJJ50g+kS1RUcdxKSNsHsEAfrFNsdqIoAed1mQFRslBP8JEW73CWLk6AHoXhHeFKSbpnMnUMqr/i0Iwh0baXtDgd54iVDfJWe7ntIVLG6bdhtQiTqS9AboKAMZ0MMvq/nRMVMlSZ7oSNIb7P1UbWmTK7vzivhI0tud+ym4UJLEsWrLKXivnRc7c2zEQ/fIKziXLOTChWCYOUPZudpGhk6ep6aa/O9CDUxXYzbUVdVF5d6LYMd0/LI8Ingg8kH2kz5O55tiWRRtDbzVhCzhzWdoDECGv+WdOxyfYmSBvhZzrmYWPdo6ID8Yf3+qw+NplkUskCvemnuuPkiw6aIaVgHNH9Dow0muSqVU7l1Bzjp38MCmgDKYG+ZA966oHpUdvPIMTWc4x6m4B6+0fRoSE1a/JKceqCi2l0PCLwMFpDdfw/xDcEKgU5tzm+OXzkUlfqtH9ON0sf+cqFeBT3VObZawXe32/w6SV8JKmv6EclDUaxnjN72RMuH03oJAGZmvNNRAjYjbGMVkAnaEtlpTFacG501iVKWeves1R5V/t9uiAQ==")
+size_override = Vector2(192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2bbm"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqx6d"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(64, 0, 64, 64)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_35xla"]
 bg_color = Color(0.870588, 0.878431, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uyyj"]
 bg_color = Color(0, 0.4392157, 0.8352941, 1)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_koyxf"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(0, 64, 64, 64)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmwf8"]
 bg_color = Color(0.39607844, 0.24313726, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl5r0"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(128, 0, 64, 64)
 
 [node name="Stats" type="Control" unique_id=930765623]
 layout_mode = 3
@@ -83,16 +101,21 @@ offset_left = 0.4000001
 offset_right = 0.39996338
 offset_bottom = -1.5258789e-05
 
-[node name="Icon" type="TextureRect" parent="Health" unique_id=2048259108]
+[node name="Icon" type="TextureRect" parent="Health" unique_id=2101537933]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.11
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_dsad8")
+texture = SubResource("AtlasTexture_o2bbm")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("2_qboys")
+frames = ExtResource("3_1m4ne")
+animation = &"Health"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://i82hqdguo0go"
 
 [node name="Bar" type="ProgressBar" parent="Health" unique_id=2095516520]
 layout_mode = 1
@@ -134,16 +157,21 @@ offset_top = -1.9073486e-05
 offset_right = 0.39996338
 offset_bottom = -3.0517578e-05
 
-[node name="Icon" type="TextureRect" parent="Stamina" unique_id=1708973835]
+[node name="Icon" type="TextureRect" parent="Stamina" unique_id=326431802]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.11
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_1m4ne")
+texture = SubResource("AtlasTexture_iqx6d")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("2_qboys")
+frames = ExtResource("3_1m4ne")
+animation = &"Stamina"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://i82hqdguo0go"
 
 [node name="Bar" type="ProgressBar" parent="Stamina" unique_id=1485392803]
 layout_mode = 1
@@ -229,7 +257,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon" type="TextureRect" parent="Defense" unique_id=1283340532]
+[node name="Icon" type="TextureRect" parent="Defense" unique_id=1882297317]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,9 +269,14 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("5_dsad8")
+texture = SubResource("AtlasTexture_koyxf")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("2_qboys")
+frames = ExtResource("3_1m4ne")
+animation = &"Defense"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://i82hqdguo0go"
 
 [node name="Attack" type="Control" parent="." unique_id=2030614491]
 layout_mode = 1
@@ -297,7 +330,7 @@ text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Icon" type="TextureRect" parent="Attack" unique_id=83229722]
+[node name="Icon" type="TextureRect" parent="Attack" unique_id=200595084]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -309,9 +342,14 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("6_qboys")
+texture = SubResource("AtlasTexture_jl5r0")
 expand_mode = 1
 stretch_mode = 5
+script = ExtResource("2_qboys")
+frames = ExtResource("3_1m4ne")
+animation = &"Attack"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://i82hqdguo0go"
 
 [node name="Inventory" type="Button" parent="." unique_id=540371181]
 layout_mode = 1

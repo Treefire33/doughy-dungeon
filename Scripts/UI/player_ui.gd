@@ -27,10 +27,7 @@ signal _enemy_selected();
 @onready var attack_upgrade: Button = $Upgrades/Attack;
 
 # Turn Order
-@onready var turn_order_icons: Array[AtlasTexture] = [
-    preload("res://Sprites/Icons/MenuIcons/Midnight.tres"),
-    preload("res://Sprites/Icons/MenuIcons/Enemy.tres")
-];
+var menu_icons: SpriteFrames = preload("res://Sprites/Icons/MenuIcons.aseprite");
 
 @export var turn_order_prototype: TooltipTrigger;
 @export var turn_order_container: Container;
@@ -127,7 +124,7 @@ func reset_turn_order():
 func add_to_turn_order(entity: Entity):
     if (entity.health <= 0): return;
     var new_indicator = turn_order_prototype.duplicate(DUPLICATE_SCRIPTS);
-    new_indicator.icon = turn_order_icons[0 if entity is Player else 1];
+    new_indicator.icon = menu_icons.get_frame_texture(&"Midnight" if entity is Player else &"Enemy", 0);
     new_indicator.tooltip_strings = [
         entity.name + "\n[font_size=8]Speed: %d[/font_size]" % entity.speed
     ] as Array[String];
@@ -142,6 +139,8 @@ func toggle_safe_room(state: bool):
     safe_room_proceed.visible = state;
     safe_room_reroll.visible = state;
     upgrades_panel.visible = state;
+    
+    turn_order_container.visible = !state;
     in_safe_room = state;
     update_ui();
 

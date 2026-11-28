@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://c2ayda41o3ped"]
+[gd_scene format=4 uid="uid://c2ayda41o3ped"]
 
 [ext_resource type="Script" uid="uid://bdnlmaoase6uu" path="res://Scripts/UI/decision_panel.gd" id="1_8ex84"]
 [ext_resource type="Texture2D" uid="uid://biu642t2kbocu" path="res://Sprites/Icons/ActionIcons/Attack.tres" id="2_drmvv"]
-[ext_resource type="Texture2D" uid="uid://bmsnqxrde1ksf" path="res://Sprites/Icons/ActionIcons/Rest.tres" id="4_cisa7"]
-[ext_resource type="Texture2D" uid="uid://b5q1rm3110rcw" path="res://Sprites/Icons/ActionIcons/Spell.tres" id="4_drmvv"]
+[ext_resource type="Script" uid="uid://c60klb6lpgt7i" path="res://Scripts/UI/animated_button.gd" id="2_hx2q3"]
+[ext_resource type="SpriteFrames" uid="uid://b8gwdojg2yfvx" path="res://Sprites/Icons/DungeonIcons.aseprite" id="3_qdcan"]
 [ext_resource type="Texture2D" uid="uid://brmihfdnaob2h" path="res://Sprites/Icons/ActionIcons/SpellDefend.tres" id="5_5uw8l"]
 [ext_resource type="Theme" uid="uid://mmdyi7frxt4n" path="res://Themes/OldDefaultTheme.tres" id="5_drmvv"]
 [ext_resource type="Texture2D" uid="uid://dm5p0cj8x7ly7" path="res://Sprites/Icons/ActionIcons/SpellRetype.tres" id="6_hx2q3"]
@@ -18,6 +18,22 @@ border_width_right = 2
 border_color = Color(1, 1, 1, 1)
 corner_detail = 1
 anti_aliasing = false
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_108w3"]
+_data = PackedByteArray("AAADAAUAAAABAAAAwAAAAIAAAAA4BQAAUklGRjAFAABXRUJQVlA4TCQFAAAvv8AfEE9AoGHx6R9CFVEoooaSCGggNJ1JSQQCTH1qZ5iNpK7F+j9X5yBOY/4DAOT5Acv10kwhT3NAt7ZtWa10bwZ3qx2YIgMGEahJ4FfVk18N+LJIQTLxINx/T7fPeYyyI/ovQZLksG0GhwwOgJgjLUJ/aP/rDUC/aYawVr1V/jo9rwJQxcBpss5ohyqvwZDRfo9eZMF92NGj52f3+wmqfIIBugVF0LPCPcrs3cl2eweg6+pfttsZ9Eipzk6XJjHcIvyR/pRDL/UwdyKTetZE50Y67aWWbkN1J+yM+lQAatdftl74NRj0jpBKD2zphq7w9vsLNa4CJJXv3EuEn6aoc5tOSBXGUmEvz6bzisyWEhtmnkgzVLiQASqv8NoUuJJGUeFadsRKgesIUud3pxd4HWBBz7sQL72HS41L3msL9Hh+A+gVUC46l0w6x1It9jydcsW56tS2kz7hcyByUeoVOHQfKbrrdWgKkzM8w3eY8rlbW1fsEszbcbwCclmXzvEMz1UpUyEUIDkBxgwvpBOwx8WzYyatyltip7qG8MwWxeYJeGlXpXc8s/SEtJl6KYH6glgSkppYUeahfxDURRpfFGWGnVqhH41owotwAjrXOxMinKDTF0qLMf1ag919QlahWbRIPyOtwCT7vRbrPrIKTGNEurW0XNNYdc7qv0JKaQ/snSDdmiIjxwmcKcpOS8g1+9p5YuyRkXECTrAuUcrmWwMrvxrlIikn0G0XaI7xJS4Tso9AT4j8E2O6TNoVE1Oar5O7XlNyWXmAx3SdCv+Cs0KfQlU+AbgvXaF6ZYkwH5OVVVrtA7zthgrf+GNNPpN+4091ALcAMh/DCowes0EPCHyuB4i5BlNAMHc11J47MRuArQs4x8hpVI8bQx1nbqcAkOLXI4GKbkbnjRkM6QwfDxMkLovfgOEK285yk7ZdOWZzCitDhmYUFMHx+qHbAxkDy4IewjeS2T5sW4efS5JhrvOqg8mX5REE3yzfhnBSt2IuTv92a3BgNrzqhMrjFOeJkVTg1jDZMP94IwJowPB9MeNvrwYN3QFQ/iU8BhoC1zSd6faqjfq0asXwnTuU/v4UDk9rojp/KuHv44zD8QnBw8yBkFwfHn1V1DVYDsfjshyPn0G1WeJH/5ERflkeEfHDcqHAKx9D8XlQ9PVwPtiZ02SxLLOsOpjy8UrFgLzUGnm10QsJJ50g+kS1RUcdxKSNsHsEAfrFNsdqIoAed1mQFRslBP8JEW73CWLk6AHoXhHeFKSbpnMnUMqr/i0Iwh0baXtDgd54iVDfJWe7ntIVLG6bdhtQiTqS9AboKAMZ0MMvq/nRMVMlSZ7oSNIb7P1UbWmTK7vzivhI0tud+ym4UJLEsWrLKXivnRc7c2zEQ/fIKziXLOTChWCYOUPZudpGhk6ep6aa/O9CDUxXYzbUVdVF5d6LYMd0/LI8Ingg8kH2kz5O55tiWRRtDbzVhCzhzWdoDECGv+WdOxyfYmSBvhZzrmYWPdo6ID8Yf3+qw+NplkUskCvemnuuPkiw6aIaVgHNH9Dow0muSqVU7l1Bzjp38MCmgDKYG+ZA966oHpUdvPIMTWc4x6m4B6+0fRoSE1a/JKceqCi2l0PCLwMFpDdfw/xDcEKgU5tzm+OXzkUlfqtH9ON0sf+cqFeBT3VObZawXe32/w6SV8JKmv6EclDUaxnjN72RMuH03oJAGZmvNNRAjYjbGMVkAnaEtlpTFacG501iVKWeves1R5V/t9uiAQ==")
+size_override = Vector2(192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl5r0"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsnln"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pdg8"]
+atlas = SubResource("PortableCompressedTexture2D_108w3")
+region = Rect2(64, 64, 64, 64)
 
 [node name="DecisionPanel" type="Control" unique_id=1249531929 node_paths=PackedStringArray("options", "attack_button", "spell_button", "rest_button", "spell_options", "spell_buttons", "attack_options", "attack_light", "attack_heavy", "depth_options", "depth_one", "depth_two", "depth_three", "depth_four", "cancel_button", "selection_prompt", "selection_prompt_label")]
 layout_mode = 3
@@ -66,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 2
 vertical = true
 
-[node name="Attack" type="Button" parent="Options/Container" unique_id=1745251583]
+[node name="Attack" type="Button" parent="Options/Container" unique_id=939956793]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -74,24 +90,34 @@ focus_next = NodePath("../Spell")
 focus_previous = NodePath("../Rest")
 text = "ATTACK
 "
-icon = ExtResource("2_drmvv")
+icon = SubResource("AtlasTexture_jl5r0")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("2_hx2q3")
+frames = ExtResource("3_qdcan")
+animation = &"Attack"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
 
-[node name="Spell" type="Button" parent="Options/Container" unique_id=1409430160]
+[node name="Spell" type="Button" parent="Options/Container" unique_id=633666960]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_next = NodePath("../Rest")
 focus_previous = NodePath("../Attack")
 text = "SPELL"
-icon = ExtResource("4_drmvv")
+icon = SubResource("AtlasTexture_gsnln")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("2_hx2q3")
+frames = ExtResource("3_qdcan")
+animation = &"Spell"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
 
-[node name="Rest" type="Button" parent="Options/Container" unique_id=2119743307]
+[node name="Rest" type="Button" parent="Options/Container" unique_id=1844314398]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -99,10 +125,15 @@ focus_next = NodePath("../Attack")
 focus_previous = NodePath("../Spell")
 text = "REST
 "
-icon = ExtResource("4_cisa7")
+icon = SubResource("AtlasTexture_4pdg8")
 flat = true
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("2_hx2q3")
+frames = ExtResource("3_qdcan")
+animation = &"Rest"
+speed_scale = 1.0
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
 
 [node name="AttackOptions" type="ColorRect" parent="." unique_id=290237663]
 visible = false
@@ -128,7 +159,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AttackLight" type="Button" parent="AttackOptions/Container" unique_id=617807812]
+[node name="AttackLight" type="Button" parent="AttackOptions/Container" unique_id=1811230791]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -139,6 +170,7 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("6_qdcan")
 tooltip_strings = Array[String](["Standard attack, deals 100% of your damage stat."])
+metadata/_custom_type_script = "uid://c60klb6lpgt7i"
 
 [node name="AttackHeavy" type="Button" parent="AttackOptions/Container" unique_id=1700554105]
 layout_mode = 2

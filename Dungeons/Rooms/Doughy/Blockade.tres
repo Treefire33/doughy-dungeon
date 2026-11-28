@@ -6,12 +6,12 @@
 
 [resource]
 script = ExtResource("3_qsd1q")
-room_name = "Tack Blockade"
+room_name = "Hard Tack Blockade"
 room_description = "A wall of Hard Tack has formed in this room."
 room_character = "H"
 room_type = 1
 room_weight = 0.5
-minimum_difficulty = 3
+minimum_difficulty = 5
 maximum_difficulty = 8
 enemies = Array[ExtResource("1_hwqgw")]([ExtResource("2_hwqgw")])
 enemy_count = 3
