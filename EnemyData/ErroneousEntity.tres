@@ -6,8 +6,8 @@
 script = ExtResource("1_g5aej")
 name = "ERROR_ERRONEOUS_ENTITY"
 flavour_text = "You should've tried harder, Midnight."
-base_health = 9999
-base_stamina = 999
+base_health = 6000
+base_stamina = 1000
 base_attack = 10
 base_defense_duration = 5
 base_defense_durability = 999
